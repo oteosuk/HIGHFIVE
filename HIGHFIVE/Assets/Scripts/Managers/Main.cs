@@ -4,15 +4,34 @@ using UnityEngine;
 
 public class Main : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private static Main s_instance;
+
+    private SceneManagerEx _sceneManagerEx = new SceneManagerEx();
+    public static SceneManagerEx SceneManagerEx { get { return Instance._sceneManagerEx; } }
+
+    private static Main Instance
     {
-        
+        get { Init(); return s_instance; }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        Init();
+    }
+    // 한글 인스펙터 테스트
+    private static void Init()
+    {
+        if (s_instance == null)
+        {
+            GameObject gameObject = GameObject.Find("Managers");
+            if (gameObject == null)
+            {
+                gameObject = new GameObject("Managers");
+                gameObject.AddComponent<Main>();
+            }
+            DontDestroyOnLoad(gameObject);
+
+            s_instance = gameObject.GetComponent<Main>();
+        }
     }
 }
