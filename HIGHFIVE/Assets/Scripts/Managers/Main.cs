@@ -7,7 +7,10 @@ public class Main : MonoBehaviour
     private static Main s_instance;
 
     private SceneManagerEx _sceneManagerEx = new SceneManagerEx();
+    private NetworkManager _networkManager = new NetworkManager();
     public static SceneManagerEx SceneManagerEx { get { return Instance._sceneManagerEx; } }
+   
+    public static NetworkManager NetworkManager { get { return Instance._networkManager; } }
 
     private static Main Instance
     {
