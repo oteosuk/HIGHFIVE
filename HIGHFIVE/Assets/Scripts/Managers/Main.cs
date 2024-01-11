@@ -18,7 +18,7 @@ public class Main : MonoBehaviour
     {
         Init();
     }
-    // 한글 인스펙터 테스트
+  
     private static void Init()
     {
         if (s_instance == null)
