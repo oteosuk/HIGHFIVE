@@ -17,17 +17,15 @@ public class DataManager
 
     public void Initialize()
     {
-        _highFiveData = Resources.Load<HIGHFIVE_Data>("Data/HIGHFIVE_Data");
+        _highFiveData = Resources.Load<HIGHFIVE_Data>("Data/HIGHFIVE_Data"); //엑셀파일(HIGHFIVE_Data.xlsx)이 아닌 SO파일(HIGHFIVE_Data.asset)이 들어감
 
+        // 캐릭터의 정보를 직업별로 CharacterDict에 넣어준다. (전사,(전사, 전사정보, ..), (도적,(도적, 도적정보, ..)), ... 이런식
         AddEntitiesToDictionary(_highFiveData.Characters, CharacterDict, character => character.job);
         AddEntitiesToDictionary(_highFiveData.Monsters, MonsterDict, monster => monster.name);
         AddEntitiesToDictionary(_highFiveData.Skills, SkillDict, skill => skill.name);
         AddEntitiesToDictionary(_highFiveData.Items, ItemDict, item => item.id);
     }
-        _highFiveData = Resources.Load<HIGHFIVE_Data>("Data/HIGHFIVE_Data"); //엑셀파일(HIGHFIVE_Data.xlsx)이 아닌 SO파일(HIGHFIVE_Data.asset)이 들어감
-
-        // 캐릭터의 정보를 직업별로 CharacterDict에 넣어준다. (전사,(전사, 전사정보, ..), (도적,(도적, 도적정보, ..)), ... 이런식
-        for (int i = 0; i < _highFiveData.Characters.Count; i++)
+        
     private void AddEntitiesToDictionary<T>(List<T> entities, Dictionary<string, T> dictionary, Func<T, string> keySelector)
     {
         foreach (var entity in entities)
