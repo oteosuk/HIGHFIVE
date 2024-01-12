@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Jobs;
-using UnityEngine;
+[System.Serializable]
 
 public class SkillDBEntity
 {

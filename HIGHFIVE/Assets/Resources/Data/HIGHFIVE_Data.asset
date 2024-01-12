@@ -1,0 +1,132 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de7a35279e479f34eaa840152abe3e0a, type: 3}
+  m_Name: HIGHFIVE_Data
+  m_EditorClassIdentifier: 
+  Characters:
+  - job: "\uC804\uC0AC"
+    info: ~
+    atk: 10
+    def: 5
+    atkRange: 1
+    atkSpeed: 1
+    movSpeed: 3
+    maxHp: 100
+    curHp: 100
+  - job: "\uB3C4\uC801"
+    info: ~
+    atk: 10
+    def: 5
+    atkRange: 1
+    atkSpeed: 1
+    movSpeed: 3
+    maxHp: 100
+    curHp: 100
+  - job: "\uB9C8\uBC95\uC0AC"
+    info: ~
+    atk: 10
+    def: 5
+    atkRange: 5
+    atkSpeed: 1
+    movSpeed: 3
+    maxHp: 100
+    curHp: 100
+  Skills:
+  - job: "\uC804\uC0AC"
+    name: "\uCC0C\uB974\uAE30"
+    info: "\uC124\uBA85"
+    range: 2
+    damageRatio: 0
+  - job: "\uC804\uC0AC"
+    name: "\uBCA0\uAE30"
+    info: "\uC124\uBA85"
+    range: 3
+    damageRatio: 0
+  - job: "\uC804\uC0AC"
+    name: "\uD68C\uC804\uBCA0\uAE30"
+    info: "\uC124\uBA85"
+    range: 3
+    damageRatio: 0
+  Monsters:
+  - name: "ex\uACE8\uB818"
+    atk: 10
+    def: 10
+    atkRange: 1
+    atkSpeed: 3
+    movSpeed: 3
+    maxHp: 50
+    curHp: 50
+  - name: "ex\uBC14\uC704\uAC8C"
+    atk: 10
+    def: 10
+    atkRange: 1
+    atkSpeed: 3
+    movSpeed: 3
+    maxHp: 50
+    curHp: 50
+  - name: "ex\uCE7C\uBD80"
+    atk: 10
+    def: 10
+    atkRange: 1
+    atkSpeed: 3
+    movSpeed: 3
+    maxHp: 50
+    curHp: 50
+  - name: "ex\uACE0\uC2A4\uD2B8"
+    atk: 10
+    def: 10
+    atkRange: 1
+    atkSpeed: 3
+    movSpeed: 3
+    maxHp: 50
+    curHp: 50
+  Items:
+  - id: 0
+    name: "ex\uC120\uD3EC\uC790"
+    description: ~
+    price: 100
+    atk: 20
+    atkSpeedRatio: 0
+    def: 0
+    hp: 50
+  - id: 1
+    name: "ex\uACE1\uAD81"
+    description: ~
+    price: 100
+    atk: 5
+    atkSpeedRatio: 30
+    def: 0
+    hp: 0
+  - id: 2
+    name: "ex\uC6CC\uBAA8\uADF8"
+    description: ~
+    price: 100
+    atk: 0
+    atkSpeedRatio: 0
+    def: 5
+    hp: 100
+  - id: 3
+    name: "ex\uAC00\uC2DC\uAC11\uC637"
+    description: ~
+    price: 100
+    atk: 0
+    atkSpeedRatio: 0
+    def: 20
+    hp: 50
+  - id: 4
+    name: "ex\uBE68\uD3EC"
+    description: ~
+    price: 100
+    atk: 0
+    atkSpeedRatio: 0
+    def: 0
+    hp: 50
