@@ -1,0 +1,28 @@
+// Variables
+모든 변수는 '카멜 표기법' 사용 ➔ int playerData, realtimeDataBase;
+private, protected 접근 지정자 언더바 표기 ➔ private int _playerData;
+변수명은 길더라도 꼭 명확하게 작성  :  int googlePlayServiceDatabase;
+
+
+// Methods
+모든 메서드는 '파스칼 표기법' 사용 ➔ void Action(); int GetValue(int data);
+이벤트는 접두사 'On' 을 붙여서 사용 ➔ event Action<bool> OnChecker;
+
+
+// public, properties, Literals, enum
+접근 제한자가 public인 애들은 전부 파스칼 표기법으로 사용
+추가적으로, readonly, const 애들도 파스칼 또는 전부 UpperCase(대문자)사용
+
+
+// 한줄인 경우
+1. 간단하고 명료한 경우 if( ) { 함수명(); } 가능
+2. 다만 원하는 경우
+if( )
+{
+    함수명();
+}
+    
+
+// 코드 라인이 약 200 줄 이상 넘어 갔을 시 
+1. 리펙토링 고려
+2. 회의에서 공유

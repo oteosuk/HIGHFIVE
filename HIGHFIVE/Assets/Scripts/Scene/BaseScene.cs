@@ -9,7 +9,7 @@ public class BaseScene : MonoBehaviour
         Init();
     }
 
-    protected virtual void Init()
+    protected virtual void Init() //씬 공통적으로 실행해야하는 부분
     {
         Main.DataManager.Initialize();
     }
