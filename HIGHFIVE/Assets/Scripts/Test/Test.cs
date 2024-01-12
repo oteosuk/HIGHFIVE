@@ -14,7 +14,8 @@ public class Test : MonoBehaviour
 
     public void OnButtonClick()
     {
-        Debug.Log("h");
+        Debug.Log(Main.DataManager.CharacterDict.Count);
+        //Debug.Log(warrior.def);
         Main.NetworkManager.Connect(_nicknameField.text);
     }
 }
