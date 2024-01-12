@@ -8,6 +8,8 @@ public class Main : MonoBehaviour
 
     private SceneManagerEx _sceneManagerEx = new SceneManagerEx();
     private NetworkManager _networkManager = new NetworkManager();
+    private DataManager _dataManager = new DataManager();
+    public static DataManager DataManager { get { return Instance._dataManager; } }
     public static SceneManagerEx SceneManagerEx { get { return Instance._sceneManagerEx; } }
     public static NetworkManager NetworkManager { get { return Instance._networkManager; } }
 
