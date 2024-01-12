@@ -1,4 +1,5 @@
 using Photon.Pun;
+using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,18 @@ public class Launcher : MonoBehaviourPunCallbacks
     public override void OnJoinedLobby()
     {
         //ToDo: 스타트씬에서 로비씬으로 옮겨주는 작업을 해줘야겠죠
+
+        Player[] players = PhotonNetwork.PlayerList;
+
+        Debug.Log(players.Length); // -> 0
+        // 각 플레이어의 닉네임 출력 또는 활용
+        foreach (Player player in players)
+        {
+            string playerName = player.NickName;
+            Debug.Log("플레이어 닉네임: " + playerName);
+        }
+        Debug.Log(PhotonNetwork.InLobby);
+        Debug.Log(PhotonNetwork.CountOfPlayers);
         Main.SceneManagerEx.LoadScene(Define.Scene.LobbyScene);
         Debug.Log("02.로비에 들어오셨습니다.");
     }
