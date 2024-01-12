@@ -745,7 +745,7 @@ GameObject:
   - component: {fileID: 258761957}
   - component: {fileID: 258761956}
   m_Layer: 5
-  m_Name: Name
+  m_Name: WarriorName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2573,6 +2573,7 @@ GameObject:
   - component: {fileID: 1326747377}
   - component: {fileID: 1326747376}
   - component: {fileID: 1326747375}
+  - component: {fileID: 1326747379}
   m_Layer: 5
   m_Name: SelectSceneUI
   m_TagString: Untagged
@@ -2671,6 +2672,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1326747379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326747374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d75f5c60f7ba7e94980221fd83beca75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1479823635
 GameObject:
   m_ObjectHideFlags: 0
@@ -2837,7 +2850,7 @@ GameObject:
   - component: {fileID: 1587849713}
   - component: {fileID: 1587849712}
   m_Layer: 5
-  m_Name: Name
+  m_Name: RogueName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3318,7 +3331,7 @@ GameObject:
   - component: {fileID: 2037716103}
   - component: {fileID: 2037716102}
   m_Layer: 5
-  m_Name: Name
+  m_Name: MageName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
