@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class BaseScene : MonoBehaviour
 {
-    protected virtual void Start()
+    private void Start()
     {
         Init();
     }
 
-    protected virtual void Init()
+    protected virtual void Init() //씬 공통적으로 실행해야하는 부분
     {
         Main.DataManager.Initialize();
     }
