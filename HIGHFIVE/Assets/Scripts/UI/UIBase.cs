@@ -1,10 +1,11 @@
+using Photon.Pun;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class UIBase : MonoBehaviour
+public class UIBase : MonoBehaviourPunCallbacks
 {
 
     protected Dictionary<Type, UnityEngine.Object[]> _objects = new();
@@ -39,17 +40,17 @@ public class UIBase : MonoBehaviour
         return objs[index] as T;
     }
 
-    //protected void AddUIEvent(GameObject go, Action<PointerEventData> action = null, Define.UIEvent uIEvent = Define.UIEvent.Click)
-    //{
-    //    UIEventHandler uiEventHandler = Util.GetOrAddComponent<UIEventHandler>(go);
+    protected void AddUIEvent(GameObject go, Define.UIEvent uIEvent, Action<PointerEventData> action = null)
+    {
+        UIEventHandler uiEventHandler = Util.GetOrAddComponent<UIEventHandler>(go);
 
 
-    //    switch (uIEvent)
-    //    {
-    //        case Define.UIEvent.Click:
-    //            uiEventHandler.ClickAction -= action;
-    //            uiEventHandler.ClickAction += action;
-    //            break;
-    //    }
-    //}
+        switch (uIEvent)
+        {
+            case Define.UIEvent.Click:
+                uiEventHandler.ClickAction -= action;
+                uiEventHandler.ClickAction += action;
+                break;
+        }
+    }
 }
