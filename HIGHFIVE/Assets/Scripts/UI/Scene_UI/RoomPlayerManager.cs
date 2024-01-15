@@ -26,7 +26,7 @@ public class RoomPlayerManager : RoomScene_UI
     private void UpdateCurrentRoomInfo()
     {
         _roomInfo.text = $"{PhotonNetwork.CurrentRoom.PlayerCount} / {PhotonNetwork.CurrentRoom.MaxPlayers}";
-
+        Debug.Log("hi");
         UpdatePlayerList();
     }
 
