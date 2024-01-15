@@ -9,11 +9,6 @@ using UnityEngine.UI;
 
 public class PhotonHandler : MonoBehaviourPunCallbacks
 {
-    [SerializeField]
-    private GameObject _roomPrefab;
-    private float contentHeight = 0f;
-    
-
     private void Start()
     {
         Init();
@@ -65,5 +60,10 @@ public class PhotonHandler : MonoBehaviourPunCallbacks
     public override void OnCreatedRoom()
     {
         Main.SceneManagerEx.LoadScene(Define.Scene.RoomScene);
+    }
+
+    public override void OnJoinedRoom()
+    {
+        Debug.Log("hi");
     }
 }

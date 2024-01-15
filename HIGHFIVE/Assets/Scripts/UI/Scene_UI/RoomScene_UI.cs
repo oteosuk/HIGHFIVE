@@ -14,49 +14,57 @@ public class RoomScene_UI : UIBase
         BackBtn,
         ReadyBtn
     }
-
     private enum Texts
     {
         ReadyTxt,
         RoomName,
         RoomInfo
     }
+    
+    private enum GameObjects
+    {
+        PlayerListContent
+    }
 
-    private TMP_Text _roomInfo;
+
     private TMP_Text _readyTxt;
-    private Image _readyImage;
+
     private Button _readyBtn;
+    private Button _backToLobbyBtn;
+    protected GameObject _playerListContent;
+    protected TMP_Text _roomInfo;
     private bool isReady = false;
     private void Start()
     {
         Bind<Button>(typeof(Buttons), true);
         Bind<TMP_Text>(typeof(Texts), true);
-        
+        Bind<GameObject>(typeof(GameObjects), true);
+
+
         Get<TMP_Text>((int)Texts.RoomName).text = $"{PhotonNetwork.CurrentRoom.Name} 님의 방";
-        _roomInfo = Get<TMP_Text>((int)Texts.RoomInfo);
         _readyTxt = Get<TMP_Text>((int)Texts.ReadyTxt);
         _readyBtn = Get<Button>((int)Buttons.ReadyBtn);
+        _backToLobbyBtn = Get<Button>((int)Buttons.BackBtn);
+        _playerListContent = Get<GameObject>((int)GameObjects.PlayerListContent);
+
+        _roomInfo = Get<TMP_Text>((int)Texts.RoomInfo);
+
+
 
         if (PhotonNetwork.IsMasterClient)
         {
             _readyTxt.text = "GameStart";
         }
 
-        UpdateCurrentRoomInfo();
+        Main.ResourceManager.Instantiate("UI_Prefabs/Player", _playerListContent.transform);
         AddUIEvent(_readyBtn.gameObject, Define.UIEvent.Click, OnStartOrReadyButtonClicked);
+        AddUIEvent(_backToLobbyBtn.gameObject, Define.UIEvent.Click, OnBackToLobbyButtonClicked);
     }
 
     //방의 설정 등이 바뀔때 호출되는 함수
     public override void OnRoomPropertiesUpdate(ExitGames.Client.Photon.Hashtable propertiesThatChanged)
     {
-        UpdateCurrentRoomInfo();
-    }
-
-    //플레이어가 방에 들어왔을때 호출되는 함수 (본인제외)
-    public override void OnPlayerEnteredRoom(Player newPlayer)
-    {
-        Debug.Log(newPlayer.NickName);
-        UpdateCurrentRoomInfo();
+        Player[] players = PhotonNetwork.PlayerList;
     }
 
     //스타트, 레디 버튼을 클릭 했을때 호출 되는 함수
@@ -64,53 +72,49 @@ public class RoomScene_UI : UIBase
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            //모든 플레이어가 준비가 완료됐는지 체크
-            //ok면 SelectScene으로 이동 
-            PhotonNetwork.LoadLevel((int)Define.Scene.SelectScene);
+            Player[] players = PhotonNetwork.PlayerList;
+            foreach (Player player in players)
+            {
+                //player.CustomProperties
+                //모든 플레이어가 준비가 완료됐는지 체크
+                //ok면 SelectScene으로 이동 
+                PhotonNetwork.LoadLevel((int)Define.Scene.SelectScene);
+            }
         }
         else
         {
-            if (_readyImage.color == Define.RedColor)
+            if (isReady == false)
             {
-                _readyImage.color = Define.GreenColor;
+                //_readyImage.color = Define.GreenColor;
                 SetPlayerReady(true);
             }
             else
             {
-                _readyImage.color = Define.RedColor;
+                //_readyImage.color = Define.RedColor;
                 SetPlayerReady(false);
             }
         }
+    }
+    //로비 버튼 클릭 했을 때 호출 되는 함수
+    private void OnBackToLobbyButtonClicked(PointerEventData pointerEventData)
+    {
+        if (PhotonNetwork.LeaveRoom())
+        {
+            
+        }
+
     }
 
     //플레이어의 레디 상태를 제어하는 함수
     private void SetPlayerReady(bool ready)
     {
-        if (photonView.IsMine)
-        {
-            isReady = ready;
-
-            PhotonNetwork.LocalPlayer.SetCustomProperties(new ExitGames.Client.Photon.Hashtable
-            {
-                { "IsReady", isReady }
-            });
-
-            Debug.Log(PhotonNetwork.LocalPlayer.CustomProperties);
-
-            photonView.RPC("SyncReadyStatus", RpcTarget.Others, isReady);
-        }
-    }
-
-    //나의 준비상태를 상대에게도 동기화 해주는 함수
-    [PunRPC]
-    private void SyncReadyStatus(bool ready)
-    {
         isReady = ready;
+
+        PhotonNetwork.LocalPlayer.SetCustomProperties(new ExitGames.Client.Photon.Hashtable
+        {
+            { "IsReady", isReady }
+        });
     }
 
-    //현재 방 정보를 업데이트 해주는 함수
-    private void UpdateCurrentRoomInfo()
-    {
-        _roomInfo.text = $"{PhotonNetwork.CurrentRoom.PlayerCount} / {PhotonNetwork.CurrentRoom.MaxPlayers}";
-    }
+
 }

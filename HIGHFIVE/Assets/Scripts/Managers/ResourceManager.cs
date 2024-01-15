@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class ResourceManager : MonoBehaviour
+public class ResourceManager
 {
-    // Start is called before the first frame update
-    void Start()
+    public T Load<T>(string path) where T : Object
     {
-        //한글주석테스트11
+        return Resources.Load<T>(path);
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    public GameObject Instantiate(string path, Transform parent = null)
     {
-        
+        GameObject prefab = Load<GameObject>($"Prefabs/{path}");
+        if (prefab == null)
+        {
+            Debug.Log($"Failed to load Prefab: {path}");
+            return null;
+        }
+
+        return Object.Instantiate(prefab, parent);
     }
 }
