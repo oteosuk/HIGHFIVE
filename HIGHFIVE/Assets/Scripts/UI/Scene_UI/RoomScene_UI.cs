@@ -46,17 +46,20 @@ public class RoomScene_UI : UIBase
         AddUIEvent(_readyBtn.gameObject, Define.UIEvent.Click, OnStartOrReadyButtonClicked);
     }
 
+    //방의 설정 등이 바뀔때 호출되는 함수
     public override void OnRoomPropertiesUpdate(ExitGames.Client.Photon.Hashtable propertiesThatChanged)
     {
         UpdateCurrentRoomInfo();
     }
 
+    //플레이어가 방에 들어왔을때 호출되는 함수 (본인제외)
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         Debug.Log(newPlayer.NickName);
         UpdateCurrentRoomInfo();
     }
 
+    //스타트, 레디 버튼을 클릭 했을때 호출 되는 함수
     private void OnStartOrReadyButtonClicked(PointerEventData pointerEventData)
     {
         if (PhotonNetwork.IsMasterClient)
@@ -80,6 +83,7 @@ public class RoomScene_UI : UIBase
         }
     }
 
+    //플레이어의 레디 상태를 제어하는 함수
     private void SetPlayerReady(bool ready)
     {
         if (photonView.IsMine)
@@ -97,12 +101,14 @@ public class RoomScene_UI : UIBase
         }
     }
 
+    //나의 준비상태를 상대에게도 동기화 해주는 함수
     [PunRPC]
     private void SyncReadyStatus(bool ready)
     {
         isReady = ready;
     }
 
+    //현재 방 정보를 업데이트 해주는 함수
     private void UpdateCurrentRoomInfo()
     {
         _roomInfo.text = $"{PhotonNetwork.CurrentRoom.PlayerCount} / {PhotonNetwork.CurrentRoom.MaxPlayers}";

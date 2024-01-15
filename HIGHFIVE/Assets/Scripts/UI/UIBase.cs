@@ -7,7 +7,6 @@ using UnityEngine.EventSystems;
 
 public class UIBase : MonoBehaviourPunCallbacks
 {
-
     protected Dictionary<Type, UnityEngine.Object[]> _objects = new();
 
     //@@@@@@@@@@@@@@@@@@@@ Bind!!!!!!!!!!!

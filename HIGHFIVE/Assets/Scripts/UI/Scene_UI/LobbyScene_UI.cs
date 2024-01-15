@@ -21,11 +21,11 @@ public class LobbyScene_UI : UIBase
         RoomListContent,
     }
 
-    private Button _createRoomBtn;
-    private GameObject _roomListContent;
+    private Button _createRoomBtn;//방 생성 버튼
+    private GameObject _roomListContent;//방 리스트 컨텐트
     private GameObject _roomPrefab;
-    private List<GameObject> _rooms = new List<GameObject>();
-    private float contentHeight = 0f;
+    //private List<GameObject> _rooms = new List<GameObject>();
+    private float contentHeight = 0f;//컨테트의 크기 제어 변수
 
 
     private void Start()
@@ -40,22 +40,27 @@ public class LobbyScene_UI : UIBase
         AddUIEvent(_createRoomBtn.gameObject, Define.UIEvent.Click, OnCreateRoomButtonClicked);
     }
 
+    //CreateRoom버튼을 클릭했을때 호출 되는 함수
     private void OnCreateRoomButtonClicked(PointerEventData pointerEventData)
     {
         Main.NetworkManager.MakeRoom(PhotonNetwork.NickName);
     }
 
+
+    //방 리스트 패널에서 특정 방을 클릭 했을때 호출 되는 함수
     private void OnEnterRoomClicked(PointerEventData pointerEventData)
     {
+        //해당 방의 제목으로 방을 찾아서 join
         PhotonNetwork.JoinRoom(pointerEventData.pointerClick.transform.Find("RoomName").GetComponent<TMP_Text>().text);
     }
 
+    //로비에 있을 때 제3자가 방을 생성하면 로비에 해당 방이 반영이 되도록 해주는 함수
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
         foreach (RoomInfo room in roomList)
         {
             GameObject newRoom = Instantiate(_roomPrefab, _roomListContent.transform);
-            _rooms.Add(newRoom);
+            //_rooms.Add(newRoom);
             AddUIEvent(newRoom, Define.UIEvent.Click, OnEnterRoomClicked);
             TMP_Text[] newRoomInfoTxts = newRoom.GetComponentsInChildren<TMP_Text>();
             newRoomInfoTxts[0].text = room.Name;
