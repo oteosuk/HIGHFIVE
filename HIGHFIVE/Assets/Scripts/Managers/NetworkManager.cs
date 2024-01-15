@@ -15,16 +15,16 @@ public class NetworkManager
     {
         //방장이 씬을 옮기면 게스트도 같이 씬을 옮길 수 있게
         PhotonNetwork.AutomaticallySyncScene = true;
-        //초당 서버와 통신하는 횟수??
         PhotonNetwork.SendRate = 30;
         PhotonNetwork.SerializationRate = 30;
 
         //실제 포톤에 들어온 사용자의 이름
         PhotonNetwork.NickName = nickname;
-        //공식문서에서 1로해주는게 일반적이다
         PhotonNetwork.GameVersion = _gameVersion;
         PhotonNetwork.ConnectUsingSettings();
     }
+
+
 
     //현재는 자기 닉네임을 가지고 방을 생성
     public void MakeRoom(string name)
