@@ -27,7 +27,7 @@ public class Util
         }
         else
         {
-            foreach (T component in go.GetComponentsInChildren<T>())
+            foreach (T component in go.GetComponentsInChildren<T>(true))
             {
                 //이름이 비어있거나 찾는 이름이면
                 if (string.IsNullOrEmpty(name) || component.name == name)

@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,9 +10,12 @@ public class Main : MonoBehaviour
     private SceneManagerEx _sceneManagerEx = new SceneManagerEx();
     private NetworkManager _networkManager = new NetworkManager();
     private DataManager _dataManager = new DataManager();
+    private UIManager _uiManager = new UIManager();
+
     public static DataManager DataManager { get { return Instance._dataManager; } }
     public static SceneManagerEx SceneManagerEx { get { return Instance._sceneManagerEx; } }
     public static NetworkManager NetworkManager { get { return Instance._networkManager; } } // set안써주면 알아서 private(아예 접근이 안됌)
+    public static UIManager UIManager { get {  return Instance._uiManager; } }
 
     private static Main Instance
     {
