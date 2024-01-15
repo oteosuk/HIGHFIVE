@@ -1,4 +1,5 @@
 using Photon.Pun;
+using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,8 +26,9 @@ public class NetworkManager
         PhotonNetwork.ConnectUsingSettings();
     }
 
-    public void MakeRoom()
+    //현재는 자기 닉네임을 가지고 방을 생성
+    public void MakeRoom(string name)
     {
-        PhotonNetwork.CreateRoom("");
+        PhotonNetwork.CreateRoom(name, new RoomOptions { MaxPlayers = 2, IsOpen = true, IsVisible = true });
     }
 }

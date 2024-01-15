@@ -2,14 +2,43 @@ using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class Launcher : MonoBehaviourPunCallbacks
+public class PhotonHandler : MonoBehaviourPunCallbacks
 {
+    [SerializeField]
+    private GameObject _roomPrefab;
+    private float contentHeight = 0f;
+    
+
+    private void Start()
+    {
+        Init();
+    }
+  
+    private void Init()
+    {
+        GameObject gameObject = GameObject.Find("PhotonHandler");
+        if (gameObject == null)
+        {
+            gameObject = new GameObject("PhotonHandler");
+            gameObject.AddComponent<PhotonHandler>();
+        }
+        DontDestroyOnLoad(gameObject);
+    }
+
     // 01.사용자가 포톤 서버에 커넥트 됐을때 호출되는 콜백 함수
     public override void OnConnectedToMaster()
     {
-        PhotonNetwork.JoinLobby();
+        TypedLobby typedLobby = new TypedLobby(null, LobbyType.Default);
+        if (PhotonNetwork.JoinLobby(typedLobby))
+        {
+            Main.SceneManagerEx.LoadScene(Define.Scene.LobbyScene);
+        }
+        
         Debug.Log("01.포톤과 연결 되었습니다.");
     }
 
@@ -29,8 +58,12 @@ public class Launcher : MonoBehaviourPunCallbacks
         }
         Debug.Log(PhotonNetwork.InLobby);
         Debug.Log(PhotonNetwork.CountOfPlayers);
-        Main.SceneManagerEx.LoadScene(Define.Scene.LobbyScene);
+        
         Debug.Log("02.로비에 들어오셨습니다.");
     }
-    
+
+    public override void OnCreatedRoom()
+    {
+        Main.SceneManagerEx.LoadScene(Define.Scene.RoomScene);
+    }
 }
