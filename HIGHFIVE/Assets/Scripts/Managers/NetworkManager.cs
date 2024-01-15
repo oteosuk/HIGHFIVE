@@ -6,9 +6,10 @@ using UnityEngine;
 
 public class NetworkManager
 {
+    public Dictionary<string, bool> photonRoomDict = new Dictionary<string, bool>();
     private string _gameVersion = "1";
     private byte _maxPlayersPerRoom;
-
+        
 
     //닉네임: 스타트씬에서 사용자에게 받은 닉네임 정보
     public void Connect(string nickname)

@@ -10,7 +10,6 @@ using UnityEngine.UI;
 
 public class LobbyScene_UI : UIBase
 {
-
     private enum Buttons
     {
         CreateRoomBtn,
@@ -23,7 +22,6 @@ public class LobbyScene_UI : UIBase
 
     private Button _createRoomBtn;//방 생성 버튼
     private GameObject _roomListContent;//방 리스트 컨텐트
-    private GameObject _roomPrefab;
     //private List<GameObject> _rooms = new List<GameObject>();
     private float contentHeight = 0f;//컨테트의 크기 제어 변수
 
@@ -35,7 +33,6 @@ public class LobbyScene_UI : UIBase
 
         _createRoomBtn = Get<Button>((int)Buttons.CreateRoomBtn);
         _roomListContent = Get<GameObject>((int)GameObjects.RoomListContent);
-        _roomPrefab = Resources.Load("Prefabs/UI_Prefabs/Rooms").GameObject();
 
         AddUIEvent(_createRoomBtn.gameObject, Define.UIEvent.Click, OnCreateRoomButtonClicked);
     }
@@ -59,7 +56,10 @@ public class LobbyScene_UI : UIBase
     {
         foreach (RoomInfo room in roomList)
         {
-            GameObject newRoom = Instantiate(_roomPrefab, _roomListContent.transform);
+            if (room.RemovedFromList) continue;
+            
+
+            GameObject newRoom = Main.ResourceManager.Instantiate("UI_Prefabs/Rooms", _roomListContent.transform);
             //_rooms.Add(newRoom);
             AddUIEvent(newRoom, Define.UIEvent.Click, OnEnterRoomClicked);
             TMP_Text[] newRoomInfoTxts = newRoom.GetComponentsInChildren<TMP_Text>();
