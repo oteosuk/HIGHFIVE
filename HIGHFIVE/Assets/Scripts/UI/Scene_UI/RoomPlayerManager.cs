@@ -6,29 +6,61 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RoomPlayerManager : RoomScene_UI
+public class RoomPlayerManager : UIBase
 {
+    private enum Texts
+    {
+        RoomInfo
+    }
+    private enum GameObjects
+    {
+        PlayerListContent
+    }
+
+    private TMP_Text _roomInfo;
+    private GameObject _playerListContent;
     private void Start()
     {
+        Bind<TMP_Text>(typeof(Texts), true);
+        Bind<GameObject>(typeof(GameObjects), true);
+
+        _roomInfo = Get<TMP_Text>((int)Texts.RoomInfo);
+        _playerListContent = Get<GameObject>((int)GameObjects.PlayerListContent);
+
         UpdatePlayerList();
     }
 
-    //현재 방에 있는 플레이어들과 플레이어 수를 업데이트 해주는 함수
-    private void UpdateCurrentRoomInfo()
-    {
-        
-    }
     //플레이어가 방에 들어왔을때 호출되는 함수 (본인제외)
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         UpdatePlayerList();
+    }
+    //플레이어가 방에 나갈 때 호출되는 함수 (본인제외)
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        if (Main.NetworkManager.photonPlayerDict.ContainsKey(otherPlayer.NickName))
+        {
+            Main.NetworkManager.photonPlayerDict[otherPlayer.NickName] = false;
+            foreach (Transform child in _playerListContent.GetComponent<RectTransform>())
+            {
+                if (child.Find("PlayerName").GetComponent<TMP_Text>().text == otherPlayer.NickName)
+                {
+                    Destroy(child.gameObject);
+                    break;
+                }
+            }
+        }
+
+        UpdateRoomInfo();
     }
 
     //플레이어가 방에 참가 했을때 플레이어 닉네임을 key로 하는  Dict하나 생성
     //플레이어가 방에 나갔을 때 해당 플레이어의 닉네임으로 값을가져와서 수정
     private void UpdatePlayerList()
     {
-        Player[] players = PhotonNetwork.PlayerList;
+        UpdateRoomInfo();
+
+         Player[] players = PhotonNetwork.PlayerList;
 
         // 각 플레이어의 정보 활용
         foreach (Player player in players)
@@ -39,7 +71,7 @@ public class RoomPlayerManager : RoomScene_UI
                 if (isContain) continue;
             }
 
-            GameObject newPlayer = Main.ResourceManager.Instantiate("UI_Prefabs/Player", transform);
+            GameObject newPlayer = Main.ResourceManager.Instantiate("UI_Prefabs/Player", _playerListContent.transform);
             TMP_Text playerRole = newPlayer.transform.Find("PlayerRole").GetComponent<TMP_Text>();
             TMP_Text playerName = newPlayer.transform.Find("PlayerName").GetComponent<TMP_Text>();
             Image playerReadyImage = newPlayer.transform.Find("ReadyImage").GetComponent<Image>();
@@ -54,6 +86,9 @@ public class RoomPlayerManager : RoomScene_UI
         }
     }
 
-    
-    
+    private void UpdateRoomInfo()
+    {
+        _roomInfo.text = $"{PhotonNetwork.CurrentRoom.PlayerCount} / {PhotonNetwork.CurrentRoom.MaxPlayers}";
+    }
+
 }
