@@ -56,8 +56,13 @@ public class LobbyScene_UI : UIBase
     {
         foreach (RoomInfo room in roomList)
         {
+            //방폭된 방 생성 방지
             if (room.RemovedFromList) continue;
-            
+            //내 로컬상에 이미 해당 방이 존재한다면 생성 금지
+            if (Main.NetworkManager.photonRoomDict.TryGetValue(room.Name, out bool isContain))
+            {
+                if (isContain) continue;
+            }
 
             GameObject newRoom = Main.ResourceManager.Instantiate("UI_Prefabs/Rooms", _roomListContent.transform);
             //_rooms.Add(newRoom);
@@ -66,6 +71,8 @@ public class LobbyScene_UI : UIBase
             newRoomInfoTxts[0].text = room.Name;
             newRoomInfoTxts[1].text = $"{room.PlayerCount} / {room.MaxPlayers}";
             contentHeight += newRoom.GetComponent<RectTransform>().rect.height;
+
+            Main.NetworkManager.photonRoomDict[room.Name] = true;
         }
 
         if (contentHeight < _roomListContent.GetComponent<RectTransform>().sizeDelta.y)
