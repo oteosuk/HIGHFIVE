@@ -50,12 +50,10 @@ public class RoomScene_UI : UIBase
 
         _roomInfo.text = $"{PhotonNetwork.CurrentRoom.PlayerCount} / {PhotonNetwork.CurrentRoom.MaxPlayers}";
 
-        if (PhotonNetwork.IsMasterClient)
-        {
-            _readyTxt.text = "GameStart";
-        }
+        if (PhotonNetwork.IsMasterClient) _readyTxt.text = "GameStart";
 
-        
+
+
         AddUIEvent(_readyBtn.gameObject, Define.UIEvent.Click, OnStartOrReadyButtonClicked);
         AddUIEvent(_backToLobbyBtn.gameObject, Define.UIEvent.Click, OnBackToLobbyButtonClicked);
     }
@@ -71,7 +69,7 @@ public class RoomScene_UI : UIBase
     //플레이어가 방에 나갈 때 호출되는 함수 (본인제외)
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
-        if (Main.NetworkManager.photonRoomDict.ContainsKey(PhotonNetwork.NickName))
+        if (Main.NetworkManager.photonPlayerDict.ContainsKey(PhotonNetwork.NickName))
         {
             foreach (Transform child in _playerListContent.GetComponent<RectTransform>())
             {
@@ -82,6 +80,7 @@ public class RoomScene_UI : UIBase
                 }
             }
         }
+        
     }
 
     //스타트, 레디 버튼을 클릭 했을때 호출 되는 함수
@@ -90,13 +89,15 @@ public class RoomScene_UI : UIBase
         if (PhotonNetwork.IsMasterClient)
         {
             Player[] players = PhotonNetwork.PlayerList;
+            bool isAllPlayerReady = true;
             foreach (Player player in players)
             {
-                //player.CustomProperties
-                //모든 플레이어가 준비가 완료됐는지 체크
-                //ok면 SelectScene으로 이동 
-                PhotonNetwork.LoadLevel((int)Define.Scene.SelectScene);
+                if (player.IsMasterClient) continue;
+                player.CustomProperties.TryGetValue("IsReady", out object value);
+                if (value == null || (bool)value == false) isAllPlayerReady = false;
             }
+
+            if (isAllPlayerReady) PhotonNetwork.LoadLevel((int)Define.Scene.SelectScene);
         }
         else
         {
@@ -117,9 +118,9 @@ public class RoomScene_UI : UIBase
     {
         if (PhotonNetwork.LeaveRoom())
         {
-            Main.NetworkManager.photonRoomDict[PhotonNetwork.NickName] = false;
+            Main.NetworkManager.photonPlayerDict[PhotonNetwork.NickName] = false;
+            Main.NetworkManager.photonRoomDict[PhotonNetwork.CurrentRoom.Name] = false;
         }
-
     }
 
     //플레이어의 레디 상태를 제어하는 함수
@@ -132,6 +133,4 @@ public class RoomScene_UI : UIBase
             { "IsReady", isReady }
         });
     }
-
-
 }

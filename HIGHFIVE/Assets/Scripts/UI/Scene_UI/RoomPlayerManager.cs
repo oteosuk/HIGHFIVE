@@ -34,7 +34,7 @@ public class RoomPlayerManager : RoomScene_UI
         foreach (Player player in players)
         {
             //내 로컬 상에 있는 딕셔너리 데이터가 true라면 continue;
-            if (Main.NetworkManager.photonRoomDict.TryGetValue(player.NickName, out bool isContain))
+            if (Main.NetworkManager.photonPlayerDict.TryGetValue(player.NickName, out bool isContain))
             {
                 if (isContain) continue;
             }
@@ -50,7 +50,7 @@ public class RoomPlayerManager : RoomScene_UI
 
             if (player.IsMasterClient) playerReadyImage.gameObject.SetActive(false);
 
-            Main.NetworkManager.photonRoomDict[player.NickName] = true;
+            Main.NetworkManager.photonPlayerDict[player.NickName] = true;
         }
     }
 
