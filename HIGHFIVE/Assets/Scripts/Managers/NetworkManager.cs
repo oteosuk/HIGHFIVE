@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class NetworkManager
 {
+    public Dictionary<string, bool> photonPlayerDict = new Dictionary<string, bool>();
     public Dictionary<string, bool> photonRoomDict = new Dictionary<string, bool>();
     private string _gameVersion = "1";
     private byte _maxPlayersPerRoom;
