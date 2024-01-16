@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class Test_UI : UIBase
@@ -36,6 +37,17 @@ public class Test_UI : UIBase
         MageMovSpeed,
     }
 
+    private enum Buttons
+    {
+        SelectWarriorBtn,
+        SelectRogueBtn,
+        SelectMageBtn,
+    }
+
+    private Button _warriorbutton;
+    private Button _roguebutton;
+    private Button _magebutton;
+
     private TMP_Text _warriornameTxt;
     private TMP_Text _warriorinfoTxt;
     private TMP_Text _warrioratkTxt;
@@ -67,6 +79,18 @@ public class Test_UI : UIBase
     private void Start()
     {
         Bind<TMP_Text>(typeof(Texts), true);
+        Bind<Button>(typeof(Buttons), false);
+
+        // Button 바인딩
+        _warriorbutton = Get<Button>((int)Buttons.SelectWarriorBtn);
+        _roguebutton = Get<Button>((int)Buttons.SelectRogueBtn);
+        _magebutton = Get<Button>((int)Buttons.SelectMageBtn);
+
+        AddUIEvent(_warriorbutton.gameObject, Define.UIEvent.Click, OnSelectWarriorBtn);
+        AddUIEvent(_roguebutton.gameObject, Define.UIEvent.Click, OnSelectRogueBtn);
+        AddUIEvent(_magebutton.gameObject, Define.UIEvent.Click, OnSelectMageBtn);
+
+
 
         // enum 과 변수 연결
         _warriornameTxt = Get<TMP_Text>((int)Texts.WarriorName).GetComponent<TMP_Text>();
@@ -132,4 +156,20 @@ public class Test_UI : UIBase
         _magemovspeedTxt.text = mage.movSpeed.ToString();
 
     }
+
+    private void OnSelectWarriorBtn(PointerEventData pointerEventData)
+    {
+        Main.GameManager.SelectedCharacter = _warriorbutton.gameObject.transform.Find("WarriorName").GetComponent<TMP_Text>().text;
+    }
+
+    private void OnSelectRogueBtn(PointerEventData pointerEventData)
+    {
+        Main.GameManager.SelectedCharacter = _roguebutton.gameObject.transform.Find("RogueName").GetComponent<TMP_Text>().text;
+    }
+
+    private void OnSelectMageBtn(PointerEventData pointerEventData)
+    {
+        Main.GameManager.SelectedCharacter = _magebutton.gameObject.transform.Find("MageName").GetComponent<TMP_Text>().text;
+    }
+
 }
