@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class Timer : MonoBehaviour
 {
@@ -33,8 +34,7 @@ public class Timer : MonoBehaviour
 
             if (curTime <= 0)
             {
-                Debug.Log("시간 종료");
-                // 시간 내에 못 고르면 자동으로 선택되게 하는 로직 추가
+                Main.SceneManagerEx.LoadScene(Define.Scene.GameScene);
                 curTime = 0;
                 yield break;
             }
