@@ -62,8 +62,5 @@ public class PhotonHandler : MonoBehaviourPunCallbacks
         Main.SceneManagerEx.LoadScene(Define.Scene.RoomScene);
     }
 
-    public override void OnJoinedRoom()
-    {
-        Debug.Log("hi");
-    }
+    
 }
