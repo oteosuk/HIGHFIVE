@@ -8,25 +8,19 @@ using UnityEngine.UI;
 
 public class RoomPlayerManager : RoomScene_UI
 {
-    private enum Images
-    {
-        ReadyImage
-    }
-
-    private Image _readyImage;
     private void Start()
     {
-        Bind<Image>(typeof(Images));
-        _readyImage = Get<Image>((int)Images.ReadyImage);
-        _readyImage.color = Define.RedColor;
-        UpdateCurrentRoomInfo();
+        UpdatePlayerList();
     }
 
     //현재 방에 있는 플레이어들과 플레이어 수를 업데이트 해주는 함수
     private void UpdateCurrentRoomInfo()
     {
-        _roomInfo.text = $"{PhotonNetwork.CurrentRoom.PlayerCount} / {PhotonNetwork.CurrentRoom.MaxPlayers}";
-
+        
+    }
+    //플레이어가 방에 들어왔을때 호출되는 함수 (본인제외)
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
         UpdatePlayerList();
     }
 
@@ -45,12 +39,14 @@ public class RoomPlayerManager : RoomScene_UI
                 if (isContain) continue;
             }
 
-            TMP_Text playerRole = gameObject.transform.Find("PlayerRole").GetComponent<TMP_Text>();
-            TMP_Text playerName = gameObject.transform.Find("PlayerName").GetComponent<TMP_Text>();
-            Image playerReadyImage = gameObject.transform.Find("ReadyImage").GetComponent<Image>();
+            GameObject newPlayer = Main.ResourceManager.Instantiate("UI_Prefabs/Player", transform);
+            TMP_Text playerRole = newPlayer.transform.Find("PlayerRole").GetComponent<TMP_Text>();
+            TMP_Text playerName = newPlayer.transform.Find("PlayerName").GetComponent<TMP_Text>();
+            Image playerReadyImage = newPlayer.transform.Find("ReadyImage").GetComponent<Image>();
 
             playerName.text = player.NickName;
             playerRole.text = player.IsMasterClient == true ? "[방장]" : "[게스트]";
+            playerReadyImage.color = Define.RedColor;
 
             if (player.IsMasterClient) playerReadyImage.gameObject.SetActive(false);
 
@@ -58,27 +54,6 @@ public class RoomPlayerManager : RoomScene_UI
         }
     }
 
-    //플레이어가 방에 들어왔을때 호출되는 함수 (본인제외)
-    public override void OnPlayerEnteredRoom(Player newPlayer)
-    {
-
-    }
-
-    //플레이어가 방에 들어왔을때 호출되는 함수 (본인제외)
-    public override void OnPlayerLeftRoom(Player otherPlayer)
-    {
-        if (Main.NetworkManager.photonRoomDict.ContainsKey(PhotonNetwork.NickName))
-        {
-            Main.NetworkManager.photonRoomDict[otherPlayer.NickName] = false;
-
-            foreach (Transform child in _playerListContent.transform)
-            {
-                if (child.Find("PlayerName").GetComponent<TMP_Text>().text == otherPlayer.NickName)
-                {
-                    Destroy(child);
-                    break;
-                }
-            }
-        }
-    }
+    
+    
 }
