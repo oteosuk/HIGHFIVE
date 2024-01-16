@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Test_UI : UIBase
+public class SelectScene_UI : UIBase
 {
     private enum Texts
     {
