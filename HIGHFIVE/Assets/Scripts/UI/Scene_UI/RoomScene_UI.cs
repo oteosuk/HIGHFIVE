@@ -46,17 +46,16 @@ public class RoomScene_UI : UIBase
         _readyBtn = Get<Button>((int)Buttons.ReadyBtn);
         _backToLobbyBtn = Get<Button>((int)Buttons.BackBtn);
         _playerListContent = Get<GameObject>((int)GameObjects.PlayerListContent);
-
         _roomInfo = Get<TMP_Text>((int)Texts.RoomInfo);
 
-
+        _roomInfo.text = $"{PhotonNetwork.CurrentRoom.PlayerCount} / {PhotonNetwork.CurrentRoom.MaxPlayers}";
 
         if (PhotonNetwork.IsMasterClient)
         {
             _readyTxt.text = "GameStart";
         }
 
-        Main.ResourceManager.Instantiate("UI_Prefabs/Player", _playerListContent.transform);
+        
         AddUIEvent(_readyBtn.gameObject, Define.UIEvent.Click, OnStartOrReadyButtonClicked);
         AddUIEvent(_backToLobbyBtn.gameObject, Define.UIEvent.Click, OnBackToLobbyButtonClicked);
     }
@@ -64,7 +63,25 @@ public class RoomScene_UI : UIBase
     //방의 설정 등이 바뀔때 호출되는 함수
     public override void OnRoomPropertiesUpdate(ExitGames.Client.Photon.Hashtable propertiesThatChanged)
     {
-        Player[] players = PhotonNetwork.PlayerList;
+        if (_roomInfo != null)
+        {
+            _roomInfo.text = $"{PhotonNetwork.CurrentRoom.PlayerCount} / {PhotonNetwork.CurrentRoom.MaxPlayers}";
+        }
+    }
+    //플레이어가 방에 나갈 때 호출되는 함수 (본인제외)
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        if (Main.NetworkManager.photonRoomDict.ContainsKey(PhotonNetwork.NickName))
+        {
+            foreach (Transform child in _playerListContent.GetComponent<RectTransform>())
+            {
+                if (child.Find("PlayerName").GetComponent<TMP_Text>().text == otherPlayer.NickName)
+                {
+                    Destroy(child);
+                    break;
+                }
+            }
+        }
     }
 
     //스타트, 레디 버튼을 클릭 했을때 호출 되는 함수
@@ -100,7 +117,7 @@ public class RoomScene_UI : UIBase
     {
         if (PhotonNetwork.LeaveRoom())
         {
-            
+            Main.NetworkManager.photonRoomDict[PhotonNetwork.NickName] = false;
         }
 
     }
