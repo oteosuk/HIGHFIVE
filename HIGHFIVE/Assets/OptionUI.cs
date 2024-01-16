@@ -30,7 +30,6 @@ public class OptionUI : UIBase
         InfoPanel,
         SettingPanel
     }
-
     void Start()
     {
         Bind<Button>(typeof(Buttons), true);
