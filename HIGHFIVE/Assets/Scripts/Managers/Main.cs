@@ -7,12 +7,14 @@ public class Main : MonoBehaviour
 {
     private static Main s_instance;
 
+    private GameManager _gameManager = new GameManager();
     private SceneManagerEx _sceneManagerEx = new SceneManagerEx();
     private NetworkManager _networkManager = new NetworkManager();
     private DataManager _dataManager = new DataManager();
     private ResourceManager _resourceManager = new ResourceManager();
     private UIManager _uiManager = new UIManager();
 
+    public static GameManager GameManager { get { return Instance._gameManager; } }
     public static ResourceManager ResourceManager { get { return Instance._resourceManager; } }
     public static DataManager DataManager { get { return Instance._dataManager; } }
     public static SceneManagerEx SceneManagerEx { get { return Instance._sceneManagerEx; } }

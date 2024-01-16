@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager 
 {
-    string[] nicknames = new string[10];
-
-
+    public string SelectedCharacter { get; set; }
 }
+
+
