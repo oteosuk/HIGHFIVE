@@ -10,7 +10,7 @@ public class ResourceManager
         return Resources.Load<T>(path);
     }
     
-    public GameObject Instantiate(string path, Transform parent = null)
+    public GameObject Instantiate(string path, Transform parent = null, string changingName = null)
     {
         GameObject prefab = Load<GameObject>($"Prefabs/{path}");
         if (prefab == null)
@@ -19,6 +19,15 @@ public class ResourceManager
             return null;
         }
 
-        return Object.Instantiate(prefab, parent);
+        GameObject go = Object.Instantiate(prefab, parent);
+        if (changingName != null) go.name = $"{changingName}";
+        return go;
+    }
+    public void Destroy(GameObject obj)
+    {
+        if (obj == null) return;
+
+
+        Object.Destroy(obj);
     }
 }

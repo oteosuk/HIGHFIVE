@@ -3,11 +3,14 @@ using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NetworkManager
 {
     public Dictionary<string, bool> photonPlayerDict = new Dictionary<string, bool>();
     public Dictionary<string, bool> photonRoomDict = new Dictionary<string, bool>();
+    public Dictionary<string, Image> photonReadyImageDict = new Dictionary<string, Image>();
+
     private string _gameVersion = "1";
     private byte _maxPlayersPerRoom;
         

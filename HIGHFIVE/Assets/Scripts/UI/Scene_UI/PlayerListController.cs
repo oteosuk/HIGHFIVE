@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RoomPlayerManager : UIBase
+public class PlayerListController : UIBase
 {
     private enum Texts
     {
@@ -41,6 +41,7 @@ public class RoomPlayerManager : UIBase
         if (Main.NetworkManager.photonPlayerDict.ContainsKey(otherPlayer.NickName))
         {
             Main.NetworkManager.photonPlayerDict[otherPlayer.NickName] = false;
+            Main.NetworkManager.photonReadyImageDict.Remove(otherPlayer.NickName);
             foreach (Transform child in _playerListContent.GetComponent<RectTransform>())
             {
                 if (child.Find("PlayerName").GetComponent<TMP_Text>().text == otherPlayer.NickName)
@@ -71,10 +72,16 @@ public class RoomPlayerManager : UIBase
                 if (isContain) continue;
             }
 
-            GameObject newPlayer = Main.ResourceManager.Instantiate("UI_Prefabs/Player", _playerListContent.transform);
+            GameObject newPlayer = Main.ResourceManager.Instantiate("UI_Prefabs/Player", _playerListContent.transform, $"{player.NickName}Player");
             TMP_Text playerRole = newPlayer.transform.Find("PlayerRole").GetComponent<TMP_Text>();
             TMP_Text playerName = newPlayer.transform.Find("PlayerName").GetComponent<TMP_Text>();
             Image playerReadyImage = newPlayer.transform.Find("ReadyImage").GetComponent<Image>();
+
+            if (!Main.NetworkManager.photonReadyImageDict.ContainsKey(player.NickName))
+            {
+                Main.NetworkManager.photonReadyImageDict.Add(player.NickName, playerReadyImage);
+            }
+            
 
             playerName.text = player.NickName;
             playerRole.text = player.IsMasterClient == true ? "[방장]" : "[게스트]";
