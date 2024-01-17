@@ -8,8 +8,11 @@ using UnityEngine.InputSystem;
 
 public class PlayerMove : MonoBehaviour
 {
+    public event Action<Collision2D> _damageTest;
+
     public float speed = 5f; // 이동 속도
     private Vector3 targetPosition;
+
     private void Update()
     {
         // 마우스 우클릭 감지
@@ -21,5 +24,14 @@ public class PlayerMove : MonoBehaviour
         }
         // 오브젝트 이동
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("충돌");
+            _damageTest?.Invoke(collision);
+        }
     }
 }
