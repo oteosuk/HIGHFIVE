@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class TextAnimation : MonoBehaviour
 {
     public TMP_Text loadingText;
-    public float animationSpeed = 0.3f;
+    public float animationSpeed = 0.15f;
     private int dotCount = 1;
 
     void Start()
