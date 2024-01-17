@@ -74,6 +74,10 @@ public class LobbyScene_UI : UIBase
         {
             Main.NetworkManager.photonRoomDict.Clear();
         }
+        else
+        {
+            Main.UIManager.OpenPopup(_alertBlock);
+        }
     }
 
     public override void OnJoinRoomFailed(short returnCode, string message)
