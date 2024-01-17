@@ -17,11 +17,17 @@ public class GoogleSheetManager : MonoBehaviour
 {
     // 아래보면 /export전까지 내 구글시트 링크의 /edit전까지를 복사해서 붙여넣는다.(뒤에 tsv는 탭과 엔터로 이우러진 파일로 불러오겠다는 뜻)
     // &range=A2:A는 가져오고 싶은 부분만 엑셀표를 보고 선택하는 기능
-    const string URL = "https://docs.google.com/spreadsheets/d/1PLnYfbYxz44NYJYaiOwZ2pWIHVbMDtbWAhOmxpxBXiM/export?format=tsv&range=A2:A";
-
+    //const string URL = "https://docs.google.com/spreadsheets/d/1PLnYfbYxz44NYJYaiOwZ2pWIHVbMDtbWAhOmxpxBXiM/export?format=tsv&range=A2:A";
+    const string URL = "https://script.google.com/macros/s/AKfycbzAtZte-8FV1y-CA0iW1ITmofm__kZDQra2doRDbnuk3c-RKMO_UGwAZ31YVk8a1GW2QQ/exec";
     IEnumerator Start()
     {
-        UnityWebRequest www = UnityWebRequest.Get(URL);
+        WWWForm form = new WWWForm();
+        form.AddField("value", "값");
+
+        //UnityWebRequest www = UnityWebRequest.Get(URL);
+        UnityWebRequest www = UnityWebRequest.Post(URL, form);
+        
+
         yield return www.SendWebRequest();
 
         string data = www.downloadHandler.text;
