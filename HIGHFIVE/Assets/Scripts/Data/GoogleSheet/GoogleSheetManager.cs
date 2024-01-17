@@ -71,6 +71,22 @@ public class GoogleSheetManager : MonoBehaviour
         StartCoroutine(NicknamePost(form)); // 여기서 form에 쌓아놨던것들 실행해준다.
     }
 
+    public IEnumerator NicknameLoginTest()
+    {
+        if (!SetNicknamePass())
+        {
+            print("아이디 또는 비밀번호가 비어있습니다");
+            yield break; //@@@
+        }
+        loadingText.SetActive(true);
+
+        // form에 뭐할지를 쌓아둔후
+        WWWForm form = new WWWForm();
+        form.AddField("order", "nicknamelogin"); // p.order에 nicknamelogin 보내주기
+        form.AddField("id", nickname); // p.id에 nickname보내주기
+        yield return StartCoroutine(NicknamePost(form)); // 여기서 form에 쌓아놨던것들 실행해준다.
+    }
+
     // 게임 종료시 호출 메서드
     void OnApplicationQuit()
     {

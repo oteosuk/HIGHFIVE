@@ -48,5 +48,15 @@ public class StartSceneLoginTest : MonoBehaviour
         connectingPanel.SetActive(true); // 연결 중 패널 활성화
         Main.NetworkManager.Connect(nickname);
     }
-    // 닉네임 중복검사가 실시되고난후 다음씬 넘어가게
+
+    public void Coroutinetest()
+    {
+        StartCoroutine(test());
+    }
+
+    IEnumerator test()
+    {
+        yield return StartCoroutine(googleSheetManager.NicknameLoginTest());
+        Main.NetworkManager.Connect(nickname);
+    }
 }
