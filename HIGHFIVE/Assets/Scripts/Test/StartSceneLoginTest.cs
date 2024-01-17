@@ -3,70 +3,59 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class StartSceneLoginTest : MonoBehaviour
 {
-    const string URL = "https://script.google.com/macros/s/AKfycbzAtZte-8FV1y-CA0iW1ITmofm__kZDQra2doRDbnuk3c-RKMO_UGwAZ31YVk8a1GW2QQ/exec";
     private TMP_InputField _nicknameField;
     private string nickname;
+    private GoogleSheetManager googleSheetManager; // GoogleSheetManager 스크립트의 인스턴스 변수
+    public GameObject goBtn; // 닉네임 연결되면 나타날 GO버튼
+    public GameObject checkBtn; // 닉네임 연결되면 사라질 확인버튼
+    public GameObject nicknameInput; // 닉네임 연결되면 사라질 인풋필드
+    public GameObject connectingPanel; // 연결 중일 때 보일 패널
+    private bool isCheck; // 닉네임이 중복체킹됐는지 확인하는 bool변수
 
     private void Awake()
     {
+        //goBtn.SetActive(false);
+        //connectingPanel.SetActive(false);
+        isCheck = false;
         _nicknameField = GameObject.Find("NicknameField").GetComponent<TMP_InputField>();
+        googleSheetManager = FindObjectOfType<GoogleSheetManager>();
+    }
+
+    private void Update()
+    {
+        if(googleSheetManager.GD.result == "OK" && !isCheck)
+        {
+            isCheck = true;
+            nicknameInput.SetActive(false);
+            checkBtn.SetActive(false);
+            goBtn.SetActive(true);
+        }
+    }
+
+    public void NickNameCheckBtn()
+    {
+        googleSheetManager.NicknameLogin();
         nickname = _nicknameField.text;
-    }
-    
-    IEnumerator Start()
-    {
-        WWWForm form = new WWWForm();
-        form.AddField("value", "값");
-
-        //UnityWebRequest www = UnityWebRequest.Get(URL);
-        UnityWebRequest www = UnityWebRequest.Post(URL, form);
-        yield return www.SendWebRequest();
-
-        string data = www.downloadHandler.text;
-        print(data);
+        Debug.Log(nickname);
     }
 
-    bool SetIDPass()
+    public void PhotonConnectBtn()
     {
-        nickname = _nicknameField.text.Trim();
-
-        if (nickname == "") return false;
-        else return true;
+        connectingPanel.SetActive(true); // 연결 중 패널 활성화
+        Main.NetworkManager.Connect(nickname);
     }
 
-
-    public void Register()
+    IEnumerator test()
     {
-        if (!SetIDPass())
-        {
-            print("아이디 또는 비밀번호가 비어있습니다");
-            return;
-        }
-
-        WWWForm form = new WWWForm();
-        form.AddField("nickname", nickname);
-
-        //StartCoroutine(Post(form));
+        yield return StartCoroutine(googleSheetManager.NicknameLoginTest());
+        Main.NetworkManager.Connect(nickname);
     }
-
-    /*IEnumerator Post(WWWForm form)
+    public void Coroutinetest()
     {
-        using (UnityWebRequest www = UnityWebRequest.Post(URL, form)) // 반드시 using을 써야한다
-        {
-            yield return www.SendWebRequest();
-
-            if (www.isDone) Response(www.downloadHandler.text);
-            else print("웹의 응답이 없습니다.");
-        }
-    }*/
-
-    public void OnButtonClick()
-    {
-        Debug.Log(Main.DataManager.CharacterDict.Count);
-        //Debug.Log(warrior.def);
-        Main.NetworkManager.Connect(_nicknameField.text);
+        StartCoroutine(test());
     }
 }
