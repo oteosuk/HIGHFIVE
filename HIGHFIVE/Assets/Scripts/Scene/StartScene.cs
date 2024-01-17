@@ -10,7 +10,7 @@ public class StartScene : BaseScene
     {
         base.Init();
 
-        DebugTest();
+        //DebugTest();
     }
 
     private void DebugTest()
