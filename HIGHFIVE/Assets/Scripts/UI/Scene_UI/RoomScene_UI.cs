@@ -1,4 +1,5 @@
 using Photon.Pun;
+using Photon.Pun.UtilityScripts;
 using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,68 +12,43 @@ public class RoomScene_UI : UIBase
 {
     private enum Buttons
     {
-        BackBtn,
-        ReadyBtn
+        BackBtn
     }
     private enum Texts
     {
         ReadyTxt,
         RoomName,
     }
-
+    private enum GameObjects
+    {
+        PlayerListContent
+    }
 
     private TMP_Text _readyTxt;
-    private Button _readyBtn;
+    private TMP_Text _roomName;
     private Button _backToLobbyBtn;
-    private bool isReady = false;
+    private GameObject _playerListContent;
+
     private void Start()
     {
         Bind<Button>(typeof(Buttons), true);
         Bind<TMP_Text>(typeof(Texts), true);
+        Bind<GameObject>(typeof(GameObjects), true);
 
-
-        Get<TMP_Text>((int)Texts.RoomName).text = $"{PhotonNetwork.CurrentRoom.Name} 님의 방";
+        _roomName = Get<TMP_Text>((int)Texts.RoomName);
         _readyTxt = Get<TMP_Text>((int)Texts.ReadyTxt);
-        _readyBtn = Get<Button>((int)Buttons.ReadyBtn);
         _backToLobbyBtn = Get<Button>((int)Buttons.BackBtn);
-
+        _playerListContent = Get<GameObject>((int)GameObjects.PlayerListContent);
 
         if (PhotonNetwork.IsMasterClient) _readyTxt.text = "GameStart";
+        _roomName.text = $"{PhotonNetwork.CurrentRoom.Name}님의 방";
 
-        AddUIEvent(_readyBtn.gameObject, Define.UIEvent.Click, OnStartOrReadyButtonClicked);
+
         AddUIEvent(_backToLobbyBtn.gameObject, Define.UIEvent.Click, OnBackToLobbyButtonClicked);
     }
 
-    //스타트, 레디 버튼을 클릭 했을때 호출 되는 함수
-    private void OnStartOrReadyButtonClicked(PointerEventData pointerEventData)
-    {
-        if (PhotonNetwork.IsMasterClient)
-        {
-            Player[] players = PhotonNetwork.PlayerList;
-            bool isAllPlayerReady = true;
-            foreach (Player player in players)
-            {
-                if (player.IsMasterClient) continue;
-                player.CustomProperties.TryGetValue("IsReady", out object value);
-                if (value == null || (bool)value == false) isAllPlayerReady = false;
-            }
 
-            if (isAllPlayerReady) PhotonNetwork.LoadLevel((int)Define.Scene.SelectScene);
-        }
-        else
-        {
-            if (isReady == false)
-            {
-                //_readyImage.color = Define.GreenColor;
-                SetPlayerReady(true);
-            }
-            else
-            {
-                //_readyImage.color = Define.RedColor;
-                SetPlayerReady(false);
-            }
-        }
-    }
+
     //로비 버튼 클릭 했을 때 호출 되는 함수
     private void OnBackToLobbyButtonClicked(PointerEventData pointerEventData)
     {
@@ -83,19 +59,20 @@ public class RoomScene_UI : UIBase
         }
 
         Main.NetworkManager.photonRoomDict[PhotonNetwork.CurrentRoom.Name] = false;
+        Main.NetworkManager.photonReadyImageDict.Remove(PhotonNetwork.NickName);
 
 
         PhotonNetwork.LeaveRoom();
     }
 
-    //플레이어의 레디 상태를 제어하는 함수
-    private void SetPlayerReady(bool ready)
+    public override void OnMasterClientSwitched(Player newMasterClient)
     {
-        isReady = ready;
-
-        PhotonNetwork.LocalPlayer.SetCustomProperties(new ExitGames.Client.Photon.Hashtable
-        {
-            { "IsReady", isReady }
-        });
+        Transform masterPlayer = _playerListContent.transform.Find($"{newMasterClient.NickName}Player");
+        TMP_Text playerRole = masterPlayer.transform.Find("PlayerRole").GetComponent<TMP_Text>();
+        Image playerReadyImage = masterPlayer.transform.Find("ReadyImage").GetComponent<Image>();
+        playerReadyImage.gameObject.SetActive(false);
+        playerRole.text = "[방장]";
+        if (PhotonNetwork.IsMasterClient) _readyTxt.text = "GameStart";
     }
+
 }
