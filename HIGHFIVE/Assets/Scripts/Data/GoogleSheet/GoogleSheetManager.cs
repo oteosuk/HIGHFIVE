@@ -4,6 +4,7 @@ using UnityEngine.Networking;
 using TMPro;
 
 [System.Serializable]
+[HideInInspector]
 public class GoogleData
 {
     public string order, result, msg, value;

@@ -18,6 +18,8 @@ public class StartSceneLoginTest : MonoBehaviour
 
     private void Awake()
     {
+        //goBtn.SetActive(false);
+        //connectingPanel.SetActive(false);
         isCheck = false;
         _nicknameField = GameObject.Find("NicknameField").GetComponent<TMP_InputField>();
         googleSheetManager = FindObjectOfType<GoogleSheetManager>();
@@ -43,6 +45,7 @@ public class StartSceneLoginTest : MonoBehaviour
 
     public void PhotonConnectBtn()
     {
+        connectingPanel.SetActive(true); // 연결 중 패널 활성화
         Main.NetworkManager.Connect(nickname);
     }
     // 닉네임 중복검사가 실시되고난후 다음씬 넘어가게
