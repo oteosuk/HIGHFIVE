@@ -49,14 +49,13 @@ public class StartSceneLoginTest : MonoBehaviour
         Main.NetworkManager.Connect(nickname);
     }
 
-    public void Coroutinetest()
-    {
-        StartCoroutine(test());
-    }
-
     IEnumerator test()
     {
         yield return StartCoroutine(googleSheetManager.NicknameLoginTest());
         Main.NetworkManager.Connect(nickname);
+    }
+    public void Coroutinetest()
+    {
+        StartCoroutine(test());
     }
 }
