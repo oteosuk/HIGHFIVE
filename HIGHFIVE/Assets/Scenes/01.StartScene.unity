@@ -892,9 +892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15d556f76ef696243b01d0e05a9d3f7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkBtn: {fileID: 420384077}
-  nicknameInput: {fileID: 4448151}
-  connectingPanel: {fileID: 868730250443782861}
+  ConnectingPanel: {fileID: 868730250443782861}
 --- !u!1 &1221696645
 GameObject:
   m_ObjectHideFlags: 0
@@ -1276,7 +1274,6 @@ MonoBehaviour:
     msg: 
     value: 
   NicknameInput: {fileID: 4448153}
-  loadingText: {fileID: 0}
 --- !u!4 &1950797483
 Transform:
   m_ObjectHideFlags: 0

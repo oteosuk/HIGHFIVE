@@ -111,7 +111,7 @@ public class GoogleSheetManager : MonoBehaviour
 
         if (GD.order == "getValue")
         {
-            //ValueInput.text = GD.value;
+            //(내가원하는변수) = GD.value;
         }
     }
 
@@ -120,7 +120,7 @@ public class GoogleSheetManager : MonoBehaviour
     {
         WWWForm form = new WWWForm();
         form.AddField("order", "setValue");
-        //form.AddField("value", ValueInput.text);
+        form.AddField("value", (내가원하는값));
 
         StartCoroutine(Post(form));
     }
