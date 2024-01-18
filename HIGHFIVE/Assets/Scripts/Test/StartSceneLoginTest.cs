@@ -18,8 +18,6 @@ public class StartSceneLoginTest : MonoBehaviour
 
     private void Awake()
     {
-        //goBtn.SetActive(false);
-        //connectingPanel.SetActive(false);
         isCheck = false;
         _nicknameField = GameObject.Find("NicknameField").GetComponent<TMP_InputField>();
         googleSheetManager = FindObjectOfType<GoogleSheetManager>();

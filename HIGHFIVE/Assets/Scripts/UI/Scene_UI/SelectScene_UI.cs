@@ -171,5 +171,4 @@ public class SelectScene_UI : UIBase
     {
         Main.GameManager.SelectedCharacter = _magebutton.gameObject.transform.Find("MageName").GetComponent<TMP_Text>().text;
     }
-
 }

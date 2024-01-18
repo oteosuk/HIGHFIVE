@@ -9,7 +9,6 @@ public class UIBase : MonoBehaviourPunCallbacks
 {
     protected Dictionary<Type, UnityEngine.Object[]> _objects = new();
 
-    //@@@@@@@@@@@@@@@@@@@@ Bind!!!!!!!!!!!
     protected void Bind<T>(Type type, bool recursive = false) where T : UnityEngine.Object //recursive 재귀적으로 찾을거냐 
     {
         //이넘 이름 가져오기
@@ -42,7 +41,6 @@ public class UIBase : MonoBehaviourPunCallbacks
     protected void AddUIEvent(GameObject go, Define.UIEvent uIEvent, Action<PointerEventData> action = null)
     {
         UIEventHandler uiEventHandler = Util.GetOrAddComponent<UIEventHandler>(go);
-
 
         switch (uIEvent)
         {

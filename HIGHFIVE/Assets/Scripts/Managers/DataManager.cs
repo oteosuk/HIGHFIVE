@@ -29,7 +29,7 @@ public class DataManager
 
         isInit = true;
     }
-        
+    //string Dictionary
     private void AddEntitiesToDictionary<T>(List<T> entities, Dictionary<string, T> dictionary, Func<T, string> keySelector)
     {
         foreach (var entity in entities)
@@ -37,7 +37,7 @@ public class DataManager
             dictionary.Add(keySelector(entity), entity);
         }
     }
-
+    //int Dictionary
     private void AddEntitiesToDictionary<T>(List<T> entities, Dictionary<int, T> dictionary, Func<T, int> keySelector)
     {
         foreach (var entity in entities)
