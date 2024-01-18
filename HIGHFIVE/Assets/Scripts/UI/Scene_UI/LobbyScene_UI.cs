@@ -75,14 +75,13 @@ public class LobbyScene_UI : UIBase
 
     public override void OnJoinRoomFailed(short returnCode, string message)
     {
-        string alertMessage = "알 수 없는 이유로 방에 들어갈 수 없습니다";
-        Util.ShowAlert(alertMessage, transform);
+        Util.ShowAlert(message, transform);
     }
 
     //로비에 있을 때 제3자가 방을 생성하면 로비에 해당 방이 반영이 되도록 해주는 함수
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
-        if (_lobbyInfoTxt != null) _lobbyInfoTxt.text = $"접속인원: {PhotonNetwork.CountOfPlayers - PhotonNetwork.CountOfPlayersInRooms}명";
+        
 
         foreach (RoomInfo room in roomList)
         {
@@ -96,8 +95,11 @@ public class LobbyScene_UI : UIBase
             //내 로컬상에 이미 해당 방이 존재한다면 생성 금지
             if (Main.NetworkManager.photonRoomDict.TryGetValue(room.Name, out bool isContain))
             {
+                if (_lobbyInfoTxt != null) _lobbyInfoTxt.text = $"접속인원: {PhotonNetwork.CountOfPlayers - PhotonNetwork.CountOfPlayersInRooms}명";
+                _roomListContent.transform.Find($"{room.Name}Room").Find("RoomInfo").GetComponent<TMP_Text>().text = $"{room.PlayerCount} / {room.MaxPlayers}";
                 if (isContain) continue;
             }
+            if (_lobbyInfoTxt != null) _lobbyInfoTxt.text = $"접속인원: {PhotonNetwork.CountOfPlayers - PhotonNetwork.CountOfPlayersInRooms}명";
 
             GameObject newRoom = Main.ResourceManager.Instantiate("UI_Prefabs/Rooms", _roomListContent.transform, $"{room.Name}Room");
             AddUIEvent(newRoom, Define.UIEvent.Click, OnEnterRoomClicked);
@@ -119,6 +121,7 @@ public class LobbyScene_UI : UIBase
 
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
+        
         Util.ShowAlert(message, transform);
     }
 }
