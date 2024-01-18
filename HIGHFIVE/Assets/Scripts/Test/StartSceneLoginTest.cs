@@ -9,19 +9,19 @@ public class StartSceneLoginTest : MonoBehaviour
 {
     private GoogleSheetManager _googleSheetManager;
     private TMP_InputField _nicknameField;
-    private GameObject _connectingPanel; //로딩패널
     private string _nickname;
+
+    public GameObject ConnectingPanel; //로딩패널
 
     private void Awake()
     {
         _googleSheetManager = FindObjectOfType<GoogleSheetManager>();
         _nicknameField = GameObject.Find("NicknameField").GetComponent<TMP_InputField>();
-        _connectingPanel = GameObject.Find("ConnectingPanel");
     }
 
     public void Connect()
     {
-        _connectingPanel.SetActive(true);
+        ConnectingPanel.SetActive(true);
         _nickname = _nicknameField.text;
         Debug.Log("닉네임 : " + _nickname);
 
