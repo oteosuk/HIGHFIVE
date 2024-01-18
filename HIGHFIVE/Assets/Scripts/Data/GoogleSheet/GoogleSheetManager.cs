@@ -44,7 +44,6 @@ public class GoogleSheetManager : MonoBehaviour
     public GoogleData GD;
     public TMP_InputField NicknameInput;
     string nickname;
-    public GameObject loadingText;
 
     // 닉네임 형식 검사 및 nickname string변수에 받아오기
     bool SetNicknamePass()
@@ -54,7 +53,7 @@ public class GoogleSheetManager : MonoBehaviour
         else return true;
     }
 
-    // 닉네임 로그인해주기
+    /*// 닉네임 로그인해주기
     public void NicknameLogin()
     {
         if (!SetNicknamePass())
@@ -62,30 +61,27 @@ public class GoogleSheetManager : MonoBehaviour
             print("아이디 또는 비밀번호가 비어있습니다");
             return;
         }
-        loadingText.SetActive(true);
 
         // form에 뭐할지를 쌓아둔후
         WWWForm form = new WWWForm();
         form.AddField("order", "nicknamelogin"); // p.order에 nicknamelogin 보내주기
         form.AddField("id", nickname); // p.id에 nickname보내주기
         StartCoroutine(NicknamePost(form)); // 여기서 form에 쌓아놨던것들 실행해준다.
-    }
+    }*/
 
     // 코루틴형태로 바뀐 버전
-    public IEnumerator NicknameLoginTest()
+    public IEnumerator NicknameLogin()
     {
         if (!SetNicknamePass())
         {
             print("아이디 또는 비밀번호가 비어있습니다");
-            yield break; //@@@
+            yield break;
         }
-        loadingText.SetActive(true);
 
-        // form에 뭐할지를 쌓아둔후
         WWWForm form = new WWWForm();
-        form.AddField("order", "nicknamelogin"); // p.order에 nicknamelogin 보내주기
-        form.AddField("id", nickname); // p.id에 nickname보내주기
-        yield return StartCoroutine(NicknamePost(form)); // 여기서 form에 쌓아놨던것들 실행해준다.
+        form.AddField("order", "nicknamelogin");
+        form.AddField("id", nickname);
+        yield return StartCoroutine(NicknamePost(form));
     }
 
     // 게임 종료시 호출 메서드
@@ -122,7 +118,7 @@ public class GoogleSheetManager : MonoBehaviour
 
             if (www.isDone) Response(www.downloadHandler.text);
             else print("웹의 응답이 없습니다.");
-            loadingText.SetActive(false);
+            //이 부분에 뭔가 통신이 종료되고 난 후 호출하고 싶은 메서드를 작성 @@
         }
     }
 
