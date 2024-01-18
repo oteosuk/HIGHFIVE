@@ -25,9 +25,9 @@ public class GoogleSheetManager : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
         //sheet1테스트
-        UnityWebRequest sheet1www = UnityWebRequest.Get(sheet1URL); //URL에 적혀있는대로 데이터를 가져온다.
-        yield return sheet1www.SendWebRequest(); //잘모르겠지만 통신요청?
-        string data1 = sheet1www.downloadHandler.text; // string형식으로 받아온뒤
+        UnityWebRequest sheet1www = UnityWebRequest.Get(sheet1URL);
+        yield return sheet1www.SendWebRequest();
+        string data1 = sheet1www.downloadHandler.text;
         //print(data1); // sheet1 A2:A 출력
 
         //sheet2테스트
@@ -37,7 +37,6 @@ public class GoogleSheetManager : MonoBehaviour
         //print(data2);// sheet2 A1:B1 출력
     }
 
-
     // [2. 여러 사람이 통신 가능하게]
     // 스프레드시트에서 배포를 누르고 나오는 URL링크를 아래에 대입. 수정할때마다 배포를 다시해서 URL도 다시 대입해줘야함
     const string URL = "https://script.google.com/macros/s/AKfycbxhr8T06aiUA-eq-isDQxOD2pfEM1xjr7T0OC5DQtwuXyDaGk_ZGjiZhIqj-AuzB6K9fg/exec";
@@ -45,34 +44,18 @@ public class GoogleSheetManager : MonoBehaviour
     public TMP_InputField NicknameInput;
     string nickname;
 
-    // 닉네임 형식 검사 및 nickname string변수에 받아오기
+    // 닉네임형식검사
     bool SetNicknamePass()
     {
         nickname = NicknameInput.text.Trim(); // 앞뒤 공백 제거
-        if (nickname == "") return false; // 입력필드가 비어있으면 실행안함
+        if (nickname == "") return false; // 입력필드가 비어있으면 false;
         else return true;
     }
-
-    /*// 닉네임 로그인해주기
-    public void NicknameLogin()
-    {
-        if (!SetNicknamePass())
-        {
-            print("아이디 또는 비밀번호가 비어있습니다");
-            return;
-        }
-
-        // form에 뭐할지를 쌓아둔후
-        WWWForm form = new WWWForm();
-        form.AddField("order", "nicknamelogin"); // p.order에 nicknamelogin 보내주기
-        form.AddField("id", nickname); // p.id에 nickname보내주기
-        StartCoroutine(NicknamePost(form)); // 여기서 form에 쌓아놨던것들 실행해준다.
-    }*/
 
     // 코루틴형태로 바뀐 버전
     public IEnumerator NicknameLogin()
     {
-        if (!SetNicknamePass())
+        if (!SetNicknamePass()) // 닉네임 형식 통과 못하면
         {
             print("아이디 또는 비밀번호가 비어있습니다");
             yield break;
@@ -81,7 +64,7 @@ public class GoogleSheetManager : MonoBehaviour
         WWWForm form = new WWWForm();
         form.AddField("order", "nicknamelogin");
         form.AddField("id", nickname);
-        yield return StartCoroutine(NicknamePost(form));
+        yield return StartCoroutine(Post(form));
     }
 
     // 게임 종료시 호출 메서드
@@ -107,18 +90,7 @@ public class GoogleSheetManager : MonoBehaviour
 
             if (www.isDone) Response(www.downloadHandler.text);
             else print("웹의 응답이 없습니다.");
-        }
-    }
-
-    IEnumerator NicknamePost(WWWForm form)
-    {
-        using (UnityWebRequest www = UnityWebRequest.Post(URL, form))
-        {
-            yield return www.SendWebRequest();
-
-            if (www.isDone) Response(www.downloadHandler.text);
-            else print("웹의 응답이 없습니다.");
-            //이 부분에 뭔가 통신이 종료되고 난 후 호출하고 싶은 메서드를 작성 @@
+            //이 부분에 뭔가 통신이 종료되고 난 후 호출하고 싶은 메서드를 작성 @@@@@@@@@@@@
         }
     }
 
