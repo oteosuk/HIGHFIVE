@@ -40,7 +40,7 @@ public class GoogleSheetManager : MonoBehaviour
 
     // [2. 여러 사람이 통신 가능하게]
     // 스프레드시트에서 배포를 누르고 나오는 URL링크를 아래에 대입. 수정할때마다 배포를 다시해서 URL도 다시 대입해줘야함
-    const string URL = "https://script.google.com/macros/s/AKfycbz-FNBcvfnGtWEn0Rvd-NJpHMVJSY3_ukhyZs90pWGv1JMZfufogsASikMPdbbBnoRE7g/exec";
+    const string URL = "https://script.google.com/macros/s/AKfycbz3qLPu9CiOtXkLxSNUUElLx_pA1ESSPfxKiBtPXQ_Yb3cgBdzOGiHzrq5LWUKyhHzvbg/exec";
     public GoogleData GD;
     public TMP_InputField NicknameInput;
     string nickname;
