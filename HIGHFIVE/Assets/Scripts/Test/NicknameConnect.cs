@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
-public class StartSceneLoginTest : MonoBehaviour
+public class NicknameConnect : MonoBehaviour
 {
     private GoogleSheetManager _googleSheetManager;
     private TMP_InputField _nicknameField;
