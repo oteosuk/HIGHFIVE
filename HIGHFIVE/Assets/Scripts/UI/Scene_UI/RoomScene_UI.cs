@@ -41,7 +41,7 @@ public class RoomScene_UI : UIBase
         _playerListContent = Get<GameObject>((int)GameObjects.PlayerListContent);
 
         if (PhotonNetwork.IsMasterClient) _readyTxt.text = "GameStart";
-        _roomName.text = $"{PhotonNetwork.CurrentRoom.Name}님의 방";
+        _roomName.text = $"{PhotonNetwork.CurrentRoom.Name} 방";
 
 
         AddUIEvent(_backToLobbyBtn.gameObject, Define.UIEvent.Click, OnBackToLobbyButtonClicked);
