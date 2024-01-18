@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Util
 {
@@ -55,5 +57,17 @@ public class Util
         }
 
         return component;
+    }
+    public static void ShowAlert(string alertMessage, Transform parent = null)
+    {
+        GameObject alertBlock = Main.ResourceManager.Instantiate("UI_Prefabs/AlertBlock", parent);
+        alertBlock.SetActive(true);
+        Transform alertGroup = alertBlock.transform.Find("AlertImage");
+        alertGroup.Find("AlertMessage").GetComponent<TMP_Text>().text = alertMessage;
+        alertGroup.Find("RecognizeBtn").GetComponent<Button>().onClick.AddListener(() =>
+        {
+            Main.UIManager.CloseCurrentPopup(alertBlock);
+        });
+        Main.UIManager.OpenPopup(alertBlock);
     }
 }

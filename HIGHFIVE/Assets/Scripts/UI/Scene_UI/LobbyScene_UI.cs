@@ -19,7 +19,7 @@ public class LobbyScene_UI : UIBase
     private enum GameObjects
     {
         RoomListContent,
-        AlertBlock
+        SetRoomBlock
     }
     private enum Texts
     {
@@ -28,10 +28,8 @@ public class LobbyScene_UI : UIBase
     
 
     private Button _createRoomBtn;//방 생성 버튼
-    private Button _refreshBtn;
-    private Button _recognizeBtn;
     private GameObject _roomListContent;//방 리스트 컨텐트
-    private GameObject _alertBlock;
+    private GameObject _setRoomBlock;
     private TMP_Text _lobbyInfoTxt;
     private float contentHeight = 0f;//컨테트의 크기 제어 변수
 
@@ -43,28 +41,22 @@ public class LobbyScene_UI : UIBase
         Bind<TMP_Text>(typeof(Texts), true);
 
         _createRoomBtn = Get<Button>((int)Buttons.CreateRoomBtn);
-        _recognizeBtn = Get<Button>((int)Buttons.RecognizeBtn);
         _roomListContent = Get<GameObject>((int)GameObjects.RoomListContent);
-        _alertBlock = Get<GameObject>((int)GameObjects.AlertBlock);
         _lobbyInfoTxt = Get<TMP_Text>((int)Texts.LobbyInfoTxt);
+        _setRoomBlock = Get<GameObject>((int)GameObjects.SetRoomBlock);
 
 
         AddUIEvent(_createRoomBtn.gameObject, Define.UIEvent.Click, OnCreateRoomButtonClicked);
-        AddUIEvent(_recognizeBtn.gameObject, Define.UIEvent.Click, OnRecognizeBtnClicked);
     }
 
     //CreateRoom버튼을 클릭했을때 호출 되는 함수
     private void OnCreateRoomButtonClicked(PointerEventData pointerEventData)
     {
-        Main.NetworkManager.MakeRoom(PhotonNetwork.NickName);
-        Main.NetworkManager.photonRoomDict.Clear();
+        //팝업 창을 띄우고, 사용자의 입력 -> 확인 버튼 눌렀을 시에 -> 사용자 입력값 기반으로 방 생성
+        //방 제목, 1:1 or 2:2
+        Debug.Log("fefe");
+        Main.UIManager.OpenPopup(_setRoomBlock);
     }
-
-    private void OnRecognizeBtnClicked(PointerEventData pointerEventData)
-    {
-        Main.UIManager.CloseCurrentPopup(_alertBlock);
-    }
-
 
     //방 리스트 패널에서 특정 방을 클릭 했을때 호출 되는 함수
     private void OnEnterRoomClicked(PointerEventData pointerEventData)
@@ -76,13 +68,15 @@ public class LobbyScene_UI : UIBase
         }
         else
         {
-            Main.UIManager.OpenPopup(_alertBlock);
+            string alertMessage = "현재 방이 가득 차 있습니다";
+            Util.ShowAlert(alertMessage, transform);
         }
     }
 
     public override void OnJoinRoomFailed(short returnCode, string message)
     {
-        Main.UIManager.OpenPopup(_alertBlock);
+        string alertMessage = "알 수 없는 이유로 방에 들어갈 수 없습니다";
+        Util.ShowAlert(alertMessage, transform);
     }
 
     //로비에 있을 때 제3자가 방을 생성하면 로비에 해당 방이 반영이 되도록 해주는 함수
@@ -121,5 +115,10 @@ public class LobbyScene_UI : UIBase
         }
 
         _roomListContent.GetComponent<RectTransform>().sizeDelta = new Vector2(_roomListContent.GetComponent<RectTransform>().sizeDelta.x, contentHeight);
+    }
+
+    public override void OnCreateRoomFailed(short returnCode, string message)
+    {
+        Util.ShowAlert(message, transform);
     }
 }

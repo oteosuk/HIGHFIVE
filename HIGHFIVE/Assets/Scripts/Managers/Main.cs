@@ -13,6 +13,10 @@ public class Main : MonoBehaviour
     private DataManager _dataManager = new DataManager();
     private ResourceManager _resourceManager = new ResourceManager();
     private UIManager _uiManager = new UIManager();
+    private ObjectManager _objectManager = new ObjectManager();
+
+    public static ObjectManager ObjectManager { get { return Instance._objectManager; } }
+    //private GoogleSheetManager _googleSheetManager = new GoogleSheetManager();
 
     public static GameManager GameManager { get { return Instance._gameManager; } }
     public static ResourceManager ResourceManager { get { return Instance._resourceManager; } }
@@ -20,6 +24,7 @@ public class Main : MonoBehaviour
     public static SceneManagerEx SceneManagerEx { get { return Instance._sceneManagerEx; } }
     public static NetworkManager NetworkManager { get { return Instance._networkManager; } } // set안써주면 알아서 private(아예 접근이 안됌)
     public static UIManager UIManager { get {  return Instance._uiManager; } }
+    //public static GoogleSheetManager GoogleSheetManager { get { return Instance._googleSheetManager; } }
 
     private static Main Instance
     {
