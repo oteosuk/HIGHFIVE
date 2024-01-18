@@ -33,6 +33,7 @@ public class PlayerHP : UIBase
 
     private void DamageTest(Collision2D colliision)
     {
+        Debug.Log("구독");
         _hpBar.fillAmount -= 0.1f;
     }
 }
