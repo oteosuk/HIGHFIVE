@@ -71,6 +71,7 @@ public class GoogleSheetManager : MonoBehaviour
         StartCoroutine(NicknamePost(form)); // 여기서 form에 쌓아놨던것들 실행해준다.
     }
 
+    // 코루틴형태로 바뀐 버전
     public IEnumerator NicknameLoginTest()
     {
         if (!SetNicknamePass())
