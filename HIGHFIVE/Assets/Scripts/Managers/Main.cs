@@ -13,6 +13,9 @@ public class Main : MonoBehaviour
     private DataManager _dataManager = new DataManager();
     private ResourceManager _resourceManager = new ResourceManager();
     private UIManager _uiManager = new UIManager();
+    private ObjectManager _objectManager = new ObjectManager();
+
+    public static ObjectManager ObjectManager { get { return Instance._objectManager; } }
     //private GoogleSheetManager _googleSheetManager = new GoogleSheetManager();
 
     public static GameManager GameManager { get { return Instance._gameManager; } }

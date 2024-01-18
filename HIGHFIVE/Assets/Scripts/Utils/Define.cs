@@ -21,4 +21,10 @@ public class Define
         Click,
         DoubleClick
     }
+
+    public enum Object
+    {
+        Player,
+        Monster
+    }
 }
