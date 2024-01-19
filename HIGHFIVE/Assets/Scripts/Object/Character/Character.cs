@@ -19,7 +19,7 @@ public class Character : MonoBehaviour
 
         if(_input == null)
         {
-            Debug.LogError("에러에러!");
+            Debug.Log("InputNull");
             Debug.Log(_input);
         }
 
