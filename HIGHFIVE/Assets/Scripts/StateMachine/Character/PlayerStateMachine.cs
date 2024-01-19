@@ -29,6 +29,8 @@ public class PlayerStateMachine : StateMachine
         _playerSkillState = new PlayerSkillState(this);
 
         _mainCameraTransform = Camera.main.transform;
+
+        _moveSpeed = 5f;
     }
 
 }

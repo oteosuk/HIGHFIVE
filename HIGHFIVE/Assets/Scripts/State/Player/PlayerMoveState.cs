@@ -33,7 +33,7 @@ public class PlayerMoveState : PlayerBaseState
 
         float moveSpeed = GetMoveSpeed();
         _playerStateMachine._player.transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
-
+        Debug.Log(moveSpeed);
         if (moveDirection.x < 0)
             _playerStateMachine._player.transform.localScale = new Vector3(-1, 1, 1);
         else if (moveDirection.x > 0)
