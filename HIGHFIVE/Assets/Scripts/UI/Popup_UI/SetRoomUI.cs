@@ -92,6 +92,4 @@ public class SetRoomUI : UIBase
                 break;
         }
     }
-
-
 }
