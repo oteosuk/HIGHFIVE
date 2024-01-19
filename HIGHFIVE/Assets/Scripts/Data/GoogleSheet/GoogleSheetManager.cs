@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using TMPro;
 
+
 [System.Serializable]
 public class GoogleData
 {
@@ -21,6 +22,7 @@ public class GoogleSheetManager : MonoBehaviour
     const string sheet1URL = "https://docs.google.com/spreadsheets/d/1PLnYfbYxz44NYJYaiOwZ2pWIHVbMDtbWAhOmxpxBXiM/export?format=tsv&range=A2:A";
     const string sheet2URL = "https://docs.google.com/spreadsheets/d/1PLnYfbYxz44NYJYaiOwZ2pWIHVbMDtbWAhOmxpxBXiM/export?format=tsv&gid=1778935828&range=A1:B1";
 
+
     IEnumerator Start()
     {
         DontDestroyOnLoad(gameObject);
@@ -37,37 +39,25 @@ public class GoogleSheetManager : MonoBehaviour
         //print(data2);// sheet2 A1:B1 출력
     }
 
+
     // [2. 여러 사람이 통신 가능하게]
     // 스프레드시트에서 배포를 누르고 나오는 URL링크를 아래에 대입. 수정할때마다 배포를 다시해서 URL도 다시 대입해줘야함
-    const string URL = "https://script.google.com/macros/s/AKfycbxpuilxheQoKfpg8uu4okWpXjA8XgpjcJn7tCeOL_eZhaz3PsjIse8YK4jMy7V6PcFO3Q/exec";
+    const string URL = "https://script.google.com/macros/s/AKfycbyTyuvoA48WZ076MDj1KWyhl0GVtMq205rSPAJN-eNHWSS-m76pSz6bSMHqBTXPnqU/exec";
     public GoogleData GD;
     public TMP_InputField NicknameInput;
     string nickname;
     private bool _isLogin = false;
 
-    // 닉네임형식검사
-    bool SetNicknamePass()
-    {
-        nickname = NicknameInput.text.Trim(); // 앞뒤 공백 제거
-        if (nickname == "") return false; // 입력필드가 비어있으면 false;
-        else return true;
-    }
-
 
     // 코루틴형태로 바뀐 버전
     public IEnumerator NicknameLogin()
     {
-        if (!SetNicknamePass()) // 닉네임 형식 통과 못하면
-        {
-            print("아이디 또는 비밀번호가 비어있습니다");
-            yield break;
-        }
-
+        nickname = NicknameInput.text.Trim();
         _isLogin = true;
         WWWForm form = new WWWForm();
         form.AddField("order", "login");
         form.AddField("id", nickname);
-        form.AddField("value", nickname);
+        //form.AddField("value", nickname);
         yield return StartCoroutine(Post(form));
     }
 
@@ -87,7 +77,7 @@ public class GoogleSheetManager : MonoBehaviour
     {
         WWWForm form = new WWWForm();
         form.AddField("order", "logout");
-        form.AddField("value", nickname);
+        form.AddField("id", nickname); // 이 부분이 구글시트에 로그인되있는 닉네임을 보내주는 부분이다.
         StartCoroutine(Post(form));
     }
 
@@ -137,6 +127,7 @@ public class GoogleSheetManager : MonoBehaviour
 
         StartCoroutine(Post(form));
     }
+
 
     //구글에서 유니티로 Get(읽기)
     public void GetValue() 
