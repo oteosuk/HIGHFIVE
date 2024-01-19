@@ -54,7 +54,6 @@ public class LobbyScene_UI : UIBase
     {
         //팝업 창을 띄우고, 사용자의 입력 -> 확인 버튼 눌렀을 시에 -> 사용자 입력값 기반으로 방 생성
         //방 제목, 1:1 or 2:2
-        Debug.Log("fefe");
         Main.UIManager.OpenPopup(_setRoomBlock);
     }
 
@@ -95,8 +94,11 @@ public class LobbyScene_UI : UIBase
             //내 로컬상에 이미 해당 방이 존재한다면 생성 금지
             if (Main.NetworkManager.photonRoomDict.TryGetValue(room.Name, out bool isContain))
             {
-                if (_lobbyInfoTxt != null) _lobbyInfoTxt.text = $"접속인원: {PhotonNetwork.CountOfPlayers - PhotonNetwork.CountOfPlayersInRooms}명";
-                _roomListContent.transform.Find($"{room.Name}Room").Find("RoomInfo").GetComponent<TMP_Text>().text = $"{room.PlayerCount} / {room.MaxPlayers}";
+                if (_roomListContent.transform.Find($"{room.Name}Room") != null)
+                {
+                    _roomListContent.transform.Find($"{room.Name}Room").Find("RoomInfo").GetComponent<TMP_Text>().text = $"{room.PlayerCount} / {room.MaxPlayers}";
+                }
+               
                 if (isContain) continue;
             }
             if (_lobbyInfoTxt != null) _lobbyInfoTxt.text = $"접속인원: {PhotonNetwork.CountOfPlayers - PhotonNetwork.CountOfPlayersInRooms}명";
