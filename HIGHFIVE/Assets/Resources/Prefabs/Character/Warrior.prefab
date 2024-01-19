@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 836829057453964200}
   - component: {fileID: 1405490037876799713}
   - component: {fileID: 7697956537272984762}
-  - component: {fileID: 3823252489027509532}
-  - component: {fileID: -4792720150149354443}
-  - component: {fileID: -929558412782342130}
+  - component: {fileID: 4771508388389881792}
+  - component: {fileID: 433998406333698883}
+  - component: {fileID: 5038934521651411792}
   m_Layer: 0
   m_Name: Warrior
   m_TagString: Untagged
@@ -187,7 +187,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2b645947df984f4699b8a92862b99da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-4792720150149354443
+  m_Actions: {fileID: -944628639613478452, guid: 466b9f637fb318141a548d045fb221ce,
+    type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 79a554e6-f8f7-473c-b0ff-41078e1d506b
+    m_ActionName: Player/Move[/Mouse/rightButton]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &433998406333698883
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -199,17 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents: []
-  sceneViewId: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
---- !u!114 &-929558412782342130
+--- !u!114 &5038934521651411792
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -218,10 +231,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1232833287244604407}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b11112c2f372b94194fbcbd9a60e9a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1

@@ -9,13 +9,15 @@ public abstract class StateMachine
     public void ChangeState(IState newState)
     {
         // 전 상태를 해제
-        _currentState.Exit();
+        _currentState?.Exit();
 
         // 새로운 상태를 받아온 후
         _currentState = newState;
 
         // 진입
         _currentState.Enter();
+
+        Debug.Log($"Changed state to: {newState.GetType().Name}");
     }
 
     public void HandleInput()
