@@ -34,6 +34,11 @@ public class NetworkManager
     //현재는 자기 닉네임을 가지고 방을 생성
     public bool MakeRoom(string name, int roomNumber)
     {
-        return PhotonNetwork.CreateRoom(name, new RoomOptions { MaxPlayers = roomNumber, IsOpen = true, IsVisible = true });
+        return PhotonNetwork.CreateRoom(name, new RoomOptions
+        { 
+            MaxPlayers = roomNumber, 
+            IsOpen = true, IsVisible = true, 
+            CustomRoomProperties = new ExitGames.Client.Photon.Hashtable() { { "IsGameStarted", false } } 
+        });
     }
 }

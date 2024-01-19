@@ -24,7 +24,13 @@ public class Define
 
     public enum Object
     {
-        Player,
+        Character,
         Monster
+    }
+
+    public enum Camp
+    {
+        Blue,
+        Red
     }
 }

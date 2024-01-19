@@ -19,7 +19,7 @@ public class Character : MonoBehaviour
 
         if(_input == null)
         {
-            Debug.LogError("에러에러!");
+            Debug.LogError("에러!");
         }
 
         _playerStateMachine = new PlayerStateMachine(this);
