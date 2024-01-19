@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerStateMachine : MonoBehaviour
 {
     // Player에 상태들을 관리해주기 위한 클래스
-    public Players _player { get; }
+    public Character _player { get; }
 
     public PlayerIdleState _idleState { get; }
 
@@ -14,9 +14,9 @@ public class PlayerStateMachine : MonoBehaviour
 
     public Transform _mainCameraTransform { get; set; }
 
-    public PlayerStateMachine(Players players)
+    public PlayerStateMachine(Character character)
     {
-        this._player = players;
+        this._player = character;
         
         _idleState = new PlayerIdleState(this);
 

@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Players : MonoBehaviour
+public class Character : MonoBehaviour
 {
-
     private PlayerStateMachine _stateMachine;
 
     public Rigidbody2D _rigidbody { get; private set; }
