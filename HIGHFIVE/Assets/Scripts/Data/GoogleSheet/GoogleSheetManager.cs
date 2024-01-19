@@ -39,10 +39,11 @@ public class GoogleSheetManager : MonoBehaviour
 
     // [2. 여러 사람이 통신 가능하게]
     // 스프레드시트에서 배포를 누르고 나오는 URL링크를 아래에 대입. 수정할때마다 배포를 다시해서 URL도 다시 대입해줘야함
-    const string URL = "https://script.google.com/macros/s/AKfycbzc3r6ZZRofvq7XQueC9GXeu8_SlRTQsqgVULVUQ6m8QYIe6W69Z4i4ELeztUYfsFzx2w/exec";
+    const string URL = "https://script.google.com/macros/s/AKfycbxpuilxheQoKfpg8uu4okWpXjA8XgpjcJn7tCeOL_eZhaz3PsjIse8YK4jMy7V6PcFO3Q/exec";
     public GoogleData GD;
     public TMP_InputField NicknameInput;
     string nickname;
+    private bool _isLogin = false;
 
     // 닉네임형식검사
     bool SetNicknamePass()
@@ -51,6 +52,7 @@ public class GoogleSheetManager : MonoBehaviour
         if (nickname == "") return false; // 입력필드가 비어있으면 false;
         else return true;
     }
+
 
     // 코루틴형태로 바뀐 버전
     public IEnumerator NicknameLogin()
@@ -61,25 +63,34 @@ public class GoogleSheetManager : MonoBehaviour
             yield break;
         }
 
+        _isLogin = true;
         WWWForm form = new WWWForm();
-        form.AddField("order", "nicknamelogin");
+        form.AddField("order", "login");
         form.AddField("id", nickname);
+        form.AddField("value", nickname);
         yield return StartCoroutine(Post(form));
     }
+
 
     // 게임 종료시 호출 메서드
     void OnApplicationQuit()
     {
-        Logout();
+        if (_isLogin)
+        {
+            Logout();
+        }
     }
+
 
     // 스프레드시트의 닉네임을 삭제(빈 문자열로 교체)해주는 메서드
     public void Logout()
     {
         WWWForm form = new WWWForm();
         form.AddField("order", "logout");
+        form.AddField("value", nickname);
         StartCoroutine(Post(form));
     }
+
 
     // 웹에 통신 보내주는 함수
     IEnumerator Post(WWWForm form) 
@@ -93,6 +104,7 @@ public class GoogleSheetManager : MonoBehaviour
             //이 부분에 뭔가 통신이 종료되고 난 후 호출하고 싶은 메서드를 작성 @@@@@@@@@@@@
         }
     }
+
 
     //json파일 형식을 콘솔창에 이쁘게 파싱해서 보여주는 메서드
     void Response(string json) 
@@ -114,6 +126,7 @@ public class GoogleSheetManager : MonoBehaviour
             //(내가원하는변수) = GD.value;
         }
     }
+
 
     /*//유니티에서 구글로 Set(쓰기)
     public void SetValue() 
