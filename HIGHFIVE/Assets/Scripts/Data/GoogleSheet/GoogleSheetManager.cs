@@ -77,7 +77,7 @@ public class GoogleSheetManager : MonoBehaviour
     {
         WWWForm form = new WWWForm();
         form.AddField("order", "logout");
-        form.AddField("value", nickname);
+        form.AddField("value", nickname); // 이 부분이 구글시트에 로그인되있는 닉네임을 보내주는 부분이다.
         StartCoroutine(Post(form));
     }
 
