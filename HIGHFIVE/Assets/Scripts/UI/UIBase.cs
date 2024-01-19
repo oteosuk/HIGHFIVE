@@ -8,12 +8,13 @@ using UnityEngine.EventSystems;
 public class UIBase : MonoBehaviourPunCallbacks
 {
     protected Dictionary<Type, UnityEngine.Object[]> _objects = new();
+    
 
     protected void Bind<T>(Type type, bool recursive = false) where T : UnityEngine.Object //recursive 재귀적으로 찾을거냐 
     {
         //이넘 이름 가져오기
         string[] names = Enum.GetNames(type);
-        
+
         //이넘 길이만큼 생성
         UnityEngine.Object[] objects = new UnityEngine.Object[names.Length];
 
