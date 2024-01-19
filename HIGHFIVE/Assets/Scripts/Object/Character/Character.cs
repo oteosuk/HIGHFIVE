@@ -5,7 +5,6 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     private PlayerStateMachine _stateMachine;
-
     public Rigidbody2D _rigidbody { get; private set; }
     public PlayerInput _input { get; private set; }
 

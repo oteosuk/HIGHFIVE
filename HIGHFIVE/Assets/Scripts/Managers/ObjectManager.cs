@@ -1,23 +1,23 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjectManager
 {
-    private Dictionary<int, GameObject> _players = new Dictionary<int, GameObject>();
 
-    public GameObject Spawn(Define.Object type, string path, int id = -1, Transform parent = null)
+    public GameObject Spawn(string path, Vector2 position, Transform parent = null, bool syncRequired = false)
     {
-        GameObject go = Main.ResourceManager.Instantiate(path, parent);
+        GameObject go;
 
-        switch (type)
+        if (syncRequired)
         {
-            case Define.Object.Player:
-                _players.Add(id, go);
-                break;
-            case Define.Object.Monster:
-                //_monsters.Add(id, go);
-                break;
+            go = PhotonNetwork.Instantiate($"Prefabs/{path}", position, Quaternion.identity);
+        }
+        else
+        {
+            go = Main.ResourceManager.Instantiate(path, parent);
+            go.transform.position = position;
         }
 
         return go;
@@ -27,7 +27,7 @@ public class ObjectManager
     {
         switch (type)
         {
-            case Define.Object.Player:
+            case Define.Object.Character:
                 //_players.Add(id, go);
                 break;
             case Define.Object.Monster:
