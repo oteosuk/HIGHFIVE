@@ -42,7 +42,7 @@ public class GoogleSheetManager : MonoBehaviour
 
     // [2. 여러 사람이 통신 가능하게]
     // 스프레드시트에서 배포를 누르고 나오는 URL링크를 아래에 대입. 수정할때마다 배포를 다시해서 URL도 다시 대입해줘야함
-    const string URL = "https://script.google.com/macros/s/AKfycbw2zTJHzr2HF-3SyMxMtGyYwc0HCQihxU6MFSUr50km7MKKGnn3N1G73-EZRbpBJzB-JA/exec";
+    const string URL = "https://script.google.com/macros/s/AKfycbyTyuvoA48WZ076MDj1KWyhl0GVtMq205rSPAJN-eNHWSS-m76pSz6bSMHqBTXPnqU/exec";
     public GoogleData GD;
     public TMP_InputField NicknameInput;
     string nickname;
@@ -57,7 +57,7 @@ public class GoogleSheetManager : MonoBehaviour
         WWWForm form = new WWWForm();
         form.AddField("order", "login");
         form.AddField("id", nickname);
-        form.AddField("value", nickname);
+        //form.AddField("value", nickname);
         yield return StartCoroutine(Post(form));
     }
 
@@ -77,7 +77,7 @@ public class GoogleSheetManager : MonoBehaviour
     {
         WWWForm form = new WWWForm();
         form.AddField("order", "logout");
-        form.AddField("value", nickname); // 이 부분이 구글시트에 로그인되있는 닉네임을 보내주는 부분이다.
+        form.AddField("id", nickname); // 이 부분이 구글시트에 로그인되있는 닉네임을 보내주는 부분이다.
         StartCoroutine(Post(form));
     }
 
