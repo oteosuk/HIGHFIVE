@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class Warrior : Character
 {
+    private WarriorStat _warriorStat;
     private void Start()
     {
-        
+        _warriorStat = Util.GetOrAddComponent<WarriorStat>(gameObject);
     }
 
-    private void Update()
-    {
-        
-    }
 }

@@ -80,8 +80,6 @@ public class LobbyScene_UI : UIBase
     //로비에 있을 때 제3자가 방을 생성하면 로비에 해당 방이 반영이 되도록 해주는 함수
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
-        
-
         foreach (RoomInfo room in roomList)
         {
             //방폭된 방 생성 방지
@@ -91,6 +89,16 @@ public class LobbyScene_UI : UIBase
                 Main.ResourceManager.Destroy(_roomListContent.transform.Find($"{room.Name}Room")?.gameObject);
                 continue;
             }
+
+            Debug.Log(room.CustomProperties.ContainsKey("IsGameStarted"));
+            if (room.CustomProperties.ContainsKey("IsGameStarted") && (bool)room.CustomProperties["IsGameStarted"] == true)
+            {
+                Debug.Log("gd");
+                Main.NetworkManager.photonRoomDict[room.Name] = false;
+                Main.ResourceManager.Destroy(_roomListContent.transform.Find($"{room.Name}Room")?.gameObject);
+                continue;
+            }
+
             //내 로컬상에 이미 해당 방이 존재한다면 생성 금지
             if (Main.NetworkManager.photonRoomDict.TryGetValue(room.Name, out bool isContain))
             {

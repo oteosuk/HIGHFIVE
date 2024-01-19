@@ -45,7 +45,15 @@ public class PlayerReadyController : UIBase
                 if (value == null || (bool)value == false) isAllPlayerReady = false;
             }
 
-            if (isAllPlayerReady) PhotonNetwork.LoadLevel((int)Define.Scene.SelectScene);
+            if (isAllPlayerReady)
+            {
+                ExitGames.Client.Photon.Hashtable customProperties = PhotonNetwork.CurrentRoom.CustomProperties;
+                
+                customProperties["IsGameStarted"] = true;
+                Debug.Log(customProperties["IsGameStarted"]);
+                PhotonNetwork.CurrentRoom.SetCustomProperties(customProperties);
+                PhotonNetwork.LoadLevel((int)Define.Scene.SelectScene);
+            }
         }
         else
         {
