@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class GameManager 
 {
-    public string SelectedCharacter { get; set; }
+    public string SelectedCharacter { get; set; } = "전사";
     public Define.Camp SelectedCamp { get; set; }
+
 }
 
 
