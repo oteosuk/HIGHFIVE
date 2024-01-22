@@ -412,11 +412,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: InGamePlayer
       objectReference: {fileID: 0}
-    - target: {fileID: 3282232393219208410, guid: 235032f9bd5524847ba302f607ef8f55,
-        type: 3}
-      propertyPath: sceneViewId
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6744476509701412619, guid: 235032f9bd5524847ba302f607ef8f55,
         type: 3}
       propertyPath: m_RootOrder
