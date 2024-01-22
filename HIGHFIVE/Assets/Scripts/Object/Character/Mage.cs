@@ -4,13 +4,22 @@ using UnityEngine;
 
 public class Mage : Character
 {
-    private void Start()
+    protected override void Awake()
     {
-        
+        base.Awake();
+    }
+    protected override void Start()
+    {
+        base.Start();
+        stat = Util.GetOrAddComponent<MageStat>(gameObject);
+    }
+    protected override void Update()
+    {
+        base.Update();
     }
 
-    private void Update()
+    protected override void FixedUpdate()
     {
-        
+        base.FixedUpdate();
     }
 }

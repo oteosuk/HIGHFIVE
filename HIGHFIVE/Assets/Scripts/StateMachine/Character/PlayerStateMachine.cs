@@ -12,9 +12,8 @@ public class PlayerStateMachine : StateMachine
     public PlayerDieState _playerDieState { get; }
     public PlayerSkillState _playerSkillState { get; }
 
-    public Vector2 moveInput { get; set; }
-    public float _moveSpeed { get; private set; }
-    public float _moveSpeedModifier { get; set; } = 1f;
+    public Vector2 moveInput { get; set; } = Vector2.zero;
+    public float moveSpeedModifier = 1.0f;
 
     public Transform _mainCameraTransform { get; set; }
 
@@ -29,8 +28,6 @@ public class PlayerStateMachine : StateMachine
         _playerSkillState = new PlayerSkillState(this);
 
         _mainCameraTransform = Camera.main.transform;
-
-        _moveSpeed = 5f;
     }
 
 }
