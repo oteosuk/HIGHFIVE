@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 
-public class Timer : MonoBehaviour
+public class SelectScene_Timer : MonoBehaviour
 {
     [SerializeField] private TMP_Text text;
 
