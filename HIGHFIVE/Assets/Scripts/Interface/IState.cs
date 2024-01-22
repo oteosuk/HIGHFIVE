@@ -15,5 +15,5 @@ public interface IState
     // 현재 State에 Update를 호출
     public void StateUpdate();
     // 물리 업데이트
-    public void physicsUpdate();
+    public void PhysicsUpdate();
 }
