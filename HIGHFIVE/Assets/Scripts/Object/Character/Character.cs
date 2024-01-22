@@ -4,39 +4,37 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    private PlayerStateMachine _playerStateMachine;
+    public Stat stat;
+    protected PlayerStateMachine _playerStateMachine;
 
-    public Rigidbody2D _rigidbody { get; private set; }
-    public PlayerInput _input { get; private set; }
+    public Rigidbody2D _rigidbody { get; protected set; }
+    public PlayerInput _input { get; protected set; }
     public Collider2D _controller { get; set; }
 
-
-    private void Awake()
+    protected virtual void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _input = GetComponent<PlayerInput>();
         _controller = GetComponent<Collider2D>();
 
-        if(_input == null)
+        if (_input == null)
         {
             Debug.Log("InputNull");
             Debug.Log(_input);
         }
-
-        _playerStateMachine = new PlayerStateMachine(this);
     }
-
-    private void Start()
+    protected virtual void Start()
     {
+        _playerStateMachine = new PlayerStateMachine(this);
         _playerStateMachine.ChangeState(_playerStateMachine._playerIdleState);
     }
-    private void Update()
+    protected virtual void Update()
     {
         _playerStateMachine.HandleInput();
         _playerStateMachine.StateUpdate();
     }
 
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         _playerStateMachine.PhysicsUpdate();
     }

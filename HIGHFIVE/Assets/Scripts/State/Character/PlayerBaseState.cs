@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -10,6 +11,7 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 public class PlayerBaseState : IState
 {
     protected PlayerStateMachine _playerStateMachine;
+    protected Vector2 _tempTargetPos = Vector2.zero;
 
     public PlayerBaseState(PlayerStateMachine playerStateMachine)
     {
@@ -38,7 +40,10 @@ public class PlayerBaseState : IState
 
     public virtual void StateUpdate()
     {
-
+        if (_playerStateMachine._player.stat.CurHp <= 0)
+        {
+            OnDie();
+        }
     }
 
     protected virtual void AddInputActionsCallbacks()
@@ -47,6 +52,7 @@ public class PlayerBaseState : IState
         {
             PlayerInput input = _playerStateMachine._player._input;
             input._playerActions.Move.canceled += OnMoveCanceled;
+            input._playerActions.NormalAttack.started += OnAttackStarted;
         }
         else
         {
@@ -59,12 +65,17 @@ public class PlayerBaseState : IState
     {
         PlayerInput input = _playerStateMachine._player._input;
         input._playerActions.Move.canceled -= OnMoveCanceled;
+        input._playerActions.NormalAttack.started -= OnAttackStarted;
     }
 
 
     private void ReadMoveInput()
     {
-        _playerStateMachine.moveInput = _playerStateMachine._player._input._playerActions.Move.ReadValue<Vector2>();
+        if (Mouse.current.rightButton.isPressed)
+        {
+            _playerStateMachine.moveInput = Camera.main.ScreenToWorldPoint(_playerStateMachine._player._input._playerActions.Move.ReadValue<Vector2>());
+            _tempTargetPos = _playerStateMachine.moveInput;
+        }
     }
 
     private void OnMoveCanceled(InputAction.CallbackContext context)
@@ -77,8 +88,20 @@ public class PlayerBaseState : IState
         _playerStateMachine.ChangeState(_playerStateMachine._playerIdleState);
     }
 
+    private void OnAttackStarted(InputAction.CallbackContext context)
+    {
+        _playerStateMachine.ChangeState(_playerStateMachine._playerAttackState);
+    }
+
+
+
     protected virtual void  OnMove()
     {
         
+    }
+
+    protected virtual void OnDie()
+    {
+        _playerStateMachine.ChangeState(_playerStateMachine._playerDieState);
     }
 }

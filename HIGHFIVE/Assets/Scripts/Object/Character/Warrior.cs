@@ -4,10 +4,22 @@ using UnityEngine;
 
 public class Warrior : Character
 {
-    private WarriorStat _warriorStat;
-    private void Start()
+    protected override void Awake()
     {
-        _warriorStat = Util.GetOrAddComponent<WarriorStat>(gameObject);
+        base.Awake();
+    }
+    protected override void Start()
+    {
+        base.Start();
+        stat = Util.GetOrAddComponent<WarriorStat>(gameObject);
+    }
+    protected override void Update()
+    {
+        base.Update();
     }
 
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
+    }
 }

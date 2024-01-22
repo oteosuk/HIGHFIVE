@@ -10,7 +10,7 @@ public class Stat : MonoBehaviour
     public int Defence { get; set; }
     public float AttackRange { get; set; }
     public float AttackSpeed { get; set; }
-    public float MoveSpeed { get; set; }
+    public float MoveSpeed { get;  set ; }
     private void Start()
     {
         Init();
