@@ -8,7 +8,7 @@ public class MageStat : CharacterStat
     {
         base.Init();
 
-        if (Main.DataManager.CharacterDict.TryGetValue("법사", out CharacterDBEntity mage))
+        if (Main.DataManager.CharacterDict.TryGetValue("마법사", out CharacterDBEntity mage))
         {
             CurHp = mage.curHp;
             MaxHp = mage.maxHp;

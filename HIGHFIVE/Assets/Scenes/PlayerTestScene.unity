@@ -723,12 +723,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &1440746676 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6744476509701412619, guid: 235032f9bd5524847ba302f607ef8f55,
-    type: 3}
-  m_PrefabInstance: {fileID: 1168289218}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1849173903
 GameObject:
   m_ObjectHideFlags: 0
@@ -1077,7 +1071,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4788468127691923799}
-  - {fileID: 1440746676}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
