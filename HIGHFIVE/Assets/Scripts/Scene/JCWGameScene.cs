@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class JCWGameScene : BaseScene
 {
-    Dictionary<string, string> classMapping = new Dictionary<string, string>
+    private Dictionary<string, string> _classMapping = new Dictionary<string, string>
         {
             { "전사", "Warrior" },
             { "도적", "Rogue" },
@@ -20,7 +20,7 @@ public class JCWGameScene : BaseScene
         Vector2 position = Main.GameManager.SelectedCamp == Define.Camp.Red ? _redCamp.transform.position : _blueCamp.transform.position;
         string selectClass;
         GameObject characterObj;
-        if (classMapping.TryGetValue(Main.GameManager.SelectedCharacter, out  selectClass))
+        if (_classMapping.TryGetValue(Main.GameManager.SelectedCharacter, out  selectClass))
         {
             characterObj = Main.ObjectManager.Spawn($"Character/{selectClass}", position, syncRequired:true);
         }

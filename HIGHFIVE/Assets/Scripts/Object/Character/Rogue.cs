@@ -4,13 +4,22 @@ using UnityEngine;
 
 public class Rogue : Character
 {
-    private void Start()
+    protected override void Awake()
     {
-        
+        base.Awake();
+    }
+    protected override void Start()
+    {
+        base.Start();
+        stat = Util.GetOrAddComponent<RogueStat>(gameObject);
+    }
+    protected override void Update()
+    {
+        base.Update();
     }
 
-    private void Update()
+    protected override void FixedUpdate()
     {
-        
+        base.FixedUpdate();
     }
 }
