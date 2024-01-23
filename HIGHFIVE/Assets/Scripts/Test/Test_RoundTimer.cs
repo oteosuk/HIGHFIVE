@@ -7,37 +7,46 @@ using System;
 
 public class Test_RoundTimer : MonoBehaviour
 {
-    //[SerializeField] private TMP_Text text;
+    [SerializeField] private TMP_Text text;
 
-    //[SerializeField] private float time;
-    //[SerializeField] private float curTime;
+    [SerializeField] private float farmingTime;
+    [SerializeField] private float battleTime;
+    [SerializeField] private float curTime;
 
-    //// int minute;
-    //int second;
+    // int minute;
+    int second;
 
-    //private void Awake()
+    private void Awake()
+    {
+        StartCoroutine(StartTimer());
+    }
+
+    IEnumerator StartTimer()
+    {
+        farmingTime = 10;
+        battleTime = 5;
+        curTime = farmingTime;
+        while (curTime > 0)
+        {
+            curTime -= Time.deltaTime;
+            // minute = (int)curTime / 60;
+            second = (int)curTime % 60;
+            text.text = second.ToString("0");
+            yield return null;
+
+            if (curTime <= 0)
+            {
+                curTime = 0;
+                curTime = battleTime;
+
+                //StartCoroutine(BattleTimer());
+                yield break;
+            }
+        }
+    }
+
+    //IEnumerator BattleTimer()
     //{
-    //    time = 5;
-    //    StartCoroutine(StartTimer());
-    //}
 
-    //IEnumerator StartTimer()
-    //{
-    //    curTime = time;
-    //    while (curTime > 0)
-    //    {
-    //        curTime -= Time.deltaTime;
-    //        // minute = (int)curTime / 60;
-    //        second = (int)curTime % 60;
-    //        text.text = second.ToString("0");
-    //        yield return null;
-
-    //        if (curTime <= 0)
-    //        {
-    //            Main.SceneManagerEx.LoadScene(Define.Scene.GameScene);
-    //            curTime = 0;
-    //            yield break;
-    //        }
-    //    }
     //}
 }

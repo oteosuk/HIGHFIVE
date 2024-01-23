@@ -18,7 +18,6 @@ public class CharSelectTimer : MonoBehaviour
 
     private void Awake()
     {
-        time = 5;
         StartCoroutine(StartTimer());
     }
 
