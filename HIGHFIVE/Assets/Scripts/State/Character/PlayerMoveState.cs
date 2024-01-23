@@ -65,20 +65,20 @@ public class PlayerMoveState : PlayerBaseState
                 _playerStateMachine.ChangeState(_playerStateMachine._playerAttackState);
             }
         }
-        else
-        {
-            int maxColliders = 10;
-            Collider[] hitColliders = new Collider[maxColliders];
-            int numColliders = Physics.OverlapSphereNonAlloc(_playerStateMachine._player.transform.position, _playerStateMachine._player.stat.AttackRange, hitColliders);
-            for (int i = 0; i < numColliders; i++)
-            {
-                if (hitColliders[i].gameObject.tag == Enum.GetName(typeof(Define.Tag), Define.Tag.Enemy))
-                {
-                    _playerStateMachine.targetObject = hitColliders[i].gameObject;
-                    _playerStateMachine.ChangeState(_playerStateMachine._playerAttackState);
-                }
-            }
-        }
+        //else
+        //{
+        //    int maxColliders = 10;
+        //    Collider[] hitColliders = new Collider[maxColliders];
+        //    int numColliders = Physics.OverlapSphereNonAlloc(_playerStateMachine._player.transform.position, _playerStateMachine._player.stat.AttackRange, hitColliders);
+        //    for (int i = 0; i < numColliders; i++)
+        //    {
+        //        if (hitColliders[i].gameObject.tag == Enum.GetName(typeof(Define.Tag), Define.Tag.Enemy))
+        //        {
+        //            _playerStateMachine.targetObject = hitColliders[i].gameObject;
+        //            _playerStateMachine.ChangeState(_playerStateMachine._playerAttackState);
+        //        }
+        //    }
+        //}
 
         if (_targetPosition == (Vector2)_playerStateMachine._player.transform.position)
         {
