@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using static UnityEngine.RuleTile.TilingRuleOutput;
+using UnityEngine.UIElements;
 
 public class PlayerBaseState : IState
 {
@@ -71,9 +71,40 @@ public class PlayerBaseState : IState
 
     private void ReadMoveInput()
     {
-        if (Mouse.current.rightButton.isPressed)
+        if (Mouse.current.rightButton.wasPressedThisFrame)
         {
-            _playerStateMachine.moveInput = Camera.main.ScreenToWorldPoint(_playerStateMachine._player._input._playerActions.Move.ReadValue<Vector2>());
+            Vector2 mousePoint = _playerStateMachine._player._input._playerActions.Move.ReadValue<Vector2>();
+            Vector2 raymousePoint = Camera.main.ScreenToWorldPoint(mousePoint);
+
+
+            RaycastHit2D hit = Physics2D.Raycast(raymousePoint, Camera.main.transform.forward, 100.0f);
+
+
+            if (hit.collider?.gameObject != null)
+            {
+                int mask = 1 << hit.collider.gameObject.layer;
+                if (mask == LayerMask.GetMask("Monster"))
+                {
+                    _playerStateMachine.targetObject = hit.collider.gameObject;
+                    float distance = (hit.collider.transform.position - _playerStateMachine._player.transform.position).magnitude;
+
+                    if (_playerStateMachine._player.stat.AttackRange > distance)
+                    {
+                        //공격
+                        _playerStateMachine.ChangeState(_playerStateMachine._playerAttackState);
+                    }
+                    else
+                    {
+                        _playerStateMachine.ChangeState(_playerStateMachine._playerMoveState);
+                    }
+                }
+            }
+            else
+            {
+                _playerStateMachine.targetObject = null;
+            }
+
+            _playerStateMachine.moveInput = Camera.main.ScreenToWorldPoint(mousePoint);
             _tempTargetPos = _playerStateMachine.moveInput;
         }
     }
@@ -92,8 +123,6 @@ public class PlayerBaseState : IState
     {
         _playerStateMachine.ChangeState(_playerStateMachine._playerAttackState);
     }
-
-
 
     protected virtual void  OnMove()
     {
