@@ -2,6 +2,8 @@ using System.Collections;
 using UnityEngine;
 using System.Text.RegularExpressions;
 using TMPro;
+using System;
+using UnityEngine.UI;
 
 
 public class NicknameConnect : MonoBehaviour
@@ -18,6 +20,16 @@ public class NicknameConnect : MonoBehaviour
         _googleSheetManager = FindObjectOfType<GoogleSheetManager>();
         _nicknameField = GameObject.Find("NicknameField").GetComponent<TMP_InputField>();
         _canvasUI = GameObject.Find("StartSceneUI").GetComponent<Transform>();
+    }
+
+    private void Start()
+    {
+        _nicknameField.onValueChanged.AddListener(OnInputValueChanged);
+    }
+
+    private void OnInputValueChanged(string value)
+    {
+        Debug.Log("변경감지! 현재 입력된 텍스트: " + value);
     }
 
 
