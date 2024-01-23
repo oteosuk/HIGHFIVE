@@ -33,4 +33,10 @@ public class Define
         Blue,
         Red
     }
+
+    public enum Tag
+    {
+        Enemy,
+        Monster,
+    }
 }
