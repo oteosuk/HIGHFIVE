@@ -8,27 +8,34 @@ public class Character : MonoBehaviour
     public Stat stat;
     protected PlayerStateMachine _playerStateMachine;
     private PhotonView _photonView;
-    public Rigidbody2D _rigidbody { get; protected set; }
-    public PlayerInput _input { get; protected set; }
-    public Collider2D _controller { get; set; }
+    public Rigidbody2D Rigidbody { get; protected set; }
+    public PlayerInput Input { get; protected set; }
+    public Collider2D Controller { get; set; }
+    public Animator PlayerAnim { get; set; }
+    public PlayerAnimationData PlayerAnimationData { get; set; }
 
     protected virtual void Awake()
     {
         _photonView = GetComponent<PhotonView>();
-        _rigidbody = GetComponent<Rigidbody2D>();
-        _input = GetComponent<PlayerInput>();
-        _controller = GetComponent<Collider2D>();
+        Rigidbody = GetComponent<Rigidbody2D>();
+        Input = GetComponent<PlayerInput>();
+        Controller = GetComponent<Collider2D>();
+        PlayerAnim = GetComponent<Animator>();
+        PlayerAnimationData = new PlayerAnimationData();
+        
 
-        if (_input == null)
+        if (Input == null)
         {
             Debug.Log("InputNull");
-            Debug.Log(_input);
+            Debug.Log(Input);
         }
     }
     protected virtual void Start()
     {
+        PlayerAnimationData.Initialize();
         _playerStateMachine = new PlayerStateMachine(this);
         _playerStateMachine.ChangeState(_playerStateMachine._playerIdleState);
+        
     }
     protected virtual void Update()
     {

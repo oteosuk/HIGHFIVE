@@ -6,14 +6,20 @@ using UnityEngine.InputSystem;
 public class PlayerAttackState : PlayerBaseState
 {
     private float _attackTimer = 0.0f;
+    private int _attackHash;
     public PlayerAttackState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
     {
+        if (_attackHash == 0)
+        {
+            _attackHash = _playerStateMachine._player.PlayerAnimationData.AttackParameterHash;
+        }
     }
     public override void Enter()
     {
         // 기능
         base.Enter();
         _playerStateMachine.moveSpeedModifier = 0f;
+        StartAnimation(_attackHash);
         Debug.Log("Attack");
         // 애니메이션 호출
     }
@@ -22,6 +28,7 @@ public class PlayerAttackState : PlayerBaseState
     {
         base.Exit();
         _attackTimer = 0.0f;
+        StopAnimation(_attackHash);
         Debug.Log("Attack Exit");
         // 애니메이션 해제
     }
