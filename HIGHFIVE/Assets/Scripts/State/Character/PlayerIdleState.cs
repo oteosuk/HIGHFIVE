@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class PlayerIdleState : PlayerBaseState
 {
+    private int _idleHash;
     public PlayerIdleState(PlayerStateMachine playerStateMachine) :  base(playerStateMachine)
     {
-
+        if (_idleHash == 0)
+        {
+            _idleHash = _playerStateMachine._player.PlayerAnimationData.IdleParameterHash;
+        }
     }
 
     public override void Enter()
@@ -14,6 +18,7 @@ public class PlayerIdleState : PlayerBaseState
         Debug.Log("Idle");
         _playerStateMachine.moveSpeedModifier = 0f;
         base.Enter();
+        StartAnimation(_idleHash);
         // 애니메이션 호출
     }
 
@@ -21,6 +26,7 @@ public class PlayerIdleState : PlayerBaseState
     {
         base.Exit();
         Debug.Log("Idle Exit");
+        StopAnimation(_idleHash);
         // 애니메이션 해제
     }
 
@@ -28,6 +34,7 @@ public class PlayerIdleState : PlayerBaseState
     {
         base.StateUpdate();
 
+        Debug.Log(_playerStateMachine.moveInput);
         if (_playerStateMachine.moveInput != (Vector2)_playerStateMachine._player.transform.position)
         {
             OnMove();

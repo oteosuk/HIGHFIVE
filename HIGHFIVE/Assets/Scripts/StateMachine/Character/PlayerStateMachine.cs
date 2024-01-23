@@ -15,6 +15,7 @@ public class PlayerStateMachine : StateMachine
     public Vector2 moveInput { get; set; } = Vector2.zero;
     public float moveSpeedModifier = 1.0f;
     public GameObject targetObject;
+    public bool isAttackReady = false;
 
     public Transform _mainCameraTransform { get; set; }
 

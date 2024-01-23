@@ -48,11 +48,11 @@ public class PlayerBaseState : IState
 
     protected virtual void AddInputActionsCallbacks()
     {
-        if (_playerStateMachine != null && _playerStateMachine._player != null && _playerStateMachine._player._input != null)
+        if (_playerStateMachine != null && _playerStateMachine._player != null && _playerStateMachine._player.Input != null)
         {
-            PlayerInput input = _playerStateMachine._player._input;
+            PlayerInput input = _playerStateMachine._player.Input;
             input._playerActions.Move.canceled += OnMoveCanceled;
-            input._playerActions.NormalAttack.started += OnAttackStarted;
+            input._playerActions.NormalAttack.started += OnReadyAttackStart;
         }
         else
         {
@@ -60,53 +60,11 @@ public class PlayerBaseState : IState
         }
     }
 
-
     protected virtual void RemoveInputActionsCallbacks()
     {
-        PlayerInput input = _playerStateMachine._player._input;
+        PlayerInput input = _playerStateMachine._player.Input;
         input._playerActions.Move.canceled -= OnMoveCanceled;
-        input._playerActions.NormalAttack.started -= OnAttackStarted;
-    }
-
-
-    private void ReadMoveInput()
-    {
-        if (Mouse.current.rightButton.wasPressedThisFrame)
-        {
-            Vector2 mousePoint = _playerStateMachine._player._input._playerActions.Move.ReadValue<Vector2>();
-            Vector2 raymousePoint = Camera.main.ScreenToWorldPoint(mousePoint);
-
-
-            RaycastHit2D hit = Physics2D.Raycast(raymousePoint, Camera.main.transform.forward, 100.0f);
-
-
-            if (hit.collider?.gameObject != null)
-            {
-                int mask = 1 << hit.collider.gameObject.layer;
-                if (mask == LayerMask.GetMask("Monster"))
-                {
-                    _playerStateMachine.targetObject = hit.collider.gameObject;
-                    float distance = (hit.collider.transform.position - _playerStateMachine._player.transform.position).magnitude;
-
-                    if (_playerStateMachine._player.stat.AttackRange > distance)
-                    {
-                        //공격
-                        _playerStateMachine.ChangeState(_playerStateMachine._playerAttackState);
-                    }
-                    else
-                    {
-                        _playerStateMachine.ChangeState(_playerStateMachine._playerMoveState);
-                    }
-                }
-            }
-            else
-            {
-                _playerStateMachine.targetObject = null;
-            }
-
-            _playerStateMachine.moveInput = Camera.main.ScreenToWorldPoint(mousePoint);
-            _tempTargetPos = _playerStateMachine.moveInput;
-        }
+        input._playerActions.NormalAttack.started -= OnReadyAttackStart;
     }
 
     private void OnMoveCanceled(InputAction.CallbackContext context)
@@ -119,18 +77,70 @@ public class PlayerBaseState : IState
         _playerStateMachine.ChangeState(_playerStateMachine._playerIdleState);
     }
 
-    private void OnAttackStarted(InputAction.CallbackContext context)
-    {
-        _playerStateMachine.ChangeState(_playerStateMachine._playerAttackState);
-    }
-
-    protected virtual void  OnMove()
-    {
-        
-    }
+    protected virtual void  OnMove() { }
 
     protected virtual void OnDie()
     {
         _playerStateMachine.ChangeState(_playerStateMachine._playerDieState);
+    }
+
+    protected virtual void StartAnimation(int hashValue)
+    {
+        _playerStateMachine._player.PlayerAnim.SetBool(hashValue, true);
+    }
+
+    protected virtual void StopAnimation(int hashValue)
+    {
+        _playerStateMachine._player.PlayerAnim.SetBool(hashValue, false);
+    }
+    private void OnReadyAttackStart(InputAction.CallbackContext context) { _playerStateMachine.isAttackReady = true; }
+
+    private void RayToObjectAndSetTarget()
+    {
+        Vector2 mousePoint = _playerStateMachine._player.Input._playerActions.Move.ReadValue<Vector2>();
+        Vector2 raymousePoint = Camera.main.ScreenToWorldPoint(mousePoint);
+
+        RaycastHit2D hit = Physics2D.Raycast(raymousePoint, Camera.main.transform.forward, 100.0f);
+
+        if (hit.collider?.gameObject != null)
+        {
+            int mask = 1 << hit.collider.gameObject.layer;
+            if (mask == LayerMask.GetMask("Monster"))
+            {
+                _playerStateMachine.targetObject = hit.collider.gameObject;
+                float distance = (hit.collider.transform.position - _playerStateMachine._player.transform.position).magnitude;
+
+                if (_playerStateMachine._player.stat.AttackRange > distance)
+                {
+                    //공격
+                    _playerStateMachine.ChangeState(_playerStateMachine._playerAttackState);
+                }
+                else
+                {
+                    _playerStateMachine.ChangeState(_playerStateMachine._playerMoveState);
+                }
+            }
+        }
+        else
+        {
+            _playerStateMachine.targetObject = null;
+        }
+
+        _playerStateMachine.moveInput = Camera.main.ScreenToWorldPoint(mousePoint);
+        _tempTargetPos = _playerStateMachine.moveInput;
+    }
+
+    private void ReadMoveInput()
+    {
+        if (Mouse.current.rightButton.wasPressedThisFrame)
+        {
+            RayToObjectAndSetTarget();
+        }
+
+        if (Mouse.current.leftButton.wasPressedThisFrame && _playerStateMachine.isAttackReady)
+        {
+            RayToObjectAndSetTarget();
+        }
+
     }
 }
