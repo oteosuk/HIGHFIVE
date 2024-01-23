@@ -2,6 +2,7 @@ using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -21,7 +22,7 @@ public class PlayerMoveState : PlayerBaseState
         // 기능
         base.Enter();
         _playerStateMachine.moveSpeedModifier = 1.0f;
-        Debug.Log("Move Enter");
+        Debug.Log("Move Enter");        
         // 애니메이션 호출
     }
 
@@ -46,6 +47,18 @@ public class PlayerMoveState : PlayerBaseState
             _moveSpeed = GetMoveSpeed();
         }
         _playerStateMachine._player.transform.position = Vector3.MoveTowards(_playerStateMachine._player.transform.position, _targetPosition, _moveSpeed * Time.deltaTime);
+
+        if (_playerStateMachine.targetObject != null)
+        {
+            float distance = (_playerStateMachine.targetObject.transform.position - _playerStateMachine._player.transform.position).magnitude;
+
+            if (_playerStateMachine._player.stat.AttackRange > distance)
+            {
+                _playerStateMachine.ChangeState(_playerStateMachine._playerAttackState);
+            }
+        }
+        
+
         if (_targetPosition == (Vector2)_playerStateMachine._player.transform.position)
         {
             _playerStateMachine.ChangeState(_playerStateMachine._playerIdleState);
