@@ -33,16 +33,35 @@ public class PlayerAttackState : PlayerBaseState
         //타겟 위치를 base에서 관리 해줘야함
         if (Mouse.current.rightButton.isPressed)
         {
-            OnMove();
+            Vector2 mousePoint = _playerStateMachine.moveInput;
+            Vector2 raymousePoint = Camera.main.ScreenToWorldPoint(mousePoint);
+
+            RaycastHit2D hit = Physics2D.Raycast(raymousePoint, Camera.main.transform.forward, 100.0f);
+
+            if (hit.collider?.gameObject != null)
+            {
+                int mask = 1 << hit.collider.gameObject.layer;
+                if (mask == LayerMask.GetMask("Monster"))
+                {
+                    float distanced = (hit.collider.transform.position - _playerStateMachine._player.transform.position).magnitude;
+                    if (_playerStateMachine._player.stat.AttackRange > distanced)
+                    {
+                        _playerStateMachine.ChangeState(_playerStateMachine._playerAttackState);
+                    }
+                }
+            }
+            else
+            {
+                OnMove();
+            }
         }
 
-        //플레이어의 공격속도를 가져와서 그 초가 다 끝났을 때 ChangeState
-
-        _attackTimer += Time.deltaTime;
-
-        if (_attackTimer > 1.0f / 2)
+        float distance = (_targetObject.transform.position - _playerStateMachine._player.transform.position).magnitude;
+        if (_playerStateMachine._player.stat.AttackRange < distance)
         {
-            _playerStateMachine.ChangeState(_playerStateMachine._playerIdleState);
+            Debug.Log(distance);
+            Debug.Log(_playerStateMachine._player.stat.AttackRange);
+            _playerStateMachine.ChangeState(_playerStateMachine._playerMoveState);
         }
     }
 

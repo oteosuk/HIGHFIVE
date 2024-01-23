@@ -2,6 +2,7 @@ using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -35,6 +36,9 @@ public class PlayerMoveState : PlayerBaseState
     public override void StateUpdate()
     {
         base.StateUpdate();
+
+        //타겟팅이 있다면 공격 스테이트로 변환
+        //없다면 return
         Move();
     }
 
@@ -46,6 +50,21 @@ public class PlayerMoveState : PlayerBaseState
             _moveSpeed = GetMoveSpeed();
         }
         _playerStateMachine._player.transform.position = Vector3.MoveTowards(_playerStateMachine._player.transform.position, _targetPosition, _moveSpeed * Time.deltaTime);
+
+        Debug.Log(_targetObject);
+        if (_targetObject != null)
+        {
+            float distance = (_targetObject.transform.position - _playerStateMachine._player.transform.position).magnitude;
+
+            Debug.Log(distance);
+            Debug.Log(_playerStateMachine._player.stat.AttackRange);
+            if (_playerStateMachine._player.stat.AttackRange > distance)
+            {
+                _playerStateMachine.ChangeState(_playerStateMachine._playerAttackState);
+            }
+        }
+        
+
         if (_targetPosition == (Vector2)_playerStateMachine._player.transform.position)
         {
             _playerStateMachine.ChangeState(_playerStateMachine._playerIdleState);
