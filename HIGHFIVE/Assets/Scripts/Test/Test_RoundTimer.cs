@@ -9,7 +9,8 @@ public class Test_RoundTimer : MonoBehaviour
 {
     [SerializeField] private TMP_Text text;
 
-    [SerializeField] private float time;
+    [SerializeField] private float farmingTime;
+    [SerializeField] private float battleTime;
     [SerializeField] private float curTime;
 
     // int minute;
@@ -22,7 +23,9 @@ public class Test_RoundTimer : MonoBehaviour
 
     IEnumerator StartTimer()
     {
-        curTime = time;
+        farmingTime = 10;
+        battleTime = 5;
+        curTime = farmingTime;
         while (curTime > 0)
         {
             curTime -= Time.deltaTime;
@@ -34,8 +37,16 @@ public class Test_RoundTimer : MonoBehaviour
             if (curTime <= 0)
             {
                 curTime = 0;
+                curTime = battleTime;
+
+                //StartCoroutine(BattleTimer());
                 yield break;
             }
         }
     }
+
+    //IEnumerator BattleTimer()
+    //{
+
+    //}
 }
