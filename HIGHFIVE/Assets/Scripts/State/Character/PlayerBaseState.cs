@@ -12,7 +12,6 @@ public class PlayerBaseState : IState
 {
     protected PlayerStateMachine _playerStateMachine;
     protected Vector2 _tempTargetPos = Vector2.zero;
-    protected GameObject _targetObject;
 
     public PlayerBaseState(PlayerStateMachine playerStateMachine)
     {
@@ -70,7 +69,7 @@ public class PlayerBaseState : IState
     }
 
 
-    protected void ReadMoveInput()
+    private void ReadMoveInput()
     {
         if (Mouse.current.rightButton.wasPressedThisFrame)
         {
@@ -86,11 +85,9 @@ public class PlayerBaseState : IState
                 int mask = 1 << hit.collider.gameObject.layer;
                 if (mask == LayerMask.GetMask("Monster"))
                 {
-                    _targetObject = hit.collider.gameObject;
-                    Debug.Log(_targetObject);
+                    _playerStateMachine.targetObject = hit.collider.gameObject;
                     float distance = (hit.collider.transform.position - _playerStateMachine._player.transform.position).magnitude;
-                    Debug.Log(distance);
-                    Debug.Log(_playerStateMachine._player.stat.AttackRange);
+
                     if (_playerStateMachine._player.stat.AttackRange > distance)
                     {
                         //공격
@@ -101,6 +98,10 @@ public class PlayerBaseState : IState
                         _playerStateMachine.ChangeState(_playerStateMachine._playerMoveState);
                     }
                 }
+            }
+            else
+            {
+                _playerStateMachine.targetObject = null;
             }
 
             _playerStateMachine.moveInput = Camera.main.ScreenToWorldPoint(mousePoint);
@@ -122,8 +123,6 @@ public class PlayerBaseState : IState
     {
         _playerStateMachine.ChangeState(_playerStateMachine._playerAttackState);
     }
-
-
 
     protected virtual void  OnMove()
     {

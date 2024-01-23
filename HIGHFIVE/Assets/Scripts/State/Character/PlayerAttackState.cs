@@ -30,38 +30,10 @@ public class PlayerAttackState : PlayerBaseState
     public override void StateUpdate()
     {
         base.StateUpdate();
-        //타겟 위치를 base에서 관리 해줘야함
-        if (Mouse.current.rightButton.isPressed)
+
+        if (_playerStateMachine.targetObject == null)
         {
-            Vector2 mousePoint = _playerStateMachine.moveInput;
-            Vector2 raymousePoint = Camera.main.ScreenToWorldPoint(mousePoint);
-
-            RaycastHit2D hit = Physics2D.Raycast(raymousePoint, Camera.main.transform.forward, 100.0f);
-
-            if (hit.collider?.gameObject != null)
-            {
-                int mask = 1 << hit.collider.gameObject.layer;
-                if (mask == LayerMask.GetMask("Monster"))
-                {
-                    float distanced = (hit.collider.transform.position - _playerStateMachine._player.transform.position).magnitude;
-                    if (_playerStateMachine._player.stat.AttackRange > distanced)
-                    {
-                        _playerStateMachine.ChangeState(_playerStateMachine._playerAttackState);
-                    }
-                }
-            }
-            else
-            {
-                OnMove();
-            }
-        }
-
-        float distance = (_targetObject.transform.position - _playerStateMachine._player.transform.position).magnitude;
-        if (_playerStateMachine._player.stat.AttackRange < distance)
-        {
-            Debug.Log(distance);
-            Debug.Log(_playerStateMachine._player.stat.AttackRange);
-            _playerStateMachine.ChangeState(_playerStateMachine._playerMoveState);
+            OnMove();
         }
     }
 
@@ -70,5 +42,4 @@ public class PlayerAttackState : PlayerBaseState
         base.OnMove();
         _playerStateMachine.ChangeState(_playerStateMachine._playerMoveState);
     }
-
 }
