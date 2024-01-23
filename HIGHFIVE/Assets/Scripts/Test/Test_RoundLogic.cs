@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Test_RoundLogic : MonoBehaviour
 {
     public int currentRound = 1;
     public int totalRounds = 3;
 
-    public int TeamAScore = 0;
-    public int TeamBScore = 0;
+    public TextMeshProUGUI teamAScoreText;
+    public TextMeshProUGUI teamBScoreText;
+
+    public int teamAScore = 0;
+    public int teamBScore = 0;
 
     void Start()
     {
@@ -37,12 +42,14 @@ public class Test_RoundLogic : MonoBehaviour
     // 테스트용 버튼
     public void TeamAWinBtn()
     {
-        Debug.Log("TeamAWin");
+        teamAScore++;
+        teamAScoreText.text = teamAScore.ToString();
     }
 
     public void TeamBWinBtn()
     {
-        Debug.Log("TeamBWin");
+        teamBScore++;
+        teamBScoreText.text = teamBScore.ToString();
     }
 
 }
