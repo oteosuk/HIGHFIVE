@@ -1,13 +1,12 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAnimationData
+public class MonsterAnimationData
 {
-     private string idleParmeterName = "Idle";
-     private string moveParmeterName = "Move";
-     private string AttackParmeterName = "Attack";
+    private string idleParmeterName = "Idle";
+    private string moveParmeterName = "Move";
+    private string AttackParmeterName = "Attack";
 
     public int IdleParameterHash { get; private set; }
     public int MoveParameterHash { get; private set; }
@@ -20,3 +19,4 @@ public class PlayerAnimationData
         AttackParameterHash = Animator.StringToHash(AttackParmeterName);
     }
 }
+
