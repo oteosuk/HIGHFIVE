@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class MonsterController : MonoBehaviour
 {
-    public Transform player; // 플레이어의 Transform 컴포넌트
-    public float chaseRadius = 5f; // 몬스터가 플레이어를 추적하는 범위
-    public float returnRadius = 8f; // 몬스터가 스폰존으로 돌아가는 범위
+    public Transform player;
+    public float chaseRadius = 5f; // 몬스터가 플레이어를 추적하는 범위(몬스터-플레이어)
+    public float returnRadius = 8f; // 몬스터가 스폰존으로 돌아가는 범위(몬스터-스폰존)
     public Transform spawnZone; // 몬스터의 스폰존
     public float moveSpeed = 1f;
 
@@ -14,6 +14,11 @@ public class MonsterController : MonoBehaviour
     public bool isStopped;
 
     void Update()
+    {
+        MoveProcess();
+    }
+
+    void MoveProcess()
     {
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
         float distanceToSpawnZone = Vector2.Distance(transform.position, spawnZone.position);
@@ -30,7 +35,7 @@ public class MonsterController : MonoBehaviour
             isChasing = true;
             ChasePlayer();
         }
-        else if(distanceToSpawnZone > 0.1)
+        else if (distanceToSpawnZone > 0.1)
         {
             isStopped = false;
             isChasing = false;
@@ -41,7 +46,6 @@ public class MonsterController : MonoBehaviour
             isStopped = true;
         }
     }
-
     void ChasePlayer()
     {
         // 플레이어를 향해 이동하는 로직을 구현
