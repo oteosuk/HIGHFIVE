@@ -34,9 +34,11 @@ public class Define
         Red
     }
 
-    public enum Tag
+    public enum Layer
     {
-        Enemy,
-        Monster,
+        Monster = 6,
+        Ground,
+        Blue,
+        Red
     }
 }

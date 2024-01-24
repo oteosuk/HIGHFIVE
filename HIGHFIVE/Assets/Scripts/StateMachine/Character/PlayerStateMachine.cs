@@ -12,7 +12,7 @@ public class PlayerStateMachine : StateMachine
     public PlayerDieState _playerDieState { get; }
     public PlayerSkillState _playerSkillState { get; }
 
-    public Vector2 moveInput { get; set; } = Vector2.zero;
+    public Vector2 moveInput { get; set; }
     public float moveSpeedModifier = 1.0f;
     public GameObject targetObject;
     public bool isAttackReady = false;
@@ -23,7 +23,7 @@ public class PlayerStateMachine : StateMachine
     public PlayerStateMachine(Character player)
     {
         this._player = player;
-
+        moveInput = _player.transform.position;
         _playerIdleState = new PlayerIdleState(this);
         _playerMoveState = new PlayerMoveState(this);
         _playerAttackState = new PlayerAttackState(this);

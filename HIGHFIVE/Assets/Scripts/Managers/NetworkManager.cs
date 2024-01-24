@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class NetworkManager
 {
-    public Dictionary<string, bool> photonPlayerDict = new Dictionary<string, bool>();
+    public Dictionary<string, Player> photonPlayerDict = new Dictionary<string, Player>();
     public Dictionary<string, bool> photonRoomDict = new Dictionary<string, bool>();
     public Dictionary<string, Image> photonReadyImageDict = new Dictionary<string, Image>();
 
