@@ -75,12 +75,8 @@ public class SelectScene_UI : UIBase
     private TMP_Text _mageatkspeedTxt;
     private TMP_Text _magemovspeedTxt;
 
-    private Character _character;
-
     private void Start()
     {
-        //_character = Main.GameManager.SpawnObj;
-        //_character.stat.Attack = 
 
         Bind<TMP_Text>(typeof(Texts), true);
         Bind<Button>(typeof(Buttons), false);
