@@ -12,7 +12,6 @@ public class Mage : Character
     protected override void Start()
     {
         base.Start();
-        stat = Util.GetOrAddComponent<MageStat>(gameObject);
     }
     protected override void Update()
     {

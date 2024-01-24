@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -5323842313307887699}
   - component: {fileID: 4688891675065065584}
   - component: {fileID: 2350598541294646126}
+  - component: {fileID: 7412837560455425948}
   m_Layer: 0
   m_Name: Mage
   m_TagString: Untagged
@@ -248,3 +249,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7412837560455425948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232833287244604407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d2e26e666e7e8e4083dd5798087a51c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
