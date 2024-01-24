@@ -27,3 +27,4 @@ public class PlayerInput : MonoBehaviour
         _playerController.Disable();
     }
 }
+
