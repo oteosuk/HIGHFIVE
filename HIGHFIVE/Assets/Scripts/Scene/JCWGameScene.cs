@@ -30,7 +30,7 @@ public class JCWGameScene : BaseScene
             
             characterObj.layer = Main.GameManager.SelectedCamp == Define.Camp.Red ? (int)Define.Layer.Red : (int)Define.Layer.Blue;
             //characterObj.GetComponent<PhotonView>().RPC("SetLayer", RpcTarget.AllBuffered, characterObj.layer);
-            Main.GameManager.SpawnObj = characterObj.GetComponent<Character>();
+            Main.GameManager.SpawnedCharacter = characterObj.GetComponent<Character>();
         } 
     }
 
