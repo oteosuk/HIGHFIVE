@@ -105,7 +105,7 @@ public class PlayerBaseState : IState
         if (hit.collider?.gameObject != null)
         {
             int mask = 1 << hit.collider.gameObject.layer;
-            if (mask == LayerMask.GetMask("Monster"))
+            if (mask == LayerMask.GetMask("Monster") || mask == LayerMask.GetMask("Enemy"))
             {
                 _playerStateMachine.targetObject = hit.collider.gameObject;
                 float distance = (hit.collider.transform.position - _playerStateMachine._player.transform.position).magnitude;
