@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,5 +20,14 @@ public class MonsterMoveState : MonsterBaseState
     public override void StateUpdate()
     {
         base.StateUpdate();
+        Move();
+    }
+    private void Move()
+    {
+        Vector2 playerPos = RangeInPlayer();
+        Vector2 currentPos = _monsterStateMachine._monster.transform.position;
+
+        Vector2 direction = (playerPos - currentPos).normalized;
+        _monsterStateMachine._monster.Rigidbody.velocity = direction * _monsterStateMachine._monster.stat.MoveSpeed; 
     }
 }

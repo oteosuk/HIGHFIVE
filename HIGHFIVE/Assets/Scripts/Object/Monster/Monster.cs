@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Monster : MonoBehaviour
 {
+    public Stat stat;
     protected MonsterStateMachine _monsterStateMachine;
     public Rigidbody2D Rigidbody { get; protected set; }
     public PlayerInput Input { get; protected set; }
