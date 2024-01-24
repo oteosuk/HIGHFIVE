@@ -34,7 +34,6 @@ public class PlayerIdleState : PlayerBaseState
     {
         base.StateUpdate();
 
-        Debug.Log(_playerStateMachine.moveInput);
         if (_playerStateMachine.moveInput != (Vector2)_playerStateMachine._player.transform.position)
         {
             OnMove();

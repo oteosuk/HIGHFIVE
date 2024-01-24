@@ -19,7 +19,9 @@ public class PlayerAttackState : PlayerBaseState
         // 기능
         base.Enter();
         _playerStateMachine.moveSpeedModifier = 0f;
+        _playerStateMachine.isAttackReady = false;
         StartAnimation(_attackHash);
+        Debug.Log(_playerStateMachine.targetObject.name);
         Debug.Log("Attack");
         // 애니메이션 호출
     }

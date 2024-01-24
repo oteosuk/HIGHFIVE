@@ -16,6 +16,7 @@ public class PlayerStateMachine : StateMachine
     public float moveSpeedModifier = 1.0f;
     public GameObject targetObject;
     public bool isAttackReady = false;
+    public bool isLeftClicked = false;
 
     public Transform _mainCameraTransform { get; set; }
 

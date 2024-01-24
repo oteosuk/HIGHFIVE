@@ -28,6 +28,7 @@ public class PlayerMoveState : PlayerBaseState
         // 기능
         base.Enter();
         _playerStateMachine.moveSpeedModifier = 1.0f;
+
         StartAnimation(_moveHash);
         Debug.Log("Move Enter");        
         // 애니메이션 호출
@@ -48,14 +49,36 @@ public class PlayerMoveState : PlayerBaseState
     }
 
     private void Move()
-    { 
-        if (Mouse.current.rightButton.isPressed || Mouse.current.leftButton.isPressed)
+    {
+        if (Mouse.current.rightButton.isPressed)
         {
-            _targetPosition = GetMoveDirection();
-            _moveSpeed = GetMoveSpeed();
+            PrepareForMove();
         }
-        _playerStateMachine._player.transform.position = Vector3.MoveTowards(_playerStateMachine._player.transform.position, _targetPosition, _moveSpeed * Time.deltaTime);
+        else if (_playerStateMachine.isAttackReady && Mouse.current.leftButton.isPressed)
+        {
+            PrepareForMove();
+            _playerStateMachine.isLeftClicked = true;
+        }
 
+        MovePlayerToTarget();
+
+        CheckForAttack();
+
+        if (_targetPosition == (Vector2)_playerStateMachine._player.transform.position)
+        {
+            _playerStateMachine.ChangeState(_playerStateMachine._playerIdleState);
+        }
+    }
+
+    private void PrepareForMove()
+    {
+        _playerStateMachine.isAttackReady = false;
+        _targetPosition = _playerStateMachine.moveInput;
+        _moveSpeed = _playerStateMachine._player.stat.MoveSpeed * _playerStateMachine.moveSpeedModifier;
+    }
+
+    private void CheckForAttack()
+    {
         if (_playerStateMachine.targetObject != null)
         {
             float distance = (_playerStateMachine.targetObject.transform.position - _playerStateMachine._player.transform.position).magnitude;
@@ -65,36 +88,34 @@ public class PlayerMoveState : PlayerBaseState
                 _playerStateMachine.ChangeState(_playerStateMachine._playerAttackState);
             }
         }
-        //else
-        //{
-        //    int maxColliders = 10;
-        //    Collider[] hitColliders = new Collider[maxColliders];
-        //    int numColliders = Physics.OverlapSphereNonAlloc(_playerStateMachine._player.transform.position, _playerStateMachine._player.stat.AttackRange, hitColliders);
-        //    for (int i = 0; i < numColliders; i++)
-        //    {
-        //        if (hitColliders[i].gameObject.tag == Enum.GetName(typeof(Define.Tag), Define.Tag.Enemy))
-        //        {
-        //            _playerStateMachine.targetObject = hitColliders[i].gameObject;
-        //            _playerStateMachine.ChangeState(_playerStateMachine._playerAttackState);
-        //        }
-        //    }
-        //}
-
-        if (_targetPosition == (Vector2)_playerStateMachine._player.transform.position)
+        else if (_playerStateMachine.isLeftClicked && _playerStateMachine.targetObject == null)
         {
-            _playerStateMachine.ChangeState(_playerStateMachine._playerIdleState);
+            FindObjectInSight();
         }
     }
 
-    private float GetMoveSpeed()
+    private void MovePlayerToTarget()
     {
-        float movementSpeed = _playerStateMachine._player.stat.MoveSpeed * _playerStateMachine.moveSpeedModifier;
-        return movementSpeed;
+        _playerStateMachine._player.transform.position = Vector3.MoveTowards(
+            _playerStateMachine._player.transform.position,
+            _targetPosition,
+            _moveSpeed * Time.deltaTime
+        );
     }
 
-    private Vector2 GetMoveDirection()
+    private void FindObjectInSight()
     {
-        Vector2 input = _playerStateMachine.moveInput;
-        return new Vector2(input.x, input.y);
+        int monsterMask = LayerMask.GetMask("Monster");
+        int enemyMask = LayerMask.GetMask("Enemy");
+
+        Collider2D monsterCollider = Physics2D.OverlapCircle(_playerStateMachine._player.transform.position, 5, monsterMask);
+        Collider2D enemyCollider = Physics2D.OverlapCircle(_playerStateMachine._player.transform.position, 5, enemyMask);
+
+        if (enemyCollider != null || monsterCollider != null)
+        {
+            _playerStateMachine.targetObject = enemyCollider != null ? enemyCollider.gameObject : monsterCollider.gameObject;
+            _targetPosition = _playerStateMachine.targetObject.transform.position;
+            _playerStateMachine.isLeftClicked = false;
+        }
     }
 }
