@@ -100,25 +100,22 @@ public class PlayerBaseState : IState
         Vector2 mousePoint = _playerStateMachine._player.Input._playerActions.Move.ReadValue<Vector2>();
         Vector2 raymousePoint = Camera.main.ScreenToWorldPoint(mousePoint);
 
-        RaycastHit2D hit = Physics2D.Raycast(raymousePoint, Camera.main.transform.forward, 100.0f);
+        int mask = (1 << (int)Define.Layer.Monster) | (1 << (Main.GameManager.SelectedCamp == Define.Camp.Red ? (int)Define.Layer.Red : (int)Define.Layer.Blue ));
+
+        RaycastHit2D hit = Physics2D.Raycast(raymousePoint, Camera.main.transform.forward, 100.0f, mask);
 
         if (hit.collider?.gameObject != null)
         {
-            int mask = 1 << hit.collider.gameObject.layer;
-            if (mask == LayerMask.GetMask("Monster") || mask == LayerMask.GetMask("Enemy"))
-            {
-                _playerStateMachine.targetObject = hit.collider.gameObject;
-                float distance = (hit.collider.transform.position - _playerStateMachine._player.transform.position).magnitude;
+            _playerStateMachine.targetObject = hit.collider.gameObject;
+            float distance = (hit.collider.transform.position - _playerStateMachine._player.transform.position).magnitude;
 
-                if (_playerStateMachine._player.stat.AttackRange > distance)
-                {
-                    //공격
-                    _playerStateMachine.ChangeState(_playerStateMachine._playerAttackState);
-                }
-                else
-                {
-                    _playerStateMachine.ChangeState(_playerStateMachine._playerMoveState);
-                }
+            if (_playerStateMachine._player.stat.AttackRange > distance)
+            {
+                _playerStateMachine.ChangeState(_playerStateMachine._playerAttackState);
+            }
+            else
+            {
+                _playerStateMachine.ChangeState(_playerStateMachine._playerMoveState);
             }
         }
         else

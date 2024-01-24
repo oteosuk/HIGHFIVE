@@ -106,7 +106,7 @@ public class PlayerMoveState : PlayerBaseState
     private void FindObjectInSight()
     {
         int monsterMask = LayerMask.GetMask("Monster");
-        int enemyMask = LayerMask.GetMask("Enemy");
+        int enemyMask = Main.GameManager.SelectedCamp == Define.Camp.Red ? LayerMask.GetMask("Red") : LayerMask.GetMask("Blue");
 
         Collider2D monsterCollider = Physics2D.OverlapCircle(_playerStateMachine._player.transform.position, 5, monsterMask);
         Collider2D enemyCollider = Physics2D.OverlapCircle(_playerStateMachine._player.transform.position, 5, enemyMask);
