@@ -54,7 +54,7 @@ public class RoomScene_UI : UIBase
         Player[] currentRoomPlayer = PhotonNetwork.PlayerList;
         foreach (Player player in currentRoomPlayer)
         {
-            Main.NetworkManager.photonPlayerDict[player.NickName] = false;
+            Main.NetworkManager.photonPlayerDict[player.NickName] = null;
         }
 
         Main.NetworkManager.photonRoomDict[PhotonNetwork.CurrentRoom.Name] = false;

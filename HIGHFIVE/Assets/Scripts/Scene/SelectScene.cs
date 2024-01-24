@@ -19,10 +19,18 @@ public class SelectScene : BaseScene
             {
                 if (index % 2 == 0)
                 {
+                    if (Main.NetworkManager.photonPlayerDict.TryGetValue(player.NickName, out Player myPlayer))
+                    {
+                        myPlayer.CustomProperties.Add("layer", (int)Define.Layer.Red);
+                    }
                     Main.GameManager.SelectedCamp = Define.Camp.Red;
                 }
                 else
                 {
+                    if (Main.NetworkManager.photonPlayerDict.TryGetValue(player.NickName, out Player myPlayer))
+                    {
+                        myPlayer.CustomProperties.Add("layer", (int)Define.Layer.Blue);
+                    }
                     Main.GameManager.SelectedCamp = Define.Camp.Blue;
                 }
             }

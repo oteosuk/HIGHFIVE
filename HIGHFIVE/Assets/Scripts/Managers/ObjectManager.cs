@@ -13,6 +13,7 @@ public class ObjectManager
         if (syncRequired)
         {
             go = PhotonNetwork.Instantiate($"Prefabs/{path}", position, Quaternion.identity);
+            Debug.Log(go.name);
         }
         else
         {

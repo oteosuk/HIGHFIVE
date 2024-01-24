@@ -40,7 +40,7 @@ public class PlayerListController : UIBase
     {
         if (Main.NetworkManager.photonPlayerDict.ContainsKey(otherPlayer.NickName))
         {
-            Main.NetworkManager.photonPlayerDict[otherPlayer.NickName] = false;
+            Main.NetworkManager.photonPlayerDict[otherPlayer.NickName] = null;
             Main.NetworkManager.photonReadyImageDict.Remove(otherPlayer.NickName);
             foreach (Transform child in _playerListContent.GetComponent<RectTransform>())
             {
@@ -67,9 +67,9 @@ public class PlayerListController : UIBase
         foreach (Player player in players)
         {
             //내 로컬 상에 있는 딕셔너리 데이터가 true라면 continue;
-            if (Main.NetworkManager.photonPlayerDict.TryGetValue(player.NickName, out bool isContain))
+            if (Main.NetworkManager.photonPlayerDict.TryGetValue(player.NickName, out Player p1))
             {
-                if (isContain) continue;
+                if (p1 != null) continue;
             }
 
             GameObject newPlayer = Main.ResourceManager.Instantiate("UI_Prefabs/Player", _playerListContent.transform, $"{player.NickName}Player");
@@ -89,7 +89,7 @@ public class PlayerListController : UIBase
 
             if (player.IsMasterClient) playerReadyImage.gameObject.SetActive(false);
 
-            Main.NetworkManager.photonPlayerDict[player.NickName] = true;
+            Main.NetworkManager.photonPlayerDict[player.NickName] = player;
         }
     }
 

@@ -21,6 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/04.SelectScene.unity
     guid: 6b0f26ca1ee2ade4697b9a571910b88d
   - enabled: 1
-    path: Assets/Scenes/JCW-GameScene.unity
-    guid: 88144f7c38f4b954287ab17f926b71a6
+    path: Assets/Scenes/JCWGameScene.unity
+    guid: cba636f0ea1c93644b765db85738fc8e
   m_configObjects: {}
