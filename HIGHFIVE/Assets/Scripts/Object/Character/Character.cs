@@ -23,6 +23,7 @@ public class Character : MonoBehaviour
         PlayerAnim = GetComponent<Animator>();
         PlayerAnimationData = new PlayerAnimationData();
         
+        stat = GetComponent<Stat>();
 
         if (Input == null)
         {
