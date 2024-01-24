@@ -12,7 +12,6 @@ public class Warrior : Character
     protected override void Start()
     {
         base.Start();
-        stat = Util.GetOrAddComponent<WarriorStat>(gameObject);
     }
     protected override void Update()
     {

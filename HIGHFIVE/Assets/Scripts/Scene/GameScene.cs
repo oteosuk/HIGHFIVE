@@ -23,7 +23,8 @@ public class GameScene : BaseScene
         if (_classMapping.TryGetValue(Main.GameManager.SelectedCharacter, out selectClass))
         {
             characterObj = Main.ObjectManager.Spawn($"Character/{selectClass}", position, syncRequired: true);
-            Main.GameManager.SpawnObj = characterObj.GetComponent<Character>();
+            Main.ResourceManager.Instantiate("UI_Prefabs/GameSceneUI");
+            Main.GameManager.SpawnedCharacter = characterObj.GetComponent<Character>();
         }
     }
 }
