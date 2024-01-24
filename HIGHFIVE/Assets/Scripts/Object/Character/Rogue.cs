@@ -13,7 +13,6 @@ public class Rogue : Character
     {
 
         base.Start();
-        stat = Util.GetOrAddComponent<RogueStat>(gameObject);
     }
     protected override void Update()
     {
