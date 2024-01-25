@@ -5,20 +5,17 @@ using UnityEngine;
 public class MonsterController : MonoBehaviour
 {
     public Transform player;
-    public Transform spawnZone;     // 몬스터의 스폰존
-    public float chaseRadius = 5f;  // 몬스터가 플레이어를 추적하는 범위(몬스터-플레이어)
-    public float returnRadius = 8f; // 몬스터가 스폰존으로 돌아가는 범위(몬스터-스폰존)
-    public float moveSpeed = 1f;
+    public Transform spawnZone;
+    private float _chaseRadius = 5f;  // 몬스터가 플레이어를 추적하는 범위(몬스터-플레이어)
+    private float _returnRadius = 8f; // 몬스터가 스폰존으로 돌아가는 범위(몬스터-스폰존)
+    private float _moveSpeed = 1.5f;
 
-    public bool isChasing;
-
-    private Animator anim;
+    private Animator _anim;
 
     void Start()
     {
-        anim = GetComponentInChildren<Animator>();
+        _anim = GetComponentInChildren<Animator>();
     }
-
     
 
     void Update()
@@ -32,46 +29,42 @@ public class MonsterController : MonoBehaviour
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
         float distanceToSpawnZone = Vector2.Distance(transform.position, spawnZone.position);
 
-        if (distanceToPlayer < chaseRadius) // 플레이어랑 거리가 좁을때
+        if (distanceToPlayer < _chaseRadius) // 플레이어랑 거리가 좁을때
         {
-            if (distanceToSpawnZone > returnRadius)
+            if (distanceToSpawnZone > _returnRadius)
             {
-                //isChasing = false;
                 ReturnToSpawnZone();
                 //2초동안 플레이어 쫓지 못하는상태로직 추가
             }
-
-            //isChasing = true;
             ChasePlayer();
         }
         else if (distanceToSpawnZone > 0.1) // 플레이어랑 먼데, 스폰존으로부터 거리가 있다면
         {
-            //isChasing = false;
             ReturnToSpawnZone();
         }
-        else
+        else // 플레이어랑 먼데, 스폰존에 도착했다면
         {
-            animDefault();
+            animSet("isIdle");
         }
     }
 
 
+    // 플레이어를 향해 이동하는 로직을 구현
     void ChasePlayer()
     {
-        // 플레이어를 향해 이동하는 로직을 구현
-        Vector2 direction = (player.position - transform.position).normalized;
-        transform.Translate(direction * Time.deltaTime * moveSpeed);
-        float angle = Mathf.Atan2(player.position.y - transform.position.y, player.position.x - transform.position.x) * Mathf.Rad2Deg;
+        Vector2 direction = player.position - transform.position;
+        transform.Translate(direction.normalized * Time.deltaTime * _moveSpeed);
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         SetAnimation(angle);
     }
 
 
+    // 스폰존으로 돌아가는 로직을 구현
     void ReturnToSpawnZone()
     {
-        // 스폰존으로 돌아가는 로직을 구현
-        Vector2 direction = (spawnZone.position - transform.position).normalized;
-        transform.Translate(direction * Time.deltaTime * moveSpeed);
-        float angle = Mathf.Atan2(spawnZone.position.y - transform.position.y, spawnZone.position.x - transform.position.x) * Mathf.Rad2Deg;
+        Vector2 direction = spawnZone.position - transform.position;
+        transform.Translate(direction.normalized * Time.deltaTime * _moveSpeed);
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         SetAnimation(angle);
     }
 
@@ -79,26 +72,25 @@ public class MonsterController : MonoBehaviour
     // 이동 방향에 따라 애니메이션 설정
     void SetAnimation(float angle)
     {
-        if (angle > 45 && angle <= 135)
+        if (angle >= 45 && angle < 135)
         {
-            Debug.Log("윗방향  :  " + angle);
-            animMove("isUp");
+            //Debug.Log("윗방향  :  " + angle);
+            animSet("isUp");
         }
-        else if (angle > 135 && angle <= 180 || angle >= -180 && angle < -135)
+        else if (angle >= 135 && angle <= 180 || angle >= -180 && angle < -135)
         {
-
-            Debug.Log("왼쪽방향  :  " + angle);
-            animMove("isLeft");
+            //Debug.Log("왼쪽방향  :  " + angle);
+            animSet("isLeft");
         }
         else if (angle >= -135 && angle < -45)
         {
-            Debug.Log("아래방향  :  " + angle);
-            animMove("isDown");
+            //Debug.Log("아래방향  :  " + angle);
+            animSet("isDown");
         }
-        else if (angle >= -45 && angle < 0 || angle >= 0 && angle <= 45)
+        else if (angle >= -45 && angle < 0 || angle >= 0 && angle < 45)
         {
-            Debug.Log("오른쪽방향  :  " + angle);
-            animMove("isRight");
+            //Debug.Log("오른쪽방향  :  " + angle);
+            animSet("isRight");
         }
         else
         {
@@ -106,20 +98,25 @@ public class MonsterController : MonoBehaviour
         }
     }
 
-    void animMove(string direction)
+
+    // 해당 bool 파라미터가 true가 아닐때만 true가 되게끔
+    void animSet(string animName)
     {
-        if (!anim.GetBool(direction))
+        if (!_anim.GetBool(animName))
         {
             animDefault();
-            anim.SetBool(direction, true);
+            _anim.SetBool(animName, true);
         }
     }
 
+
+    // anim bool파라미터 초기화
     void animDefault()
     {
-        anim.SetBool("isUp", false);
-        anim.SetBool("isDown", false);
-        anim.SetBool("isLeft", false);
-        anim.SetBool("isRight", false);
+        _anim.SetBool("isIdle", false);
+        _anim.SetBool("isUp", false);
+        _anim.SetBool("isDown", false);
+        _anim.SetBool("isLeft", false);
+        _anim.SetBool("isRight", false);
     }
 }
