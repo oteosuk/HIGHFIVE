@@ -36,17 +36,17 @@ public class MonsterController : MonoBehaviour
         {
             if (distanceToSpawnZone > returnRadius)
             {
-                isChasing = false;
+                //isChasing = false;
                 ReturnToSpawnZone();
                 //2초동안 플레이어 쫓지 못하는상태로직 추가
             }
 
-            isChasing = true;
+            //isChasing = true;
             ChasePlayer();
         }
         else if (distanceToSpawnZone > 0.1) // 플레이어랑 먼데, 스폰존으로부터 거리가 있다면
         {
-            isChasing = false;
+            //isChasing = false;
             ReturnToSpawnZone();
         }
         else
@@ -81,19 +81,28 @@ public class MonsterController : MonoBehaviour
     {
         if (angle > 45 && angle <= 135)
         {
+            Debug.Log("윗방향  :  " + angle);
             animMove("isUp");
         }
-        else if (angle > 135 && angle <= 225)
+        else if (angle > 135 && angle <= 180 || angle >= -180 && angle < -135)
         {
+
+            Debug.Log("왼쪽방향  :  " + angle);
             animMove("isLeft");
         }
-        else if (angle > 225 && angle <= 315)
+        else if (angle >= -135 && angle < -45)
         {
+            Debug.Log("아래방향  :  " + angle);
             animMove("isDown");
         }
-        else if (angle > 315 && angle <= 360 || angle > 0 && angle <= 45)
+        else if (angle >= -45 && angle < 0 || angle >= 0 && angle <= 45)
         {
+            Debug.Log("오른쪽방향  :  " + angle);
             animMove("isRight");
+        }
+        else
+        {
+            Debug.Log("예외 앵글" + angle);
         }
     }
 
