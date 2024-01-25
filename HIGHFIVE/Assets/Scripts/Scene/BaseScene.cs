@@ -1,9 +1,10 @@
 using DG.Tweening;
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseScene : MonoBehaviour
+public class BaseScene : MonoBehaviourPunCallbacks
 {
     private void Start()
     {
