@@ -97,12 +97,12 @@ public class MonsterController : MonoBehaviour
         }
     }
 
-    void animMove(string toward)
+    void animMove(string direction)
     {
-        if (!anim.GetBool(toward))
+        if (!anim.GetBool(direction))
         {
             animDefault();
-            anim.SetBool(toward, true);
+            anim.SetBool(direction, true);
         }
     }
 
