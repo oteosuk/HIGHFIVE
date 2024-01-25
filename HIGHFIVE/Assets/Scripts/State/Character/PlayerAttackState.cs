@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerAttackState : PlayerBaseState
 {
-    private float _attackTimer = 0.0f;
+    private float _attackTimer;
     private int _attackHash;
     public PlayerAttackState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
     {
