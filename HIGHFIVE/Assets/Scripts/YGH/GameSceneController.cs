@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ToLobby : MonoBehaviour
+public class GameSceneController : MonoBehaviour
 {
+    public event Action winEvent;
+
     // Start is called before the first frame update
     void Start()
     {
