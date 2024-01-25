@@ -1,7 +1,9 @@
+using Photon.Realtime;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class MonsterMoveState : MonsterBaseState
 {
@@ -27,7 +29,29 @@ public class MonsterMoveState : MonsterBaseState
         Vector2 playerPos = RangeInPlayer();
         Vector2 currentPos = _monsterStateMachine._monster.transform.position;
 
-        Vector2 direction = (playerPos - currentPos).normalized;
-        _monsterStateMachine._monster.Rigidbody.velocity = direction * _monsterStateMachine._monster.stat.MoveSpeed; 
+        float distanceToPlayer = Vector2.Distance(currentPos, playerPos);
+        float distanceToSpawnZone = Vector2.Distance(currentPos, _monsterStateMachine._monster._spawnPoint);
+        if(distanceToPlayer < _monsterStateMachine._monster.stat.AttackRange)
+        {
+            if(distanceToSpawnZone > 8f)
+            {
+                Debug.Log("들어와졌는지 체크");
+                //스폰존으로 돌아가는 로직?
+                Vector2 spawnDirection = (_monsterStateMachine._monster._spawnPoint - currentPos).normalized;
+                _monsterStateMachine._monster.Rigidbody.velocity = spawnDirection * _monsterStateMachine._monster.stat.MoveSpeed;
+            }
+            // 플레이어를 향해 이동하는 로직?
+            Vector2 playerDirection = (playerPos - currentPos).normalized;
+            _monsterStateMachine._monster.Rigidbody.velocity = playerDirection  * _monsterStateMachine._monster.stat.MoveSpeed;
+        }
+        else if(distanceToSpawnZone > 0.1)
+        {
+            Vector2 spawnDirection = (_monsterStateMachine._monster._spawnPoint - currentPos).normalized;
+            _monsterStateMachine._monster.Rigidbody.velocity = spawnDirection * _monsterStateMachine._monster.stat.MoveSpeed;
+        }
+        else
+        {
+            _monsterStateMachine._monster.Rigidbody.velocity = Vector2.zero;
+        }
     }
 }
