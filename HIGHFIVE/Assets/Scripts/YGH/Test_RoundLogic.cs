@@ -15,7 +15,6 @@ public class Test_RoundLogic : MonoBehaviour
     public int teamAScore = 0;
     public int teamBScore = 0;
 
-     
 
     void Start()
     {

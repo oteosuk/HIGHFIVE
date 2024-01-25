@@ -13,6 +13,11 @@ public class Test_RoundTimer : MonoBehaviour
     [SerializeField] private float battleTime;
     [SerializeField] private float curTime;
 
+    [SerializeField] int TeamAScore;
+    [SerializeField] int TeamBScore;
+
+    //int TeamAscore = Test_RoundLogic.
+
     // int minute;
     int second;
 
@@ -24,15 +29,24 @@ public class Test_RoundTimer : MonoBehaviour
 
     IEnumerator StartTimer()
     {
-        if (curTime == farmingTime)
+        yield return new WaitForSeconds(3.0f); // 화면 전환을 위해 잠깐 기다림
+        yield return StartCoroutine(FarmingTimer());
+
+        if (curTime == battleTime)
+        {
+            yield return new WaitForSeconds(3.0f); // 화면 전환을 위해 잠깐 기다림
+            yield return StartCoroutine(BattleTimer());
+        }
+
+        if (!(TeamAScore != 1) || !(TeamBScore != 1))
         {
             yield return new WaitForSeconds(3.0f); // 화면 전환을 위해 잠깐 기다림
             yield return StartCoroutine(FarmingTimer());
         }
-        if (curTime == battleTime) 
+
+        if (!(TeamAScore != 2) || !(TeamBScore != 2))
         {
-            yield return new WaitForSeconds(3.0f); // 화면 전환을 위해 잠깐 기다림
-            yield return StartCoroutine(BattleTimer());
+            StopAllCoroutines();
         }
     }
 
@@ -59,7 +73,7 @@ public class Test_RoundTimer : MonoBehaviour
 
     IEnumerator BattleTimer()
     {
-        battleTime = 5;
+        battleTime = 7;
         curTime = battleTime;
         while (curTime > 0)
         {
