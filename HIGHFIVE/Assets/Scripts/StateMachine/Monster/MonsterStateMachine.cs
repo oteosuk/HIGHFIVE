@@ -14,6 +14,7 @@ public class MonsterStateMachine : StateMachine
 
     public MonsterStateMachine(Monster monster)
     {
+        _monster = monster;
         _monsterIdleState = new MonsterIdleState(this);
         _monsterMoveState = new MonsterMoveState(this);
         _monsterAttackState = new MonsterAttackState(this);

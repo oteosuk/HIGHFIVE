@@ -57,7 +57,7 @@ MonoBehaviour:
     range: 3
     damageRatio: 0
   Monsters:
-  - name: NM1
+  - name: "\uB098\uBB34"
     atk: 10
     def: 10
     atkRange: 1
