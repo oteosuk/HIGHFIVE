@@ -22,7 +22,7 @@ MonoBehaviour:
     movSpeed: 3
     maxHp: 120
     curHp: 120
-    sight: 0
+    sight: 3
   - job: "\uB3C4\uC801"
     info: "\" \uB530\uB77C\uC62C\uD14C\uBA74 \uB530\uB77C\uC640\uBD10 \""
     atk: 8
@@ -32,7 +32,7 @@ MonoBehaviour:
     movSpeed: 5
     maxHp: 100
     curHp: 100
-    sight: 0
+    sight: 3
   - job: "\uB9C8\uBC95\uC0AC"
     info: "\" \uB0B4 \uB9C8\uB825\uC5D0 \uBC18\uD574\uBC84\uB9B4\uAC78? \""
     atk: 10
@@ -42,7 +42,7 @@ MonoBehaviour:
     movSpeed: 4
     maxHp: 100
     curHp: 100
-    sight: 0
+    sight: 3
   Skills:
   - job: "\uC804\uC0AC"
     name: "\uCC0C\uB974\uAE30"
