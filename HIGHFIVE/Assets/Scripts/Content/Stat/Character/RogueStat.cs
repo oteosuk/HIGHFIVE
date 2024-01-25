@@ -17,6 +17,7 @@ public class RogueStat : CharacterStat
             AttackSpeed = rogue.atkSpeed;
             MoveSpeed = rogue.movSpeed;
             Defence = rogue.def;
+            SightRange = rogue.sight;
         }
 
     }

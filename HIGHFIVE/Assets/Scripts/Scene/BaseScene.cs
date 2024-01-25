@@ -15,4 +15,9 @@ public class BaseScene : MonoBehaviourPunCallbacks
     {
         Main.DataManager.Initialize();
     }
+
+    protected virtual void SetLayer(int layer)
+    {
+        Main.GameManager.SpawnedCharacter.gameObject.layer = layer;
+    }
 }

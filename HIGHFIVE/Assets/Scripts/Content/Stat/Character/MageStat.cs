@@ -18,6 +18,7 @@ public class MageStat : CharacterStat
             AttackSpeed = mage.atkSpeed;
             MoveSpeed = mage.movSpeed;
             Defence = mage.def;
+            SightRange = mage.sight;
         }
 
     }
