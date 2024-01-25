@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,8 +24,10 @@ public class GameScene : BaseScene
         if (_classMapping.TryGetValue(Main.GameManager.SelectedCharacter, out selectClass))
         {
             characterObj = Main.ObjectManager.Spawn($"Character/{selectClass}", position, syncRequired: true);
+            characterObj.layer = Main.GameManager.SelectedCamp == Define.Camp.Red ? (int)Define.Layer.Red : (int)Define.Layer.Blue;
             Main.ResourceManager.Instantiate("UI_Prefabs/GameSceneUI");
             Main.GameManager.SpawnedCharacter = characterObj.GetComponent<Character>();
+            characterObj.GetComponent<PhotonView>().RPC("SetLayer", RpcTarget.All, characterObj.layer);
         }
     }
 }

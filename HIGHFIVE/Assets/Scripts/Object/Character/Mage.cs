@@ -22,4 +22,10 @@ public class Mage : Character
     {
         base.FixedUpdate();
     }
+
+    [PunRPC]
+    public void SetLayer(int layer)
+    {
+        gameObject.layer = layer;
+    }
 }
