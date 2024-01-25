@@ -2224,6 +2224,8 @@ MonoBehaviour:
   farmingTime: 0
   battleTime: 0
   curTime: 0
+  TeamAScore: 0
+  TeamBScore: 0
 --- !u!1 &1449602999
 GameObject:
   m_ObjectHideFlags: 0
