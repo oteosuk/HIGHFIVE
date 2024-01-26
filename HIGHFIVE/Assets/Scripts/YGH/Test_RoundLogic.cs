@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
+using Unity.VisualScripting.AssemblyQualifiedNameParser;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,23 +11,16 @@ public class Test_RoundLogic : MonoBehaviour
     public int currentRound = 1;
     public int totalRounds = 3;
 
-    //public TextMeshProUGUI teamAScoreText;
-    //public TextMeshProUGUI teamBScoreText;
+    [SerializeField] TMP_Text TeamRedScore;
+    [SerializeField] TMP_Text TeamBlueScore;
 
-    //public int teamAScore = 0;
-    //public int teamBScore = 0;
 
-    TMP_Text TeamAScore;
-    TMP_Text TeamBScore;
-
-    public GameObject teamA;
-    public GameObject teamB;
-
+    private GameSceneController gameSceneController;
 
     void Start()
     {
-        TeamAScore = teamA.GetComponent<TMP_Text>();
-        TeamBScore = teamB.GetComponent<TMP_Text>();
+        gameSceneController = gameObject.GetComponent<GameSceneController>();
+        gameSceneController.winEvent += PlayerWin;
         StartRound();
     }
 
@@ -47,26 +42,36 @@ public class Test_RoundLogic : MonoBehaviour
         }
     }
 
+    // 종료 메서드
+    // if()
+    // {
+    //    TeamRedWinBtn();
+    // }    
 
     // 테스트용 버튼
-    public void TeamAWinBtn()
+    public void TeamRedWinBtn()
     {
-        int resultA;
-        int.TryParse(TeamAScore.text, out resultA);
-
-        resultA++;
-
-        TeamAScore.text = resultA.ToString();
+        gameSceneController.FinishRound(Define.Camp.Red);
     }
 
-    public void TeamBWinBtn()
+    public void TeamBlueWinBtn()
     {
-        int resultB;
-        int.TryParse(TeamBScore.text, out resultB);
-
-        resultB++;
-
-        TeamBScore.text = resultB.ToString();
+        gameSceneController.FinishRound(Define.Camp.Blue);
     }
 
+    public void PlayerWin(Define.Camp winner)
+    {
+        if(winner == Define.Camp.Red)
+        {
+            int teamRedscore;
+            int.TryParse(TeamRedScore.text, out teamRedscore);
+            TeamRedScore.text = $"{++teamRedscore}";
+        }
+        else if (winner == Define.Camp.Blue)
+        {
+            int teamBluescore;
+            int.TryParse(TeamBlueScore.text, out teamBluescore);
+            TeamBlueScore.text = $"{++teamBluescore}";
+        }
+    }
 }

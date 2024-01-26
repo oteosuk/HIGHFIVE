@@ -5,14 +5,10 @@ using UnityEngine;
 
 public class GameSceneController : MonoBehaviour
 {
-    public event Action winEvent;
+    public event Action<Define.Camp> winEvent;
 
-    public int teamAScore;
-    public int teamBScore;
-
-    public void FinishRound()
+    public void FinishRound(Define.Camp camp)
     {
-        // Evenet?.Invoke();
+        winEvent?.Invoke(camp);
     }
-
 }
