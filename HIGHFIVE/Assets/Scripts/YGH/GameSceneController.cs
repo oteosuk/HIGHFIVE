@@ -7,15 +7,12 @@ public class GameSceneController : MonoBehaviour
 {
     public event Action winEvent;
 
-    // Start is called before the first frame update
-    void Start()
+    public int teamAScore;
+    public int teamBScore;
+
+    public void FinishRound()
     {
-        
+        // Evenet?.Invoke();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
