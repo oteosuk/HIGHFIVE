@@ -223,9 +223,8 @@ GameObject:
   m_Component:
   - component: {fileID: 908811533}
   - component: {fileID: 908811532}
-  - component: {fileID: 908811534}
   - component: {fileID: 908811531}
-  - component: {fileID: 908811535}
+  - component: {fileID: 908811534}
   - component: {fileID: 908811536}
   m_Layer: 0
   m_Name: Main Camera
@@ -317,21 +316,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 908811530}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4a64dc163434af448334343985914f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &908811535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 908811530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af681188bbb657948be6503920474bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  size: {x: 105, y: 54}
+  center: {x: -1, y: 6}
 --- !u!114 &908811536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1232,7 +1221,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1150771481}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.6, y: 0, z: 0}
+  m_LocalPosition: {x: -4.18, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1257,8 +1246,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1488940968
-Transform:
+--- !u!224 &1488940968
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1272,6 +1261,11 @@ Transform:
   m_Father: {fileID: 1638205471}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -0.149}
+  m_SizeDelta: {x: 100, y: 99.7019}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!483693784 &1488940969
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -39293,6 +39287,42 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1534666723
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1534666724}
+  m_Layer: 0
+  m_Name: CameraLimitRange
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1534666724
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534666723}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.992, y: 5.8522}
+  m_SizeDelta: {x: 104.1733, y: 54.1744}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1638205469
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 4688891675065065584}
   - component: {fileID: 2350598541294646126}
   - component: {fileID: -3229855166075039747}
+  - component: {fileID: -4032308592510129217}
   m_Layer: 0
   m_Name: Mage
   m_TagString: Untagged
@@ -184,6 +185,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 7405839587593706051}
+  - {fileID: -4032308592510129217}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -228,6 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stat: {fileID: 0}
+  resolution: 30
 --- !u!95 &2350598541294646126
 Animator:
   serializedVersion: 5
@@ -261,3 +264,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d2e26e666e7e8e4083dd5798087a51c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4032308592510129217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232833287244604407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters: []
+  m_SynchronizeLayers: []

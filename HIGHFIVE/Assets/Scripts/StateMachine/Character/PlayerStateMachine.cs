@@ -18,8 +18,6 @@ public class PlayerStateMachine : StateMachine
     public bool isAttackReady = false;
     public bool isLeftClicked = false;
 
-    public Transform _mainCameraTransform { get; set; }
-
     public PlayerStateMachine(Character player)
     {
         this._player = player;
@@ -29,8 +27,6 @@ public class PlayerStateMachine : StateMachine
         _playerAttackState = new PlayerAttackState(this);
         _playerDieState = new PlayerDieState(this);
         _playerSkillState = new PlayerSkillState(this);
-
-        _mainCameraTransform = Camera.main.transform;
     }
 
 }
