@@ -26,35 +26,18 @@ public class MonsterController : MonoBehaviour
 
     void Update()
     {
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        float distanceToSpawnZone = Vector2.Distance(transform.position, spawnZone.position);
+        float disToPlayer = Vector2.Distance(transform.position, player.position);
+        float disToSpawnZone = Vector2.Distance(transform.position, spawnZone.position);
 
-        MoveProcess(distanceToPlayer, distanceToSpawnZone);
-
-        /*if(!isReturn && distanceToSpawnZone > _returnRadius)
-        {
-            isReturn = true;
-        }*/
+        MoveProcess(disToPlayer, disToSpawnZone);
     }
 
 
-    void MoveProcess(float distanceToPlayer, float distanceToSpawnZone)
+    void MoveProcess(float disToPlayer, float disToSpawnZone)
     {
-        /*if (distanceToSpawnZone > _returnRadius) // 스폰존으로부터 너무 멀리갔을때
+        if (disToPlayer < _chaseRadius) // 플레이어가 몬스터추적 반경안일때
         {
-            if (timeSinceReturn < returnCooldown) // 쿨다운 중이라면
-            {
-                timeSinceReturn += Time.deltaTime; // 경과 시간 갱신
-                ReturnToSpawnZone();
-            }
-            //ReturnToSpawnZone();
-            return;
-        }
-        else ChasePlayer();*/
-
-        if (distanceToPlayer < _chaseRadius) // 플레이어가 몬스터추적 반경안일때
-        {
-            if (distanceToSpawnZone > _returnRadius) // 쫓아가다가 스폰존으로부터 너무 멀리갔을때
+            if (disToSpawnZone > _returnRadius) // 쫓아가다가 스폰존으로부터 너무 멀리갔을때
             { 
                 _returnRadius = 0f; // 반경을 0 으로 바꿔서 무조건 돌아가게끔
                 _moveSpeed = 3f;
@@ -64,7 +47,7 @@ public class MonsterController : MonoBehaviour
             _moveSpeed = 1.5f;
             ChasePlayer();
         }
-        else if (distanceToSpawnZone > 0.1) // 스폰존으로부터 거리가 있다면
+        else if (disToSpawnZone > 0.1) // 스폰존으로부터 거리가 있다면
         {
             ReturnToSpawnZone();
         }
