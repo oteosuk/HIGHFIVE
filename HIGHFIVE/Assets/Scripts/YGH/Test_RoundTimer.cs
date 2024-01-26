@@ -13,24 +13,19 @@ public class Test_RoundTimer : MonoBehaviour
     [SerializeField] private float battleTime;
     [SerializeField] private float curTime;
 
-    TMP_Text TeamAScore;
-    TMP_Text TeamBScore;
+    [SerializeField] TMP_Text TeamAScore;
+    [SerializeField] TMP_Text TeamBScore;
 
-    public GameObject teamA;
-    public GameObject teamB;
-
-    //int TeamAscore = Test_RoundLogic.
 
     // int minute;
     int second;
 
     private void Awake()
     {
-        TeamAScore = teamA.GetComponent<TMP_Text>();
-        TeamBScore = teamB.GetComponent<TMP_Text>();
         curTime = farmingTime;
         StartCoroutine(StartTimer());
     }
+
 
     IEnumerator StartTimer()
     {
@@ -63,7 +58,7 @@ public class Test_RoundTimer : MonoBehaviour
 
     IEnumerator FarmingTimer()
     {
-        farmingTime = 10;
+        farmingTime = 5;
         curTime = farmingTime;
         while (curTime > 0)
         {
@@ -84,7 +79,7 @@ public class Test_RoundTimer : MonoBehaviour
 
     IEnumerator BattleTimer()
     {
-        battleTime = 5;
+        battleTime = 3;
         curTime = battleTime;
         while (curTime > 0)
         {
