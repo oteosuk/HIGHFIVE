@@ -7,21 +7,31 @@ public class CameraMover : MonoBehaviour
 {
     private float cameraSpeed = 10f;
     public PlayerInput Input { get; protected set; }
-    private float zoomSpeed = 1.0f;
-    private float minZoom = 3.0f;
-    private float maxZoom = 8.0f;
+    public Vector2 size;
+    public Vector2 center;
+    private float _zoomSpeed = 1.0f;
+    private float _minZoom = 3.0f;
+    private float _maxZoom = 8.0f;
+    private float _cameraHeight;
+    private float _cameraWidth;
 
 
     private void Start()
     {
         Input = GetComponent<PlayerInput>();
-        Input._playerActions.CallCamera.started += ReturnCameraToCharacter;
+        Input._playerActions.CallCamera.performed += ReturnCameraToCharacter;
+        _cameraHeight = Camera.main.orthographicSize;
+        _cameraWidth = _cameraHeight * Screen.width / Screen.height;
     }
-
     private void Update()
     {
         UpdateMoveCamera();
         UpdateZoomCamera();
+    }
+
+    private void LateUpdate()
+    {
+        LimitCameraMoveRange();
     }
 
     private void UpdateMoveCamera()
@@ -68,14 +78,23 @@ public class CameraMover : MonoBehaviour
     {
         float currentZoom = Camera.main.orthographicSize;
 
-        float newZoom = Mathf.Clamp(currentZoom - zoomDelta * zoomSpeed * Time.deltaTime, minZoom, maxZoom);
-
-        Camera.main.orthographicSize = newZoom;
+        float newZoom = Mathf.Clamp(currentZoom - zoomDelta * _zoomSpeed * Time.deltaTime, _minZoom, _maxZoom);
+        
+        Camera.main.orthographicSize = Mathf.Lerp(currentZoom, newZoom, 0.5f);
     }
 
     private void ReturnCameraToCharacter(InputAction.CallbackContext context)
     {
         Vector2 characterPos = Main.GameManager.SpawnedCharacter.gameObject.transform.position;
         transform.position = new Vector3(characterPos.x, characterPos.y, transform.position.z);
+    }
+
+    private void LimitCameraMoveRange()
+    {
+        float limitX = size.x * 0.5f - _cameraWidth;
+        float ClampX = Mathf.Clamp(transform.position.x, -limitX + center.x, limitX + center.x);
+        float limitY = size.y * 0.5f - _cameraHeight;
+        float ClampY = Mathf.Clamp(transform.position.y, -limitY + center.y, limitY + center.y);
+        transform.position = new Vector3(ClampX, ClampY, transform.position.z);
     }
 }

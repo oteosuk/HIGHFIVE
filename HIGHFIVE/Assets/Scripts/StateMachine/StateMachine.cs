@@ -15,7 +15,7 @@ public abstract class StateMachine
         _currentState = newState;
 
         // 진입
-        _currentState.Enter();
+        _currentState?.Enter();
 
         Debug.Log($"Changed state to: {newState.GetType().Name}");
     }

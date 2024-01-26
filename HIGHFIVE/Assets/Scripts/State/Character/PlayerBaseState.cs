@@ -6,9 +6,10 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
+using static UnityEngine.RuleTile.TilingRuleOutput;
+//using UnityEngine.UIElements;
 
-public class PlayerBaseState : IState
+public class PlayerBaseState : MonoBehaviour, IState
 {
     protected PlayerStateMachine _playerStateMachine;
     protected Vector2 _tempTargetPos = Vector2.zero;
@@ -138,6 +139,5 @@ public class PlayerBaseState : IState
         {
             RayToObjectAndSetTarget();
         }
-
     }
 }
