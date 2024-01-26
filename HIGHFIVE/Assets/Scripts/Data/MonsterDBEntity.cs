@@ -10,4 +10,5 @@ public class MonsterDBEntity
     public float movSpeed;
     public int maxHp;
     public int curHp;
+    public int sight;
 }

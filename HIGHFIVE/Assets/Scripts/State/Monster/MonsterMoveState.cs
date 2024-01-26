@@ -3,7 +3,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class MonsterMoveState : MonsterBaseState
 {
@@ -39,15 +38,18 @@ public class MonsterMoveState : MonsterBaseState
                 //스폰존으로 돌아가는 로직?
                 Vector2 spawnDirection = (_monsterStateMachine._monster._spawnPoint - currentPos).normalized;
                 _monsterStateMachine._monster.Rigidbody.velocity = spawnDirection * _monsterStateMachine._monster.stat.MoveSpeed;
+                //float spawnToAngle = Mathf.Atan2(_monsterStateMachine._monster._spawnPoint.y - currentPos.y, _monsterStateMachine._monster._spawnPoint.x-currentPos.x) * Mathf.Rad2Deg;
             }
             // 플레이어를 향해 이동하는 로직?
             Vector2 playerDirection = (playerPos - currentPos).normalized;
             _monsterStateMachine._monster.Rigidbody.velocity = playerDirection  * _monsterStateMachine._monster.stat.MoveSpeed;
+            //float playerToAngle = Mathf.Atan2(playerPos.y - currentPos.y, playerPos.x - currentPos.x) * Mathf.Rad2Deg;
         }
         else if(distanceToSpawnZone > 0.1)
         {
             Vector2 spawnDirection = (_monsterStateMachine._monster._spawnPoint - currentPos).normalized;
             _monsterStateMachine._monster.Rigidbody.velocity = spawnDirection * _monsterStateMachine._monster.stat.MoveSpeed;
+            //float spawnToAngle = Mathf.Atan2(_monsterStateMachine._monster._spawnPoint.y - currentPos.y, _monsterStateMachine._monster._spawnPoint.x-currentPos.x) * Mathf.Rad2Deg;
         }
         else
         {
