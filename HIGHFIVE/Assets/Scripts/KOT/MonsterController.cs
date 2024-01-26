@@ -12,6 +12,12 @@ public class MonsterController : MonoBehaviour
 
     private Animator _anim;
 
+    public bool isReturn = false;
+    void ChaseAgain()
+    {
+        isReturn = false;
+    }
+
     void Start()
     {
         _anim = GetComponentInChildren<Animator>();
@@ -20,30 +26,51 @@ public class MonsterController : MonoBehaviour
 
     void Update()
     {
-        MoveProcess();
-    }
-
-
-    void MoveProcess()
-    {
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
         float distanceToSpawnZone = Vector2.Distance(transform.position, spawnZone.position);
 
-        if (distanceToPlayer < _chaseRadius) // 플레이어랑 거리가 좁을때
+        MoveProcess(distanceToPlayer, distanceToSpawnZone);
+
+        /*if(!isReturn && distanceToSpawnZone > _returnRadius)
         {
-            if (distanceToSpawnZone > _returnRadius)
+            isReturn = true;
+        }*/
+    }
+
+
+    void MoveProcess(float distanceToPlayer, float distanceToSpawnZone)
+    {
+        /*if (distanceToSpawnZone > _returnRadius) // 스폰존으로부터 너무 멀리갔을때
+        {
+            if (timeSinceReturn < returnCooldown) // 쿨다운 중이라면
             {
+                timeSinceReturn += Time.deltaTime; // 경과 시간 갱신
                 ReturnToSpawnZone();
-                //2초동안 플레이어 쫓지 못하는상태로직 추가
             }
+            //ReturnToSpawnZone();
+            return;
+        }
+        else ChasePlayer();*/
+
+        if (distanceToPlayer < _chaseRadius) // 플레이어가 몬스터추적 반경안일때
+        {
+            if (distanceToSpawnZone > _returnRadius) // 쫓아가다가 스폰존으로부터 너무 멀리갔을때
+            { 
+                _returnRadius = 0f; // 반경을 0 으로 바꿔서 무조건 돌아가게끔
+                _moveSpeed = 3f;
+                ReturnToSpawnZone();
+                return; // 밑에 ChasePlayer()를 실행시키지 않게 return;
+            }
+            _moveSpeed = 1.5f;
             ChasePlayer();
         }
-        else if (distanceToSpawnZone > 0.1) // 플레이어랑 먼데, 스폰존으로부터 거리가 있다면
+        else if (distanceToSpawnZone > 0.1) // 스폰존으로부터 거리가 있다면
         {
             ReturnToSpawnZone();
         }
-        else // 플레이어랑 먼데, 스폰존에 도착했다면
+        else // 스폰존에 도착했다면
         {
+            _returnRadius = 8f; // 반경초기화
             animSet("isIdle");
         }
     }
