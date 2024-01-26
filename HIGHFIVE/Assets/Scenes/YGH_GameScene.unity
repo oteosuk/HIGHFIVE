@@ -430,6 +430,7 @@ GameObject:
   - component: {fileID: 620941987}
   - component: {fileID: 620941986}
   - component: {fileID: 620941991}
+  - component: {fileID: 620941992}
   m_Layer: 5
   m_Name: TestUI
   m_TagString: Untagged
@@ -451,10 +452,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentRound: 1
   totalRounds: 3
-  teamAScoreText: {fileID: 1640334282}
-  teamBScoreText: {fileID: 1042397762}
-  teamAScore: 0
-  teamBScore: 0
+  teamA: {fileID: 1640334280}
+  teamB: {fileID: 1042397760}
 --- !u!114 &620941987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -557,6 +556,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teamAScore: 0
   teamBScore: 0
+--- !u!114 &620941992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620941985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf6fa58942c473c4dbcb53b390b660f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 1346200317}
+  farmingTime: 0
+  battleTime: 0
+  curTime: 0
+  teamA: {fileID: 1640334280}
+  teamB: {fileID: 1042397760}
 --- !u!1 &674326574
 GameObject:
   m_ObjectHideFlags: 0
@@ -2239,8 +2256,8 @@ MonoBehaviour:
   farmingTime: 0
   battleTime: 0
   curTime: 0
-  TeamAScore: 0
-  TeamBScore: 0
+  teamA: {fileID: 0}
+  teamB: {fileID: 0}
 --- !u!1 &1449602999
 GameObject:
   m_ObjectHideFlags: 0
