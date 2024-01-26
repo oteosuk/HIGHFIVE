@@ -13,8 +13,11 @@ public class Test_RoundTimer : MonoBehaviour
     [SerializeField] private float battleTime;
     [SerializeField] private float curTime;
 
-    [SerializeField] int TeamAScore;
-    [SerializeField] int TeamBScore;
+    TMP_Text TeamAScore;
+    TMP_Text TeamBScore;
+
+    public GameObject teamA;
+    public GameObject teamB;
 
     //int TeamAscore = Test_RoundLogic.
 
@@ -23,6 +26,8 @@ public class Test_RoundTimer : MonoBehaviour
 
     private void Awake()
     {
+        TeamAScore = teamA.GetComponent<TMP_Text>();
+        TeamBScore = teamB.GetComponent<TMP_Text>();
         curTime = farmingTime;
         StartCoroutine(StartTimer());
     }
@@ -38,13 +43,19 @@ public class Test_RoundTimer : MonoBehaviour
             yield return StartCoroutine(BattleTimer());
         }
 
-        if (!(TeamAScore != 1) || !(TeamBScore != 1))
+        int resultA;
+        int resultB;
+        int.TryParse(TeamAScore.text, out resultA);
+        int.TryParse(TeamBScore.text, out resultB);
+
+
+        if (resultA == 1 || resultB == 1)
         {
             yield return new WaitForSeconds(1.0f); // 화면 전환을 위해 잠깐 기다림
             yield return StartCoroutine(FarmingTimer());
         }
 
-        if (!(TeamAScore != 2) || !(TeamBScore != 2))
+        if ((resultA == 2) || (resultB == 2))
         {
             StopAllCoroutines();
         }

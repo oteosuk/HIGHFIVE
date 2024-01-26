@@ -9,15 +9,23 @@ public class Test_RoundLogic : MonoBehaviour
     public int currentRound = 1;
     public int totalRounds = 3;
 
-    public TextMeshProUGUI teamAScoreText;
-    public TextMeshProUGUI teamBScoreText;
+    //public TextMeshProUGUI teamAScoreText;
+    //public TextMeshProUGUI teamBScoreText;
 
-    public int teamAScore = 0;
-    public int teamBScore = 0;
+    //public int teamAScore = 0;
+    //public int teamBScore = 0;
+
+    TMP_Text TeamAScore;
+    TMP_Text TeamBScore;
+
+    public GameObject teamA;
+    public GameObject teamB;
 
 
     void Start()
     {
+        TeamAScore = teamA.GetComponent<TMP_Text>();
+        TeamBScore = teamB.GetComponent<TMP_Text>();
         StartRound();
     }
 
@@ -43,14 +51,22 @@ public class Test_RoundLogic : MonoBehaviour
     // 테스트용 버튼
     public void TeamAWinBtn()
     {
-        teamAScore++;
-        teamAScoreText.text = teamAScore.ToString();
+        int resultA;
+        int.TryParse(TeamAScore.text, out resultA);
+
+        resultA++;
+
+        TeamAScore.text = resultA.ToString();
     }
 
     public void TeamBWinBtn()
     {
-        teamBScore++;
-        teamBScoreText.text = teamBScore.ToString();
+        int resultB;
+        int.TryParse(TeamBScore.text, out resultB);
+
+        resultB++;
+
+        TeamBScore.text = resultB.ToString();
     }
 
 }

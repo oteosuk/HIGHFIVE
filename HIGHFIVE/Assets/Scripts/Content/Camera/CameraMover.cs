@@ -9,7 +9,7 @@ public class CameraMover : MonoBehaviour
     public PlayerInput Input { get; protected set; }
     public Vector2 size;
     public Vector2 center;
-    private float _zoomSpeed = 1.0f;
+    private float _zoomSpeed = 1.3f;
     private float _minZoom = 3.0f;
     private float _maxZoom = 8.0f;
     private float _cameraHeight;
