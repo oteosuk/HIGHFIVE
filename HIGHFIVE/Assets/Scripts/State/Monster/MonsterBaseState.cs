@@ -33,24 +33,27 @@ public class MonsterBaseState : IState
 
     public virtual void StateUpdate()
     {
+        Debug.Log(_monsterStateMachine._monster.stat.AttackRange);
+        Debug.Log(_monsterStateMachine._monster.stat.CurHp);
         if (_monsterStateMachine._monster.stat.CurHp <= 0)
         {
             OnDie();
         }
-        else
-        { 
+        
+        
         Vector2 playerPos = RangeInPlayer();
-            if (playerPos != Vector2.zero)
-            {
-                _monsterStateMachine.ChangeState(_monsterStateMachine._monsterMoveState);
-                Debug.Log("Move들어가나?");
-            }
-            else
-            {
-                _monsterStateMachine.ChangeState(_monsterStateMachine._monsterIdleState);
-                Debug.Log("Idle들어가나?");
-            }
+        Debug.Log(playerPos);
+        if (playerPos != Vector2.zero)
+        {
+            _monsterStateMachine.ChangeState(_monsterStateMachine._monsterMoveState);
+            Debug.Log("Move들어가나?");
         }
+        else
+        {
+            _monsterStateMachine.ChangeState(_monsterStateMachine._monsterIdleState);
+            Debug.Log("Idle들어가나?");
+        }
+        
     }
 
     protected virtual void OnMove()
@@ -75,7 +78,8 @@ public class MonsterBaseState : IState
     protected Vector2 RangeInPlayer()
     {
         Collider2D playerCollider = Physics2D.OverlapCircle(_monsterStateMachine._monster.transform.position, _monsterStateMachine._monster.stat.AttackRange, LayerMask.GetMask("Red")); 
-
+        Debug.Log(playerCollider);
+        Debug.Log(LayerMask.GetMask("Red"));
         return playerCollider != null ? playerCollider.transform.position : Vector2.zero;
     }
 }
