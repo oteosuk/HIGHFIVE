@@ -12,11 +12,11 @@ public class MonsterController : MonoBehaviour
 
     private Animator _anim;
 
-    public bool isReturn = false;
+    /*public bool isReturn = false;
     void ChaseAgain()
     {
         isReturn = false;
-    }
+    }*/
 
     void Start()
     {
