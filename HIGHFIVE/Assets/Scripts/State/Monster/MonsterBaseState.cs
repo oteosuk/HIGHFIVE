@@ -13,7 +13,7 @@ public class MonsterBaseState : IState
 
     public virtual void Enter()
     {
-        
+
     }
 
     public virtual void Exit()
@@ -33,12 +33,14 @@ public class MonsterBaseState : IState
 
     public virtual void StateUpdate()
     {
-        Debug.Log("감지범위 : " + _monsterStateMachine._monster.stat.SightRange);
-        Debug.Log("이동속도 : " + _monsterStateMachine._monster.stat.MoveSpeed);
-        Debug.Log("체력 : " + _monsterStateMachine._monster.stat.CurHp);
         if (_monsterStateMachine._monster.stat.CurHp <= 0)
         {
             OnDie();
+        }
+
+        if (_monsterStateMachine.moveSpeedModifier <= 0)
+        {
+            _monsterStateMachine.ChangeState(_monsterStateMachine._monsterIdleState);
         }
     }
 

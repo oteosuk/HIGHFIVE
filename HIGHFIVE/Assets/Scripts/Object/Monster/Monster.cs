@@ -20,7 +20,7 @@ public class Monster : MonoBehaviour
         Rigidbody = GetComponent<Rigidbody2D>();
         Input = GetComponent<PlayerInput>();
         Controller = GetComponent<Collider2D>();
-        Animator = GetComponent<Animator>();
+        Animator = transform.GetComponentInChildren<Animator>();
 
         stat = GetComponent<Stat>();
         SetSpawnPoint(transform.position);
