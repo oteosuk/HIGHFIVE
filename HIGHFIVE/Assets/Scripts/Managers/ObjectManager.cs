@@ -2,6 +2,7 @@ using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ObjectManager
 {
@@ -24,16 +25,15 @@ public class ObjectManager
         return go;
     }
 
-    public void DeSpawn<T>(Define.Object type, GameObject go)
-    {
-        switch (type)
+    public void DeSpawn<T>(Define.Object type, GameObject go, bool syncRequired = false)
+    { 
+        if (syncRequired)
         {
-            case Define.Object.Character:
-                //_players.Add(id, go);
-                break;
-            case Define.Object.Monster:
-                //_monsters.Add(id, go);
-                break;
+            PhotonNetwork.Destroy(go);
+        }
+        else
+        {
+            Main.ResourceManager.Destroy(go);
         }
     }
 }

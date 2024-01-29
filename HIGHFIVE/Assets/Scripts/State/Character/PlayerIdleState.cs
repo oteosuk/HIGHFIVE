@@ -15,7 +15,6 @@ public class PlayerIdleState : PlayerBaseState
 
     public override void Enter()
     {
-        Debug.Log("Idle");
         _playerStateMachine.moveSpeedModifier = 0f;
         base.Enter();
         StartAnimation(_idleHash);
@@ -25,7 +24,6 @@ public class PlayerIdleState : PlayerBaseState
     public override void Exit()
     {
         base.Exit();
-        Debug.Log("Idle Exit");
         StopAnimation(_idleHash);
         // 애니메이션 해제
     }

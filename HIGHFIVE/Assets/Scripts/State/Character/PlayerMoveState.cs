@@ -29,15 +29,13 @@ public class PlayerMoveState : PlayerBaseState
         base.Enter();
         _playerStateMachine.moveSpeedModifier = 1.0f;
 
-        StartAnimation(_moveHash);
-        Debug.Log("Move Enter");        
+        StartAnimation(_moveHash);     
         // 애니메이션 호출
     }
 
     public override void Exit()
     {
         base.Exit();
-        Debug.Log("Move Exit");
         StopAnimation(_moveHash);
         // 애니메이션 해제
     }
@@ -52,6 +50,7 @@ public class PlayerMoveState : PlayerBaseState
     {
         if (Mouse.current.rightButton.isPressed)
         {
+            _playerStateMachine.isLeftClicked = false;
             PrepareForMove();
         }
         else if (_playerStateMachine.isAttackReady && Mouse.current.leftButton.isPressed)
@@ -59,6 +58,7 @@ public class PlayerMoveState : PlayerBaseState
             PrepareForMove();
             _playerStateMachine.isLeftClicked = true;
         }
+        _targetPosition = _playerStateMachine.targetObject == null ? _playerStateMachine.moveInput : _playerStateMachine.targetObject.transform.position;
 
         MovePlayerToTarget();
 
@@ -73,7 +73,6 @@ public class PlayerMoveState : PlayerBaseState
     private void PrepareForMove()
     {
         _playerStateMachine.isAttackReady = false;
-        _targetPosition = _playerStateMachine.moveInput;
         _moveSpeed = _playerStateMachine._player.stat.MoveSpeed * _playerStateMachine.moveSpeedModifier;
     }
 
@@ -81,6 +80,7 @@ public class PlayerMoveState : PlayerBaseState
     {
         if (_playerStateMachine.targetObject != null)
         {
+            Debug.Log("hi");
             float distance = (_playerStateMachine.targetObject.transform.position - _playerStateMachine._player.transform.position).magnitude;
 
             if (_playerStateMachine._player.stat.AttackRange > distance)
@@ -108,8 +108,8 @@ public class PlayerMoveState : PlayerBaseState
         int monsterMask = LayerMask.GetMask("Monster");
         int enemyMask = Main.GameManager.SelectedCamp == Define.Camp.Red ? LayerMask.GetMask("Blue") : LayerMask.GetMask("Red");
 
-        Collider2D monsterCollider = Physics2D.OverlapCircle(_playerStateMachine._player.transform.position, 5, monsterMask);
-        Collider2D enemyCollider = Physics2D.OverlapCircle(_playerStateMachine._player.transform.position, 5, enemyMask);
+        Collider2D monsterCollider = Physics2D.OverlapCircle(_playerStateMachine._player.transform.position, _playerStateMachine._player.stat.SightRange, monsterMask);
+        Collider2D enemyCollider = Physics2D.OverlapCircle(_playerStateMachine._player.transform.position, _playerStateMachine._player.stat.SightRange, enemyMask);
 
         if (enemyCollider != null || monsterCollider != null)
         {

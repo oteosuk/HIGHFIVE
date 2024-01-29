@@ -12,7 +12,6 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 public class PlayerBaseState : MonoBehaviour, IState
 {
     protected PlayerStateMachine _playerStateMachine;
-    protected Vector2 _tempTargetPos = Vector2.zero;
 
     public PlayerBaseState(PlayerStateMachine playerStateMachine)
     {
@@ -121,11 +120,11 @@ public class PlayerBaseState : MonoBehaviour, IState
         }
         else
         {
+            Debug.Log("dd");
             _playerStateMachine.targetObject = null;
         }
 
         _playerStateMachine.moveInput = Camera.main.ScreenToWorldPoint(mousePoint);
-        _tempTargetPos = _playerStateMachine.moveInput;
     }
 
     private void ReadMoveInput()

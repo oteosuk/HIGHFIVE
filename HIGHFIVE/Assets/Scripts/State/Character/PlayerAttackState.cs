@@ -5,8 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerAttackState : PlayerBaseState
 {
-    private float _attackTimer;
     private int _attackHash;
+
     public PlayerAttackState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
     {
         if (_attackHash == 0)
@@ -21,17 +21,13 @@ public class PlayerAttackState : PlayerBaseState
         _playerStateMachine.moveSpeedModifier = 0f;
         _playerStateMachine.isAttackReady = false;
         StartAnimation(_attackHash);
-        Debug.Log(_playerStateMachine.targetObject.name);
-        Debug.Log("Attack");
         // 애니메이션 호출
     }
 
     public override void Exit()
     {
         base.Exit();
-        _attackTimer = 0.0f;
         StopAnimation(_attackHash);
-        Debug.Log("Attack Exit");
         // 애니메이션 해제
     }
 
@@ -39,13 +35,32 @@ public class PlayerAttackState : PlayerBaseState
     public override void StateUpdate()
     {
         base.StateUpdate();
-
-        if (_playerStateMachine.targetObject == null)
-        {
-            OnMove();
-        }
+        if (CheckTargetInRange()) {  OnAttack(); }
+        else { OnMove(); }
     }
 
+    private void OnAttack()
+    {
+        _playerStateMachine._player.OnNormalAttack();
+    }
+
+    private bool CheckTargetInRange()
+    {
+        if (_playerStateMachine.targetObject != null)
+        {
+            float distance = (_playerStateMachine.targetObject.transform.position - _playerStateMachine._player.transform.position).magnitude;
+
+            if (distance > _playerStateMachine._player.stat.AttackRange)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        return false;
+    }
     protected override void OnMove()
     {
         base.OnMove();
