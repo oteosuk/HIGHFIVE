@@ -19,6 +19,7 @@ public class MonsterController : MonoBehaviour
 
     void Start()
     {
+        player = GameObject.FindWithTag("Player").transform;
         _anim = GetComponentInChildren<Animator>();
     }
 
