@@ -7,7 +7,7 @@ public class testScene : BaseScene
     protected override void Init()
     {
         base.Init();
-
+        Debug.Log("testScene Initialization");
 
     }
 }
