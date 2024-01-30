@@ -20,9 +20,4 @@ public class SpawnedCharacterStats : MonoBehaviour
         _spawnedcharacterDef.text = _character.stat.Defence.ToString();
         _spawnedcharacterSpd.text = _character.stat.MoveSpeed.ToString();
     }
-
-    void Update()
-    {
-        
-    }
 }
