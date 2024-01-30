@@ -44,11 +44,11 @@ public class RoundTimer : MonoBehaviour
             StartCoroutine(FarmingTimer());
         }
 
-        if (scoreRed == 1 && scoreBlue == 1)
+        else if (scoreRed == 1 && scoreBlue == 1)
         {
             roundLogic.RoundIndex();
 
-            StopAllCoroutines();
+            StopCoroutine(BattleTimer());
             StartCoroutine(FarmingTimer());
         }
 
