@@ -1680,7 +1680,7 @@ GameObject:
   - component: {fileID: 7697956536142776697}
   - component: {fileID: 7697956536142776698}
   - component: {fileID: 7697956536142776699}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: InGamePlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1841,6 +1841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stat: {fileID: 0}
+  targetObject: {fileID: 0}
   resolution: 30
 --- !u!4 &4788468127691923799
 Transform:
