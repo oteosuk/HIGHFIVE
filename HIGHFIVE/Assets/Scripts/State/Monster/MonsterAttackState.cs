@@ -14,11 +14,22 @@ public class MonsterAttackState : MonsterBaseState
     }
 
     public override void Exit()
-    { 
+    {
         base.Exit();
     }
     public override void StateUpdate()
     {
         base.StateUpdate();
+        OnAttack();
+    }
+
+    private void OnAttack()
+    {
+        float distance = (_monsterStateMachine.targetObject.transform.position - _monsterStateMachine._monster.transform.position).magnitude;
+
+        if (distance > _monsterStateMachine._monster.stat.AttackRange || distance > _monsterStateMachine._monster.stat.SightRange)
+        {
+            _monsterStateMachine.ChangeState(_monsterStateMachine._monsterMoveState);
+        }
     }
 }
