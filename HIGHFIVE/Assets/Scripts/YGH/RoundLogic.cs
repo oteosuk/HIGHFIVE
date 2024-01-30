@@ -46,20 +46,16 @@ public class RoundLogic : MonoBehaviour
             currentRound = 3;
             roundTxt.text = currentRound.ToString();
         }
+        if (scoreRed == 2 || scoreBlue == 2)
+        {
+            currentRound = 3;
+            roundTxt.text = currentRound.ToString();
+        }
     }
 
     public void GameOver()
     {
-        int scoreRed;
-        int scoreBlue;
-        int.TryParse(TeamRedScore.text, out scoreRed);
-        int.TryParse(TeamBlueScore.text, out scoreBlue);
-
-        if (scoreRed == 2 || scoreBlue == 2)
-        { 
-            Debug.Log("Game Over");
-            VictoryPanel.SetActive(true);
-        }
+        VictoryPanel.SetActive(true);
     }
 
     // 테스트용 버튼

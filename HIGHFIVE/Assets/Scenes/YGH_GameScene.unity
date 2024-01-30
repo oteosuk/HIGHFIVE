@@ -794,7 +794,7 @@ GameObject:
   - component: {fileID: 620941991}
   - component: {fileID: 620941992}
   m_Layer: 5
-  m_Name: TestUI
+  m_Name: Test_ScoreAndTimerUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

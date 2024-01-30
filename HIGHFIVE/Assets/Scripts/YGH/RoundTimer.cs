@@ -17,7 +17,6 @@ public class RoundTimer : MonoBehaviour
     [SerializeField] TMP_Text TeamRedScore;
     [SerializeField] TMP_Text TeamBlueScore;
 
-
     // int minute;
     int second;
 
@@ -31,7 +30,6 @@ public class RoundTimer : MonoBehaviour
     }
 
     void StartFarmingTimer()
-    // 수정) if 조건문을 못 읽고 코루틴이 쭉 아래까지 내려가서 2라운드로 못넘어감
     {
         int scoreRed;
         int scoreBlue;
@@ -73,13 +71,8 @@ public class RoundTimer : MonoBehaviour
 
     IEnumerator FarmingTimer()
     {
-        int scoreRed;
-        int scoreBlue;
-        int.TryParse(TeamRedScore.text, out scoreRed);
-        int.TryParse(TeamBlueScore.text, out scoreBlue);
-
         //yield return new WaitForSeconds(1.0f); // 화면 전환을 위해 잠깐 기다림
-        farmingTime = 5;
+        farmingTime = 6;
         curTime = farmingTime;
         while (curTime > 0)
         {
@@ -101,7 +94,7 @@ public class RoundTimer : MonoBehaviour
     IEnumerator BattleTimer()
     {
         //yield return new WaitForSeconds(1.0f);
-        battleTime = 3;
+        battleTime = 4;
         curTime = battleTime;
         while (curTime > 0)
         {
