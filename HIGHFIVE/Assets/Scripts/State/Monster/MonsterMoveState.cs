@@ -78,39 +78,6 @@ public class MonsterMoveState : MonsterBaseState
         );
     }
 
-    private void MoveProcess(float disToPlayer, float disToSpawnZone)
-    {
-        int _returnRadius = 8;
-        if (disToPlayer < _monsterStateMachine._monster.stat.SightRange) // 플레이어가 몬스터추적 반경안일때
-        {
-            if (disToSpawnZone > _returnRadius) // 쫓아가다가 스폰존으로부터 너무 멀리갔을때
-            {
-                _returnRadius = 0; // 반경을 0 으로 바꿔서 무조건 돌아가게끔
-                _monsterStateMachine.moveSpeedModifier = 1.5f;
-                ReturnToSpawnZone();
-                return; // 밑에 ChasePlayer()를 실행시키지 않게 return;
-            }
-            _monsterStateMachine.moveSpeedModifier = 1.5f;
-            ChasePlayer();
-        }
-        else if (disToSpawnZone > 0.1) // 스폰존으로부터 거리가 있다면
-        {
-            ReturnToSpawnZone();
-        }
-        else // 스폰존에 도착했다면
-        {
-            _returnRadius = 8; // 반경초기화
-            animSet("isIdle");
-        }
-    }
-
-    private void ChasePlayer()
-    {
-        Vector2 direction = _monsterStateMachine.targetObject.transform.position - _monsterStateMachine._monster.transform.position;
-        _monsterStateMachine._monster.transform.Translate(direction.normalized * Time.deltaTime * _monsterStateMachine.Speed);
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        SetAnimation(angle);
-    }
     // 스폰존으로 돌아가는 로직을 구현
     private void ReturnToSpawnZone()
     {
