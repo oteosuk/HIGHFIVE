@@ -13,7 +13,7 @@ public class PoolManager
 
         Queue<Poolable> _poolQueue = new Queue<Poolable>();
 
-        public void Init(GameObject original, int count = 5)
+        public void Init(GameObject original, int count = 2)
         {
             Original = original;
             Root = new GameObject().transform;
@@ -27,6 +27,7 @@ public class PoolManager
 
         public Poolable Create()
         {
+            Debug.Log(Original);
             GameObject go = Object.Instantiate<GameObject>(Original);
             go.name = Original.name;
             return go.GetOrAddComponent<Poolable>();
@@ -93,7 +94,7 @@ public class PoolManager
         return _poolDict[original.name].Pop(parent);
     }
 
-    public void CreatePool(GameObject original, int count = 5)
+    public void CreatePool(GameObject original, int count = 2)
     {
         Pool pool = new Pool();
         pool.Init(original, count);

@@ -37,6 +37,10 @@ public class Mage : Character
             GameObject arrow = Main.ResourceManager.Instantiate("Character/MageWeapon", _playerStateMachine._player.transform.position);
             arrow.transform.position = transform.position;
             arrow.GetComponent<MageWeapon>().SetTarget(_playerStateMachine._player.targetObject);
+
+            Rigidbody2D projectileRb = arrow.GetComponent<Rigidbody2D>();
+            Vector2 dir = _playerStateMachine._player.targetObject.transform.position - arrow.transform.position;
+            projectileRb.velocity = dir.normalized * 10.0f;
         }
     }
 }
