@@ -58,12 +58,13 @@ public class PlayerMoveState : PlayerBaseState
             PrepareForMove();
             _playerStateMachine.isLeftClicked = true;
         }
-        _targetPosition = _playerStateMachine.targetObject == null ? _playerStateMachine.moveInput : _playerStateMachine.targetObject.transform.position;
 
+        _targetPosition = _playerStateMachine._player.targetObject == null ? _playerStateMachine.moveInput : _playerStateMachine._player.targetObject.transform.position;
         MovePlayerToTarget();
 
         CheckForAttack();
 
+        Debug.Log(_playerStateMachine._player.targetObject);
         if (_targetPosition == (Vector2)_playerStateMachine._player.transform.position)
         {
             _playerStateMachine.ChangeState(_playerStateMachine._playerIdleState);
@@ -78,17 +79,16 @@ public class PlayerMoveState : PlayerBaseState
 
     private void CheckForAttack()
     {
-        if (_playerStateMachine.targetObject != null)
+        if (_playerStateMachine._player.targetObject != null)
         {
-            Debug.Log("hi");
-            float distance = (_playerStateMachine.targetObject.transform.position - _playerStateMachine._player.transform.position).magnitude;
+            float distance = (_playerStateMachine._player.targetObject.transform.position - _playerStateMachine._player.transform.position).magnitude;
 
             if (_playerStateMachine._player.stat.AttackRange > distance)
             {
                 _playerStateMachine.ChangeState(_playerStateMachine._playerAttackState);
             }
         }
-        else if (_playerStateMachine.isLeftClicked && _playerStateMachine.targetObject == null)
+        else if (_playerStateMachine.isLeftClicked && _playerStateMachine._player.targetObject == null)
         {
             FindObjectInSight();
         }
@@ -96,7 +96,7 @@ public class PlayerMoveState : PlayerBaseState
 
     private void MovePlayerToTarget()
     {
-        _playerStateMachine._player.transform.position = Vector3.MoveTowards(
+        _playerStateMachine._player.transform.position = Vector2.MoveTowards(
             _playerStateMachine._player.transform.position,
             _targetPosition,
             _moveSpeed * Time.deltaTime
@@ -113,8 +113,8 @@ public class PlayerMoveState : PlayerBaseState
 
         if (enemyCollider != null || monsterCollider != null)
         {
-            _playerStateMachine.targetObject = enemyCollider != null ? enemyCollider.gameObject : monsterCollider.gameObject;
-            _targetPosition = _playerStateMachine.targetObject.transform.position;
+            _playerStateMachine._player.targetObject = enemyCollider != null ? enemyCollider.gameObject : monsterCollider.gameObject;
+            _targetPosition = _playerStateMachine._player.targetObject.transform.position;
             _playerStateMachine.isLeftClicked = false;
         }
     }

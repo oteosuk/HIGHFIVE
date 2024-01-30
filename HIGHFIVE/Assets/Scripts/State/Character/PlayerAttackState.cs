@@ -18,6 +18,8 @@ public class PlayerAttackState : PlayerBaseState
     {
         // 기능
         base.Enter();
+        //_playerStateMachine._player.PlayerAnim.SetFloat("AttackSpeed", _playerStateMachine._player.stat.AttackSpeed);
+
         _playerStateMachine.moveSpeedModifier = 0f;
         _playerStateMachine.isAttackReady = false;
         StartAnimation(_attackHash);
@@ -35,20 +37,14 @@ public class PlayerAttackState : PlayerBaseState
     public override void StateUpdate()
     {
         base.StateUpdate();
-        if (CheckTargetInRange()) {  OnAttack(); }
-        else { OnMove(); }
-    }
-
-    private void OnAttack()
-    {
-        _playerStateMachine._player.OnNormalAttack();
+        if (!CheckTargetInRange()) { OnMove(); }
     }
 
     private bool CheckTargetInRange()
     {
-        if (_playerStateMachine.targetObject != null)
+        if (_playerStateMachine._player.targetObject != null)
         {
-            float distance = (_playerStateMachine.targetObject.transform.position - _playerStateMachine._player.transform.position).magnitude;
+            float distance = (_playerStateMachine._player.targetObject.transform.position - _playerStateMachine._player.transform.position).magnitude;
 
             if (distance > _playerStateMachine._player.stat.AttackRange)
             {
