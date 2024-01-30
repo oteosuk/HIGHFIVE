@@ -3,9 +3,7 @@ using UnityEngine;
 public class MonsterStateMachine : StateMachine
 {
     public Monster _monster { get; }
-
     public GameObject targetObject;
-
     public float Speed;
 
     public float moveSpeedModifier { get; set; } = 0.5f;
