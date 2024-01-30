@@ -7,6 +7,7 @@ public class Character : MonoBehaviour
 {
     private enum CursorType
     {
+        None,
         Nomal,
         Attack
     }
@@ -16,7 +17,7 @@ public class Character : MonoBehaviour
     private PhotonView _photonView;
     private Texture2D _attackTexture;
     private Texture2D _normalTexture;
-    private CursorType _cursorType;
+    private CursorType _cursorType = CursorType.None;
     public Rigidbody2D Rigidbody { get; protected set; }
     public PlayerInput Input { get; protected set; }
     public Collider2D Controller { get; set; }
@@ -77,6 +78,8 @@ public class Character : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.Raycast(raymousePoint, Camera.main.transform.forward, 100.0f, mask);
 
+        Debug.Log(_cursorType);
+
         if (hit.collider?.gameObject != null || _playerStateMachine.isAttackReady)
         {
             if (_cursorType != CursorType.Attack)
@@ -94,4 +97,6 @@ public class Character : MonoBehaviour
             }
         }
     }
+
+    public virtual void OnNormalAttack() { }
 }
