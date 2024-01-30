@@ -4,19 +4,33 @@ using UnityEngine;
 
 public class MonsterAnimationData
 {
-    private string idleParmeterName = "Idle";
-    private string moveParmeterName = "Move";
-    private string AttackParmeterName = "Attack";
+    private string isIdleParameterName = "isIdle";
+    private string isLeftParameterName = "isLeft";
+    private string isRightParameterName = "isRight";
+    private string isUpParameterName = "isUp";
+    private string isDownParameterName = "isDown";
+    private string doAttackParameterName = "doAttack";
+    private string doDieParameterName = "doDie";
 
     public int IdleParameterHash { get; private set; }
-    public int MoveParameterHash { get; private set; }
+    public int LeftParameterHash { get; private set; }
+    public int RightParameterHash { get; private set; }
+    public int UpParameterHash { get; private set; }
+    public int DownParameterHash { get; private set; }
     public int AttackParameterHash { get; private set; }
+    public int DieParameterHash { get; private set; }
 
-    public void Initialize()
+    public void GetParameterHash()
     {
-        IdleParameterHash = Animator.StringToHash(idleParmeterName);
-        MoveParameterHash = Animator.StringToHash(moveParmeterName);
-        AttackParameterHash = Animator.StringToHash(AttackParmeterName);
+        IdleParameterHash = Animator.StringToHash(isIdleParameterName);
+
+        LeftParameterHash = Animator.StringToHash(isLeftParameterName);
+        RightParameterHash = Animator.StringToHash(isRightParameterName);
+        UpParameterHash = Animator.StringToHash(isUpParameterName);
+        DownParameterHash = Animator.StringToHash(isDownParameterName);
+
+        AttackParameterHash = Animator.StringToHash(doAttackParameterName);
+        DieParameterHash = Animator.StringToHash(doDieParameterName);
     }
 }
 

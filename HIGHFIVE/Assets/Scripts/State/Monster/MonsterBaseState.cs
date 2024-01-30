@@ -1,14 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MonsterBaseState : IState
 {
     protected MonsterStateMachine _monsterStateMachine;
+    protected Animator _anim;
+    protected MonsterAnimationData _animData;
+    protected float _speedModifier;
 
     public MonsterBaseState(MonsterStateMachine monsterStateMachine)
     {
-        this._monsterStateMachine = monsterStateMachine;
+        _monsterStateMachine = monsterStateMachine;
+        _anim = _monsterStateMachine._monster.Animator;
+        _animData = _monsterStateMachine._monster.MonsterAnimationData;
+        _speedModifier = _monsterStateMachine.moveSpeedModifier;
     }
 
     public virtual void Enter()
@@ -44,11 +48,6 @@ public class MonsterBaseState : IState
         }
     }
 
-    protected virtual void OnMove()
-    {
-
-    }
-
     protected virtual void OnDie()
     {
         _monsterStateMachine.ChangeState(_monsterStateMachine._monsterDieState);
@@ -56,7 +55,7 @@ public class MonsterBaseState : IState
 
     protected virtual void StartAnimation(int hashValue)
     {
-        _monsterStateMachine._monster.Animator.SetBool(hashValue,true);
+        _monsterStateMachine._monster.Animator.SetBool(hashValue, true);
     }
     protected virtual void StopAnimation(int hashValue)
     {

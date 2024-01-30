@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovementTest : MonoBehaviour
 {
     private Vector2 movementInput;
-    public float moveSpeed = 3f;
+    private float moveSpeed = 3f;
 
     void Update()
     {

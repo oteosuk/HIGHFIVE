@@ -31,7 +31,7 @@ public class Monster : MonoBehaviour
     protected virtual void Start()
     {
         _monsterStateMachine = new MonsterStateMachine(this);
-        MonsterAnimationData.Initialize();
+        MonsterAnimationData.GetParameterHash();
         _monsterStateMachine.ChangeState(_monsterStateMachine._monsterIdleState);
     }
 
@@ -40,10 +40,12 @@ public class Monster : MonoBehaviour
         _monsterStateMachine.HandleInput();
         _monsterStateMachine.StateUpdate();
     }
+
     protected virtual void FixedUpdate()
     {
         _monsterStateMachine.PhysicsUpdate();
     }
+
     private void SetSpawnPoint(Vector2 spawnPoint)
     {
         _spawnPoint = spawnPoint;
