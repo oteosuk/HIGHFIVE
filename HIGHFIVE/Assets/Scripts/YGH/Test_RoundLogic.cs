@@ -4,49 +4,65 @@ using TMPro;
 using Unity.VisualScripting;
 using Unity.VisualScripting.AssemblyQualifiedNameParser;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class Test_RoundLogic : MonoBehaviour
 {
     public int currentRound = 1;
-    public int totalRounds = 3;
+
+    [SerializeField] TMP_Text roundTxt;
 
     [SerializeField] TMP_Text TeamRedScore;
     [SerializeField] TMP_Text TeamBlueScore;
 
-
     private GameSceneController gameSceneController;
+
+    public GameObject VictoryPanel;
+    public GameObject DefeatPanel;
 
     void Start()
     {
         gameSceneController = gameObject.GetComponent<GameSceneController>();
         gameSceneController.winEvent += PlayerWin;
-        StartRound();
     }
 
-    void StartRound()
+    public void RoundIndex()
     {
-        Debug.Log("Round" + currentRound);
-    }
+        Debug.Log("test");
 
-    void EndRound()
-    {
-        if (currentRound < totalRounds)
+        int scoreRed;
+        int scoreBlue;
+        int.TryParse(TeamRedScore.text, out scoreRed);
+        int.TryParse(TeamBlueScore.text, out scoreBlue);
+
+        roundTxt.text = currentRound.ToString();
+
+        if (scoreRed == 1 || scoreBlue == 1)
         {
-            currentRound++;
-            StartRound();
+            currentRound = 2;
+            roundTxt.text = currentRound.ToString();
         }
-        else
+        if (scoreRed == 1 && scoreBlue == 1)
         {
+            currentRound = 3;
+            roundTxt.text = currentRound.ToString();
+        }
+    }
+
+    public void GameOver()
+    {
+        int scoreRed;
+        int scoreBlue;
+        int.TryParse(TeamRedScore.text, out scoreRed);
+        int.TryParse(TeamBlueScore.text, out scoreBlue);
+
+        if (scoreRed == 2 || scoreBlue == 2)
+        { 
             Debug.Log("Game Over");
+            VictoryPanel.SetActive(true);
         }
     }
-
-    // 종료 메서드
-    // if()
-    // {
-    //    TeamRedWinBtn();
-    // }    
 
     // 테스트용 버튼
     public void TeamRedWinBtn()
