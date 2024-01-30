@@ -9,7 +9,7 @@ using UnityEngine.UI;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 //using UnityEngine.UIElements;
 
-public class PlayerBaseState : MonoBehaviour, IState
+public class PlayerBaseState : IState
 {
     protected PlayerStateMachine _playerStateMachine;
 
