@@ -1,11 +1,13 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MonsterAttackState : MonsterBaseState
 {
+    private bool _canAttack = true;
+
     public MonsterAttackState(MonsterStateMachine monsterStateMachine) : base(monsterStateMachine)
     {
+
     }
 
     public override void Enter()
@@ -18,10 +20,22 @@ public class MonsterAttackState : MonsterBaseState
     {
         base.Exit();
     }
+
     public override void StateUpdate()
     {
         base.StateUpdate();
         OnAttack();
+    }
+
+    void CanAttackAgain()
+    {
+        _canAttack = true;
+    }
+
+    IEnumerator Test()
+    {
+        yield return new WaitForSeconds(1f);
+        CanAttackAgain();
     }
 
     private void OnAttack()
@@ -31,6 +45,15 @@ public class MonsterAttackState : MonsterBaseState
         if (distance > _monsterStateMachine._monster.stat.AttackRange || distance > _monsterStateMachine._monster.stat.SightRange)
         {
             _monsterStateMachine.ChangeState(_monsterStateMachine._monsterMoveState);
+        }
+        else
+        {
+            if (_canAttack)
+            {
+                StartAnimation(_animData.AttackParameterHash);
+                _canAttack = false;
+                CoroutineHandler.Start_Coroutine(Test());
+            }
         }
     }
 }

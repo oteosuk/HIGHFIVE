@@ -40,10 +40,12 @@ public class Monster : MonoBehaviour
         _monsterStateMachine.HandleInput();
         _monsterStateMachine.StateUpdate();
     }
+
     protected virtual void FixedUpdate()
     {
         _monsterStateMachine.PhysicsUpdate();
     }
+
     private void SetSpawnPoint(Vector2 spawnPoint)
     {
         _spawnPoint = spawnPoint;

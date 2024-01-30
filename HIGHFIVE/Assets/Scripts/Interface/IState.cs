@@ -1,13 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEngine;
-
 public interface IState
 {
     // 상태에 진입할 때
     public void Enter();
-
     // 상태를 해제
     public void Exit();
     // State 도중에 입력에 따라 동작 처리
