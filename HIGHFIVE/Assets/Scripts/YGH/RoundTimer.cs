@@ -84,16 +84,9 @@ public class RoundTimer : MonoBehaviour
         while (curTime > 0)
         {
             curTime -= Time.deltaTime;
-            Debug.Log(Time.deltaTime);
-            Debug.Log(Time.timeScale);
-
-            if (scoreRed == 1 && scoreBlue == 1)
-                Debug.Log(gameObject);
-
             // minute = (int)curTime / 60;
             second = (int)curTime % 60;
             text.text = second.ToString("0");
-            Debug.Log("farming");
             yield return null;
 
             if (curTime <= 0)
@@ -116,7 +109,6 @@ public class RoundTimer : MonoBehaviour
             // minute = (int)curTime / 60;
             second = (int)curTime % 60;
             text.text = second.ToString("0");
-            Debug.Log("battle");
             yield return null;
 
             if (curTime <= 0)
