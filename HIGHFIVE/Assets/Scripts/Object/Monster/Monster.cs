@@ -31,7 +31,7 @@ public class Monster : MonoBehaviour
     protected virtual void Start()
     {
         _monsterStateMachine = new MonsterStateMachine(this);
-        MonsterAnimationData.Initialize();
+        MonsterAnimationData.GetParameterHash();
         _monsterStateMachine.ChangeState(_monsterStateMachine._monsterIdleState);
     }
 

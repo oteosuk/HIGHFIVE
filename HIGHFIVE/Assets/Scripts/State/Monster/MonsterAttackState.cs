@@ -11,6 +11,7 @@ public class MonsterAttackState : MonsterBaseState
     public override void Enter()
     {
         base.Enter();
+        Debug.Log("AttackState");
     }
 
     public override void Exit()

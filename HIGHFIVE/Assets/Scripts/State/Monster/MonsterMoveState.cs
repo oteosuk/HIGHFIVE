@@ -1,26 +1,25 @@
-using Photon.Realtime;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class MonsterMoveState : MonsterBaseState
 {
     private bool isReturnToSpawn = false;
+
     public MonsterMoveState(MonsterStateMachine monsterStateMachine) : base(monsterStateMachine)
     {
+
     }
+
     public override void Enter()
     {
         base.Enter();
-        _monsterStateMachine.moveSpeedModifier = 1;
+        _speedModifier = 1;
+        Debug.Log("Move Enter");
     }
 
     public override void Exit()
     {
         base.Exit();
-        animDefault();
+        StopAnimationAll();
         Debug.Log("Move Exit");
     }
     public override void StateUpdate()
@@ -32,9 +31,7 @@ public class MonsterMoveState : MonsterBaseState
     private void DistanceCheck()
     {
         _monsterStateMachine.targetObject = RangeInPlayer();
-        //_monsterStateMachine.targetObject = GameObject.FindWithTag("Player");
         
-        //float spawnToDistance = (_monsterStateMachine._monster._spawnPoint - (Vector2)_monsterStateMachine._monster.transform.position).magnitude;
         if (_monsterStateMachine.targetObject != null)
         {
         float distance = (_monsterStateMachine.targetObject.transform.position - _monsterStateMachine._monster.transform.position).magnitude;
@@ -42,19 +39,17 @@ public class MonsterMoveState : MonsterBaseState
             {
                 _monsterStateMachine.ChangeState(_monsterStateMachine._monsterAttackState);
             }
-            //else if (distance > _monsterStateMachine._monster.stat.SightRange)
-            //{
-            //    Debug.Log("1");
-
-            //}
+            /*else if (distance > _monsterStateMachine._monster.stat.SightRange)
+            {
+                Debug.Log("1");
+            }*/
             else
             {
                 float spawnToDistance = (_monsterStateMachine._monster._spawnPoint - (Vector2)_monsterStateMachine._monster.transform.position).magnitude;
                 if (spawnToDistance >= 8f || isReturnToSpawn == true) ReturnToSpawnZone();
                 else
                 {
-                    if(isReturnToSpawn == false)
-                        MoveMonsterToTarget();
+                    if(isReturnToSpawn == false) MoveMonsterToTarget();
                 }
             }
         }
@@ -62,8 +57,8 @@ public class MonsterMoveState : MonsterBaseState
         {
             ReturnToSpawnZone();
         }
-
     }
+
     private GameObject RangeInPlayer()
     {
         Collider2D playerCollider = Physics2D.OverlapCircle(_monsterStateMachine._monster.transform.position, _monsterStateMachine._monster.stat.SightRange, LayerMask.GetMask("Red"));
@@ -72,11 +67,16 @@ public class MonsterMoveState : MonsterBaseState
 
     private void MoveMonsterToTarget()
     {
+        Vector2 direction = (Vector2)_monsterStateMachine.targetObject.transform.position - (Vector2)_monsterStateMachine._monster.transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
         _monsterStateMachine._monster.transform.position = Vector2.MoveTowards(
             _monsterStateMachine._monster.transform.position,
-             _monsterStateMachine.targetObject.transform.position,
+            _monsterStateMachine.targetObject.transform.position,
             _monsterStateMachine._monster.stat.MoveSpeed * Time.deltaTime * _monsterStateMachine.moveSpeedModifier
         );
+
+        SetAnimation(angle);
     }
 
     // 스폰존으로 돌아가는 로직을 구현
@@ -84,13 +84,16 @@ public class MonsterMoveState : MonsterBaseState
     {
         isReturnToSpawn = true;
         Vector2 direction = _monsterStateMachine._monster._spawnPoint - (Vector2)_monsterStateMachine._monster.transform.position;
-        //_monsterStateMachine._monster.transform.Translate(direction.normalized * Time.deltaTime * _monsterStateMachine.Speed);
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
         _monsterStateMachine._monster.transform.position = Vector2.MoveTowards(
-    _monsterStateMachine._monster.transform.position,
-     _monsterStateMachine._monster._spawnPoint,
-    _monsterStateMachine._monster.stat.MoveSpeed * Time.deltaTime * _monsterStateMachine.moveSpeedModifier);
+            _monsterStateMachine._monster.transform.position,
+            _monsterStateMachine._monster._spawnPoint,
+            _monsterStateMachine._monster.stat.MoveSpeed * Time.deltaTime * _monsterStateMachine.moveSpeedModifier);
+
         SetAnimation(angle);
+
+        //몬스터가 스폰포인트에 도착했을때
         if ((Vector2)_monsterStateMachine._monster.transform.position == _monsterStateMachine._monster._spawnPoint)
         {
             isReturnToSpawn = false;
@@ -124,22 +127,23 @@ public class MonsterMoveState : MonsterBaseState
             Debug.Log("예외 앵글" + angle);
         }
     }
+
     // 해당 bool 파라미터가 true가 아닐때만 true가 되게끔
     void animSet(string animName)
     {
-        if (!_monsterStateMachine._monster.Animator.GetBool(animName))
+        if (!_anim.GetBool(animName))
         {
-            animDefault();
-            _monsterStateMachine._monster.Animator.SetBool(animName, true);
+            StopAnimationAll();
+            _anim.SetBool(animName, true);
         }
     }
+
     // anim bool파라미터 초기화
-    void animDefault()
+    void StopAnimationAll()
     {
-        _monsterStateMachine._monster.Animator.SetBool("isIdle", false);
-        _monsterStateMachine._monster.Animator.SetBool("isUp", false);
-        _monsterStateMachine._monster.Animator.SetBool("isDown", false);
-        _monsterStateMachine._monster.Animator.SetBool("isLeft", false);
-        _monsterStateMachine._monster.Animator.SetBool("isRight", false);
+        StopAnimation(_animData.LeftParameterHash);
+        StopAnimation(_animData.RightParameterHash);
+        StopAnimation(_animData.UpParameterHash);
+        StopAnimation(_animData.DownParameterHash);
     }
 }
