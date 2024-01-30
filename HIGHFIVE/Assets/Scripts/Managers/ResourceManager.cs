@@ -8,26 +8,73 @@ public class ResourceManager
 {
     public T Load<T>(string path) where T : Object
     {
+        if (typeof(T) == typeof(GameObject))
+        {
+            string name = path;
+            int index = name.LastIndexOf("/");
+            if (index >= 0)
+            {
+                name = name.Substring(index+1);
+            }
+
+            GameObject gameObject = Main.PoolManager.GetOriginal(name);
+            if (gameObject != null) return gameObject as T;
+        }
         return Resources.Load<T>(path);
     }
     
     public GameObject Instantiate(string path, Transform parent = null, string changingName = null)
     {
-        GameObject prefab = Load<GameObject>($"Prefabs/{path}");
-        if (prefab == null)
+        GameObject original = Load<GameObject>($"Prefabs/{path}");
+        if (original == null)
         {
             Debug.Log($"Failed to load Prefab: {path}");
             return null;
         }
 
-        GameObject go = Object.Instantiate(prefab, parent);
+        if (original.GetComponent<Poolable>() != null)
+        {
+            return Main.PoolManager.Pop(original, parent).gameObject;
+        }
+
+        GameObject go = Object.Instantiate(original, parent);
         if (changingName != null) go.name = $"{changingName}";
+        else
+        {
+            go.name = original.name;
+        }
+
+        return go;
+    }
+    public GameObject Instantiate(string path, Vector2 position, Quaternion rotation = default, Transform parent = null)
+    {
+        GameObject original = Load<GameObject>($"Prefabs/{path}");
+        if (original == null)
+        {
+            Debug.Log($"Failed to load Prefab: {path}");
+            return null;
+        }
+
+        if (original.GetComponent<Poolable>() != null)
+        {
+            return Main.PoolManager.Pop(original, parent).gameObject;
+        }
+
+        GameObject go = Object.Instantiate(original, position, rotation, parent);
+        go.name = original.name;
+
         return go;
     }
     public void Destroy(GameObject obj)
     {
         if (obj == null) return;
 
+        Poolable poolable = obj.GetComponent<Poolable>();
+        if (poolable != null)
+        {
+            Main.PoolManager.Push(poolable);
+            return;
+        }
 
         Object.Destroy(obj);
     }

@@ -11,25 +11,37 @@ public class MonsterController : MonoBehaviour
     private float _moveSpeed = 1.5f;
 
     private Animator _anim;
-
-    /*public bool isReturn = false;
-    void ChaseAgain()
+    public bool _canAttack = true;
+    void CanAttackAgain()
     {
-        isReturn = false;
-    }*/
+        _canAttack = true;
+    }
 
     void Start()
     {
+        player = GameObject.FindWithTag("Player").transform;
         _anim = GetComponentInChildren<Animator>();
     }
-    
+
+    // 충돌감지 메서드
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.collider == null) return;
+        if(_canAttack && collision.transform.gameObject.tag == "Player")
+        {
+            _anim.SetTrigger("doAttack");
+            _canAttack = false;
+            Invoke("CanAttackAgain", 1f);
+        }
+    }
+
 
     void Update()
     {
         float disToPlayer = Vector2.Distance(transform.position, player.position);
         float disToSpawnZone = Vector2.Distance(transform.position, spawnZone.position);
 
-        MoveProcess(disToPlayer, disToSpawnZone);
+        if(_canAttack) MoveProcess(disToPlayer, disToSpawnZone);
     }
 
 

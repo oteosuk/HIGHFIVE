@@ -68,7 +68,7 @@ MonoBehaviour:
     movSpeed: 3
     maxHp: 50
     curHp: 50
-    sight: 3
+    sight: 4
   - name: NM2
     atk: 10
     def: 10
