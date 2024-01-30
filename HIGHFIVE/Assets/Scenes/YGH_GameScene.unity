@@ -935,7 +935,7 @@ MonoBehaviour:
   text: {fileID: 1346200317}
   TeamRedScore: {fileID: 1640334282}
   TeamBlueScore: {fileID: 1042397762}
-  test_RoundLogic: {fileID: 620941986}
+  roundLogic: {fileID: 620941986}
 --- !u!1 &674326574
 GameObject:
   m_ObjectHideFlags: 0

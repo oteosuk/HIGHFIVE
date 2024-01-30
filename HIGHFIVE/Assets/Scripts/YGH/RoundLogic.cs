@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
-public class Test_RoundLogic : MonoBehaviour
+public class RoundLogic : MonoBehaviour
 {
     public int currentRound = 1;
 
@@ -29,8 +29,6 @@ public class Test_RoundLogic : MonoBehaviour
 
     public void RoundIndex()
     {
-        Debug.Log("test");
-
         int scoreRed;
         int scoreBlue;
         int.TryParse(TeamRedScore.text, out scoreRed);
@@ -75,6 +73,7 @@ public class Test_RoundLogic : MonoBehaviour
         gameSceneController.FinishRound(Define.Camp.Blue);
     }
 
+    // Win 이벤트 호출
     public void PlayerWin(Define.Camp winner)
     {
         if(winner == Define.Camp.Red)
