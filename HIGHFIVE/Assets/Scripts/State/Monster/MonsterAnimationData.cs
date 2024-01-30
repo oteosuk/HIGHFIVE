@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MonsterAnimationData
 {
-    private string idleParmeterName = "Idle";
+    private string idleParmeterName = "isIdle";
     private string moveParmeterName = "Move";
     private string AttackParmeterName = "Attack";
 

@@ -20,6 +20,7 @@ public class MonsterMoveState : MonsterBaseState
     public override void Exit()
     {
         base.Exit();
+        animDefault();
         Debug.Log("Move Exit");
     }
     public override void StateUpdate()

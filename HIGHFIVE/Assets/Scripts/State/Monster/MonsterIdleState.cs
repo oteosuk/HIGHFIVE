@@ -4,29 +4,32 @@ using UnityEngine;
 
 public class MonsterIdleState : MonsterBaseState
 {
-    private int _idleHash;
+    private Animator _anim;
+    private MonsterAnimationData _animData;
+    private float _speedModifier;
 
     public MonsterIdleState(MonsterStateMachine monsterStateMachine) : base(monsterStateMachine)
     {
-        if (_idleHash == 0)
-        {
-            _idleHash = _monsterStateMachine._monster.MonsterAnimationData.IdleParameterHash;
-        }
+        _anim = _monsterStateMachine._monster.Animator;
+        _animData = _monsterStateMachine._monster.MonsterAnimationData;
+        _speedModifier = _monsterStateMachine.moveSpeedModifier;
     }
+
     public override void Enter()
     {
         base.Enter();
-        _monsterStateMachine.moveSpeedModifier = 0;
-        StartAnimation(_idleHash);
+        _speedModifier = 0;
+        StartAnimation(_animData.IdleParameterHash);
         Debug.Log("Idle  In");
     }
 
     public override void Exit()
     {
         base.Exit();
-        StopAnimation(_idleHash);
+        StopAnimation(_animData.IdleParameterHash);
         Debug.Log("Idle  Exit");
     }
+
     public override void StateUpdate()
     {
         bool isPlayerInRange = RangeInPlayer();
@@ -34,7 +37,7 @@ public class MonsterIdleState : MonsterBaseState
         if (isPlayerInRange == true)
         {
             _monsterStateMachine.ChangeState(_monsterStateMachine._monsterMoveState);
-            Debug.Log("Move들어가나?");
+            Debug.Log("Move로 ChanageState");
         }
     }
 
