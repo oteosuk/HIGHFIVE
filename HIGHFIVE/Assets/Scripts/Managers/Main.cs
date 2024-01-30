@@ -14,10 +14,11 @@ public class Main : MonoBehaviour
     private ResourceManager _resourceManager = new ResourceManager();
     private UIManager _uiManager = new UIManager();
     private ObjectManager _objectManager = new ObjectManager();
+    private PoolManager _poolManager = new PoolManager();
 
     public static ObjectManager ObjectManager { get { return Instance._objectManager; } }
     //private GoogleSheetManager _googleSheetManager = new GoogleSheetManager();
-
+    public static PoolManager PoolManager { get { return Instance._poolManager; } }
     public static GameManager GameManager { get { return Instance._gameManager; } }
     public static ResourceManager ResourceManager { get { return Instance._resourceManager; } }
     public static DataManager DataManager { get { return Instance._dataManager; } }
@@ -48,7 +49,9 @@ public class Main : MonoBehaviour
             }
             DontDestroyOnLoad(gameObject);
 
+            
             s_instance = gameObject.GetComponent<Main>();
+            s_instance._poolManager.Init();
         }
     }
 }
