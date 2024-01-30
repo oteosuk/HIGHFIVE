@@ -51,6 +51,7 @@ public class Character : MonoBehaviour
         PlayerAnimationData.Initialize();
         _playerStateMachine = new PlayerStateMachine(this);
         _playerStateMachine.ChangeState(_playerStateMachine._playerIdleState);
+        Main.UIManager.CreateWorldUI<HealthBar>("HealthCanvas", transform);
     }
     protected virtual void Update()
     {

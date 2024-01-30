@@ -42,5 +42,20 @@ public class UIManager
             isPopupOpen = false;
         });
     }
+
+    public T CreateWorldUI<T>(string path, UnityEngine.Transform parent = null) where T : UIBase
+    {
+        GameObject go = Main.ResourceManager.Instantiate($"UI_World/{path}");
+        if (parent != null)
+        {
+            go.transform.parent = parent;   
+        }
+
+        Canvas canvas = go.GetComponent<Canvas>();
+        canvas.worldCamera = Camera.main;
+        canvas.renderMode = RenderMode.WorldSpace;
+
+        return Util.GetOrAddComponent<T>(go);
+    }
 }
 
