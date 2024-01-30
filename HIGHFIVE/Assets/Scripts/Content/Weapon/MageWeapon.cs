@@ -4,6 +4,29 @@ using UnityEngine;
 
 public class MageWeapon : MonoBehaviour
 {
+    private GameObject _targetObject;
+    private Rigidbody2D projectileRb;
+    private void OnEnable()
+    {
+        projectileRb = GetComponent<Rigidbody2D>();
+        Vector2 dir = _targetObject.transform.position - transform.position;
+        projectileRb.velocity = dir.normalized * 10.0f;
+    }
+
+    //private void Start()
+    //{
+    //    projectileRb = GetComponent<Rigidbody2D>();
+    //    Vector2 dir = _targetObject.transform.position - transform.position;
+    //    projectileRb.velocity = dir.normalized * 10.0f;
+    //}
+
+    private void Update()
+    {
+        Vector2 dir = _targetObject.transform.position - transform.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90;
+        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.rotation = rotation;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
@@ -16,6 +39,10 @@ public class MageWeapon : MonoBehaviour
             //풀링
             Main.ResourceManager.Destroy(gameObject);
         }
-        
+    }
+
+    public void SetTarget(GameObject target)
+    {
+        _targetObject = target;
     }
 }

@@ -13,6 +13,7 @@ public class Character : MonoBehaviour
     }
 
     public Stat stat;
+    public GameObject targetObject;
     protected PlayerStateMachine _playerStateMachine;
     private PhotonView _photonView;
     private Texture2D _attackTexture;

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -9074990850136382396}
   - component: {fileID: 7538209315254468230}
   - component: {fileID: 5933714284049250376}
-  - component: {fileID: -5884382653506727874}
+  - component: {fileID: -6446383115294486938}
   m_Layer: 0
   m_Name: MageWeapon
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2572823496858806037}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.026, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -110,7 +110,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0.000000029802322, y: 0.0029607415}
   m_Size: {x: 0.13287002, y: 0.6269485}
   m_Direction: 0
---- !u!114 &-5884382653506727874
+--- !u!114 &-6446383115294486938
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

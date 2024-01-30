@@ -106,7 +106,7 @@ public class PlayerBaseState : MonoBehaviour, IState
 
         if (hit.collider?.gameObject != null)
         {
-            _playerStateMachine.targetObject = hit.collider.gameObject;
+            _playerStateMachine._player.targetObject = hit.collider.gameObject;
             float distance = (hit.collider.transform.position - _playerStateMachine._player.transform.position).magnitude;
 
             if (_playerStateMachine._player.stat.AttackRange > distance)
@@ -120,8 +120,7 @@ public class PlayerBaseState : MonoBehaviour, IState
         }
         else
         {
-            Debug.Log("dd");
-            _playerStateMachine.targetObject = null;
+            _playerStateMachine._player.targetObject = null;
         }
 
         _playerStateMachine.moveInput = Camera.main.ScreenToWorldPoint(mousePoint);
