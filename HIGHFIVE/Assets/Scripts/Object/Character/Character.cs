@@ -80,8 +80,6 @@ public class Character : MonoBehaviourPunCallbacks
 
         RaycastHit2D hit = Physics2D.Raycast(raymousePoint, Camera.main.transform.forward, 100.0f, mask);
 
-        Debug.Log(_cursorType);
-
         if (hit.collider?.gameObject != null || _playerStateMachine.isAttackReady)
         {
             if (_cursorType != CursorType.Attack)
