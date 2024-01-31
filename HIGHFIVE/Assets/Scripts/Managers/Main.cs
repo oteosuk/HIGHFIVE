@@ -36,7 +36,7 @@ public class Main : MonoBehaviour
     {
         Init();
     }
-  
+
     private static void Init()
     {
         if (s_instance == null)
@@ -52,6 +52,7 @@ public class Main : MonoBehaviour
             
             s_instance = gameObject.GetComponent<Main>();
             s_instance._poolManager.Init();
+            s_instance._gameManager.GameInit();
         }
     }
 }

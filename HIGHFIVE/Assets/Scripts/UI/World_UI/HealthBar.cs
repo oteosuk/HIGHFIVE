@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,23 +12,26 @@ public class HealthBar : UIBase
     }
 
     private Stat _stat;
+    private StatController _statController;
 
     private void Start()
     {
         Bind<GameObject>(typeof(GameObjects));
         _stat = transform.parent.GetComponent<Stat>();
+        _statController = transform.parent.GetComponent<StatController>();
+        _statController.hpChangeEvent += SetHpRatio;
     }
 
     private void Update()
     {
         Transform parent = transform.parent;
         transform.position = new Vector2(parent.position.x, parent.position.y);
-        float ratio = _stat.CurHp / (float)_stat.MaxHp;
-        SetHpRatio(ratio);
+        
     }
 
-    public void SetHpRatio(float ratio)
+    private void SetHpRatio(int curHp, int maxHp)
     {
-        Get<GameObject>((int)GameObjects.HPBar).GetComponent<Slider>().value = ratio;
+        float ratio = curHp / (float)maxHp;
+        transform.parent.GetComponent<PhotonView>().RPC("SyncHpRatio", RpcTarget.All, ratio);
     }
 }

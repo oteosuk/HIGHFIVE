@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MonsterStat : Stat
 {
-    public int Exp { get; set; }
 
     protected override void Init()
     {

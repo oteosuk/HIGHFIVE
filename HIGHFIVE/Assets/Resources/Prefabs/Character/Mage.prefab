@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 2350598541294646126}
   - component: {fileID: -3229855166075039747}
   - component: {fileID: -4032308592510129217}
+  - component: {fileID: 517500927341623432}
   m_Layer: 0
   m_Name: Mage
   m_TagString: Untagged
@@ -265,6 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d2e26e666e7e8e4083dd5798087a51c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelExpList: 
 --- !u!114 &-4032308592510129217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,3 +297,15 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 1
     LayerIndex: 0
+--- !u!114 &517500927341623432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232833287244604407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb592efcfea4d9a45856e662ba11e005, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

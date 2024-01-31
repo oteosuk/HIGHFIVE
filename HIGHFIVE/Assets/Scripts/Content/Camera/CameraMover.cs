@@ -38,8 +38,8 @@ public class CameraMover : MonoBehaviour
     {
         Vector3 mousePos = Input._playerActions.Move.ReadValue<Vector2>();
 
-        if (mousePos.x <= 0 || mousePos.x >= Screen.width ||
-            mousePos.y <= 0 || mousePos.y >= Screen.height)
+        if (mousePos.x <= 0 || mousePos.x >= Screen.width -5 ||
+            mousePos.y <= 0 || mousePos.y >= Screen.height -5)
         {
             MoveCamera(mousePos);
         }
@@ -58,7 +58,7 @@ public class CameraMover : MonoBehaviour
         {
             currentPosition.x -= cameraSpeed * Time.deltaTime;
         }
-        else if (mousePos.x >= Screen.width)
+        else if (mousePos.x >= Screen.width - 5)
         {
             currentPosition.x += cameraSpeed * Time.deltaTime;
         }
@@ -67,7 +67,7 @@ public class CameraMover : MonoBehaviour
         {
             currentPosition.y -= cameraSpeed * Time.deltaTime;
         }
-        else if (mousePos.y >= Screen.height)
+        else if (mousePos.y >= Screen.height - 5)
         {
             currentPosition.y += cameraSpeed * Time.deltaTime;
         }
