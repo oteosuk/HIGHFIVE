@@ -4,10 +4,10 @@ using UnityEngine;
 public class MonsterAttackState : MonsterBaseState
 {
     private bool _canAttack = true;
-
+    private float _distance;
     public MonsterAttackState(MonsterStateMachine monsterStateMachine) : base(monsterStateMachine)
     {
-
+        
     }
 
     public override void Enter()
@@ -32,9 +32,15 @@ public class MonsterAttackState : MonsterBaseState
 
     private void AttackRangeCheck()
     {
-        float distance = (_monsterStateMachine.targetObject.transform.position - _monsterStateMachine._monster.transform.position).magnitude;
-
-        if (distance > _monsterStateMachine._monster.stat.AttackRange)
+        if (_monsterStateMachine.targetObject != null)
+        {
+            _distance = (_monsterStateMachine.targetObject.transform.position - _monsterStateMachine._monster.transform.position).magnitude;
+            if (_distance > _monsterStateMachine._monster.stat.AttackRange)
+            {
+                _monsterStateMachine.ChangeState(_monsterStateMachine._monsterMoveState);
+            }
+        }
+        else
         {
             _monsterStateMachine.ChangeState(_monsterStateMachine._monsterMoveState);
         }
