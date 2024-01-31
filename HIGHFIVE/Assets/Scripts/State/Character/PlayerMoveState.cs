@@ -64,7 +64,6 @@ public class PlayerMoveState : PlayerBaseState
 
         CheckForAttack();
 
-        Debug.Log(_playerStateMachine._player.targetObject);
         if (_targetPosition == (Vector2)_playerStateMachine._player.transform.position)
         {
             _playerStateMachine.ChangeState(_playerStateMachine._playerIdleState);

@@ -8,19 +8,6 @@ public class MageWeapon : MonoBehaviourPunCallbacks
     private GameObject _targetObject;
     private Rigidbody2D _rigidbody;
 
-    //private void OnEnable()
-    //{
-    //    projectileRb = GetComponent<Rigidbody2D>();
-    //    Vector2 dir = _targetObject.transform.position - transform.position;
-    //    projectileRb.velocity = dir.normalized * 10.0f;
-    //}
-    //private void Start()
-    //{
-    //    projectileRb = GetComponent<Rigidbody2D>();
-    //    Vector2 dir = _targetObject.transform.position - transform.position;
-    //    projectileRb.velocity = dir.normalized * 10.0f;
-    //}
-
     private void Update()
     {
         if (_targetObject != null)
@@ -37,14 +24,12 @@ public class MageWeapon : MonoBehaviourPunCallbacks
         int mask = (1 << (int)Define.Layer.Monster) | (1 << (Main.GameManager.SelectedCamp == Define.Camp.Red ? (int)Define.Layer.Blue : (int)Define.Layer.Red));
         if (((1 << collision.gameObject.layer) & mask) != 0)
         {
-            //Main.GameManager.SpawnedCharacter.stat.Attack 나중에 교체
-            collision.transform.GetComponentInChildren<Receiver>()?.TakeDamage(15);
+            collision.transform.GetComponentInChildren<Receiver>()?.TakeDamage(Main.GameManager.SpawnedCharacter.stat.Attack);
             //풀링
             if (GetComponent<PhotonView>().IsMine)
             {
                 PhotonNetwork.Destroy(gameObject);
             }
-            //GetComponent<PhotonView>().RPC("Destroy", RpcTarget.AllBuffered);
         }
     }
 

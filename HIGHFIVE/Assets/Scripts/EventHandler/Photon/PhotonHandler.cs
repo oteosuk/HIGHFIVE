@@ -33,8 +33,6 @@ public class PhotonHandler : MonoBehaviourPunCallbacks
         {
             Main.SceneManagerEx.LoadScene(Define.Scene.LobbyScene);
         }
-        
-        Debug.Log("01.포톤과 연결 되었습니다.");
     }
 
     public override void OnCreatedRoom()
