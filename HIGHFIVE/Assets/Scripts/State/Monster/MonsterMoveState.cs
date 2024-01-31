@@ -62,12 +62,12 @@ public class MonsterMoveState : MonsterBaseState
     private GameObject RangeInPlayer()
     {
         /*Collider2D playerCollider = Physics2D.OverlapCircle(_monsterStateMachine._monster.transform.position, _monsterStateMachine._monster.stat.SightRange, LayerMask.GetMask("Red"));
-        if(playerCollider == null)
+        if (playerCollider == null)
         {
             playerCollider = Physics2D.OverlapCircle(_monsterStateMachine._monster.transform.position, _monsterStateMachine._monster.stat.SightRange, LayerMask.GetMask("Blue"));
         }
         return playerCollider == null ? null : playerCollider.gameObject;*/
-        LayerMask[] layersToCheck = new LayerMask[] { LayerMask.GetMask("Red"), LayerMask.GetMask("Blue") };
+        LayerMask[] layersToCheck = new LayerMask[] { LayerMask.GetMask("Blue"), LayerMask.GetMask("Red") };
 
         GameObject closestPlayer = null;
         float closestDistance = float.MaxValue;

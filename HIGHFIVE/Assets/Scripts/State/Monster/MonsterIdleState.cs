@@ -34,7 +34,7 @@ public class MonsterIdleState : MonsterBaseState
 
     private bool RangeInPlayer()
     {
-        Collider2D playerCollider = Physics2D.OverlapCircle(_monsterStateMachine._monster.transform.position, _monsterStateMachine._monster.stat.SightRange, LayerMask.GetMask("Red"));
+        Collider2D playerCollider = Physics2D.OverlapCircle(_monsterStateMachine._monster.transform.position, _monsterStateMachine._monster.stat.SightRange, LayerMask.GetMask("Red") | LayerMask.GetMask("Blue"));
         return playerCollider != null ? true : false;
     }
 }
