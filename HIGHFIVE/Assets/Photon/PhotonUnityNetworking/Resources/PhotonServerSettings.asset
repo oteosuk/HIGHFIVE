@@ -42,6 +42,9 @@ MonoBehaviour:
   - SyncReadyStatus
   - SetReadyImage
   - SetLayer
+  - ToTarget
+  - SetTarget
+  - Destroy
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

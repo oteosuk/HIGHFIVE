@@ -22,7 +22,7 @@ public class HealthBar : UIBase
     {
         Transform parent = transform.parent;
         transform.position = new Vector2(parent.position.x, parent.position.y);
-        
+        Debug.Log(_stat.CurHp);
         float ratio = _stat.CurHp / (float)_stat.MaxHp;
         SetHpRatio(ratio);
     }

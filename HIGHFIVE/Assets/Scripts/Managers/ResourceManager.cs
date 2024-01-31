@@ -32,6 +32,8 @@ public class ResourceManager
             return null;
         }
 
+        
+
         if (original.GetComponent<Poolable>() != null)
         {
             return Main.PoolManager.Pop(original, parent).gameObject;
@@ -46,8 +48,9 @@ public class ResourceManager
 
         return go;
     }
-    public GameObject Instantiate(string path, Vector2 position, Quaternion rotation = default, Transform parent = null)
+    public GameObject Instantiate(string path, Vector2 position, Quaternion rotation = default, Transform parent = null, bool syncRequired = false)
     {
+        if (syncRequired) return PhotonNetwork.Instantiate($"Prefabs/{path}", position, Quaternion.identity);
         GameObject original = Load<GameObject>($"Prefabs/{path}");
         if (original == null)
         {
@@ -55,7 +58,13 @@ public class ResourceManager
             return null;
         }
 
-        if (original.GetComponent<Poolable>() != null)
+        
+
+        if (original.GetComponent<Poolable>() != null && syncRequired)
+        {
+            
+        }
+        else if (original.GetComponent<Poolable>() != null && !syncRequired)
         {
             return Main.PoolManager.Pop(original, parent).gameObject;
         }

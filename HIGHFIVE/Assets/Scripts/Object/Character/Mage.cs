@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Mage : Character
 {
+
     protected override void Awake()
     {
         base.Awake();
@@ -34,13 +35,19 @@ public class Mage : Character
         base.OnNormalAttack();
         if (_playerStateMachine._player.targetObject != null)
         {
-            GameObject arrow = Main.ResourceManager.Instantiate("Character/MageWeapon", _playerStateMachine._player.transform.position);
+           
+            GameObject arrow = Main.ResourceManager.Instantiate("Character/MageWeapon", _playerStateMachine._player.transform.position, syncRequired:true);
             arrow.transform.position = transform.position;
-            arrow.GetComponent<MageWeapon>().SetTarget(_playerStateMachine._player.targetObject);
-
-            Rigidbody2D projectileRb = arrow.GetComponent<Rigidbody2D>();
             Vector2 dir = _playerStateMachine._player.targetObject.transform.position - arrow.transform.position;
-            projectileRb.velocity = dir.normalized * 10.0f;
+            PhotonView targetPhotonView = Util.GetOrAddComponent<PhotonView>(_playerStateMachine._player.targetObject);
+            Debug.Log(targetPhotonView.ViewID);
+            if (targetPhotonView.ViewID == 0 )
+            {
+                PhotonNetwork.AllocateViewID(targetPhotonView);
+            }
+            
+            arrow.GetComponent<PhotonView>().RPC("SetTarget", RpcTarget.All, targetPhotonView.ViewID);
+            arrow.GetComponent<PhotonView>().RPC("ToTarget", RpcTarget.All, 5.0f, dir.x, dir.y);
         }
     }
 }

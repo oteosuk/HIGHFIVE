@@ -33,6 +33,7 @@ public class Monster : MonoBehaviour
         _monsterStateMachine = new MonsterStateMachine(this);
         MonsterAnimationData.GetParameterHash();
         _monsterStateMachine.ChangeState(_monsterStateMachine._monsterIdleState);
+        Main.UIManager.CreateWorldUI<HealthBar>("HealthCanvas", transform);
     }
 
     protected virtual void Update()

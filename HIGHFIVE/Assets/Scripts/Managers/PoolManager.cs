@@ -71,6 +71,8 @@ public class PoolManager
         {
             _root = new GameObject { name = "@Pool_Root" };
         }
+
+        Object.DontDestroyOnLoad(_root);
     }
 
     public void Push(Poolable poolable)
