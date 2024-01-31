@@ -14,13 +14,14 @@ public class MonsterAttackState : MonsterBaseState
     {
         base.Enter();
         StartAnimation(_animData.AttackParameterHash);
-        Debug.Log("AttackState");
+        Debug.Log("Attack Enter");
     }
 
     public override void Exit()
     {
-        StopAnimation(_animData.AttackParameterHash);
         base.Exit();
+        StopAnimation(_animData.AttackParameterHash);
+        Debug.Log("Attack Exit");
     }
 
     public override void StateUpdate()
@@ -28,17 +29,6 @@ public class MonsterAttackState : MonsterBaseState
         base.StateUpdate();
         AttackRangeCheck();
     }
-
-    /*void CanAttackAgain()
-    {
-        _canAttack = true;
-    }*/
-
-/*    IEnumerator Test()
-    {
-        yield return new WaitForSeconds(1f);
-        CanAttackAgain();
-    }*/
 
     private void AttackRangeCheck()
     {
@@ -48,14 +38,5 @@ public class MonsterAttackState : MonsterBaseState
         {
             _monsterStateMachine.ChangeState(_monsterStateMachine._monsterMoveState);
         }
-        /*else
-        {
-            if (_canAttack)
-            {
-                StartAnimation(_animData.AttackParameterHash);
-                _canAttack = false;
-                CoroutineHandler.Start_Coroutine(Test());
-            }
-        }*/
     }
 }

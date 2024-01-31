@@ -279,7 +279,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 521841235888718830, guid: 473363c0d9b085a4480f5cacee6bf184,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1313747384}
   m_SourcePrefab: {fileID: 100100000, guid: 473363c0d9b085a4480f5cacee6bf184, type: 3}
 --- !u!1 &1013431088
 GameObject:
@@ -475,6 +479,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &1313747380 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 521841235888718830, guid: 473363c0d9b085a4480f5cacee6bf184,
+    type: 3}
+  m_PrefabInstance: {fileID: 369810612}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1313747384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313747380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca3fc23716423ad4cbeaffe2ae45c21b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1669260787
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,7 +696,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &525112138065673587
 MonoBehaviour:
   m_ObjectHideFlags: 0
