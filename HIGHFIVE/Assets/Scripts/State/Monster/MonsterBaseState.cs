@@ -6,6 +6,7 @@ public class MonsterBaseState : IState
     protected Animator _anim;
     protected MonsterAnimationData _animData;
     protected float _speedModifier;
+    private bool isDead = false;
 
     public MonsterBaseState(MonsterStateMachine monsterStateMachine)
     {
@@ -37,9 +38,13 @@ public class MonsterBaseState : IState
 
     public virtual void StateUpdate()
     {
-        if (_monsterStateMachine._monster.stat.CurHp <= 0)
+        Debug.Log(_monsterStateMachine._monster.stat.CurHp + "1");
+        _monsterStateMachine._monster.stat.CurHp = 0;
+        if (!isDead && _monsterStateMachine._monster.stat.CurHp <= 0)
         {
+            Debug.Log("OnDie호출");
             OnDie();
+            isDead = true;
         }
 
         if (_monsterStateMachine.moveSpeedModifier <= 0)
