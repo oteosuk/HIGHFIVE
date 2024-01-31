@@ -61,8 +61,34 @@ public class MonsterMoveState : MonsterBaseState
 
     private GameObject RangeInPlayer()
     {
-        Collider2D playerCollider = Physics2D.OverlapCircle(_monsterStateMachine._monster.transform.position, _monsterStateMachine._monster.stat.SightRange, LayerMask.GetMask("Red"));
-        return playerCollider != null ? playerCollider.gameObject : null;
+        /*Collider2D playerCollider = Physics2D.OverlapCircle(_monsterStateMachine._monster.transform.position, _monsterStateMachine._monster.stat.SightRange, LayerMask.GetMask("Red"));
+        if (playerCollider == null)
+        {
+            playerCollider = Physics2D.OverlapCircle(_monsterStateMachine._monster.transform.position, _monsterStateMachine._monster.stat.SightRange, LayerMask.GetMask("Blue"));
+        }
+        return playerCollider == null ? null : playerCollider.gameObject;*/
+        LayerMask[] layersToCheck = new LayerMask[] { LayerMask.GetMask("Blue"), LayerMask.GetMask("Red") };
+
+        GameObject closestPlayer = null;
+        float closestDistance = float.MaxValue;
+
+        foreach (LayerMask layerToCheck in layersToCheck)
+        {
+            Collider2D playerCollider = Physics2D.OverlapCircle(_monsterStateMachine._monster.transform.position, _monsterStateMachine._monster.stat.SightRange, layerToCheck);
+
+            if (playerCollider != null)
+            {
+                float distanceToPlayer = Vector2.Distance(_monsterStateMachine._monster.transform.position, playerCollider.transform.position);
+
+                if (distanceToPlayer < closestDistance)
+                {
+                    closestDistance = distanceToPlayer;
+                    closestPlayer = playerCollider.gameObject;
+                }
+            }
+        }
+
+        return closestPlayer;
     }
 
     private void MoveMonsterToTarget()

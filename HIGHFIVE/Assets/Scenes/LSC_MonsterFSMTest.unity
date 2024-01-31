@@ -208,7 +208,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &369810612
+--- !u!1001 &66636833
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -224,12 +224,12 @@ PrefabInstance:
     - target: {fileID: 7184495185635086917, guid: 473363c0d9b085a4480f5cacee6bf184,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.3
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7184495185635086917, guid: 473363c0d9b085a4480f5cacee6bf184,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.54
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7184495185635086917, guid: 473363c0d9b085a4480f5cacee6bf184,
         type: 3}
@@ -279,11 +279,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 521841235888718830, guid: 473363c0d9b085a4480f5cacee6bf184,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1313747384}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 473363c0d9b085a4480f5cacee6bf184, type: 3}
 --- !u!1 &1013431088
 GameObject:
@@ -299,7 +295,7 @@ GameObject:
   - component: {fileID: 1013431092}
   - component: {fileID: 1013431093}
   - component: {fileID: 1013431094}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -479,24 +475,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!1 &1313747380 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 521841235888718830, guid: 473363c0d9b085a4480f5cacee6bf184,
-    type: 3}
-  m_PrefabInstance: {fileID: 369810612}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1313747384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1313747380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca3fc23716423ad4cbeaffe2ae45c21b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1669260787
 GameObject:
   m_ObjectHideFlags: 0
