@@ -20,6 +20,5 @@ public class MageStat : CharacterStat
             Defence = mage.def;
             SightRange = mage.sight;
         }
-
     }
 }

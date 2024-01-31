@@ -8,6 +8,5 @@ public class testScene : BaseScene
     {
         base.Init();
         Debug.Log("testScene Initialization");
-
     }
 }
