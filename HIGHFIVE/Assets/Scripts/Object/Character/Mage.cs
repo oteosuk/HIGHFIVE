@@ -36,7 +36,7 @@ public class Mage : Character
         base.OnNormalAttack();
         if (_playerStateMachine._player.targetObject != null)
         {
-           
+           isFistTime = false;
             GameObject arrow = Main.ResourceManager.Instantiate("Character/MageWeapon", _playerStateMachine._player.transform.position, syncRequired:true);
             arrow.transform.position = transform.position;
             Vector2 dir = _playerStateMachine._player.targetObject.transform.position - arrow.transform.position;

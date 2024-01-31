@@ -14,6 +14,7 @@ public class Character : MonoBehaviourPunCallbacks
 
     public Stat stat;
     public GameObject targetObject;
+    protected bool isFistTime = true;
     protected PlayerStateMachine _playerStateMachine;
     private PhotonView _photonView;
     private Texture2D _attackTexture;
@@ -99,4 +100,29 @@ public class Character : MonoBehaviourPunCallbacks
     }
 
     public virtual void OnNormalAttack() { }
+
+    public void CheckTargetInRange()
+    {
+        if (_playerStateMachine._player.targetObject != null)
+        {
+            Debug.Log(isFistTime);
+            if (isFistTime) return;
+            float distance = (_playerStateMachine._player.targetObject.transform.position - _playerStateMachine._player.transform.position).magnitude;
+
+            if (distance > _playerStateMachine._player.stat.AttackRange)
+            {
+                OnMove();
+            }
+            else
+            {
+                return;
+            }
+        }
+        OnMove();
+    }
+    private  void OnMove()
+    {
+        isFistTime = true;
+        _playerStateMachine.ChangeState(_playerStateMachine._playerMoveState);
+    }
 }

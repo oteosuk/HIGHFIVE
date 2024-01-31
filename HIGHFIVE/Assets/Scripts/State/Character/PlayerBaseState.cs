@@ -121,6 +121,7 @@ public class PlayerBaseState : IState
         else
         {
             _playerStateMachine._player.targetObject = null;
+            _playerStateMachine.ChangeState(_playerStateMachine._playerMoveState);
         }
 
         _playerStateMachine.moveInput = Camera.main.ScreenToWorldPoint(mousePoint);
