@@ -25,7 +25,7 @@ public class MonsterIdleState : MonsterBaseState
     public override void StateUpdate()
     {
         bool isPlayerInRange = RangeInPlayer();
-        Debug.Log(isPlayerInRange);
+        //Debug.Log(isPlayerInRange);
         if (isPlayerInRange == true)
         {
             _monsterStateMachine.ChangeState(_monsterStateMachine._monsterMoveState);

@@ -14,7 +14,6 @@ public class PlayerInput : MonoBehaviour
     {
         _playerController = new PlayerController();
         _playerActions = _playerController.Player;
-        Debug.Log("생성됨");
     }
 
     private void OnEnable()
