@@ -1,9 +1,8 @@
-using ExitGames.Client.Photon.StructWrapping;
 using Photon.Pun;
-using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class JCWGameScene : BaseScene
 {
@@ -17,18 +16,31 @@ public class JCWGameScene : BaseScene
     private GameObject _redCamp;
     [SerializeField]
     private GameObject _blueCamp;
+    private CameraController _cameraController;
+    private GameObject characterObj;
     protected override void Init()
     {
         base.Init();
+        _cameraController = GetComponent<CameraController>();
+        _cameraController.characterSpawnEvent += SetInitCameraPosition;
         Vector2 position = Main.GameManager.SelectedCamp == Define.Camp.Red ? _redCamp.transform.position : _blueCamp.transform.position;
         string selectClass;
-        GameObject characterObj;
-        if (_classMapping.TryGetValue(Main.GameManager.SelectedCharacter, out  selectClass))
+
+        if (_classMapping.TryGetValue(Main.GameManager.SelectedCharacter, out selectClass))
         {
-            characterObj = Main.ObjectManager.Spawn($"Character/{selectClass}", position, syncRequired:true);
+            GameObject mons = Main.ResourceManager.Instantiate($"Monster/Enemy", Vector2.zero);
+            characterObj = Main.ResourceManager.Instantiate($"Character/{selectClass}", position, syncRequired: true);
             characterObj.layer = Main.GameManager.SelectedCamp == Define.Camp.Red ? (int)Define.Layer.Red : (int)Define.Layer.Blue;
+            Main.ResourceManager.Instantiate("UI_Prefabs/GameSceneUI");
             Main.GameManager.SpawnedCharacter = characterObj.GetComponent<Character>();
             characterObj.GetComponent<PhotonView>().RPC("SetLayer", RpcTarget.All, characterObj.layer);
-        } 
-    }    
+            _cameraController.CallCharacterSpawnEvent();
+        }
+    }
+
+    private void SetInitCameraPosition()
+    {
+        Vector3 characterPos = characterObj.transform.position;
+        Camera.main.transform.position = new Vector3(characterPos.x, characterPos.y, Camera.main.transform.position.z);
+    }
 }

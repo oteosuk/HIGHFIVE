@@ -25,10 +25,11 @@ public class GameScene : BaseScene
         _cameraController.characterSpawnEvent += SetInitCameraPosition;
         Vector2 position = Main.GameManager.SelectedCamp == Define.Camp.Red ? _redCamp.transform.position : _blueCamp.transform.position;
         string selectClass;
-        
+
         if (_classMapping.TryGetValue(Main.GameManager.SelectedCharacter, out selectClass))
         {
-            characterObj = Main.ObjectManager.Spawn($"Character/{selectClass}", position, syncRequired: true);
+            GameObject mons = Main.ResourceManager.Instantiate($"Monster/Enemy", Vector2.zero);
+            characterObj = Main.ResourceManager.Instantiate($"Character/{selectClass}", position, syncRequired: true);
             characterObj.layer = Main.GameManager.SelectedCamp == Define.Camp.Red ? (int)Define.Layer.Red : (int)Define.Layer.Blue;
             Main.ResourceManager.Instantiate("UI_Prefabs/GameSceneUI");
             Main.GameManager.SpawnedCharacter = characterObj.GetComponent<Character>();
