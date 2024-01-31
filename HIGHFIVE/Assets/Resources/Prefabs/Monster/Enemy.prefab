@@ -119,10 +119,10 @@ GameObject:
   - component: {fileID: 5964424821188390523}
   - component: {fileID: 4299282115723498515}
   - component: {fileID: 2685364962356038590}
-  - component: {fileID: 6838444936895555851}
-  m_Layer: 0
+  - component: {fileID: 5193628668772109660}
+  m_Layer: 6
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01cf9cf5c79cfe34296fc11fcb0ae84a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6838444936895555851
+--- !u!114 &5193628668772109660
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -240,6 +240,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7681079903124732001}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a26f72a52daeca47a02fb072590b84c, type: 3}
+  m_Script: {fileID: 11500000, guid: 73669addf46cedc4194ada6ef196ece7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

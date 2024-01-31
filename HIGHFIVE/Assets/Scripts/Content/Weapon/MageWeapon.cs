@@ -18,6 +18,13 @@ public class MageWeapon : MonoBehaviourPunCallbacks
             Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.rotation = rotation;
         }
+        else
+        {
+            if (GetComponent<PhotonView>().IsMine)
+            {
+                PhotonNetwork.Destroy(gameObject);
+            }
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
