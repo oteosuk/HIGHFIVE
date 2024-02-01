@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class CharacterStat : Stat
 {
-    public List<int> levelExpList = new List<int>();
+
     public int Level { get; set; }
-    public int MaxExp { get; set; }
     protected override void Init()
     {
         base.Init();
-        InitializeExp();
         Exp = 0;
         Level = 1;
     }
@@ -26,6 +24,10 @@ public class CharacterStat : Stat
             {
                 LevelUp();
                 myStat.Exp = myStat.Exp + exp - maxExp;
+            }
+            else
+            {
+                myStat.Exp += exp;
             }
         }
     }
@@ -43,19 +45,5 @@ public class CharacterStat : Stat
             myStat.MaxExp += 30;
         }
     }
-    private void InitializeExp()
-    {
-        int baseExperience = 20;
 
-        // 0번째 인덱스에 0값 추가
-        levelExpList.Add(0);
-
-        for (int level = 1; level <= 10; level++)
-        {
-            levelExpList.Add(baseExperience);
-            baseExperience *= 2; // 각 레벨마다 경험치를 2배로 증가
-        }
-    }
-
-    
 }
