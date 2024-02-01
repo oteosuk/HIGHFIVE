@@ -15,6 +15,8 @@ public class MonsterDieState : MonsterBaseState
         PhotonView pv = _monsterStateMachine._monster.GetComponent<PhotonView>();
         StartAnimation(_animData.DieParameterHash);
 
+        SoundManager.instance.PlayEffect("효과음", 1f);
+
         /*//5초뒤에 아래 함수 실행
         if (pv.IsMine)
         {

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class MonsterAttackState : MonsterBaseState
 {
-    private bool _canAttack = true;
+    //private bool _canAttack = true;
     private float _distance;
     public MonsterAttackState(MonsterStateMachine monsterStateMachine) : base(monsterStateMachine)
     {
