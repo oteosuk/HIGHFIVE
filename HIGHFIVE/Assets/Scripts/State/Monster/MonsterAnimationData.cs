@@ -10,7 +10,7 @@ public class MonsterAnimationData
     private string isUpParameterName = "isUp";
     private string isDownParameterName = "isDown";
     private string isAttackParameterName = "isAttack";
-    private string doDieParameterName = "doDie";
+    private string isDieParameterName = "isDie";
 
     public int IdleParameterHash { get; private set; }
     public int LeftParameterHash { get; private set; }
@@ -30,7 +30,7 @@ public class MonsterAnimationData
         DownParameterHash = Animator.StringToHash(isDownParameterName);
 
         AttackParameterHash = Animator.StringToHash(isAttackParameterName);
-        DieParameterHash = Animator.StringToHash(doDieParameterName);
+        DieParameterHash = Animator.StringToHash(isDieParameterName);
     }
 }
 

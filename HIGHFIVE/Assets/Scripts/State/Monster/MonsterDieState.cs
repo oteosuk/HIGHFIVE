@@ -15,7 +15,7 @@ public class MonsterDieState : MonsterBaseState
         PhotonView pv = _monsterStateMachine._monster.GetComponent<PhotonView>();
         StartAnimation(_animData.DieParameterHash);
 
-        SoundManager.instance.PlayEffect("효과음", 1f);
+        //SoundManager.instance.PlayEffect("효과음", 1f);
 
         /*//5초뒤에 아래 함수 실행
         if (pv.IsMine)
@@ -23,14 +23,16 @@ public class MonsterDieState : MonsterBaseState
             //pv.RPC();
             PhotonNetwork.Destroy(pv.gameObject);
         }*/
-        
+
         //GameObject.Destroy(_monsterStateMachine._monster);
+
         base.Enter();
     }
 
     public override void Exit()
     {
         base.Exit();
+        StopAnimation(_animData.DieParameterHash);
     }
     public override void StateUpdate()
     {

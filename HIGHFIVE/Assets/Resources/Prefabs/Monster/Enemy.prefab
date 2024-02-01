@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &521841235888718830
+--- !u!1 &751515967304748594
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 113588507943976797}
-  - component: {fileID: 2210572450632783818}
-  - component: {fileID: 661571900031198129}
+  - component: {fileID: 5769732066766849932}
+  - component: {fileID: 1012598497985894519}
+  - component: {fileID: 4406954212288362928}
+  - component: {fileID: 134744056926433491}
   m_Layer: 6
   m_Name: Tree
   m_TagString: Monster
@@ -18,29 +19,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &113588507943976797
+--- !u!4 &5769732066766849932
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 521841235888718830}
+  m_GameObject: {fileID: 751515967304748594}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7184495185635086917}
+  m_Father: {fileID: 3365509100200058970}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &2210572450632783818
+--- !u!95 &1012598497985894519
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 521841235888718830}
+  m_GameObject: {fileID: 751515967304748594}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 9cbe94e6a1ea01c41b1b6ba4c7ecb38f, type: 2}
@@ -54,13 +55,13 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!212 &661571900031198129
+--- !u!212 &4406954212288362928
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 521841235888718830}
+  m_GameObject: {fileID: 751515967304748594}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -106,7 +107,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &7681079903124732001
+--- !u!114 &134744056926433491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751515967304748594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ba372f3c3095934da96879b28eda965, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &8118211225484246360
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,11 +127,11 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7184495185635086917}
-  - component: {fileID: 8553082096272859802}
-  - component: {fileID: 5964424821188390523}
-  - component: {fileID: 4299282115723498515}
-  - component: {fileID: 2685364962356038590}
+  - component: {fileID: 3365509100200058970}
+  - component: {fileID: 1302510850092177863}
+  - component: {fileID: 7928208141887372799}
+  - component: {fileID: 4910205937345808003}
+  - component: {fileID: 4814204184565046949}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Monster
@@ -126,29 +139,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7184495185635086917
+--- !u!4 &3365509100200058970
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7681079903124732001}
+  m_GameObject: {fileID: 8118211225484246360}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 113588507943976797}
+  - {fileID: 5769732066766849932}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &8553082096272859802
+--- !u!70 &1302510850092177863
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7681079903124732001}
+  m_GameObject: {fileID: 8118211225484246360}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -177,14 +190,14 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.5, y: 1}
   m_Direction: 0
---- !u!50 &5964424821188390523
+--- !u!50 &7928208141887372799
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7681079903124732001}
+  m_GameObject: {fileID: 8118211225484246360}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -204,13 +217,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &4299282115723498515
+--- !u!114 &4910205937345808003
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7681079903124732001}
+  m_GameObject: {fileID: 8118211225484246360}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9bfdd12371d66b4b8d74b2de72f7256, type: 3}
@@ -218,13 +231,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stat: {fileID: 0}
   _spawnPoint: {x: 0, y: 0}
---- !u!114 &2685364962356038590
+--- !u!114 &4814204184565046949
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7681079903124732001}
+  m_GameObject: {fileID: 8118211225484246360}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01cf9cf5c79cfe34296fc11fcb0ae84a, type: 3}
