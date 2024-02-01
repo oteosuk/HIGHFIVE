@@ -32,11 +32,5 @@ public class Revival : MonoBehaviour
         Main.ResourceManager.Destroy(transform.parent.gameObject);
     }
 
-    //IEnumerator RealReSpawn()
-    //{
-    //    yield return new WaitForSeconds(3.0f);
-    //    Debug.Log("sdds");
-    //    GameObject mons = Main.ResourceManager.Instantiate($"Monster/Enemy", _respawnTransform);
-    //    Debug.Log(mons);
-    //}
+
 }
