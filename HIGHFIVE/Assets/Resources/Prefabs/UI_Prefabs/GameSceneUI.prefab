@@ -1395,6 +1395,8 @@ GameObject:
   m_Component:
   - component: {fileID: 852870960657458149}
   - component: {fileID: 621629594657431452}
+  - component: {fileID: 4775391187288014555}
+  - component: {fileID: 7022002268084720967}
   m_Layer: 5
   m_Name: ExpBar
   m_TagString: Untagged
@@ -1471,10 +1473,35 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4775391187288014555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5304983859386175578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f70e0b39cb77c644a295174e4ff4e14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7022002268084720967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5304983859386175578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 669f44b53a820544496734bc63fc5e9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelExpList: 
 --- !u!1 &5428177209502178414
 GameObject:
   m_ObjectHideFlags: 0

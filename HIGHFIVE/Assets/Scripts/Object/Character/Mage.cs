@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class Mage : Character
 {
-
     protected override void Awake()
     {
         base.Awake();
@@ -18,6 +17,7 @@ public class Mage : Character
     protected override void Update()
     {
         base.Update();
+        Debug.Log(GetComponent<Stat>().Exp);
     }
 
     protected override void FixedUpdate()
@@ -25,30 +25,25 @@ public class Mage : Character
         base.FixedUpdate();
     }
 
-    [PunRPC]
-    public void SetLayer(int layer)
-    {
-        gameObject.layer = layer;
-    }
-
     public override void OnNormalAttack()
     {
         base.OnNormalAttack();
         if (_playerStateMachine._player.targetObject != null)
         {
-           isFistTime = false;
-            GameObject arrow = Main.ResourceManager.Instantiate("Character/MageWeapon", _playerStateMachine._player.transform.position, syncRequired:true);
-            arrow.transform.position = transform.position;
-            Vector2 dir = _playerStateMachine._player.targetObject.transform.position - arrow.transform.position;
+            isFistTime = false;
+            GameObject sphere = Main.ResourceManager.Instantiate("Character/MageWeapon", _playerStateMachine._player.transform.position, syncRequired:true);
+            sphere.transform.position = transform.position;
+            Vector2 dir = _playerStateMachine._player.targetObject.transform.position - sphere.transform.position;
             PhotonView targetPhotonView = Util.GetOrAddComponent<PhotonView>(_playerStateMachine._player.targetObject);
-            Debug.Log(targetPhotonView.ViewID);
+
             if (targetPhotonView.ViewID == 0 )
             {
                 PhotonNetwork.AllocateViewID(targetPhotonView);
             }
-            
-            arrow.GetComponent<PhotonView>().RPC("SetTarget", RpcTarget.All, targetPhotonView.ViewID);
-            arrow.GetComponent<PhotonView>().RPC("ToTarget", RpcTarget.All, 5.0f, dir.x, dir.y);
+
+            sphere.GetComponent<ShooterInfoController>().CallShooterInfoEvent(gameObject);
+            sphere.GetComponent<PhotonView>().RPC("SetTarget", RpcTarget.All, targetPhotonView.ViewID);
+            sphere.GetComponent<PhotonView>().RPC("ToTarget", RpcTarget.All, 5.0f, dir.x, dir.y);
         }
     }
 
@@ -56,5 +51,11 @@ public class Mage : Character
     public void SyncHpRatio(float ratio)
     {
         transform.GetComponentInChildren<Slider>().value = ratio;
+    }
+
+    [PunRPC]
+    public void SetLayer(int layer)
+    {
+        gameObject.layer = layer;
     }
 }

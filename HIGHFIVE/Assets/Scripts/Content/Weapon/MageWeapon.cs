@@ -7,7 +7,14 @@ public class MageWeapon : MonoBehaviourPunCallbacks
 {
     private GameObject _targetObject;
     private Rigidbody2D _rigidbody;
+    private ShooterInfoController _shooterInfoController;
+    private GameObject _shooter;
 
+    private void Awake()
+    {
+        _shooterInfoController = GetComponent<ShooterInfoController>();
+        _shooterInfoController.shooterInfoEvent += GetShooterInfo;
+    }
     private void Update()
     {
         if (_targetObject != null)
@@ -35,10 +42,16 @@ public class MageWeapon : MonoBehaviourPunCallbacks
             {
                 //나중에 교체
                 //Main.GameManager.SpawnedCharacter.stat.Attack
-                collision.gameObject.GetComponent<Stat>()?.TakeDamage(20);
+                collision.gameObject.GetComponent<Stat>()?.TakeDamage(20, _shooter);
                 PhotonNetwork.Destroy(gameObject);
             }
         }
+    }
+
+    private void GetShooterInfo(GameObject shooter)
+    {
+        Debug.Log(shooter);
+        _shooter = shooter;
     }
 
     [PunRPC]

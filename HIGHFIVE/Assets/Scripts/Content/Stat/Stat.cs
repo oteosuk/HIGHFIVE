@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class Stat : MonoBehaviour
 {
+    public List<int> levelExpList = new List<int>();
+
     private int _curHp;
     private int _maxHp;
     private int _attack;
@@ -15,6 +17,7 @@ public class Stat : MonoBehaviour
     private float _moveSpeed;
     private float _sightRange;
     private int _exp;
+    private int _maxExp;
     private StatController _statController;
     public int CurHp
     {
@@ -56,10 +59,15 @@ public class Stat : MonoBehaviour
         get { return _sightRange; }
         set { _sightRange = value; }
     }
+    public int MaxExp
+    {
+        get { return _maxExp; }
+        set { _maxExp = value; }
+    }
     public int Exp 
     {
         get { return _exp; }
-        set { _exp = value; }
+        set { _statController.CallChangeExpEvent(value, MaxExp); _exp = value; }
     }
     private void Start()
     {
@@ -69,22 +77,33 @@ public class Stat : MonoBehaviour
     protected virtual void Init()
     {
         _statController = Util.GetOrAddComponent<StatController>(gameObject);
+        InitializeExp();
     }
-    //먼저 투사체를 날릴 때 shooter의 정보를 담아 이벤트를 날리고
-    //수신측에서 해당 shooter의 정보를 받아서 전역변수로 갖고있게 한 뒤
-    //매개변수로 누가 공격을 했는지에 대한 정보도 받아서 
-    //데미지를 받았을 때 이벤트를 쏴서 만약 몬스터가 죽었다면
-    //콜백으로 받은 객체의 정보를 가져와서 AddExp호출
-    public virtual void TakeDamage(int damage)
+
+    public virtual void TakeDamage(int damage, GameObject shooter)
     {
         Stat myStat = GetComponent<Stat>();
         int realDamage = Mathf.Max(0, damage - myStat.Defence);
         if (myStat.CurHp - realDamage <= 0)
         {
+            shooter.GetComponent<CharacterStat>().AddExp(myStat.Exp);
             myStat.CurHp = 0;
             return;
         }
         myStat.CurHp -= realDamage;
     }
 
+    private void InitializeExp()
+    {
+        int baseExperience = 20;
+
+        // 0번째 인덱스에 0값 추가
+        levelExpList.Add(0);
+
+        for (int level = 1; level <= 10; level++)
+        {
+            levelExpList.Add(baseExperience);
+            baseExperience *= 2; // 각 레벨마다 경험치를 2배로 증가
+        }
+    }
 }

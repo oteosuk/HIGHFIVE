@@ -11,7 +11,7 @@ public class CameraMover : MonoBehaviour
     public Vector2 center;
     private float _zoomSpeed = 1.3f;
     private float _minZoom = 3.0f;
-    private float _maxZoom = 8.0f;
+    private float _maxZoom = 10.0f;
     private float _cameraHeight;
     private float _cameraWidth;
 
