@@ -31,10 +31,9 @@ public class MageWeapon : MonoBehaviourPunCallbacks
         int mask = (1 << (int)Define.Layer.Monster) | (1 << (Main.GameManager.SelectedCamp == Define.Camp.Red ? (int)Define.Layer.Blue : (int)Define.Layer.Red));
         if (((1 << collision.gameObject.layer) & mask) != 0)
         {
-            collision.transform.GetComponentInChildren<Receiver>()?.TakeDamage(Main.GameManager.SpawnedCharacter.stat.Attack);
-            //풀링
             if (GetComponent<PhotonView>().IsMine)
             {
+                collision.gameObject.GetComponent<Stat>()?.TakeDamage(Main.GameManager.SpawnedCharacter.stat.Attack);
                 PhotonNetwork.Destroy(gameObject);
             }
         }
@@ -57,11 +56,5 @@ public class MageWeapon : MonoBehaviourPunCallbacks
         Vector2 dir = new Vector2(posX, posY);
         _rigidbody = GetComponent<Rigidbody2D>();
         _rigidbody.velocity = dir.normalized * speed;
-    }
-
-    [PunRPC]
-    public void Destroy()
-    {
-        Main.ResourceManager.Destroy(gameObject);
     }
 }

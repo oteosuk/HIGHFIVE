@@ -37,29 +37,5 @@ public class PlayerAttackState : PlayerBaseState
     public override void StateUpdate()
     {
         base.StateUpdate();
-        if (!CheckTargetInRange()) { OnMove(); }
-    }
-
-    private bool CheckTargetInRange()
-    {
-        if (_playerStateMachine._player.targetObject != null)
-        {
-            float distance = (_playerStateMachine._player.targetObject.transform.position - _playerStateMachine._player.transform.position).magnitude;
-
-            if (distance > _playerStateMachine._player.stat.AttackRange)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-    protected override void OnMove()
-    {
-        base.OnMove();
-        _playerStateMachine.ChangeState(_playerStateMachine._playerMoveState);
     }
 }

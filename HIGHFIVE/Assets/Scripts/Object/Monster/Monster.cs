@@ -1,8 +1,9 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Monster : MonoBehaviour
+public class Monster : MonoBehaviourPunCallbacks
 {
     public Stat stat;
     protected MonsterStateMachine _monsterStateMachine;

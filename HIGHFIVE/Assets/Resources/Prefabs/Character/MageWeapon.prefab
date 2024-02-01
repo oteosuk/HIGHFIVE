@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7538209315254468230}
   - component: {fileID: 5933714284049250376}
   - component: {fileID: 3817560361888954568}
-  - component: {fileID: 6269260576756445728}
+  - component: {fileID: 7971800391242263796}
   m_Layer: 0
   m_Name: MageWeapon
   m_TagString: Untagged
@@ -130,11 +130,11 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 6269260576756445728}
+  - {fileID: 7971800391242263796}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &6269260576756445728
+--- !u!114 &7971800391242263796
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

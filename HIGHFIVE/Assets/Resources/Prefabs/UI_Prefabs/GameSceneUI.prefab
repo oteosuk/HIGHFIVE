@@ -2387,7 +2387,6 @@ GameObject:
   - component: {fileID: 1309096533112944309}
   - component: {fileID: 4303296209265418972}
   - component: {fileID: 8655976934875510086}
-  - component: {fileID: 5472632803255591722}
   m_Layer: 5
   m_Name: Level
   m_TagString: Untagged
@@ -2455,21 +2454,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5472632803255591722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7396781024842061718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f89c28c8a2f9ad4e860d1242d60f255, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawnedcharacterAtk: {fileID: 1702496455178024967}
-  _spawnedcharacterDef: {fileID: 0}
-  _spawnedcharacterSpd: {fileID: 0}
 --- !u!1 &7621169708224859523
 GameObject:
   m_ObjectHideFlags: 0

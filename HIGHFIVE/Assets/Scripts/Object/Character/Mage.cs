@@ -2,6 +2,7 @@ using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Mage : Character
 {
@@ -35,7 +36,7 @@ public class Mage : Character
         base.OnNormalAttack();
         if (_playerStateMachine._player.targetObject != null)
         {
-           
+           isFistTime = false;
             GameObject arrow = Main.ResourceManager.Instantiate("Character/MageWeapon", _playerStateMachine._player.transform.position, syncRequired:true);
             arrow.transform.position = transform.position;
             Vector2 dir = _playerStateMachine._player.targetObject.transform.position - arrow.transform.position;
@@ -49,5 +50,11 @@ public class Mage : Character
             arrow.GetComponent<PhotonView>().RPC("SetTarget", RpcTarget.All, targetPhotonView.ViewID);
             arrow.GetComponent<PhotonView>().RPC("ToTarget", RpcTarget.All, 5.0f, dir.x, dir.y);
         }
+    }
+
+    [PunRPC]
+    public void SyncHpRatio(float ratio)
+    {
+        transform.GetComponentInChildren<Slider>().value = ratio;
     }
 }
