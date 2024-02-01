@@ -19,7 +19,7 @@ public class Stat : MonoBehaviour
     public int CurHp
     {
         get { return _curHp; }
-        set { _statController.CallChangeHpEvent(CurHp, MaxHp); _curHp = value; }
+        set { _statController.CallChangeHpEvent(value, MaxHp); _curHp = value; }
     }
     public int MaxHp
     {
