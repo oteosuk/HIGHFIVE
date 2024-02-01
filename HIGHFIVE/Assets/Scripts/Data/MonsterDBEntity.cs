@@ -11,4 +11,5 @@ public class MonsterDBEntity
     public int maxHp;
     public int curHp;
     public int sight;
+    public int exp;
 }

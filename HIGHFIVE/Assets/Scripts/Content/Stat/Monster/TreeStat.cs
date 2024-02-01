@@ -18,6 +18,7 @@ public class TreeStat : MonsterStat
             MoveSpeed = tree.movSpeed;
             Defence = tree.def;
             SightRange = tree.sight;
+            Exp = tree.exp;
         }
     }
 }
