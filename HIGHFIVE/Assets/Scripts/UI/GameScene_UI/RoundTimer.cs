@@ -71,8 +71,8 @@ public class RoundTimer : MonoBehaviour
 
     IEnumerator FarmingTimer()
     {
-        //yield return new WaitForSeconds(1.0f); // 화면 전환을 위해 잠깐 기다림
-        farmingTime = 6;
+        yield return new WaitForSeconds(1.0f); // 화면 전환을 위해 잠깐 기다림
+        farmingTime = 60;
         curTime = farmingTime;
         while (curTime > 0)
         {
@@ -93,8 +93,8 @@ public class RoundTimer : MonoBehaviour
 
     IEnumerator BattleTimer()
     {
-        //yield return new WaitForSeconds(1.0f);
-        battleTime = 4;
+        yield return new WaitForSeconds(1.0f);
+        battleTime = 30;
         curTime = battleTime;
         while (curTime > 0)
         {
