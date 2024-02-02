@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    static public SoundManager instance;
-
     // 오디오 소스
-    public AudioSource bgmPlayer;
-    public List<AudioSource> effectPlayer = new List<AudioSource>();
+    private AudioSource bgmPlayer;
+    private List<AudioSource> effectPlayer = new List<AudioSource>();
+
+    private List<SoundData> soundDatas;
 
     // 오디오 클립
-    public AudioClip[] musics;
+    private AudioClip[] musics;
 
     private void Start()
     {
         for (int i = 0; i < 10; i++)
         {
-            AudioSource temp = this.gameObject.AddComponent<AudioSource>();
+            AudioSource temp = gameObject.AddComponent<AudioSource>();
             effectPlayer.Add(temp);
         }
-        PlayBGM("BGM_Powerful", 1f);
+        PlayBGM("KBF_3m_Town_Castle_01", 1f);
     }
 
     void Update()
@@ -48,6 +48,16 @@ public class SoundManager : MonoBehaviour
         bgmPlayer.clip = selectd;
         bgmPlayer.volume = volume;
         bgmPlayer.Play();
+    }
+
+    public void ChangeBGM(string name, AudioClip newAudioClip)
+    {
+        SoundData test = soundDatas.Find(sd => sd.soundName == name);
+
+        if(test != null)
+        {
+            test.audioClip = newAudioClip;
+        }
     }
 
     public void PlayEffect(string name, float volume)
