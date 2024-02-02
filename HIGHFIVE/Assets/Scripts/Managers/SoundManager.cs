@@ -75,7 +75,7 @@ public class SoundManager : MonoBehaviour
 
     //사용법
     //SoundManager.instance.PlayEffect("효과음", 1f);
-    //Main.SounManager.PlayEffect("파일이름", 볼륨);
+    //Main.SounManager.PlayEffect("파일이름", 볼륨); => 아직 연결안됌
 
 
 
