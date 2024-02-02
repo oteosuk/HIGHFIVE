@@ -12,6 +12,6 @@ public class Revival : MonoBehaviour
     public void Reviva()
     {
         Animator.SetBool("isDie", false);
-        Main.ResourceManager.Destroy(transform.parent.gameObject);
+        
     }
 }

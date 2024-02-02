@@ -18,32 +18,39 @@ public class CharacterStat : Stat
     {
         CharacterStat myStat = go.GetComponent<CharacterStat>();
         if (myStat != null ) 
-        { 
+        {
+            
             if (myStat.Exp == myStat.MaxExp) return;
             int maxExp = myStat.MaxExp;
+            
             if (myStat.Exp + exp >= maxExp)
             {
-                LevelUp();
-                myStat.Exp = myStat.Exp + exp - maxExp;
+                LevelUp(exp);
             }
             else
             {
                 myStat.Exp += exp;
+                _statController.CallChangeExpEvent(myStat.Exp, myStat.MaxExp);
             }
         }
     }
-    private void LevelUp()
+    private void LevelUp(int exp)
     {
         CharacterStat myStat = GetComponent<CharacterStat>();
         if (myStat != null ) 
         { 
             if (myStat.Level == 10) return;
             myStat.Level += 1;
-            myStat.Exp = 0;
-            myStat.MaxExp = myStat.levelExpList[myStat.Level];
+            myStat.Exp = myStat.Exp + exp - myStat.MaxExp;
+            myStat.MaxExp += 10;
+            //myStat.MaxExp = myStat.levelExpList[myStat.Level];
             myStat.Attack += 2;
             myStat.Defence += 1;
-            myStat.MaxExp += 30;
+            
+            if (myStat.Exp > myStat.MaxExp)
+            {
+                LevelUp(exp);
+            }
         }
     }
 
