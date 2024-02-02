@@ -5,7 +5,7 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     // 오디오 소스
-    private AudioSource bgmPlayer;
+    public AudioSource bgmPlayer;
     public List<AudioSource> effectPlayer = new List<AudioSource>();
 
     void Update()
@@ -19,20 +19,24 @@ public class SoundManager : MonoBehaviour
 
     public void Init()
     {
-        GameObject testObject = GameObject.Find("SoundManager");
+        GameObject SoundManagerObject = GameObject.Find("SoundManager");
 
-        if (testObject == null)
+        if (SoundManagerObject == null)
         {
-            testObject = new GameObject("SoundManager");
-            testObject.AddComponent<SoundManager>();
+            SoundManagerObject = new GameObject("SoundManager");
+            SoundManagerObject.AddComponent<SoundManager>();
         }
-        DontDestroyOnLoad(testObject);
-        bgmPlayer = Util.GetOrAddComponent<AudioSource>(testObject);
+        
+        bgmPlayer = Util.GetOrAddComponent<AudioSource>(SoundManagerObject);
+
+
         for (int i = 0; i < 10; i++)
         {
-            AudioSource temp = testObject.AddComponent<AudioSource>();
+            AudioSource temp = SoundManagerObject.AddComponent<AudioSource>();
             effectPlayer.Add(temp);
         }
+
+        DontDestroyOnLoad(SoundManagerObject);
     }
 
     public void PlayBGM(string bgmName, float volume)
@@ -42,6 +46,7 @@ public class SoundManager : MonoBehaviour
         {
             bgmPlayer.volume = volume;
             bgmPlayer.Play();
+            
         }
     }
 
@@ -53,7 +58,6 @@ public class SoundManager : MonoBehaviour
         {
             if (effectPlayer[i].isPlaying)
             {
-                Debug.Log(i);
                 continue;
             }
             else
@@ -74,7 +78,4 @@ public class SoundManager : MonoBehaviour
     //사용법
     //SoundManager.instance.PlayEffect("효과음", 1f);
     //Main.SounManager.PlayEffect("파일이름", 볼륨); => 아직 연결안됌
-
-
-
 }
