@@ -2,6 +2,7 @@ using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Monster : MonoBehaviourPunCallbacks
 {
@@ -51,5 +52,17 @@ public class Monster : MonoBehaviourPunCallbacks
     private void SetSpawnPoint(Vector2 spawnPoint)
     {
         _spawnPoint = spawnPoint;
+    }
+
+    [PunRPC]
+    public void RPCDetroy()
+    {
+        Main.ResourceManager.Destroy(gameObject);
+    }
+
+    [PunRPC]
+    public void SyncHpRatio(float ratio)
+    {
+        transform.GetComponentInChildren<Slider>().value = ratio;
     }
 }
