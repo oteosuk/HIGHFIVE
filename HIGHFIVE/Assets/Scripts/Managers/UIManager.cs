@@ -48,7 +48,7 @@ public class UIManager
         GameObject go = Main.ResourceManager.Instantiate($"UI_World/{path}");
         if (parent != null)
         {
-            go.transform.parent = parent;   
+            go.transform.SetParent(parent);
         }
 
         Canvas canvas = go.GetComponent<Canvas>();
