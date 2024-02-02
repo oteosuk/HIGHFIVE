@@ -21,16 +21,11 @@ public class LobbyScene_UI : UIBase
         RoomListContent,
         SetRoomBlock
     }
-    private enum Texts
-    {
-        LobbyInfoTxt
-    }
     
 
     private Button _createRoomBtn;//방 생성 버튼
     private GameObject _roomListContent;//방 리스트 컨텐트
     private GameObject _setRoomBlock;
-    private TMP_Text _lobbyInfoTxt;
     private float contentHeight = 0f;//컨테트의 크기 제어 변수
 
 
@@ -38,11 +33,9 @@ public class LobbyScene_UI : UIBase
     {
         Bind<Button>(typeof(Buttons),true);
         Bind<GameObject>(typeof(GameObjects),true);
-        Bind<TMP_Text>(typeof(Texts), true);
 
         _createRoomBtn = Get<Button>((int)Buttons.CreateRoomBtn);
         _roomListContent = Get<GameObject>((int)GameObjects.RoomListContent);
-        _lobbyInfoTxt = Get<TMP_Text>((int)Texts.LobbyInfoTxt);
         _setRoomBlock = Get<GameObject>((int)GameObjects.SetRoomBlock);
 
 
@@ -100,7 +93,6 @@ public class LobbyScene_UI : UIBase
                
                 if (isContain) continue;
             }
-            if (_lobbyInfoTxt != null) _lobbyInfoTxt.text = $"접속인원: {PhotonNetwork.CountOfPlayers - PhotonNetwork.CountOfPlayersInRooms}명";
 
             GameObject newRoom = Main.ResourceManager.Instantiate("UI_Prefabs/Rooms", _roomListContent.transform, $"{room.Name}Room");
             AddUIEvent(newRoom, Define.UIEvent.Click, OnEnterRoomClicked);
