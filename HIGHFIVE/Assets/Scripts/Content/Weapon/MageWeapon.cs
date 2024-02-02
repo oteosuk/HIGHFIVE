@@ -49,7 +49,6 @@ public class MageWeapon : MonoBehaviourPunCallbacks
 
     private void GetShooterInfo(GameObject shooter)
     {
-        Debug.Log(shooter);
         _shooter = shooter;
     }
 

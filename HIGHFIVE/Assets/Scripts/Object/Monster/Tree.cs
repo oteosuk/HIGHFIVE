@@ -1,3 +1,4 @@
+using ExitGames.Client.Photon.StructWrapping;
 using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
@@ -30,5 +31,11 @@ public class Tree : Monster
     public void SyncHpRatio(float ratio)
     {
         transform.GetComponentInChildren<Slider>().value = ratio;
+    }
+
+    [PunRPC]
+    public void RPCDetroy()
+    {
+        PhotonNetwork.Destroy(gameObject);
     }
 }
