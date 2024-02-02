@@ -11,11 +11,12 @@ public class CharacterStat : Stat
         base.Init();
         Exp = 0;
         Level = 1;
+        MaxExp = levelExpList[Level];
     }
 
-    public void AddExp(int exp)
+    public void AddExp(int exp, GameObject go)
     {
-        CharacterStat myStat = GetComponent<CharacterStat>();
+        CharacterStat myStat = go.GetComponent<CharacterStat>();
         if (myStat != null ) 
         { 
             if (myStat.Exp == myStat.MaxExp) return;

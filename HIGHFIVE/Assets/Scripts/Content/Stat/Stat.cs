@@ -24,7 +24,7 @@ public class Stat : MonoBehaviour
         get { return _curHp; }
         set { _statController.CallChangeHpEvent(value, MaxHp); _curHp = value; }
     }
-    public int MaxHp
+    public int MaxHp 
     {
         get { return _maxHp; }
         set { _maxHp = value; }
@@ -86,7 +86,7 @@ public class Stat : MonoBehaviour
         int realDamage = Mathf.Max(0, damage - myStat.Defence);
         if (myStat.CurHp - realDamage <= 0)
         {
-            shooter.GetComponent<CharacterStat>().AddExp(myStat.Exp);
+            shooter.GetComponent<CharacterStat>().AddExp(myStat.Exp, shooter);
             myStat.CurHp = 0;
             return;
         }
