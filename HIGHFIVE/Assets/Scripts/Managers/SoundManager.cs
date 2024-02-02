@@ -19,24 +19,21 @@ public class SoundManager : MonoBehaviour
 
     public void Init()
     {
-        GameObject SoundManagerObject = GameObject.Find("SoundManager");
+        GameObject testObject = GameObject.Find("SoundManager");
 
-        if (SoundManagerObject == null)
+        if (testObject == null)
         {
-            SoundManagerObject = new GameObject("SoundManager");
-            SoundManagerObject.AddComponent<SoundManager>();
+            testObject = new GameObject("SoundManager");
+            testObject.AddComponent<SoundManager>();
         }
-        
-        bgmPlayer = Util.GetOrAddComponent<AudioSource>(SoundManagerObject);
-
-
+        DontDestroyOnLoad(testObject);
+        bgmPlayer = Util.GetOrAddComponent<AudioSource>(testObject);
         for (int i = 0; i < 10; i++)
         {
-            AudioSource temp = SoundManagerObject.AddComponent<AudioSource>();
+            AudioSource temp = testObject.AddComponent<AudioSource>();
+            Debug.Log(temp);
             effectPlayer.Add(temp);
         }
-
-        DontDestroyOnLoad(SoundManagerObject);
     }
 
     public void PlayBGM(string bgmName, float volume)
@@ -46,7 +43,6 @@ public class SoundManager : MonoBehaviour
         {
             bgmPlayer.volume = volume;
             bgmPlayer.Play();
-            
         }
     }
 
@@ -58,6 +54,7 @@ public class SoundManager : MonoBehaviour
         {
             if (effectPlayer[i].isPlaying)
             {
+                Debug.Log(i);
                 continue;
             }
             else
@@ -78,4 +75,7 @@ public class SoundManager : MonoBehaviour
     //사용법
     //SoundManager.instance.PlayEffect("효과음", 1f);
     //Main.SounManager.PlayEffect("파일이름", 볼륨); => 아직 연결안됌
+
+
+
 }
