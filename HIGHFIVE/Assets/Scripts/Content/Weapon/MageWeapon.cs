@@ -35,8 +35,7 @@ public class MageWeapon : MonoBehaviourPunCallbacks
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        int mask = (1 << (int)Define.Layer.Monster) | (1 << (Main.GameManager.SelectedCamp == Define.Camp.Red ? (int)Define.Layer.Blue : (int)Define.Layer.Red));
-        if (((1 << collision.gameObject.layer) & mask) != 0)
+        if (collision.gameObject == _targetObject)
         {
             if (GetComponent<PhotonView>().IsMine)
             {

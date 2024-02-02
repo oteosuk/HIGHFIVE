@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class MonsterDieState : MonsterBaseState
 {
@@ -13,7 +14,7 @@ public class MonsterDieState : MonsterBaseState
     public override void Enter()
     {
         StartAnimation(_animData.DieParameterHash);
-
+        Main.ResourceManager.Destroy(_monsterStateMachine._monster.gameObject);
 
         base.Enter();
     }
