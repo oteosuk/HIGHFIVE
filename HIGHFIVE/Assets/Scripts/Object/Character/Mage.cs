@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Mage : Character
 {
+    GameObject target;
     protected override void Awake()
     {
         base.Awake();
@@ -36,6 +37,7 @@ public class Mage : Character
             Vector2 dir = _playerStateMachine._player.targetObject.transform.position - sphere.transform.position;
             PhotonView targetPhotonView = Util.GetOrAddComponent<PhotonView>(_playerStateMachine._player.targetObject);
 
+            target = _playerStateMachine._player.targetObject;
             if (targetPhotonView.ViewID == 0 )
             {
                 PhotonNetwork.AllocateViewID(targetPhotonView);

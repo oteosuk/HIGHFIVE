@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.GraphicsBuffer;
 
 public class Tree : Monster
 {
@@ -27,15 +28,7 @@ public class Tree : Monster
         base.FixedUpdate();
     }
 
-    [PunRPC]
-    public void SyncHpRatio(float ratio)
-    {
-        transform.GetComponentInChildren<Slider>().value = ratio;
-    }
+    
 
-    [PunRPC]
-    public void RPCDetroy()
-    {
-        PhotonNetwork.Destroy(gameObject);
-    }
+    
 }
