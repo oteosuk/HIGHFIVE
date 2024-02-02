@@ -49,11 +49,10 @@ public class Main : MonoBehaviour
             }
             DontDestroyOnLoad(gameObject);
 
-            
             s_instance = gameObject.GetComponent<Main>();
             s_instance._poolManager.Init();
             s_instance._gameManager.GameInit();
-            //s_instance._soundManager.PlayBGM("KBF_3m_Town_Castle_01", 1f);
+            s_instance._soundManager.Init();
         }
     }
 }

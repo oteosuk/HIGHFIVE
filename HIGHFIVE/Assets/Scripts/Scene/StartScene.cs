@@ -9,7 +9,6 @@ public class StartScene : BaseScene
     protected override void Init()
     {
         base.Init();
-        
         //DebugTest();
     }
 
