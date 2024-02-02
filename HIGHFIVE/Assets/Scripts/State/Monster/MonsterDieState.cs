@@ -14,8 +14,12 @@ public class MonsterDieState : MonsterBaseState
     public override void Enter()
     {
         StartAnimation(_animData.DieParameterHash);
-        Main.ResourceManager.Destroy(_monsterStateMachine._monster.gameObject);
+        PhotonView pv = _monsterStateMachine._monster.GetComponent<PhotonView>();
+        
 
+            _monsterStateMachine._monster.GetComponent<PhotonView>().RPC("RPCDetroy", RpcTarget.All);
+        
+        
         base.Enter();
     }
 
