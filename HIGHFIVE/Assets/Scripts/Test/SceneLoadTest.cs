@@ -10,7 +10,6 @@ public class SceneLoadTest : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Main.SceneManagerEx.LoadScene(Define.Scene.StartScene);
-            Debug.Log("마우스 좌클릭!");
         }
     }
 }
