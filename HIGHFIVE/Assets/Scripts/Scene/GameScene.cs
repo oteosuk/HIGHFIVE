@@ -28,7 +28,6 @@ public class GameScene : BaseScene
 
         if (_classMapping.TryGetValue(Main.GameManager.SelectedCharacter, out selectClass))
         {
-            GameObject mons = Main.ResourceManager.Instantiate($"Monster/Enemy", Vector2.zero);
             characterObj = Main.ResourceManager.Instantiate($"Character/{selectClass}", position, syncRequired: true);
             characterObj.layer = Main.GameManager.SelectedCamp == Define.Camp.Red ? (int)Define.Layer.Red : (int)Define.Layer.Blue;
             Main.ResourceManager.Instantiate("UI_Prefabs/GameSceneUI");

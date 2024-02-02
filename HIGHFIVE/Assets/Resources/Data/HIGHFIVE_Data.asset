@@ -42,7 +42,7 @@ MonoBehaviour:
     movSpeed: 4
     maxHp: 100
     curHp: 100
-    sight: 3
+    sight: 4
   Skills:
   - job: "\uC804\uC0AC"
     name: "\uCC0C\uB974\uAE30"
@@ -69,6 +69,7 @@ MonoBehaviour:
     maxHp: 50
     curHp: 50
     sight: 4
+    exp: 3
   - name: NM2
     atk: 10
     def: 10
@@ -78,6 +79,7 @@ MonoBehaviour:
     maxHp: 50
     curHp: 50
     sight: 3
+    exp: 4
   - name: NM3
     atk: 10
     def: 10
@@ -87,6 +89,7 @@ MonoBehaviour:
     maxHp: 50
     curHp: 50
     sight: 3
+    exp: 5
   - name: EL1
     atk: 10
     def: 10
@@ -96,6 +99,7 @@ MonoBehaviour:
     maxHp: 50
     curHp: 50
     sight: 3
+    exp: 10
   - name: EL2
     atk: 10
     def: 10
@@ -105,6 +109,7 @@ MonoBehaviour:
     maxHp: 50
     curHp: 50
     sight: 3
+    exp: 10
   - name: EL3
     atk: 10
     def: 10
@@ -114,6 +119,7 @@ MonoBehaviour:
     maxHp: 50
     curHp: 50
     sight: 3
+    exp: 10
   - name: EL4
     atk: 10
     def: 10
@@ -123,6 +129,7 @@ MonoBehaviour:
     maxHp: 50
     curHp: 50
     sight: 3
+    exp: 10
   - name: EP1
     atk: 10
     def: 10
@@ -132,6 +139,7 @@ MonoBehaviour:
     maxHp: 50
     curHp: 50
     sight: 3
+    exp: 30
   - name: EP2
     atk: 10
     def: 10
@@ -141,6 +149,7 @@ MonoBehaviour:
     maxHp: 50
     curHp: 50
     sight: 3
+    exp: 30
   Items:
   - id: 0
     name: "ex\uC120\uD3EC\uC790"

@@ -29,7 +29,6 @@ public class Tree : Monster
     [PunRPC]
     public void SyncHpRatio(float ratio)
     {
-        Debug.Log("se");
         transform.GetComponentInChildren<Slider>().value = ratio;
     }
 }

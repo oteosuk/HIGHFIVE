@@ -10,6 +10,7 @@ public class TreeStat : MonsterStat
 
         if(Main.DataManager.MonsterDict.TryGetValue("나무", out MonsterDBEntity tree))
         {
+            
             CurHp = tree.curHp;
             MaxHp = tree.maxHp;
             Attack = tree.atk;
@@ -18,6 +19,7 @@ public class TreeStat : MonsterStat
             MoveSpeed = tree.movSpeed;
             Defence = tree.def;
             SightRange = tree.sight;
+            Exp = tree.exp;
         }
     }
 }
