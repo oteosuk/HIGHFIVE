@@ -11,13 +11,11 @@ public class HealthBar : UIBase
         HPBar
     }
 
-    private Stat _stat;
     private StatController _statController;
 
     private void Start()
     {
         Bind<GameObject>(typeof(GameObjects));
-        _stat = transform.parent.GetComponent<Stat>();
         _statController = transform.parent.GetComponent<StatController>();
         _statController.hpChangeEvent += SetHpRatio;
     }

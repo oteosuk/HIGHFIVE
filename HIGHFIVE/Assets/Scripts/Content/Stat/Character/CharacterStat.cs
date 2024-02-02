@@ -39,7 +39,7 @@ public class CharacterStat : Stat
         CharacterStat myStat = GetComponent<CharacterStat>();
         if (myStat != null ) 
         { 
-            if (myStat.Level == 10) return;
+            if (myStat.Level == 15) return;
             myStat.Level += 1;
             myStat.Exp = myStat.Exp + exp - myStat.MaxExp;
             myStat.MaxExp += 10;
