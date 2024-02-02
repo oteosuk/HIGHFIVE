@@ -4,64 +4,62 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    static public SoundManager instance;
-
     // 오디오 소스
-    public AudioSource bgmPlayer;
+    private AudioSource bgmPlayer;
     public List<AudioSource> effectPlayer = new List<AudioSource>();
-
-    // 오디오 클립
-    public AudioClip[] musics;
-
-    private void Start()
-    {
-        for (int i = 0; i < 10; i++)
-        {
-            AudioSource temp = this.gameObject.AddComponent<AudioSource>();
-            effectPlayer.Add(temp);
-        }
-        PlayBGM("BGM_Powerful", 1f);
-    }
 
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            // 클릭된 위치의 좌표를 가져옵니다.
-            Vector2 clickPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-            // 클릭 이벤트 처리 메서드 호출
-            HandleClick(clickPosition);
+            Debug.Log("Click");
+            PlayEffect("SFX_Click", 1f);
         }
     }
 
-    void HandleClick(Vector2 clickPosition)
+    public void Init()
     {
-        PlayEffect("SFX_Click", 1f);
-        Debug.Log("마우스가 클릭되었습니다! 위치: " + clickPosition);
+        GameObject testObject = GameObject.Find("SoundManager");
+
+        if (testObject == null)
+        {
+            testObject = new GameObject("SoundManager");
+            testObject.AddComponent<SoundManager>();
+        }
+        DontDestroyOnLoad(testObject);
+        bgmPlayer = Util.GetOrAddComponent<AudioSource>(testObject);
+        for (int i = 0; i < 10; i++)
+        {
+            AudioSource temp = testObject.AddComponent<AudioSource>();
+            effectPlayer.Add(temp);
+        }
     }
 
-
-    public void PlayBGM(string name, float volume)
+    public void PlayBGM(string bgmName, float volume)
     {
-        var selectd = Array.Find(musics, m => m.name == name);
-        bgmPlayer.clip = selectd;
-        bgmPlayer.volume = volume;
-        bgmPlayer.Play();
+        bgmPlayer.clip =  Resources.Load<AudioClip>($"Sounds/BGM/{bgmName}");
+        if (bgmPlayer.clip != null)
+        {
+            bgmPlayer.volume = volume;
+            bgmPlayer.Play();
+        }
     }
 
-    public void PlayEffect(string name, float volume)
+    public void PlayEffect(string efxName, float volume)
     {
-        var selectd = Array.Find(musics, m => m.name == name);
-        
+        AudioClip clip = Resources.Load<AudioClip>($"Sounds/SFX/{efxName}");
+        Debug.Log(effectPlayer.Count);
         for (int i = 0; i < effectPlayer.Count; i++)
         {
             if (effectPlayer[i].isPlaying)
+            {
+                Debug.Log(i);
                 continue;
+            }
             else
             {
                 effectPlayer[i].volume = volume;
-                effectPlayer[i].PlayOneShot(selectd);
+                effectPlayer[i].PlayOneShot(clip);
             }
         }
         //예외처리 필요, 10개보다 더 늘어날경우

@@ -263,7 +263,7 @@ MonoBehaviour:
   bgmPlayer: {fileID: 391096105}
   effectPlayer: []
   musics:
-  - {fileID: 8300000, guid: 67aa4a6d97d5f8c4ebb8d5b3fe78e71a, type: 3}
+  - {fileID: 8300000, guid: 6c4760028d55b4379845314bdc05ed24, type: 3}
   - {fileID: 8300000, guid: ebbca6717884f1a4cab796e9e893a5c0, type: 3}
 --- !u!82 &391096105
 AudioSource:
