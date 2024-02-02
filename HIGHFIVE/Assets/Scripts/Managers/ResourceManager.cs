@@ -50,7 +50,25 @@ public class ResourceManager
     }
     public GameObject Instantiate(string path, Vector2 position, Quaternion rotation = default, Transform parent = null, bool syncRequired = false)
     {
-        if (syncRequired) return PhotonNetwork.Instantiate($"Prefabs/{path}", position, Quaternion.identity);
+        if (syncRequired)
+        {
+            if (path.Contains("Monster") )
+            {
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    return PhotonNetwork.Instantiate($"Prefabs/{path}", position, Quaternion.identity);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            else
+            {
+                return PhotonNetwork.Instantiate($"Prefabs/{path}", position, Quaternion.identity);
+            }
+        }
+
         GameObject original = Load<GameObject>($"Prefabs/{path}");
         if (original == null)
         {

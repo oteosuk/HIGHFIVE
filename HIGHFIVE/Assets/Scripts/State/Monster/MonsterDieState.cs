@@ -14,12 +14,8 @@ public class MonsterDieState : MonsterBaseState
     public override void Enter()
     {
         StartAnimation(_animData.DieParameterHash);
-        PhotonView pv = _monsterStateMachine._monster.GetComponent<PhotonView>();
-        
+        _monsterStateMachine._monster.GetComponent<PhotonView>().RPC("RPCDetroy", RpcTarget.All);
 
-            _monsterStateMachine._monster.GetComponent<PhotonView>().RPC("RPCDetroy", RpcTarget.All);
-        
-        
         base.Enter();
     }
 

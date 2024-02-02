@@ -40,7 +40,7 @@ public class MonsterSpawner : MonoBehaviour
             if (array[i].Value == null)
             {
                 Vector3 spawnPosition = array[i].Key.position;
-                GameObject mons = Main.ResourceManager.Instantiate($"Monster/Enemy", spawnPosition, parent: array[i].Key);
+                GameObject mons = Main.ResourceManager.Instantiate($"Monster/Enemy", spawnPosition, parent: array[i].Key, syncRequired:true);
                 array[i] = new KeyValuePair<Transform, GameObject>(array[i].Key, mons);
                 _curTime = _respawnDelayTime;
                 break;
