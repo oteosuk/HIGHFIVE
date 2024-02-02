@@ -5,7 +5,7 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     // 오디오 소스
-    private AudioSource bgmPlayer;
+    public AudioSource bgmPlayer;
     public List<AudioSource> effectPlayer = new List<AudioSource>();
 
     void Update()
@@ -31,6 +31,7 @@ public class SoundManager : MonoBehaviour
         for (int i = 0; i < 10; i++)
         {
             AudioSource temp = testObject.AddComponent<AudioSource>();
+            Debug.Log(temp);
             effectPlayer.Add(temp);
         }
     }
