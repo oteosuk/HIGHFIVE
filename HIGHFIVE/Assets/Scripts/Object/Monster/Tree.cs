@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.GraphicsBuffer;
 
 public class Tree : Monster
 {
@@ -36,6 +37,6 @@ public class Tree : Monster
     [PunRPC]
     public void RPCDetroy()
     {
-        PhotonNetwork.Destroy(gameObject);
+        Main.ResourceManager.Destroy(gameObject);
     }
 }
