@@ -86,12 +86,12 @@ public class PlayerBaseState : IState
 
     protected virtual void StartAnimation(int hashValue)
     {
-        _playerStateMachine._player.PlayerAnim.SetBool(hashValue, true);
+        _playerStateMachine._player.Animator.SetBool(hashValue, true);
     }
 
     protected virtual void StopAnimation(int hashValue)
     {
-        _playerStateMachine._player.PlayerAnim.SetBool(hashValue, false);
+        _playerStateMachine._player.Animator.SetBool(hashValue, false);
     }
     private void OnReadyAttackStart(InputAction.CallbackContext context) { _playerStateMachine.isAttackReady = true; }
 

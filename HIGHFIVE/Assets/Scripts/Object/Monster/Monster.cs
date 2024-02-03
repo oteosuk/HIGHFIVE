@@ -4,33 +4,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Monster : MonoBehaviourPunCallbacks
+public class Monster : Creature
 {
-    public Stat stat;
     protected MonsterStateMachine _monsterStateMachine;
     public Vector2 _spawnPoint;
-
-    public Rigidbody2D Rigidbody { get; protected set; }
-    public PlayerInput Input { get; protected set; }
-    public Collider2D Controller { get; set; }
-    public Animator Animator { get; set; }
     public MonsterAnimationData MonsterAnimationData { get; set; }
+    public Animator Animator { get; set; }
 
-
-    protected virtual void Awake()
+    protected override void Awake()
     {
         Rigidbody = GetComponent<Rigidbody2D>();
-        Input = GetComponent<PlayerInput>();
         Controller = GetComponent<Collider2D>();
         Animator = transform.GetComponentInChildren<Animator>();
-
         stat = GetComponent<Stat>();
         SetSpawnPoint(transform.position);
 
         MonsterAnimationData = new MonsterAnimationData();
     }
 
-    protected virtual void Start()
+    protected override void Start()
     {
         _monsterStateMachine = new MonsterStateMachine(this);
         MonsterAnimationData.GetParameterHash();
@@ -38,13 +30,13 @@ public class Monster : MonoBehaviourPunCallbacks
         Main.UIManager.CreateWorldUI<HealthBar>("HealthCanvas", transform);
     }
 
-    protected virtual void Update()
+    protected override void Update()
     {
         _monsterStateMachine.HandleInput();
         _monsterStateMachine.StateUpdate();
     }
 
-    protected virtual void FixedUpdate()
+    protected override void FixedUpdate()
     {
         _monsterStateMachine.PhysicsUpdate();
     }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Character : MonoBehaviourPunCallbacks
+public class Character : Creature
 {
     private enum CursorType
     {
@@ -13,40 +13,30 @@ public class Character : MonoBehaviourPunCallbacks
         Attack
     }
 
-    public Stat stat;
-    public GameObject targetObject;
     protected bool isFistTime = true;
     protected PlayerStateMachine _playerStateMachine;
     private PhotonView _photonView;
     private Texture2D _attackTexture;
     private Texture2D _normalTexture;
     private CursorType _cursorType = CursorType.None;
-    public Rigidbody2D Rigidbody { get; protected set; }
     public PlayerInput Input { get; protected set; }
-    public Collider2D Controller { get; set; }
-    public Animator PlayerAnim { get; set; }
     public PlayerAnimationData PlayerAnimationData { get; set; }
+    public Animator Animator { get; set; }
 
     public int resolution = 30;
 
-    protected virtual void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         _photonView = GetComponent<PhotonView>();
         Rigidbody = GetComponent<Rigidbody2D>();
         Input = GetComponent<PlayerInput>();
         Controller = GetComponent<Collider2D>();
-        PlayerAnim = GetComponent<Animator>();
+        Animator = GetComponent<Animator>();
         PlayerAnimationData = new PlayerAnimationData();
-        
         stat = GetComponent<Stat>();
-
-        if (Input == null)
-        {
-            Debug.Log("InputNull");
-            Debug.Log(Input);
-        }
     }
-    protected virtual void Start()
+    protected override void Start()
     {
         _attackTexture = Main.ResourceManager.Load<Texture2D>("Sprites/Cursor/Attack");
         _normalTexture = Main.ResourceManager.Load<Texture2D>("Sprites/Cursor/Normal");
@@ -55,7 +45,7 @@ public class Character : MonoBehaviourPunCallbacks
         _playerStateMachine.ChangeState(_playerStateMachine._playerIdleState);
         Main.UIManager.CreateWorldUI<HealthBar>("HealthCanvas", transform);
     }
-    protected virtual void Update()
+    protected override void Update()
     {
         if (_photonView.IsMine)
         {
@@ -65,7 +55,7 @@ public class Character : MonoBehaviourPunCallbacks
         }
     }
 
-    protected virtual void FixedUpdate()
+    protected override void FixedUpdate()
     {
         if(_photonView.IsMine)
         {
@@ -100,13 +90,10 @@ public class Character : MonoBehaviourPunCallbacks
         }
     }
 
-    public virtual void OnNormalAttack() { }
-
     public void CheckTargetInRange()
     {
         if (_playerStateMachine._player.targetObject != null)
         {
-            Debug.Log(isFistTime);
             if (isFistTime) return;
             float distance = (_playerStateMachine._player.targetObject.transform.position - _playerStateMachine._player.transform.position).magnitude;
 

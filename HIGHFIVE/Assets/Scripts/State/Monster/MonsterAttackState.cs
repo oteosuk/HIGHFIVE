@@ -32,9 +32,9 @@ public class MonsterAttackState : MonsterBaseState
 
     private void AttackRangeCheck()
     {
-        if (_monsterStateMachine.targetObject != null)
+        if (_monsterStateMachine._monster.targetObject != null)
         {
-            _distance = (_monsterStateMachine.targetObject.transform.position - _monsterStateMachine._monster.transform.position).magnitude;
+            _distance = (_monsterStateMachine._monster.targetObject.transform.position - _monsterStateMachine._monster.transform.position).magnitude;
             if (_distance > _monsterStateMachine._monster.stat.AttackRange)
             {
                 _monsterStateMachine.ChangeState(_monsterStateMachine._monsterMoveState);

@@ -97,6 +97,18 @@ public class Stat : MonoBehaviour
         myStat.CurHp -= realDamage;
     }
 
+    public virtual void TakeDamage(int damage)
+    {
+        Stat myStat = GetComponent<Stat>();
+        int realDamage = Mathf.Max(0, damage - myStat.Defence);
+        if (myStat.CurHp - realDamage <= 0)
+        {
+            myStat.CurHp = 0;
+            return;
+        }
+        myStat.CurHp -= realDamage;
+    }
+
     private void InitializeExp()
     {
         int baseExperience = 10;
