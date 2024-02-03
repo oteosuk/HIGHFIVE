@@ -37,6 +37,11 @@ public class Main : MonoBehaviour
         Init();
     }
 
+    private void Update()
+    {
+        s_instance._soundManager.SoundUpdate();
+    }
+
     private static void Init()
     {
         if (s_instance == null)
@@ -53,7 +58,6 @@ public class Main : MonoBehaviour
             s_instance._poolManager.Init();
             s_instance._gameManager.GameInit();
             s_instance._soundManager.Init();
-            s_instance._soundManager.PlayBGM("KBF_3m_Town_Castle_01", 1f);
         }
     }
 }

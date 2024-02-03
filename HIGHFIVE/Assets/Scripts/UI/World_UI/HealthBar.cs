@@ -16,18 +16,18 @@ public class HealthBar : UIBase
     private void Start()
     {
         Bind<Image>(typeof(Images), true);
-        Get<Image>((int)Images.Fill).color = Define.GreenColor;
-        //상대방의 LAYER를 확인해서 LAYER가 나와 같다면 GREEN
-        //아니라면 RED  
-        //transform.parent.GetComponent<PhotonView>().RPC("SyncHpBarColor", RpcTarget.All);
 
-        //foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
-        //{
-        //    if (player.layer == 1 << (int)Main.GameManager.SelectedCamp)
-        //    {
-        //        player.GetComponentInChildren
-        //    }
-        //}
+        if (transform.parent.tag == "Player")
+        {
+            if (transform.parent.gameObject.layer == (int)Define.Camp.Red)
+            {
+                Get<Image>((int)Images.Fill).color = Define.GreenColor;
+            }
+            else
+            {
+                Get<Image>((int)Images.Fill).color = Define.BlueColor;
+            }
+        }
         _statController = transform.parent.GetComponent<StatController>();
         _statController.hpChangeEvent += SetHpRatio;
     }
