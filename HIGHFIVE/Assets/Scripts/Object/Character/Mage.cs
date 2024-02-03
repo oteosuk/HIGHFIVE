@@ -47,15 +47,5 @@ public class Mage : Character
         }
     }
 
-    [PunRPC]
-    public void SyncHpRatio(float ratio)
-    {
-        transform.GetComponentInChildren<Slider>().value = ratio;
-    }
-
-    [PunRPC]
-    public void SetLayer(int layer)
-    {
-        gameObject.layer = layer;
-    }
+    
 }

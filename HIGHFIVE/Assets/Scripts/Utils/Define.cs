@@ -28,7 +28,7 @@ public class Define
 
     public enum Camp
     {
-        Blue,
+        Blue = 8,
         Red
     }
 

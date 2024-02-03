@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class CharacterStat : Stat
 {
+    private int _level;
 
-    public int Level { get; set; }
+    public int Level
+    {
+        get { return _level; }
+        set { _statController.CallChangeLevelEvent(value); _level = value; }
+    }
     protected override void Init()
     {
         base.Init();
@@ -19,7 +24,6 @@ public class CharacterStat : Stat
         CharacterStat myStat = go.GetComponent<CharacterStat>();
         if (myStat != null ) 
         {
-            
             if (myStat.Exp == myStat.MaxExp) return;
             int maxExp = myStat.MaxExp;
             
@@ -30,7 +34,6 @@ public class CharacterStat : Stat
             else
             {
                 myStat.Exp += exp;
-                _statController.CallChangeExpEvent(myStat.Exp, myStat.MaxExp);
             }
         }
     }
@@ -38,7 +41,8 @@ public class CharacterStat : Stat
     {
         CharacterStat myStat = GetComponent<CharacterStat>();
         if (myStat != null ) 
-        { 
+        {
+            Debug.Log("level Up");
             if (myStat.Level == 15) return;
             myStat.Level += 1;
             myStat.Exp = myStat.Exp + exp - myStat.MaxExp;

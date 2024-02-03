@@ -5,7 +5,10 @@ using UnityEngine;
 
 public class StatController : MonoBehaviour
 {
-    //public event Action damageChangeEvent;
+    public event Action<int> attackChangeEvent;
+    public event Action<int> defenceChangeEvent;
+    public event Action<int> levelChangeEvent;
+    public event Action<float> moveSpeedChangeEvent;
     public event Action<int,int> expChangeEvent;
     public event Action<int,int> hpChangeEvent;
 
@@ -21,6 +24,34 @@ public class StatController : MonoBehaviour
         if (expChangeEvent != null)
         {
             expChangeEvent.Invoke(exp, maxExp);
+        }
+    }
+    public void CallChangeAttackEvent(int attack)
+    {
+        if (attackChangeEvent != null)
+        {
+            attackChangeEvent.Invoke(attack);
+        }
+    }
+    public void CallChangeDefenceEvent(int defence)
+    {
+        if (defenceChangeEvent != null)
+        {
+            defenceChangeEvent.Invoke(defence);
+        }
+    }
+    public void CallChangeLevelEvent(int level)
+    {
+        if (levelChangeEvent != null)
+        {
+            levelChangeEvent.Invoke(level);
+        }
+    }
+    public void CallChangeMoveSpeedEvent(int level)
+    {
+        if (moveSpeedChangeEvent != null)
+        {
+            moveSpeedChangeEvent.Invoke(level);
         }
     }
 }

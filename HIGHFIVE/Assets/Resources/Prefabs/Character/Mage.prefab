@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 517500927341623432}
   m_Layer: 0
   m_Name: Mage
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -267,6 +267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelExpList: 
+  _statController: {fileID: 0}
 --- !u!114 &-4032308592510129217
 MonoBehaviour:
   m_ObjectHideFlags: 0

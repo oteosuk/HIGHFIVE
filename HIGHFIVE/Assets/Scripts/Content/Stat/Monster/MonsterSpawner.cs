@@ -28,12 +28,12 @@ public class MonsterSpawner : MonoBehaviour
             _curTime -= Time.deltaTime;
             if (_curTime <= 0)
             {
-                RealReSpawn();
+                ReSpawn();
             }
         }
     }
 
-    void RealReSpawn()
+    void ReSpawn()
     {
         for (int i = 0; i < array.GetLength(0); i++)
         {

@@ -2,6 +2,7 @@ using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Character : MonoBehaviourPunCallbacks
 {
@@ -124,5 +125,17 @@ public class Character : MonoBehaviourPunCallbacks
     {
         isFistTime = true;
         _playerStateMachine.ChangeState(_playerStateMachine._playerMoveState);
+    }
+
+    [PunRPC]
+    public void SyncHpRatio(float ratio)
+    {
+        transform.GetComponentInChildren<Slider>().value = ratio;
+    }
+
+    [PunRPC]
+    public void SetLayer(int layer)
+    {
+        gameObject.layer = layer;
     }
 }
