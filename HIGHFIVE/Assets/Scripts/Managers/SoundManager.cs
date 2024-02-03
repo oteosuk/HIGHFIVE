@@ -1,21 +1,12 @@
-using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class SoundManager : MonoBehaviour
+public class SoundManager
 {
     // 오디오 소스
-    public AudioSource bgmPlayer;
-    public List<AudioSource> effectPlayer = new List<AudioSource>();
-
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Debug.Log("Click");
-            PlayEffect("SFX_Click", 1f);
-        }
-    }
+    private AudioSource bgmPlayer;
+    private List<AudioSource> effectPlayer = new List<AudioSource>();
 
     public void Init()
     {
@@ -24,15 +15,23 @@ public class SoundManager : MonoBehaviour
         if (testObject == null)
         {
             testObject = new GameObject("SoundManager");
-            testObject.AddComponent<SoundManager>();
+            testObject.GetOrAddComponent<AudioSource>();
         }
-        DontDestroyOnLoad(testObject);
+        Object.DontDestroyOnLoad(testObject);
         bgmPlayer = Util.GetOrAddComponent<AudioSource>(testObject);
         for (int i = 0; i < 10; i++)
         {
             AudioSource temp = testObject.AddComponent<AudioSource>();
-            Debug.Log(temp);
             effectPlayer.Add(temp);
+        }
+        PlayBGM("KBF_3m_Town_Castle_01", 1f);
+    }
+
+    public void SoundUpdate()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Main.SoundManager.PlayEffect("SFX_Click", 1f);
         }
     }
 
