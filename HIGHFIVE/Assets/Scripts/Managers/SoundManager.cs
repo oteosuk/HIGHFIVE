@@ -24,7 +24,7 @@ public class SoundManager
             AudioSource temp = testObject.AddComponent<AudioSource>();
             effectPlayer.Add(temp);
         }
-        var t = testObject.GetComponent<SoundManager>();
+        /*var t = testObject.GetComponent<SoundManager>();
         if (t == Main.SoundManager)
         {
             Debug.Log("일치");
@@ -32,9 +32,10 @@ public class SoundManager
         else
         {
             Debug.Log("불일치");
-        }
+        }*/
+
         //PlayBGM("BGM_Powerful", 0.01f);
-        PlayBGM("KBF_3m_Town_Castle_01", 1f);
+        PlayBGM("KBF_3m_Town_Castle_01", 0.01f);
     }
 
     public void SoundUpdate()
