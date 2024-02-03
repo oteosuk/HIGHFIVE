@@ -8,7 +8,7 @@ public class SoundManager
     private AudioSource bgmPlayer;
     private List<AudioSource> effectPlayer = new List<AudioSource>();
 
-    public void Init()
+    public void SoundInit()
     {
         GameObject testObject = GameObject.Find("SoundManager");
 
@@ -24,7 +24,18 @@ public class SoundManager
             AudioSource temp = testObject.AddComponent<AudioSource>();
             effectPlayer.Add(temp);
         }
-        PlayBGM("KBF_3m_Town_Castle_01", 1f);
+        /*var t = testObject.GetComponent<SoundManager>();
+        if (t == Main.SoundManager)
+        {
+            Debug.Log("일치");
+        }
+        else
+        {
+            Debug.Log("불일치");
+        }*/
+
+        //PlayBGM("BGM_Powerful", 0.01f);
+        PlayBGM("KBF_3m_Town_Castle_01", 0.01f);
     }
 
     public void SoundUpdate()
