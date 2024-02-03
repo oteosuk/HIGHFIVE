@@ -65,7 +65,7 @@ public class PoolManager
     Dictionary<string, Pool> _poolDict = new Dictionary<string, Pool>();
     GameObject _root;
 
-    public void Init()
+    public void PoolInit()
     {
         if (_root == null)
         {
