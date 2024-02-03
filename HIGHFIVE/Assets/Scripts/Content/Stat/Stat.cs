@@ -18,11 +18,12 @@ public class Stat : MonoBehaviour
     private float _sightRange;
     private int _exp;
     private int _maxExp;
-    protected StatController _statController;
+    [HideInInspector]
+    public StatController _statController;
     public int CurHp
     {
         get { return _curHp; }
-        set { _curHp = value; }
+        set { _statController.CallChangeHpEvent(value, MaxHp); _curHp = value; }
     }
     public int MaxHp 
     {
@@ -32,12 +33,12 @@ public class Stat : MonoBehaviour
     public int Attack
     {
         get { return _attack; }
-        set { _attack = value; }
+        set { _statController.CallChangeAttackEvent(value); _attack = value; }
     }
     public int Defence
     {
         get { return _defence; }
-        set { _defence = value; }
+        set { _statController.CallChangeDefenceEvent(value); _defence = value; }
     }
     public float AttackRange
     {
@@ -84,10 +85,12 @@ public class Stat : MonoBehaviour
     {
         Stat myStat = GetComponent<Stat>();
         int realDamage = Mathf.Max(0, damage - myStat.Defence);
-        _statController.CallChangeHpEvent(myStat.CurHp - realDamage, myStat.MaxHp);
         if (myStat.CurHp - realDamage <= 0)
         {
-            shooter.GetComponent<CharacterStat>().AddExp(myStat.Exp, shooter);
+            if (gameObject.tag != "Player")
+            {
+                shooter.GetComponent<CharacterStat>().AddExp(myStat.Exp, shooter);
+            }
             myStat.CurHp = 0;
             return;
         }

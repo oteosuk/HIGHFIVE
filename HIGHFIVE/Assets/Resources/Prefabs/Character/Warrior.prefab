@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 2924864161056190883}
   m_Layer: 0
   m_Name: Warrior
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -176,6 +176,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stat: {fileID: 0}
+  targetObject: {fileID: 0}
+  resolution: 30
 --- !u!114 &433998406333698883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,3 +241,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab553ff52ad58a148984100194b1450a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelExpList: 

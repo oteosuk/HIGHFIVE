@@ -6,16 +6,28 @@ using UnityEngine.UI;
 
 public class HealthBar : UIBase
 {
-    private enum GameObjects
+    private enum Images
     {
-        HPBar
+        Fill
     }
 
     private StatController _statController;
 
     private void Start()
     {
-        Bind<GameObject>(typeof(GameObjects));
+        Bind<Image>(typeof(Images), true);
+        Get<Image>((int)Images.Fill).color = Define.GreenColor;
+        //상대방의 LAYER를 확인해서 LAYER가 나와 같다면 GREEN
+        //아니라면 RED  
+        //transform.parent.GetComponent<PhotonView>().RPC("SyncHpBarColor", RpcTarget.All);
+
+        //foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
+        //{
+        //    if (player.layer == 1 << (int)Main.GameManager.SelectedCamp)
+        //    {
+        //        player.GetComponentInChildren
+        //    }
+        //}
         _statController = transform.parent.GetComponent<StatController>();
         _statController.hpChangeEvent += SetHpRatio;
     }

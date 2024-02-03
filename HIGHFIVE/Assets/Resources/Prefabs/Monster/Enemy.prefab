@@ -245,6 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelExpList: 
+  _statController: {fileID: 0}
 --- !u!114 &7922321905941024906
 MonoBehaviour:
   m_ObjectHideFlags: 0
