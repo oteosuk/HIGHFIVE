@@ -19,6 +19,7 @@ public class Character : Creature
     private Texture2D _attackTexture;
     private Texture2D _normalTexture;
     private CursorType _cursorType = CursorType.None;
+    private int respawnTime = 5;
     public PlayerInput Input { get; protected set; }
     public PlayerAnimationData PlayerAnimationData { get; set; }
     public Animator Animator { get; set; }
@@ -31,10 +32,10 @@ public class Character : Creature
         _photonView = GetComponent<PhotonView>();
         Rigidbody = GetComponent<Rigidbody2D>();
         Input = GetComponent<PlayerInput>();
-        Controller = GetComponent<Collider2D>();
+        Collider = GetComponent<Collider2D>();
         Animator = GetComponent<Animator>();
-        PlayerAnimationData = new PlayerAnimationData();
         stat = GetComponent<Stat>();
+        PlayerAnimationData = new PlayerAnimationData();
     }
     protected override void Start()
     {
@@ -90,7 +91,7 @@ public class Character : Creature
         }
     }
 
-    public void CheckTargetInRange()
+    private void CheckTargetInRange()
     {
         if (_playerStateMachine._player.targetObject != null)
         {
@@ -113,12 +114,28 @@ public class Character : Creature
         isFistTime = true;
         _playerStateMachine.ChangeState(_playerStateMachine._playerMoveState);
     }
-
-    [PunRPC]
-    public void SyncHpRatio(float ratio)
+    private void Revival()
     {
-        transform.GetComponentInChildren<Slider>().value = ratio;
+        StartCoroutine(RespawnDelay());
     }
+
+    IEnumerator RespawnDelay()
+    {
+        yield return new WaitForSeconds(respawnTime);
+        Respawn();
+    }
+
+    private void Respawn()
+    {
+        _playerStateMachine._player.transform.position = Main.GameManager.CharacterSpawnPos;
+        _playerStateMachine._player.stat.CurHp = _playerStateMachine._player.stat.MaxHp;
+        int layer = Main.GameManager.SelectedCamp == Define.Camp.Red ? (int)Define.Layer.Red : (int)Define.Layer.Blue;
+        _playerStateMachine._player.SetLayer(layer);
+        _playerStateMachine._player.Collider.isTrigger = false;
+        _playerStateMachine._player.Animator.SetBool(_playerStateMachine._player.PlayerAnimationData.DieParameterHash, false);
+        Camera.main.transform.position = new Vector2(transform.position.x, transform.position.y);
+    }
+
 
     [PunRPC]
     public void SetLayer(int layer)

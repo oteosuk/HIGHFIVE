@@ -10,6 +10,10 @@ public class PlayerDieState : PlayerBaseState
     }
     public override void Enter()
     {
+        _playerStateMachine._player.SetLayer((int)Define.Layer.Default);
+        _playerStateMachine._player.Collider.isTrigger = true;
+        StartAnimation(_playerStateMachine._player.PlayerAnimationData.DieParameterHash);
+        
         // 기능
         base.Enter();
         // 애니메이션 호출
@@ -19,6 +23,7 @@ public class PlayerDieState : PlayerBaseState
     {
         base.Exit();
         // 애니메이션 해제
+        StopAnimation(_playerStateMachine._player.PlayerAnimationData.DieParameterHash);
     }
 
     public override void StateUpdate()

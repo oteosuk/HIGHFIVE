@@ -5,7 +5,9 @@ public class GameManager
     public string SelectedCharacter { get; set; } = "전사";
     public Define.Camp SelectedCamp { get; set; }
     public Character SpawnedCharacter { get; set; }
+    public Vector2 CharacterSpawnPos { get; set; }
     private Texture2D _normalTexture;
+
 
 
     public void GameInit()
