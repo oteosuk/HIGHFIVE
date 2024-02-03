@@ -18,7 +18,7 @@ public class PlayerAttackState : PlayerBaseState
     {
         // 기능
         base.Enter();
-        _playerStateMachine._player.PlayerAnim.SetFloat("AttackSpeed", _playerStateMachine._player.stat.AttackSpeed);
+        _playerStateMachine._player.Animator.SetFloat("AttackSpeed", _playerStateMachine._player.stat.AttackSpeed);
 
         _playerStateMachine.moveSpeedModifier = 0f;
         _playerStateMachine.isAttackReady = false;

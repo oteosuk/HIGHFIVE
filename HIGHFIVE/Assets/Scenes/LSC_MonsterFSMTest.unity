@@ -825,6 +825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stat: {fileID: 0}
+  targetObject: {fileID: 0}
   _spawnPoint: {x: 0, y: 0}
 --- !u!4 &2222025390980138035
 Transform:

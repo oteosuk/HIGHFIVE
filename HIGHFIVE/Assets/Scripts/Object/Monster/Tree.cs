@@ -27,8 +27,4 @@ public class Tree : Monster
     {
         base.FixedUpdate();
     }
-
-    
-
-    
 }

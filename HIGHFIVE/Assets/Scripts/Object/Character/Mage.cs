@@ -17,7 +17,6 @@ public class Mage : Character
     protected override void Update()
     {
         base.Update();
-        Debug.Log(GetComponent<Stat>().Exp);
     }
 
     protected override void FixedUpdate()
@@ -46,6 +45,4 @@ public class Mage : Character
             sphere.GetComponent<PhotonView>().RPC("ToTarget", RpcTarget.All, 5.0f, dir.x, dir.y);
         }
     }
-
-    
 }

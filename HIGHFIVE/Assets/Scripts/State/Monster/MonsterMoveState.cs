@@ -30,11 +30,11 @@ public class MonsterMoveState : MonsterBaseState
 
     private void DistanceCheck()
     {
-        _monsterStateMachine.targetObject = RangeInPlayer();
+        _monsterStateMachine._monster.targetObject = RangeInPlayer();
         
-        if (_monsterStateMachine.targetObject != null)
+        if (_monsterStateMachine._monster.targetObject != null)
         {
-        float distance = (_monsterStateMachine.targetObject.transform.position - _monsterStateMachine._monster.transform.position).magnitude;
+        float distance = (_monsterStateMachine._monster.targetObject.transform.position - _monsterStateMachine._monster.transform.position).magnitude;
             if (distance <= _monsterStateMachine._monster.stat.AttackRange)
             {
                 _monsterStateMachine.ChangeState(_monsterStateMachine._monsterAttackState);
@@ -93,12 +93,12 @@ public class MonsterMoveState : MonsterBaseState
 
     private void MoveMonsterToTarget()
     {
-        Vector2 direction = (Vector2)_monsterStateMachine.targetObject.transform.position - (Vector2)_monsterStateMachine._monster.transform.position;
+        Vector2 direction = (Vector2)_monsterStateMachine._monster.targetObject.transform.position - (Vector2)_monsterStateMachine._monster.transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         _monsterStateMachine._monster.transform.position = Vector2.MoveTowards(
             _monsterStateMachine._monster.transform.position,
-            _monsterStateMachine.targetObject.transform.position,
+            _monsterStateMachine._monster.targetObject.transform.position,
             _monsterStateMachine._monster.stat.MoveSpeed * Time.deltaTime * _monsterStateMachine.moveSpeedModifier
         );
 
