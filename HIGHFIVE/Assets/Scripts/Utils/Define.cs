@@ -35,6 +35,7 @@ public class Define
 
     public enum Layer
     {
+        Default = 0,
         Monster = 6,
         Ground,
         Blue,

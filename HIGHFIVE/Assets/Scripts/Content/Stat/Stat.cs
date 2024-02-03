@@ -95,6 +95,7 @@ public class Stat : MonoBehaviour
             return;
         }
         myStat.CurHp -= realDamage;
+        myStat.gameObject.GetComponent<PhotonView>().RPC("SetHpRPC", RpcTarget.All, myStat.CurHp);
     }
 
     public virtual void TakeDamage(int damage)
@@ -107,6 +108,13 @@ public class Stat : MonoBehaviour
             return;
         }
         myStat.CurHp -= realDamage;
+        myStat.gameObject.GetComponent<PhotonView>().RPC("SetHpRPC", RpcTarget.All, myStat.CurHp);
+    }
+
+    [PunRPC]
+    public void SetHpRPC(int curHp)
+    {
+        gameObject.GetComponent<Stat>().CurHp = curHp;
     }
 
     private void InitializeExp()

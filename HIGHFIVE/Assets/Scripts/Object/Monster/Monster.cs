@@ -14,11 +14,10 @@ public class Monster : Creature
     protected override void Awake()
     {
         Rigidbody = GetComponent<Rigidbody2D>();
-        Controller = GetComponent<Collider2D>();
+        Collider = GetComponent<Collider2D>();
         Animator = transform.GetComponentInChildren<Animator>();
-        stat = GetComponent<Stat>();
         SetSpawnPoint(transform.position);
-
+        stat = GetComponent<Stat>();
         MonsterAnimationData = new MonsterAnimationData();
     }
 
@@ -50,11 +49,5 @@ public class Monster : Creature
     public void RPCDetroy()
     {
         Main.ResourceManager.Destroy(gameObject);
-    }
-
-    [PunRPC]
-    public void SyncHpRatio(float ratio)
-    {
-        transform.GetComponentInChildren<Slider>().value = ratio;
     }
 }

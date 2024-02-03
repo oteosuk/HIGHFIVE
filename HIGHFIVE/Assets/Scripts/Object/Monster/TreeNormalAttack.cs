@@ -11,7 +11,9 @@ public class TreeNormalAttack : MonoBehaviour
     }
     public void OnNormalAttack()
     {
-        Debug.Log(tree.stat.Attack);
-        tree.targetObject.GetComponent<Stat>()?.TakeDamage(tree.stat.Attack);
+        if (tree.targetObject != null) 
+        { 
+            tree.targetObject.GetComponent<Stat>()?.TakeDamage(tree.stat.Attack);
+        }
     }
 }

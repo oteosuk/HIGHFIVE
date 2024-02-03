@@ -24,6 +24,7 @@ public class GameScene : BaseScene
         _cameraController = GetComponent<CameraController>();
         _cameraController.characterSpawnEvent += SetInitCameraPosition;
         Vector2 position = Main.GameManager.SelectedCamp == Define.Camp.Red ? _redCamp.transform.position : _blueCamp.transform.position;
+        Main.GameManager.CharacterSpawnPos = position;
         string selectClass;
 
         if (_classMapping.TryGetValue(Main.GameManager.SelectedCharacter, out selectClass))

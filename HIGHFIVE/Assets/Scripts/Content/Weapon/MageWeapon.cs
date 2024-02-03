@@ -37,6 +37,7 @@ public class MageWeapon : MonoBehaviourPunCallbacks
     {
         if (collision.gameObject == _targetObject)
         {
+            
             if (GetComponent<PhotonView>().IsMine)
             {
                 //나중에 교체
