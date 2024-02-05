@@ -1,8 +1,9 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterSpawner : MonoBehaviour
+public class MonsterSpawner : MonoBehaviourPunCallbacks
 {
     private KeyValuePair<Transform, GameObject>[] array = new KeyValuePair<Transform, GameObject>[5];
     private int _respawnDelayTime;
