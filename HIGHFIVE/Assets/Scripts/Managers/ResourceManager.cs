@@ -32,8 +32,6 @@ public class ResourceManager
             return null;
         }
 
-        
-
         if (original.GetComponent<Poolable>() != null)
         {
             return Main.PoolManager.Pop(original, parent).gameObject;
@@ -54,14 +52,7 @@ public class ResourceManager
         {
             if (path.Contains("Monster") )
             {
-                if (PhotonNetwork.IsMasterClient)
-                {
-                    return PhotonNetwork.Instantiate($"Prefabs/{path}", position, Quaternion.identity);
-                }
-                else
-                {
-                    return null;
-                }
+                return InstantiateMonster(path, position, parent);
             }
             else
             {
@@ -80,7 +71,7 @@ public class ResourceManager
 
         if (original.GetComponent<Poolable>() != null && syncRequired)
         {
-            
+            //나중에 포톤 + 풀링
         }
         else if (original.GetComponent<Poolable>() != null && !syncRequired)
         {
@@ -92,6 +83,18 @@ public class ResourceManager
 
         return go;
     }
+
+    private GameObject InstantiateMonster(string path, Vector2 position, Transform parent = null)
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            GameObject monster = PhotonNetwork.Instantiate($"Prefabs/{path}", position, Quaternion.identity);
+            monster.transform.parent = parent;
+            return monster;
+        }
+        return null;
+    }
+
     public void Destroy(GameObject obj)
     {
         if (obj == null) return;

@@ -19,24 +19,16 @@ public class HealthBar : UIBase
 
         if (transform.parent.tag == "Player")
         {
-            if (transform.parent.gameObject.layer == (int)Define.Camp.Red)
-            {
-                Get<Image>((int)Images.Fill).color = Define.GreenColor;
-            }
-            else
-            {
-                Get<Image>((int)Images.Fill).color = Define.BlueColor;
-            }
+            transform.parent.GetComponent<PhotonView>().RPC("SetHpBarColor", RpcTarget.All);
         }
         _statController = transform.parent.GetComponent<StatController>();
-        _statController.hpChangeEvent += SetHpRatio;
+        _statController.hpChangeEvent += SetHpRatio; 
     }
 
     private void Update()
     {
         Transform parent = transform.parent;
         transform.position = new Vector2(parent.position.x, parent.position.y);
-        
     }
 
     private void SetHpRatio(int curHp, int maxHp)

@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class MonsterAttackState : MonsterBaseState
 {
-    //private bool _canAttack = true;
     private float _distance;
+    private double _curDelay;
     public MonsterAttackState(MonsterStateMachine monsterStateMachine) : base(monsterStateMachine)
     {
         
@@ -14,6 +14,7 @@ public class MonsterAttackState : MonsterBaseState
     {
         base.Enter();
         StartAnimation(_animData.AttackParameterHash);
+        _monsterStateMachine._monster.Animator.SetFloat("AttackSpeed", _monsterStateMachine._monster.stat.AttackSpeed);
         Debug.Log("Attack Enter");
     }
 
@@ -27,23 +28,37 @@ public class MonsterAttackState : MonsterBaseState
     public override void StateUpdate()
     {
         base.StateUpdate();
-        AttackRangeCheck();
+        if (AttackRangeCheck())
+        {
+            _curDelay -= Time.deltaTime;
+            if (_curDelay <= 0)
+            {
+                _monsterStateMachine._monster.OnNormalAttack();
+                _curDelay = 1.0 / _monsterStateMachine._monster.stat.AttackSpeed;
+            }
+            
+        }
     }
 
-    private void AttackRangeCheck()
+    private bool AttackRangeCheck()
     {
-        Debug.Log(_monsterStateMachine._monster.targetObject.layer);
         if (_monsterStateMachine._monster.targetObject != null && _monsterStateMachine._monster.targetObject.layer != (int)Define.Layer.Default)
         {
             _distance = (_monsterStateMachine._monster.targetObject.transform.position - _monsterStateMachine._monster.transform.position).magnitude;
             if (_distance > _monsterStateMachine._monster.stat.AttackRange)
             {
                 _monsterStateMachine.ChangeState(_monsterStateMachine._monsterMoveState);
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
         else
         {
             _monsterStateMachine.ChangeState(_monsterStateMachine._monsterMoveState);
+            return false;
         }
     }
 }

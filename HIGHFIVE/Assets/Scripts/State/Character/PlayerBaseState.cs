@@ -42,6 +42,7 @@ public class PlayerBaseState : IState
     {
         if (_playerStateMachine._player.stat.CurHp <= 0)
         {
+            Debug.Log("Die");
             OnDie();
         }
     }

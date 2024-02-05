@@ -17,7 +17,6 @@ public class Monster : Creature
         Collider = GetComponent<Collider2D>();
         Animator = transform.GetComponentInChildren<Animator>();
         SetSpawnPoint(transform.position);
-        stat = GetComponent<Stat>();
         MonsterAnimationData = new MonsterAnimationData();
     }
 

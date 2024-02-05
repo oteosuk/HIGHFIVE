@@ -16,6 +16,7 @@ public class PlayerIdleState : PlayerBaseState
     public override void Enter()
     {
         _playerStateMachine.moveSpeedModifier = 0f;
+        _playerStateMachine.moveInput = _playerStateMachine._player.transform.position;
         base.Enter();
         StartAnimation(_idleHash);
         // 애니메이션 호출
