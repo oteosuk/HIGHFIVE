@@ -9,7 +9,8 @@ public class Creature : MonoBehaviourPunCallbacks
     public Stat stat;
     public Rigidbody2D Rigidbody { get; protected set; }
     public Collider2D Collider { get; set; }
-    public GameObject targetObject;
+
+    [HideInInspector] public GameObject targetObject;
 
     protected virtual void Awake()
     {
