@@ -115,12 +115,6 @@ public class Stat : MonoBehaviour
         myStat.gameObject.GetComponent<PhotonView>().RPC("SetHpRPC", RpcTarget.All, myStat.CurHp);
     }
 
-    [PunRPC]
-    public void SetHpRPC(int curHp)
-    {
-        gameObject.GetComponent<Stat>().CurHp = curHp;
-    }
-
     private void InitializeExp()
     {
         int baseExperience = 10;

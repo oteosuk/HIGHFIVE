@@ -30,6 +30,7 @@ public class PlayerBaseState : IState
 
     public virtual void HandleInput()
     {
+        if (_playerStateMachine._player.stat.CurHp <= 0) return;
         ReadMoveInput();
     }
 
@@ -42,7 +43,7 @@ public class PlayerBaseState : IState
     {
         if (_playerStateMachine._player.stat.CurHp <= 0)
         {
-            Debug.Log("Die");
+            Debug.Log("gd");
             OnDie();
         }
     }
