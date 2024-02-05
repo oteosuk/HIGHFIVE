@@ -10,7 +10,6 @@ public class NetworkManager
     public Dictionary<string, Image> photonReadyImageDict = new Dictionary<string, Image>();
 
     private string _gameVersion = "1";
-    private byte _maxPlayersPerRoom;
         
 
     //닉네임: 스타트씬에서 사용자에게 받은 닉네임 정보
