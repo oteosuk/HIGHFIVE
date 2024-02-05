@@ -37,4 +37,10 @@ public class Creature : MonoBehaviourPunCallbacks
     {
         transform.GetComponentInChildren<Slider>().value = ratio;
     }
+
+    [PunRPC]
+    public void SetHpRPC(int curHp)
+    {
+        gameObject.GetComponent<Stat>().CurHp = curHp;
+    }
 }

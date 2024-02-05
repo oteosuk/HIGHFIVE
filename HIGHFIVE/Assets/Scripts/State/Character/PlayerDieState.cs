@@ -18,19 +18,17 @@ public class PlayerDieState : PlayerBaseState
         _playerStateMachine._player.Collider.isTrigger = true;
         _playerStateMachine._player.Revival();
         StartAnimation(_playerStateMachine._player.PlayerAnimationData.DieParameterHash);
-        Debug.Log("eter");
     }
 
     public override void Exit()
     {
         base.Exit();
-        Debug.Log("exit");
         // 애니메이션 해제
         StopAnimation(_playerStateMachine._player.PlayerAnimationData.DieParameterHash);
     }
 
     public override void StateUpdate()
     {
-        base.StateUpdate();
+
     }
 }
