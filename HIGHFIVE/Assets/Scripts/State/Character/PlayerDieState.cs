@@ -5,26 +5,26 @@ using UnityEngine;
 
 public class PlayerDieState : PlayerBaseState
 {
+
     public PlayerDieState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
     {
 
     }
     public override void Enter()
     {
+        base.Enter();
         _playerStateMachine.moveSpeedModifier = 0f;
         _playerStateMachine._player.GetComponent<PhotonView>().RPC("SetLayer", RpcTarget.All, (int)Define.Layer.Default);
         _playerStateMachine._player.Collider.isTrigger = true;
         _playerStateMachine._player.Revival();
         StartAnimation(_playerStateMachine._player.PlayerAnimationData.DieParameterHash);
-        
-        // 기능
-        base.Enter();
-        // 애니메이션 호출
+        Debug.Log("eter");
     }
 
     public override void Exit()
     {
         base.Exit();
+        Debug.Log("exit");
         // 애니메이션 해제
         StopAnimation(_playerStateMachine._player.PlayerAnimationData.DieParameterHash);
     }

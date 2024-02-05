@@ -49,6 +49,10 @@ public class PlayerReadyController : UIBase
                 PhotonNetwork.CurrentRoom.IsVisible = false;
                 PhotonNetwork.LoadLevel((int)Define.Scene.SelectScene);
             }
+            else
+            {
+                Util.ShowAlert("모든 플레이어가 준비 상태인지 확인해주세요", transform);
+            }
         }
         else
         {
