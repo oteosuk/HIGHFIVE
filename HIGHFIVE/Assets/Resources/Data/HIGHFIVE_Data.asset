@@ -62,19 +62,19 @@ MonoBehaviour:
   Monsters:
   - name: "\uB098\uBB34"
     atk: 10
-    def: 10
+    def: 0
     atkRange: 1
-    atkSpeed: 3
+    atkSpeed: 2
     movSpeed: 3
     maxHp: 50
     curHp: 50
     sight: 4
-    exp: 3
+    exp: 10
   - name: NM2
     atk: 10
-    def: 10
+    def: 0
     atkRange: 1
-    atkSpeed: 3
+    atkSpeed: 2
     movSpeed: 3
     maxHp: 50
     curHp: 50
@@ -82,9 +82,9 @@ MonoBehaviour:
     exp: 4
   - name: NM3
     atk: 10
-    def: 10
+    def: 0
     atkRange: 1
-    atkSpeed: 3
+    atkSpeed: 2
     movSpeed: 3
     maxHp: 50
     curHp: 50
@@ -92,9 +92,9 @@ MonoBehaviour:
     exp: 5
   - name: EL1
     atk: 10
-    def: 10
+    def: 0
     atkRange: 1
-    atkSpeed: 3
+    atkSpeed: 2
     movSpeed: 3
     maxHp: 50
     curHp: 50
@@ -102,9 +102,9 @@ MonoBehaviour:
     exp: 10
   - name: EL2
     atk: 10
-    def: 10
+    def: 0
     atkRange: 1
-    atkSpeed: 3
+    atkSpeed: 2
     movSpeed: 3
     maxHp: 50
     curHp: 50
@@ -112,9 +112,9 @@ MonoBehaviour:
     exp: 10
   - name: EL3
     atk: 10
-    def: 10
+    def: 0
     atkRange: 1
-    atkSpeed: 3
+    atkSpeed: 2
     movSpeed: 3
     maxHp: 50
     curHp: 50
@@ -122,9 +122,9 @@ MonoBehaviour:
     exp: 10
   - name: EL4
     atk: 10
-    def: 10
+    def: 0
     atkRange: 1
-    atkSpeed: 3
+    atkSpeed: 2
     movSpeed: 3
     maxHp: 50
     curHp: 50
@@ -132,9 +132,9 @@ MonoBehaviour:
     exp: 10
   - name: EP1
     atk: 10
-    def: 10
+    def: 0
     atkRange: 1
-    atkSpeed: 3
+    atkSpeed: 2
     movSpeed: 3
     maxHp: 50
     curHp: 50
@@ -142,9 +142,9 @@ MonoBehaviour:
     exp: 30
   - name: EP2
     atk: 10
-    def: 10
+    def: 0
     atkRange: 1
-    atkSpeed: 3
+    atkSpeed: 2
     movSpeed: 3
     maxHp: 50
     curHp: 50
