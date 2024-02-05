@@ -51,13 +51,15 @@ public class PlayerListController : UIBase
                 }
             }
         }
+        UpdateRoomInfo();
     }
 
     //플레이어가 방에 참가 했을때 플레이어 닉네임을 key로 하는  Dict하나 생성
     //플레이어가 방에 나갔을 때 해당 플레이어의 닉네임으로 값을가져와서 수정
     private void UpdatePlayerList()
     {
-         Player[] players = PhotonNetwork.PlayerList;
+        UpdateRoomInfo();
+        Player[] players = PhotonNetwork.PlayerList;
 
         // 각 플레이어의 정보 활용
         foreach (Player player in players)
@@ -87,5 +89,10 @@ public class PlayerListController : UIBase
 
             Main.NetworkManager.photonPlayerDict[player.NickName] = player;
         }
+    }
+
+    private void UpdateRoomInfo()
+    {
+        _roomInfo.text = $"{PhotonNetwork.CurrentRoom.PlayerCount} / {PhotonNetwork.CurrentRoom.MaxPlayers}";
     }
 }
