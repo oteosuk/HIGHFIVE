@@ -42,7 +42,6 @@ public class MonsterBaseState : IState
         //_monsterStateMachine._monster.stat.CurHp = 0;
         if (!isDead && _monsterStateMachine._monster.stat.CurHp <= 0)
         {
-            Debug.Log("OnDie호출");
             OnDie();
             isDead = true;
         }

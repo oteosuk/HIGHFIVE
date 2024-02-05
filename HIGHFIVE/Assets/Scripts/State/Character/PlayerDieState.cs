@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,8 +11,10 @@ public class PlayerDieState : PlayerBaseState
     }
     public override void Enter()
     {
-        _playerStateMachine._player.SetLayer((int)Define.Layer.Default);
+        _playerStateMachine.moveSpeedModifier = 0f;
+        _playerStateMachine._player.GetComponent<PhotonView>().RPC("SetLayer", RpcTarget.All, (int)Define.Layer.Default);
         _playerStateMachine._player.Collider.isTrigger = true;
+        _playerStateMachine._player.Revival();
         StartAnimation(_playerStateMachine._player.PlayerAnimationData.DieParameterHash);
         
         // 기능

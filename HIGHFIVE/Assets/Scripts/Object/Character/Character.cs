@@ -13,7 +13,6 @@ public class Character : Creature
         Attack
     }
 
-    protected bool isFistTime = true;
     protected PlayerStateMachine _playerStateMachine;
     private PhotonView _photonView;
     private Texture2D _attackTexture;
@@ -34,7 +33,6 @@ public class Character : Creature
         Input = GetComponent<PlayerInput>();
         Collider = GetComponent<Collider2D>();
         Animator = GetComponent<Animator>();
-        stat = GetComponent<Stat>();
         PlayerAnimationData = new PlayerAnimationData();
     }
     protected override void Start()
@@ -91,30 +89,8 @@ public class Character : Creature
         }
     }
 
-    private void CheckTargetInRange()
-    {
-        if (_playerStateMachine._player.targetObject != null)
-        {
-            if (isFistTime) return;
-            float distance = (_playerStateMachine._player.targetObject.transform.position - _playerStateMachine._player.transform.position).magnitude;
-
-            if (distance > _playerStateMachine._player.stat.AttackRange)
-            {
-                OnMove();
-            }
-            else
-            {
-                return;
-            }
-        }
-        OnMove();
-    }
-    private  void OnMove()
-    {
-        isFistTime = true;
-        _playerStateMachine.ChangeState(_playerStateMachine._playerMoveState);
-    }
-    private void Revival()
+    
+    public void Revival()
     {
         StartCoroutine(RespawnDelay());
     }
@@ -128,12 +104,12 @@ public class Character : Creature
     private void Respawn()
     {
         _playerStateMachine._player.transform.position = Main.GameManager.CharacterSpawnPos;
-        _playerStateMachine._player.stat.CurHp = _playerStateMachine._player.stat.MaxHp;
+        _playerStateMachine._player.stat.gameObject.GetComponent<PhotonView>().RPC("SetHpRPC", RpcTarget.All, _playerStateMachine._player.stat.MaxHp);
         int layer = Main.GameManager.SelectedCamp == Define.Camp.Red ? (int)Define.Layer.Red : (int)Define.Layer.Blue;
-        _playerStateMachine._player.SetLayer(layer);
+        GetComponent<PhotonView>().RPC("SetLayer", RpcTarget.All, layer);
         _playerStateMachine._player.Collider.isTrigger = false;
         _playerStateMachine._player.Animator.SetBool(_playerStateMachine._player.PlayerAnimationData.DieParameterHash, false);
-        Camera.main.transform.position = new Vector2(transform.position.x, transform.position.y);
+        Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10f);
     }
 
 
@@ -141,5 +117,30 @@ public class Character : Creature
     public void SetLayer(int layer)
     {
         gameObject.layer = layer;
+    }
+
+    [PunRPC]
+    public void SetHpBarColor()
+    {
+        Image fillImage = null;
+        foreach (Image component in gameObject.GetComponentsInChildren<Image>())
+        {
+            if (component.name == "Fill")
+            {
+                fillImage = component;
+            }
+        }
+        if (fillImage != null)
+        {
+            if (gameObject.layer == (int)Define.Camp.Red)
+            {
+                fillImage.color = Define.GreenColor;
+            }
+            else
+            {
+                fillImage.color = Define.BlueColor;
+            }
+
+        }
     }
 }

@@ -92,9 +92,11 @@ public class Stat : MonoBehaviour
                 shooter.GetComponent<CharacterStat>().AddExp(myStat.Exp, shooter);
             }
             myStat.CurHp = 0;
-            return;
         }
-        myStat.CurHp -= realDamage;
+        else
+        {
+            myStat.CurHp -= realDamage;
+        }
         myStat.gameObject.GetComponent<PhotonView>().RPC("SetHpRPC", RpcTarget.All, myStat.CurHp);
     }
 
@@ -105,9 +107,11 @@ public class Stat : MonoBehaviour
         if (myStat.CurHp - realDamage <= 0)
         {
             myStat.CurHp = 0;
-            return;
         }
-        myStat.CurHp -= realDamage;
+        else
+        {
+            myStat.CurHp -= realDamage;
+        }
         myStat.gameObject.GetComponent<PhotonView>().RPC("SetHpRPC", RpcTarget.All, myStat.CurHp);
     }
 

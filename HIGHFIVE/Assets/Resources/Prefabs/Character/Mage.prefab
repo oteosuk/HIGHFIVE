@@ -18,8 +18,8 @@ GameObject:
   - component: {fileID: 4688891675065065584}
   - component: {fileID: 2350598541294646126}
   - component: {fileID: -3229855166075039747}
-  - component: {fileID: -4032308592510129217}
   - component: {fileID: 517500927341623432}
+  - component: {fileID: -2105063969585087286}
   m_Layer: 0
   m_Name: Mage
   m_TagString: Player
@@ -186,7 +186,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 7405839587593706051}
-  - {fileID: -4032308592510129217}
+  - {fileID: -2105063969585087286}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -268,7 +268,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelExpList: 
   _statController: {fileID: 0}
---- !u!114 &-4032308592510129217
+--- !u!114 &517500927341623432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232833287244604407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb592efcfea4d9a45856e662ba11e005, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-2105063969585087286
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -292,21 +304,12 @@ MonoBehaviour:
   - Type: 4
     SynchronizeType: 1
     Name: isIdle
+  - Type: 4
+    SynchronizeType: 1
+    Name: isDie
   - Type: 1
     SynchronizeType: 1
     Name: AttackSpeed
   m_SynchronizeLayers:
   - SynchronizeType: 1
     LayerIndex: 0
---- !u!114 &517500927341623432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1232833287244604407}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb592efcfea4d9a45856e662ba11e005, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -9,6 +9,7 @@ public class Mage : Character
     protected override void Awake()
     {
         base.Awake();
+        stat = GetComponent<Stat>();
     }
     protected override void Start()
     {
@@ -27,9 +28,8 @@ public class Mage : Character
     public override void OnNormalAttack()
     {
         base.OnNormalAttack();
-        if (_playerStateMachine._player.targetObject != null)
+        if (_playerStateMachine._player.targetObject != null && _playerStateMachine._player.targetObject.layer != (int)Define.Layer.Default)
         {
-            isFistTime = false;
             GameObject sphere = Main.ResourceManager.Instantiate("Character/MageWeapon", _playerStateMachine._player.transform.position, syncRequired:true);
             sphere.transform.position = transform.position;
             Vector2 dir = _playerStateMachine._player.targetObject.transform.position - sphere.transform.position;

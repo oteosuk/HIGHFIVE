@@ -9,7 +9,7 @@ public class TreeNormalAttack : MonoBehaviour
     {
         tree = transform.parent.GetComponent<Tree>();
     }
-    public void OnNormalAttack()
+    protected void OnNormalAttack()
     {
         if (tree.targetObject != null) 
         { 
