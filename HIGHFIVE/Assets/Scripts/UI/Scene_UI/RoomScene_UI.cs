@@ -60,7 +60,10 @@ public class RoomScene_UI : UIBase
         Main.NetworkManager.photonRoomDict[PhotonNetwork.CurrentRoom.Name] = false;
         Main.NetworkManager.photonReadyImageDict.Remove(PhotonNetwork.NickName);
 
-
+        PhotonNetwork.LocalPlayer.SetCustomProperties(new ExitGames.Client.Photon.Hashtable
+        {
+            { "IsReady", false }
+        });
         PhotonNetwork.LeaveRoom();
     }
 
