@@ -17,8 +17,8 @@ public class NetworkManager
     {
         //방장이 씬을 옮기면 게스트도 같이 씬을 옮길 수 있게
         PhotonNetwork.AutomaticallySyncScene = true;
-        PhotonNetwork.SendRate = 30;
-        PhotonNetwork.SerializationRate = 30;
+        PhotonNetwork.SendRate = 60;
+        PhotonNetwork.SerializationRate = 60;
 
         //실제 포톤에 들어온 사용자의 이름
         PhotonNetwork.NickName = nickname;
