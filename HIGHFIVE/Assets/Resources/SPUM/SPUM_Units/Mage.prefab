@@ -879,7 +879,7 @@ SpriteRenderer:
   m_Size: {x: 0.28125, y: 0.28125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1501146846218117317
@@ -1585,10 +1585,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ac21711b0ec40a0812d33a586eb7ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _version: 0
   _spriteOBj: {fileID: 3014186318056446938}
   EditChk: 0
   _code: Unit0
   _anim: {fileID: 3170868217539636137}
+  _horse: 0
+  _horseString: 
+  UnitTypeChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3666829486417700307
 GameObject:
   m_ObjectHideFlags: 0
@@ -1938,7 +1944,7 @@ SpriteRenderer:
   m_Size: {x: 0.15625, y: 0.71875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &4787343494524756224
@@ -2023,7 +2029,7 @@ SpriteRenderer:
   m_Size: {x: 0.28125, y: 0.28125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &5153010528125971763
@@ -2108,7 +2114,7 @@ SpriteRenderer:
   m_Size: {x: 0.375, y: 0.40625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &5490190604176611188
@@ -2193,7 +2199,7 @@ SpriteRenderer:
   m_Size: {x: 0.125, y: 0.21875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &5529243560815568844
@@ -2807,7 +2813,7 @@ SpriteRenderer:
   m_Size: {x: 0.5625, y: 0.6875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &8469256265826709233
@@ -2857,6 +2863,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baea2e9758e554909b2367e396d9c5a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemList: []
   _eyeList:
   - {fileID: 5879355799337584125}
   - {fileID: 6024743510270441195}
@@ -2890,6 +2897,10 @@ MonoBehaviour:
   - {fileID: 2644888448763657046}
   _backList:
   - {fileID: 2707596898216369458}
+  _spHorseSPList: {fileID: 0}
+  _spHorseString: 
+  _bodyTexture: {fileID: 0}
+  _bodyString: 
   _hairListString:
   - Assets/Resources/SPUM/SPUM_Sprites/Items/0_Hair/Hair_3.png
   - 
@@ -3111,6 +3122,6 @@ SpriteRenderer:
   m_Size: {x: 0.125, y: 0.21875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0

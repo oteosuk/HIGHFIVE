@@ -199,10 +199,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ac21711b0ec40a0812d33a586eb7ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _version: 0
   _spriteOBj: {fileID: 4975524867987592476}
   EditChk: 0
   _code: Unit0
   _anim: {fileID: 1503511924596878453}
+  _horse: 0
+  _horseString: 
+  UnitTypeChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &598111621766418749
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,7 +492,7 @@ SpriteRenderer:
   m_Size: {x: 0.15625, y: 0.15625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &844018361411851266
@@ -687,7 +693,7 @@ SpriteRenderer:
   m_Size: {x: 0.15625, y: 0.15625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1503106895281934642
@@ -804,7 +810,7 @@ SpriteRenderer:
   m_Size: {x: 0.125, y: 0.21875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1969067134725372582
@@ -1036,7 +1042,7 @@ SpriteRenderer:
   m_Size: {x: 0.59375, y: 0.5625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &2434952006892790866
@@ -1365,7 +1371,7 @@ SpriteRenderer:
   m_Size: {x: 0.21875, y: 0.5625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &3863756824502945316
@@ -1534,7 +1540,7 @@ SpriteRenderer:
   m_Size: {x: 0.375, y: 0.3125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &4095595869648245042
@@ -1787,7 +1793,7 @@ SpriteRenderer:
   m_Size: {x: 0.125, y: 0.21875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &4366718495963218601
@@ -1907,7 +1913,7 @@ SpriteRenderer:
   m_Size: {x: 0.21875, y: 0.5625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &4633804072758021067
@@ -2159,6 +2165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baea2e9758e554909b2367e396d9c5a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemList: []
   _eyeList:
   - {fileID: 2925362681732858556}
   - {fileID: 936581060780561829}
@@ -2192,6 +2199,10 @@ MonoBehaviour:
   - {fileID: 5024307481815171887}
   _backList:
   - {fileID: 4980463441194769613}
+  _spHorseSPList: {fileID: 0}
+  _spHorseString: 
+  _bodyTexture: {fileID: 0}
+  _bodyString: 
   _hairListString:
   - 
   - Assets/Resources/SPUM/SPUM_Sprites/Items/4_Helmet/Helmet_1.png
@@ -2686,7 +2697,7 @@ SpriteRenderer:
   m_Size: {x: 0.53125, y: 0.375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &7734107408923164916
