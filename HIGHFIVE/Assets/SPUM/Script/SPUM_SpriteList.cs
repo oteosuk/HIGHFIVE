@@ -5,6 +5,7 @@ using System.IO;
 
 public class SPUM_SpriteList : MonoBehaviour
 {
+    public List<SpriteRenderer> _itemList = new List<SpriteRenderer>();
     public List<SpriteRenderer> _eyeList = new List<SpriteRenderer>();
     public List<SpriteRenderer> _hairList = new List<SpriteRenderer>();
     public List<SpriteRenderer> _bodyList = new List<SpriteRenderer>();
@@ -13,7 +14,13 @@ public class SPUM_SpriteList : MonoBehaviour
     public List<SpriteRenderer> _pantList = new List<SpriteRenderer>();
     public List<SpriteRenderer> _weaponList = new List<SpriteRenderer>();
     public List<SpriteRenderer> _backList = new List<SpriteRenderer>();
+
+    public SPUM_HorseSpriteList _spHorseSPList;
+    public string _spHorseString;
     // Start is called before the first frame update
+
+    public Texture2D _bodyTexture;
+    public string _bodyString;
 
     public List<string> _hairListString = new List<string>();
     public List<string> _clothListString = new List<string>();
@@ -79,24 +86,48 @@ public class SPUM_SpriteList : MonoBehaviour
         SetSpriteList(_pantList,data._pantList);
         SetSpriteList(_weaponList,data._weaponList);
         SetSpriteList(_backList,data._backList);
+        SetSpriteList(_eyeList,data._eyeList);
+        
+        if(data._spHorseSPList!=null)
+        {
+            SetSpriteList(_spHorseSPList._spList,data._spHorseSPList._spList);
+            _spHorseSPList = data._spHorseSPList;
+        }
+        else
+        {
+            _spHorseSPList = null;
+        }
 
         //색 데이터 연동.
-        _eyeList[0].color = data._eyeList[0].color;
-        _eyeList[1].color = data._eyeList[1].color;
+        if(_eyeList.Count> 2 &&  data._eyeList.Count > 2 )
+        {
+            _eyeList[2].color = data._eyeList[2].color;
+            _eyeList[3].color = data._eyeList[3].color;
+        }
+
         _hairList[3].color = data._hairList[3].color;
         _hairList[0].color = data._hairList[0].color;
-        //꺼져있는 오브젝트 데이터 연동.
-        _eyeList[0].gameObject.SetActive(!data._eyeList[0].gameObject.activeInHierarchy);
-        _eyeList[1].gameObject.SetActive(!data._eyeList[1].gameObject.activeInHierarchy);
+        //꺼져있는 오브젝트 데이터 연동.x
         _hairList[0].gameObject.SetActive(!data._hairList[0].gameObject.activeInHierarchy);
         _hairList[3].gameObject.SetActive(!data._hairList[3].gameObject.activeInHierarchy);
+
+        _hairListString = data._hairListString;
+        _clothListString = data._clothListString;
+        _pantListString = data._pantListString;
+        _armorListString = data._armorListString;
+        _weaponListString = data._weaponListString;
+        _backListString = data._backListString;
     }
 
     public void SetSpriteList(List<SpriteRenderer> tList, List<SpriteRenderer> tData)
     {
         for(var i = 0 ; i < tData.Count;i++)
         {
-            if(tData[i]!=null) tList[i].sprite = tData[i].sprite;
+            if(tData[i]!=null) 
+            {
+                tList[i].sprite = tData[i].sprite;
+                tList[i].color = tData[i].color;
+            }
             else tList[i] = null;
         }
     }
@@ -115,21 +146,18 @@ public class SPUM_SpriteList : MonoBehaviour
     {
         for(var i = 0 ; i < _pathList.Count ; i++)
         {
-            
-
             if(_pathList[i].Length > 1 ) 
             {
                 string tPath = _pathList[i];
                 tPath = tPath.Replace("Assets/Resources/","");
                 tPath = tPath.Replace(".png","");
-                Debug.Log(tPath);
+                
                 Sprite[] tSP = Resources.LoadAll<Sprite>(tPath);
-                Debug.Log(tSP.Length);
                 if(tSP.Length > 1)
                 {
                     _objList[i].sprite = tSP[i];
                 }
-                else
+                else if (tSP.Length > 0)
                 {
                     _objList[i].sprite = tSP[0];
                 }
