@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[ExecuteInEditMode]
 public class PlayerManager : MonoBehaviour
 {
+    public bool _autoGenerate;
     public PlayerObj _prefabObj;
     public List<GameObject> _savedUnitList = new List<GameObject>();
     public Vector3 _startPos;
@@ -15,23 +15,16 @@ public class PlayerManager : MonoBehaviour
     public PlayerObj _nowObj;
     public Transform _playerObjCircle;
     public Transform _goalObjCircle;
-
-    public bool _generate;
     // Start is called before the first frame update
     void Start()
     {
+        if(_autoGenerate) GetPlayerList();
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(_generate)
-        {
-            GetPlayerList();
-            _generate = false;
-        }
-
         if(Input.GetMouseButtonDown(0))
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
@@ -62,6 +55,15 @@ public class PlayerManager : MonoBehaviour
 
     public void GetPlayerList()
     {
+        _playerList.Clear();
+        _savedUnitList.Clear();
+
+        Object[] tObjList = Resources.LoadAll("SPUM/SPUM_Units/",typeof(GameObject));
+        foreach(var i in tObjList)
+        {
+            _savedUnitList.Add(i as GameObject);
+        }
+
         float numXStart = 0;
         float numYStart = 0;
 
@@ -82,14 +84,11 @@ public class PlayerManager : MonoBehaviour
             GameObject ttObj = Instantiate(_prefabObj.gameObject) as GameObject;
             ttObj.transform.SetParent(_playerPool);
             ttObj.transform.localScale = new Vector3(1,1,1);
-            
 
             GameObject tObj = Instantiate(_savedUnitList[i]) as GameObject;
             tObj.transform.SetParent(ttObj.transform);
             tObj.transform.localScale = new Vector3(1,1,1);
             tObj.transform.localPosition = Vector3.zero;
-
-            ttObj.name = _savedUnitList[i].name;
 
             PlayerObj tObjST = ttObj.GetComponent<PlayerObj>();
             SPUM_Prefabs tObjSTT = tObj.GetComponent<SPUM_Prefabs>();

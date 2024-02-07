@@ -75,7 +75,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.3}
-  m_Size: {x: 0.5, y: 0.7}
+  m_Size: {x: 0.3, y: 0.6}
   m_Direction: 0
 --- !u!50 &5731530666136619272
 Rigidbody2D:
@@ -118,6 +118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefabs: {fileID: 7956045306782278320}
   _charMS: 10
+  _playerState: 0
   _goalPos: {x: 0, y: 0, z: 0}
 --- !u!114 &3555811313646729183
 MonoBehaviour:
