@@ -28,7 +28,9 @@ public class HealthBar : UIBase
     private void Update()
     {
         Transform parent = transform.parent;
-        transform.position = new Vector2(parent.position.x, parent.position.y);
+        RectTransform rectTransform = GetComponent<RectTransform>();
+
+        rectTransform.position = new Vector2(parent.position.x, parent.position.y + parent.GetComponent<CapsuleCollider2D>().bounds.size.y);
     }
 
     private void SetHpRatio(int curHp, int maxHp)
