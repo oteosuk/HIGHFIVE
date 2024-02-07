@@ -32,17 +32,17 @@ public class Character : Creature
         Rigidbody = GetComponent<Rigidbody2D>();
         Input = GetComponent<PlayerInput>();
         Collider = GetComponent<Collider2D>();
-        Animator = GetComponent<Animator>();
+        Animator = GetComponentInChildren<Animator>();
         PlayerAnimationData = new PlayerAnimationData();
     }
     protected override void Start()
     {
+        base.Start();
         _attackTexture = Main.ResourceManager.Load<Texture2D>("Sprites/Cursor/Attack");
         _normalTexture = Main.ResourceManager.Load<Texture2D>("Sprites/Cursor/Normal");
         PlayerAnimationData.Initialize();
         _playerStateMachine = new PlayerStateMachine(this);
         _playerStateMachine.ChangeState(_playerStateMachine._playerIdleState);
-        Main.UIManager.CreateWorldUI<HealthBar>("HealthCanvas", transform);
     }
     protected override void Update()
     {

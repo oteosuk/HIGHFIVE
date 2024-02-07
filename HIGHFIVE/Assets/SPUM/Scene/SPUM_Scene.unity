@@ -17506,7 +17506,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _mainBody
       value: 
-      objectReference: {fileID: 2800000, guid: 9f6f74f146203417fae095263bf53e7c, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 861187907472368290, guid: 386feae83d7f1448f8fceefc0510d8fb,
         type: 3}
       propertyPath: _toastMSG

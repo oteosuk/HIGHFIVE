@@ -19,7 +19,7 @@ public class Creature : MonoBehaviourPunCallbacks
     }
     protected virtual void Start()
     {
-        
+        Main.UIManager.CreateWorldUI<HealthBar>("HealthCanvas", transform);
     }
 
     protected virtual void Update()

@@ -29,7 +29,7 @@ public class GameScene : BaseScene
 
         if (_classMapping.TryGetValue(Main.GameManager.SelectedCharacter, out selectClass))
         {
-            characterObj = Main.ResourceManager.Instantiate($"Character/{selectClass}", position, syncRequired: true);
+            characterObj = Main.ResourceManager.Instantiate($"Character/Test", position, syncRequired: true);
             int layer = Main.GameManager.SelectedCamp == Define.Camp.Red ? (int)Define.Layer.Red : (int)Define.Layer.Blue;
             Main.ResourceManager.Instantiate("UI_Prefabs/GameSceneUI");
             Main.GameManager.SpawnedCharacter = characterObj.GetComponent<Character>();

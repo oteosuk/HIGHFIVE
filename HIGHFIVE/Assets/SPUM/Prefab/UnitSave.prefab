@@ -1380,16 +1380,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ac21711b0ec40a0812d33a586eb7ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _version: 0
   _spriteOBj: {fileID: 4712870546435026618}
   EditChk: 1
   _code: 
   _anim: {fileID: 4712870545295214825}
-  _horse: 0
-  _horseString: 
-  UnitTypeChanged:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1779900241
 GameObject:
   m_ObjectHideFlags: 0
@@ -2398,7 +2392,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baea2e9758e554909b2367e396d9c5a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemList: []
   _eyeList:
   - {fileID: 612355935}
   - {fileID: 1364012317}
@@ -2432,10 +2425,6 @@ MonoBehaviour:
   - {fileID: 484940266}
   _backList:
   - {fileID: 7935314289781643667}
-  _spHorseSPList: {fileID: 0}
-  _spHorseString: 
-  _bodyTexture: {fileID: 0}
-  _bodyString: 
   _hairListString: []
   _clothListString: []
   _armorListString: []

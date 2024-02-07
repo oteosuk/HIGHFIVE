@@ -22,10 +22,10 @@ public class Monster : Creature
 
     protected override void Start()
     {
+        base.Start();
         _monsterStateMachine = new MonsterStateMachine(this);
         MonsterAnimationData.GetParameterHash();
         _monsterStateMachine.ChangeState(_monsterStateMachine._monsterIdleState);
-        Main.UIManager.CreateWorldUI<HealthBar>("HealthCanvas", transform);
     }
 
     protected override void Update()
