@@ -1,18 +1,10 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
-using static UnityEngine.RuleTile.TilingRuleOutput;
-//using UnityEngine.UIElements;
 
 public class PlayerBaseState : IState
 {
     protected PlayerStateMachine _playerStateMachine;
-
+    private CameraMover cameraMover;
     public PlayerBaseState(PlayerStateMachine playerStateMachine)
     {
         this._playerStateMachine = playerStateMachine;
@@ -97,12 +89,58 @@ public class PlayerBaseState : IState
     }
     private void OnReadyAttackStart(InputAction.CallbackContext context) { _playerStateMachine.isAttackReady = true; }
 
+    private void MinimapCameraMove()
+    {
+        cameraMover = GameObject.FindObjectOfType<CameraMover>();
+
+        if (cameraMover == null)
+        {
+            Debug.LogError("CameraMover 스크립트를 찾을 수 없습니다.");
+        }
+
+        Vector2 mousePoint = _playerStateMachine._player.Input._playerActions.Move.ReadValue<Vector2>();
+        Vector2 raymousePoint = Camera.main.ScreenToWorldPoint(mousePoint);
+
+        float xRatio;
+        float yRatio;
+
+        if ((mousePoint.x > 1420 && mousePoint.x < 1920) && (mousePoint.y > 0 && mousePoint.y < 360))
+        {
+            xRatio = (mousePoint.x - 1420f) / 500f;
+            yRatio = mousePoint.y / 360f;
+            raymousePoint.x = -49 + xRatio * 100; // -49는 맵 실제좌표의 맨 왼쪽부분(-50) + 1(커서보정)
+            raymousePoint.y = -17 + yRatio * 40; // - 17은 맵 실제좌표의 맨 아래쪽부분(-20) + 3(커서보정)
+            Debug.Log("미니맵쪽 클릭" + raymousePoint);
+            cameraMover.MinimapCamera(raymousePoint);
+        }
+    }
+
     private void RayToObjectAndSetTarget()
     {
         Vector2 mousePoint = _playerStateMachine._player.Input._playerActions.Move.ReadValue<Vector2>();
         Vector2 raymousePoint = Camera.main.ScreenToWorldPoint(mousePoint);
 
+        //Debug.Log(mousePoint + " " + raymousePoint);
+        float xRatio;
+        float yRatio;
+
         int mask = (1 << (int)Define.Layer.Monster) | (1 << (Main.GameManager.SelectedCamp == Define.Camp.Red ? (int)Define.Layer.Blue : (int)Define.Layer.Red ));
+
+        //minimap관련
+        if ((mousePoint.x > 1420 && mousePoint.x < 1920) && (mousePoint.y > 0 && mousePoint.y < 360))
+        {
+            xRatio = (mousePoint.x - 1420f) / 500f;
+            yRatio = mousePoint.y / 360f;
+            raymousePoint.x = -49 + xRatio * 100; // -49는 맵 실제좌표의 맨 왼쪽부분(-50) + 1(커서보정)
+            raymousePoint.y = -17 + yRatio * 40; // - 17은 맵 실제좌표의 맨 아래쪽부분(-20) + 3(커서보정)
+            Debug.Log("미니맵쪽 클릭" + raymousePoint);
+            _playerStateMachine.moveInput = raymousePoint;
+        }
+        else
+        {
+            Debug.Log("일반땅 클릭" + Camera.main.ScreenToWorldPoint(mousePoint));
+            _playerStateMachine.moveInput = Camera.main.ScreenToWorldPoint(mousePoint);
+        }
 
         RaycastHit2D hit = Physics2D.Raycast(raymousePoint, Camera.main.transform.forward, 10.0f, mask);
 
@@ -131,11 +169,19 @@ public class PlayerBaseState : IState
 
     private void ReadMoveInput()
     {
+        //우클릭
         if (Mouse.current.rightButton.wasPressedThisFrame)
         {
             RayToObjectAndSetTarget();
         }
 
+        //좌클릭
+        if (Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            MinimapCameraMove();
+        }
+
+        //A누르고 좌클릭
         if (Mouse.current.leftButton.wasPressedThisFrame && _playerStateMachine.isAttackReady)
         {
             RayToObjectAndSetTarget();
