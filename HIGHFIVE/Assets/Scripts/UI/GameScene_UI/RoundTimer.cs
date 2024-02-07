@@ -80,13 +80,13 @@ public class RoundTimer : MonoBehaviour
     IEnumerator FarmingTimer()
     {
         yield return new WaitForSeconds(1.0f); // 화면 전환을 위해 잠깐 기다림
-        farmingTime = 10;
+        farmingTime = 60; // 이부분 시간조절
         curTime = farmingTime;
         while (curTime > 0)
         {
             curTime -= Time.deltaTime;
             // minute = (int)curTime / 60;
-            second = (int)curTime % 60;
+            second = (int)curTime % 60; // 근데 여기에서 분이 안나와버림
             text.text = second.ToString("0");
             yield return null;
 
@@ -103,13 +103,13 @@ public class RoundTimer : MonoBehaviour
     IEnumerator BattleTimer()
     {
         yield return new WaitForSeconds(1.0f);
-        battleTime = 10;
+        battleTime = 60; // 이부분 시간조절
         curTime = battleTime;
         while (curTime > 0)
         {
             curTime -= Time.deltaTime;
             // minute = (int)curTime / 60;
-            second = (int)curTime % 60;
+            second = (int)curTime % 60; // 근데 여기에서 분이 안나와버림
             text.text = second.ToString("0");
             yield return null;
 

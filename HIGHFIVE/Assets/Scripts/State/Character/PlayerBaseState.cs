@@ -104,13 +104,12 @@ public class PlayerBaseState : IState
         float xRatio;
         float yRatio;
 
-        if ((mousePoint.x > 1420 && mousePoint.x < 1920) && (mousePoint.y > 0 && mousePoint.y < 360))
+        if ((1515 <= mousePoint.x && mousePoint.x <= 1900) && (20 <= mousePoint.y && mousePoint.y <= 280)) // 1515 미니맵왼쪽x 1900 미니맵오른쪽x, 20 미니맵아래, 280 미니맵위
         {
-            xRatio = (mousePoint.x - 1420f) / 500f;
-            yRatio = mousePoint.y / 360f;
-            raymousePoint.x = -49 + xRatio * 100; // -49는 맵 실제좌표의 맨 왼쪽부분(-50) + 1(커서보정)
-            raymousePoint.y = -17 + yRatio * 40; // - 17은 맵 실제좌표의 맨 아래쪽부분(-20) + 3(커서보정)
-            Debug.Log("미니맵쪽 클릭" + raymousePoint);
+            xRatio = (mousePoint.x - 1515f) / 385f;
+            yRatio = (mousePoint.y - 20f) / 260f;
+            raymousePoint.x = -52 + xRatio * 102; // 맵 실제좌표의 맨 왼쪽부분(-52)   *100은 맵 가로길이
+            raymousePoint.y = -20 + yRatio * 50; // 맵 실제좌표의 맨 아래쪽부분(-20)   *50은 맵 세로길이
             cameraMover.MinimapCamera(raymousePoint);
         }
     }
@@ -120,25 +119,25 @@ public class PlayerBaseState : IState
         Vector2 mousePoint = _playerStateMachine._player.Input._playerActions.Move.ReadValue<Vector2>();
         Vector2 raymousePoint = Camera.main.ScreenToWorldPoint(mousePoint);
 
-        //Debug.Log(mousePoint + " " + raymousePoint);
+        Debug.Log(mousePoint + " " + raymousePoint);
         float xRatio;
         float yRatio;
 
         int mask = (1 << (int)Define.Layer.Monster) | (1 << (Main.GameManager.SelectedCamp == Define.Camp.Red ? (int)Define.Layer.Blue : (int)Define.Layer.Red ));
 
         //minimap관련
-        if ((mousePoint.x > 1420 && mousePoint.x < 1920) && (mousePoint.y > 0 && mousePoint.y < 360))
+        if ((1515 <= mousePoint.x && mousePoint.x <= 1900) && (20 <= mousePoint.y && mousePoint.y <= 280)) // 1515 미니맵왼쪽x 1900 미니맵오른쪽x, 20 미니맵아래, 280 미니맵위
         {
-            xRatio = (mousePoint.x - 1420f) / 500f;
-            yRatio = mousePoint.y / 360f;
-            raymousePoint.x = -49 + xRatio * 100; // -49는 맵 실제좌표의 맨 왼쪽부분(-50) + 1(커서보정)
-            raymousePoint.y = -17 + yRatio * 40; // - 17은 맵 실제좌표의 맨 아래쪽부분(-20) + 3(커서보정)
-            Debug.Log("미니맵쪽 클릭" + raymousePoint);
+            xRatio = (mousePoint.x - 1515f) / 385f;
+            yRatio = (mousePoint.y - 20f) / 260f;
+            raymousePoint.x = -52 + xRatio * 102; // 맵 실제좌표의 맨 왼쪽부분(-52)   *100은 맵 가로길이
+            raymousePoint.y = -20 + yRatio * 50; // 맵 실제좌표의 맨 아래쪽부분(-20)   *50은 맵 세로길이
+            //Debug.Log("미니맵쪽 클릭" + raymousePoint);
             _playerStateMachine.moveInput = raymousePoint;
         }
         else
         {
-            Debug.Log("일반땅 클릭" + Camera.main.ScreenToWorldPoint(mousePoint));
+            //Debug.Log("일반땅 클릭" + Camera.main.ScreenToWorldPoint(mousePoint));
             _playerStateMachine.moveInput = Camera.main.ScreenToWorldPoint(mousePoint);
         }
 
@@ -163,8 +162,6 @@ public class PlayerBaseState : IState
             _playerStateMachine._player.targetObject = null;
             _playerStateMachine.ChangeState(_playerStateMachine._playerMoveState);
         }
-
-        _playerStateMachine.moveInput = Camera.main.ScreenToWorldPoint(mousePoint);
     }
 
     private void ReadMoveInput()
