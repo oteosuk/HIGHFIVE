@@ -13,6 +13,7 @@ public class RoundTimer : MonoBehaviour
     private float curTime;
     private float farmingTime;
     private float battleTime;
+    private GameFieldController _gameFieldController;
 
     [SerializeField] TMP_Text TeamRedScore;
     [SerializeField] TMP_Text TeamBlueScore;
@@ -27,6 +28,11 @@ public class RoundTimer : MonoBehaviour
         roundLogic.RoundIndex();
         curTime = farmingTime;
         StartCoroutine (FarmingTimer());
+    }
+
+    private void Start()
+    {
+        _gameFieldController = GetComponent<GameFieldController>();
     }
 
     void StartFarmingTimer()
@@ -54,8 +60,10 @@ public class RoundTimer : MonoBehaviour
 
         if ((scoreRed == 2) || (scoreBlue == 2))
         {
+            if (scoreBlue == 2) { roundLogic.GameOver(Define.Camp.Blue); }
+            if (scoreRed == 2) { roundLogic.GameOver(Define.Camp.Red); }
             roundLogic.RoundIndex();
-            roundLogic.GameOver();
+            
             StopAllCoroutines();
         }
     }
@@ -72,7 +80,7 @@ public class RoundTimer : MonoBehaviour
     IEnumerator FarmingTimer()
     {
         yield return new WaitForSeconds(1.0f); // 화면 전환을 위해 잠깐 기다림
-        farmingTime = 60;
+        farmingTime = 10;
         curTime = farmingTime;
         while (curTime > 0)
         {
@@ -84,6 +92,7 @@ public class RoundTimer : MonoBehaviour
 
             if (curTime <= 0)
             {
+                _gameFieldController.CallBattleEvent();
                 curTime = battleTime;
                 StartBattleTimer();
                 yield break;
@@ -94,7 +103,7 @@ public class RoundTimer : MonoBehaviour
     IEnumerator BattleTimer()
     {
         yield return new WaitForSeconds(1.0f);
-        battleTime = 30;
+        battleTime = 10;
         curTime = battleTime;
         while (curTime > 0)
         {
@@ -106,6 +115,7 @@ public class RoundTimer : MonoBehaviour
 
             if (curTime <= 0)
             {
+                _gameFieldController.CallFarmingEvent();
                 farmingTime = 8;
                 curTime = farmingTime;
                 StartFarmingTimer();

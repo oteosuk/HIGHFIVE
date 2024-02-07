@@ -1,3 +1,5 @@
+using Photon.Pun;
+using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +9,10 @@ public class ToLobbyBtn : MonoBehaviour
 {
     public void OnClickToLobby()
     {
-        SceneManager.LoadScene("02.LobbyScene");
+        TypedLobby typedLobby = new TypedLobby(null, LobbyType.Default);
+        if (PhotonNetwork.JoinLobby(typedLobby))
+        {
+            Main.SceneManagerEx.LoadScene(Define.Scene.LobbyScene);
+        }
     }
 }
