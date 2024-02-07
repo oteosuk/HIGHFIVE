@@ -13,12 +13,13 @@ public class Character : Creature
         Attack
     }
 
-    protected PlayerStateMachine _playerStateMachine;
+    
     private PhotonView _photonView;
     private Texture2D _attackTexture;
     private Texture2D _normalTexture;
     private CursorType _cursorType = CursorType.None;
     private int respawnTime = 5;
+    public PlayerStateMachine _playerStateMachine;
     public PlayerInput Input { get; protected set; }
     public PlayerAnimationData PlayerAnimationData { get; set; }
     public Animator Animator { get; set; }
