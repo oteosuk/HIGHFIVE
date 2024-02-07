@@ -29,7 +29,7 @@ public class NicknameConnect : MonoBehaviour
 
     private void OnInputValueChanged(string value)
     {
-        Debug.Log("변경감지! 현재 입력된 텍스트: " + value);
+        //Debug.Log("변경감지! 현재 입력된 텍스트: " + value);
     }
 
 
@@ -46,7 +46,7 @@ public class NicknameConnect : MonoBehaviour
         {
             string alertMessage = "닉네임 형식을 맟춰주세요.\n(공백x, 자음만x, 2 ~ 5글자)";
             Util.ShowAlert(alertMessage, _canvasUI);
-            Debug.Log("한글,영어 2~5글자를 넣어주세요.");
+            //Debug.Log("한글,영어 2~5글자를 넣어주세요.");
             return false;
         }
 
@@ -57,7 +57,7 @@ public class NicknameConnect : MonoBehaviour
     public void Connect()
     {
         _nickname = _nicknameField.text;
-        Debug.Log("닉네임 : " + _nickname + "\n접속시도");
+        //Debug.Log("닉네임 : " + _nickname + "\n접속시도");
 
         // 형식검사 통과하면 코루틴 실행
         if (SetNicknamePass()) StartCoroutine(NicknameCheckAndPhotonConnect()); 

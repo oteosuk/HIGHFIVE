@@ -59,12 +59,12 @@ public class SoundManager
     public void PlayEffect(string efxName, float volume)
     {
         AudioClip clip = Resources.Load<AudioClip>($"Sounds/SFX/{efxName}");
-        Debug.Log(effectPlayer.Count);
+        //Debug.Log(effectPlayer.Count);
         for (int i = 0; i < effectPlayer.Count; i++)
         {
             if (effectPlayer[i].isPlaying)
             {
-                Debug.Log(i);
+                //Debug.Log(i);
                 continue;
             }
             else
