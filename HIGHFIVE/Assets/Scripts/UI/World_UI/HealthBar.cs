@@ -29,7 +29,7 @@ public class HealthBar : UIBase
     {
         Transform parent = transform.parent;
         RectTransform rectTransform = GetComponent<RectTransform>();
-
+        
         rectTransform.position = new Vector2(parent.position.x, parent.position.y + parent.GetComponent<CapsuleCollider2D>().bounds.size.y);
     }
 

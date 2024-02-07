@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -15,16 +16,24 @@ public class RoundLogic : MonoBehaviour
 
     [SerializeField] TMP_Text TeamRedScore;
     [SerializeField] TMP_Text TeamBlueScore;
+    [SerializeField] Transform _redBattleSpawnZone;
+    [SerializeField] Transform _blueBattleSpawnZone;
+    [SerializeField] Transform _redFarmingSpawnZone;
+    [SerializeField] Transform _blueFarmingSpawnZone;
 
-    private GameSceneController gameSceneController;
+    private GameFieldController _gameSceneController;
 
     public GameObject VictoryPanel;
     public GameObject DefeatPanel;
 
     void Start()
     {
-        gameSceneController = gameObject.GetComponent<GameSceneController>();
-        gameSceneController.winEvent += PlayerWin;
+
+        _gameSceneController = gameObject.GetComponent<GameFieldController>();
+        _gameSceneController.winEvent += PlayerWin;
+        _gameSceneController.battleEvent += ChangeToBattleField;
+        _gameSceneController.farmingEvent += ChangeToFarmingField;
+
     }
 
     public void RoundIndex()
@@ -53,20 +62,29 @@ public class RoundLogic : MonoBehaviour
         }
     }
 
-    public void GameOver()
+    public void GameOver(Define.Camp winCamp)
     {
-        VictoryPanel.SetActive(true);
+        if (winCamp == Define.Camp.Red)
+        {
+            if (Main.GameManager.SelectedCamp == Define.Camp.Red) { VictoryPanel.SetActive(true); }
+            else { DefeatPanel.SetActive(true); }
+        }
+        else
+        {
+            if (Main.GameManager.SelectedCamp == Define.Camp.Blue) { VictoryPanel.SetActive(true); }
+            else { DefeatPanel.SetActive(true); }
+        }
     }
 
     // 테스트용 버튼
-    public void TeamRedWinBtn()
+    public void TeamRedWin()
     {
-        gameSceneController.FinishRound(Define.Camp.Red);
+        _gameSceneController.FinishRound(Define.Camp.Red);
     }
 
-    public void TeamBlueWinBtn()
+    public void TeamBlueWin()
     {
-        gameSceneController.FinishRound(Define.Camp.Blue);
+        _gameSceneController.FinishRound(Define.Camp.Blue);
     }
 
     // Win 이벤트 호출
@@ -85,4 +103,80 @@ public class RoundLogic : MonoBehaviour
             TeamBlueScore.text = $"{++teamBluescore}";
         }
     }
+
+    public void ChangeToBattleField()
+    {
+        Main.GameManager.SpawnedCharacter.transform.position = Main.GameManager.SelectedCamp == Define.Camp.Red ? _redBattleSpawnZone.position : _blueBattleSpawnZone.position;
+        ChangeToField();
+    }
+    public void ChangeToFarmingField()
+    {
+        if (CheckWinner() == Define.Camp.Red) { TeamRedWin(); }
+        else { TeamBlueWin(); }
+        Main.GameManager.SpawnedCharacter.transform.position = Main.GameManager.SelectedCamp == Define.Camp.Red ? _redFarmingSpawnZone.position : _blueFarmingSpawnZone.position;
+        ChangeToField();
+    }
+
+    private void ChangeToField()
+    {
+        Character character = Main.GameManager.SpawnedCharacter;
+        character._playerStateMachine.moveInput = character.transform.position;
+        character.stat.CurHp = character.stat.MaxHp;
+        character.GetComponent<PhotonView>().RPC("SetHpRPC", RpcTarget.All, character.stat.CurHp);
+        Camera.main.transform.position = new Vector3(character.transform.position.x, character.transform.position.y, -10);
+    }
+
+
+    private Define.Camp CheckWinner()
+    {
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        List<Character> redPlayerList = new List<Character>();
+        List<Character> bluePlayerList = new List<Character>();
+
+        for (int i = 0; i < players.Length; i++)
+        {
+            if (players[i].layer == (int)Define.Camp.Red)
+            {
+                redPlayerList.Add(players[i].GetComponent<Character>());
+            }
+            if (players[i].layer == (int)Define.Camp.Blue)
+            {
+                bluePlayerList.Add(players[i].GetComponent<Character>());
+            }
+        }
+
+        float redTeamHpRatio = 0;
+        float blueTeamHpRatio = 0;
+        foreach (Character redPlayer in redPlayerList)
+        {
+            redTeamHpRatio += redPlayer.stat.CurHp / (float)redPlayer.stat.MaxHp;
+        }
+        foreach (Character bluePlayer in bluePlayerList)
+        {
+            blueTeamHpRatio += bluePlayer.stat.CurHp / (float)bluePlayer.stat.MaxHp;
+        }
+
+        if (redTeamHpRatio > blueTeamHpRatio)
+        {
+            return Define.Camp.Red;
+        }
+        else if (redTeamHpRatio < blueTeamHpRatio)
+        {
+            return Define.Camp.Blue;
+        }
+        else
+        {
+            float randomValue = Random.value;
+            if (randomValue < 0.5f)
+            {
+                return Define.Camp.Red;
+            }
+            else
+            {
+                return Define.Camp.Blue;
+            }
+        }
+    }
+
+    
 }
