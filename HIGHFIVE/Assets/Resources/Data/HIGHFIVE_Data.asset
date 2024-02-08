@@ -59,6 +59,36 @@ MonoBehaviour:
     info: "\uC124\uBA85"
     range: 3
     damageRatio: 0
+  - job: "\uB9C8\uBC95\uC0AC"
+    name: "\uD30C\uC774\uC5B4\uBCFC"
+    info: "\uC124\uBA85"
+    range: 3
+    damageRatio: 0
+  - job: "\uB9C8\uBC95\uC0AC"
+    name: "\uBC88\uAC1C"
+    info: "\uC124\uBA85"
+    range: 3
+    damageRatio: 0
+  - job: "\uB9C8\uBC95\uC0AC"
+    name: "\uB9E4\uC9C1\uBBF8\uC0AC\uC77C"
+    info: "\uC124\uBA85"
+    range: 3
+    damageRatio: 0
+  - job: "\uB3C4\uC801"
+    name: "\uD5E4\uC774\uC2A4\uD2B8"
+    info: "\uC124\uBA85"
+    range: 3
+    damageRatio: 0
+  - job: "\uB3C4\uC801"
+    name: "\uC77C\uC12C"
+    info: "\uC124\uBA85"
+    range: 3
+    damageRatio: 0
+  - job: "\uB3C4\uC801"
+    name: "\uC740\uC2E0"
+    info: "\uC124\uBA85"
+    range: 3
+    damageRatio: 0
   Monsters:
   - name: "\uB098\uBB34"
     atk: 10
@@ -68,58 +98,58 @@ MonoBehaviour:
     movSpeed: 3
     maxHp: 50
     curHp: 50
+    sight: 3
+    exp: 10
+  - name: "\uC624\uAC70"
+    atk: 12
+    def: 2
+    atkRange: 1
+    atkSpeed: 2
+    movSpeed: 3
+    maxHp: 50
+    curHp: 50
+    sight: 3
+    exp: 15
+  - name: "\uC624\uAC70 \uC804\uC0AC"
+    atk: 13
+    def: 3
+    atkRange: 1
+    atkSpeed: 2
+    movSpeed: 4
+    maxHp: 60
+    curHp: 60
+    sight: 3
+    exp: 15
+  - name: "\uBE14\uB8E8"
+    atk: 13
+    def: 5
+    atkRange: 1
+    atkSpeed: 2
+    movSpeed: 3
+    maxHp: 70
+    curHp: 70
     sight: 4
-    exp: 10
-  - name: NM2
-    atk: 10
-    def: 0
+    exp: 20
+  - name: "\uB808\uB4DC"
+    atk: 13
+    def: 5
     atkRange: 1
     atkSpeed: 2
     movSpeed: 3
-    maxHp: 50
-    curHp: 50
-    sight: 3
-    exp: 4
-  - name: NM3
-    atk: 10
-    def: 0
-    atkRange: 1
+    maxHp: 70
+    curHp: 70
+    sight: 4
+    exp: 20
+  - name: "\uC5D0\uD53D"
+    atk: 15
+    def: 8
+    atkRange: 2
     atkSpeed: 2
     movSpeed: 3
-    maxHp: 50
-    curHp: 50
-    sight: 3
-    exp: 5
-  - name: EL1
-    atk: 10
-    def: 0
-    atkRange: 1
-    atkSpeed: 2
-    movSpeed: 3
-    maxHp: 50
-    curHp: 50
-    sight: 3
-    exp: 10
-  - name: EL2
-    atk: 10
-    def: 0
-    atkRange: 1
-    atkSpeed: 2
-    movSpeed: 3
-    maxHp: 50
-    curHp: 50
-    sight: 3
-    exp: 10
-  - name: EL3
-    atk: 10
-    def: 0
-    atkRange: 1
-    atkSpeed: 2
-    movSpeed: 3
-    maxHp: 50
-    curHp: 50
-    sight: 3
-    exp: 10
+    maxHp: 100
+    curHp: 100
+    sight: 4
+    exp: 30
   - name: EL4
     atk: 10
     def: 0
