@@ -25463,7 +25463,6 @@ MonoBehaviour:
   text: {fileID: 1843284414}
   TeamRedScore: {fileID: 1677674471}
   TeamBlueScore: {fileID: 603344565}
-  roundLogic: {fileID: 375585319}
 --- !u!114 &375585319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25484,6 +25483,8 @@ MonoBehaviour:
   _blueBattleSpawnZone: {fileID: 983931940}
   _redFarmingSpawnZone: {fileID: 1150771482}
   _blueFarmingSpawnZone: {fileID: 538210777}
+  _teamRedScore: 0
+  _teamBlueScore: 0
   VictoryPanel: {fileID: 1292580556}
   DefeatPanel: {fileID: 1990568697}
 --- !u!114 &375585320
@@ -36942,8 +36943,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af681188bbb657948be6503920474bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: {x: 105, y: 54}
-  center: {x: -1, y: 6}
+  size: {x: 102, y: 95}
+  center: {x: 0, y: 5}
 --- !u!114 &908811536
 MonoBehaviour:
   m_ObjectHideFlags: 0

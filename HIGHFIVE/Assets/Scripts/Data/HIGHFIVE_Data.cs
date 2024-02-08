@@ -10,4 +10,5 @@ public class HIGHFIVE_Data : ScriptableObject
 	public List<SkillDBEntity> Skills;
 	public List<MonsterDBEntity> Monsters;
 	public List<ItemDBEntity> Items;
+	public List<BuffDBEntity> Buff;
 }

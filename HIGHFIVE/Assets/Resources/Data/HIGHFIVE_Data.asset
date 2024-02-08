@@ -48,47 +48,74 @@ MonoBehaviour:
     name: "\uCC0C\uB974\uAE30"
     info: "\uC124\uBA85"
     range: 2
+    damage: 5
     damageRatio: 1.1
+    coolTime: 2
+    condition: 1
   - job: "\uC804\uC0AC"
     name: "\uBCA0\uAE30"
     info: "\uC124\uBA85"
     range: 3
+    damage: 10
     damageRatio: 1.2
+    coolTime: 3
+    condition: 1
   - job: "\uC804\uC0AC"
     name: "\uD68C\uC804\uBCA0\uAE30"
     info: "\uC124\uBA85"
     range: 3
+    damage: 15
     damageRatio: 1.3
+    coolTime: 4
+    condition: 1
   - job: "\uB9C8\uBC95\uC0AC"
     name: "\uD30C\uC774\uC5B4\uBCFC"
     info: "\uC124\uBA85"
     range: 3
+    damage: 5
     damageRatio: 1.1
+    coolTime: 2
+    condition: 1
   - job: "\uB9C8\uBC95\uC0AC"
     name: "\uBC88\uAC1C"
     info: "\uC124\uBA85"
     range: 3
+    damage: 10
     damageRatio: 1.2
+    coolTime: 3
+    condition: 1
   - job: "\uB9C8\uBC95\uC0AC"
     name: "\uB9E4\uC9C1\uBBF8\uC0AC\uC77C"
     info: "\uC124\uBA85"
     range: 3
+    damage: 15
     damageRatio: 1.3
+    coolTime: 4
+    condition: 1
   - job: "\uB3C4\uC801"
     name: "\uD5E4\uC774\uC2A4\uD2B8"
     info: "\uC124\uBA85"
     range: 3
+    damage: 0
     damageRatio: 0
+    coolTime: 2
+    condition: 1
   - job: "\uB3C4\uC801"
     name: "\uC77C\uC12C"
     info: "\uC124\uBA85"
     range: 3
+    damage: 10
     damageRatio: 1.2
+    coolTime: 3
+    condition: 1
   - job: "\uB3C4\uC801"
     name: "\uC740\uC2E0"
     info: "\uC124\uBA85"
     range: 3
+    damage: 0
     damageRatio: 0
+    coolTime: 4
+    condition: 1
   Monsters:
   - name: "\uB098\uBB34"
     atk: 10
@@ -221,3 +248,24 @@ MonoBehaviour:
     atkSpeedRatio: 0
     def: 0
     hp: 50
+  Buff:
+  - name: "\uD328\uC790\uC758 \uBD84\uB178"
+    info: "\uBC30\uD2C0 \uD398\uC774\uC988\uC5D0\uC11C \uD328\uBC30\uD588\uC744 \uC2DC"
+    atk: 2
+    def: 0
+    spd: 0
+  - name: "\uB808\uB4DC"
+    info: "\uB808\uB4DC \uBAAC\uC2A4\uD130 \uCC98\uCE58 \uC2DC"
+    atk: 3
+    def: 0
+    spd: 0
+  - name: "\uBE14\uB8E8"
+    info: "\uBE14\uB8E8 \uBAAC\uC2A4\uD130 \uCC98\uCE58 \uC2DC"
+    atk: 0
+    def: 3
+    spd: 0
+  - name: "\uC5D0\uD53D"
+    info: "\uC5D0\uD53D \uBAAC\uC2A4\uD130 \uCC98\uCE58 \uC2DC"
+    atk: 1
+    def: 1
+    spd: 3
