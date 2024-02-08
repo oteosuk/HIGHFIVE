@@ -62758,10 +62758,10 @@ MonoBehaviour:
   roundTxt: {fileID: 1171010832}
   TeamRedScore: {fileID: 258495332}
   TeamBlueScore: {fileID: 1601722326}
-  _redBattleSpawnZone: {fileID: 0}
-  _blueBattleSpawnZone: {fileID: 0}
-  _redFarmingSpawnZone: {fileID: 0}
-  _blueFarmingSpawnZone: {fileID: 0}
+  _redBattleSpawnZone: {fileID: 1220203091}
+  _blueBattleSpawnZone: {fileID: 983931940}
+  _redFarmingSpawnZone: {fileID: 1150771482}
+  _blueFarmingSpawnZone: {fileID: 538210777}
   _teamRedScore: 0
   _teamBlueScore: 0
   VictoryPanel: {fileID: 422127846}

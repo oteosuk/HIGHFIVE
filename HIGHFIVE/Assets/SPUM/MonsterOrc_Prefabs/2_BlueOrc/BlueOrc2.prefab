@@ -627,16 +627,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ac21711b0ec40a0812d33a586eb7ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _version: 141
   _spriteOBj: {fileID: 7581279057091013741}
   EditChk: 1
   _code: Unit18
   _anim: {fileID: 1653709357051657626}
-  _horse: 0
-  _horseString: 
-  UnitTypeChanged:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1269737862172619965
 GameObject:
   m_ObjectHideFlags: 0
@@ -1274,23 +1268,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baea2e9758e554909b2367e396d9c5a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemList:
-  - {fileID: 7581279058795454100}
-  - {fileID: 7581279057091013728}
-  - {fileID: 7581279057091013729}
-  - {fileID: 7581279057091013731}
-  - {fileID: 7581279057091013733}
-  - {fileID: 7581279057091013730}
-  - {fileID: 7581279057091013740}
-  - {fileID: 7581279057091013743}
-  - {fileID: 7581279057091013732}
-  - {fileID: 7581279057091013733}
-  - {fileID: 7581279057091013730}
-  - {fileID: 7581279057091013737}
-  - {fileID: 7581279057091013736}
-  - {fileID: 7581279057091013739}
-  - {fileID: 7581279057091013738}
-  - {fileID: 7581279057091013742}
   _eyeList:
   - {fileID: 194910168681576223}
   - {fileID: 6230391746185960355}
@@ -1326,10 +1303,6 @@ MonoBehaviour:
   - {fileID: 7581279057091013738}
   _backList:
   - {fileID: 7581279057091013742}
-  _spHorseSPList: {fileID: 0}
-  _spHorseString: 
-  _bodyTexture: {fileID: 0}
-  _bodyString: 
   _hairListString:
   - Assets/Resources/SPUM/SPUM_Sprites/Packages/Ver300/0_Hair/New_Hair_16.png
   - 

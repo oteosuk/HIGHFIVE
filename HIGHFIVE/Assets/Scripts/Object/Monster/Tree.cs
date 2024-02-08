@@ -1,11 +1,3 @@
-using ExitGames.Client.Photon.StructWrapping;
-using Photon.Pun;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting.Antlr3.Runtime.Tree;
-using UnityEngine;
-using UnityEngine.UI;
-using static UnityEngine.GraphicsBuffer;
 
 public class Tree : Monster
 {
