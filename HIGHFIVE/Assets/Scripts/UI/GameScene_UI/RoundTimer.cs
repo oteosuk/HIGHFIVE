@@ -21,71 +21,44 @@ public class RoundTimer : MonoBehaviour
     // int minute;
     int second;
 
-    public RoundLogic roundLogic;
+    private RoundLogic roundLogic;
 
-    private void Awake()
-    {
-        roundLogic.RoundIndex();
-        curTime = farmingTime;
-        StartCoroutine (FarmingTimer());
-    }
 
     private void Start()
     {
+        roundLogic = GetComponent<RoundLogic>();
         _gameFieldController = GetComponent<GameFieldController>();
+        StartFarmingTimer();
     }
 
     private void Update()
     {
-        
-    }
-
-    void StartFarmingTimer()
-    {
-        int scoreRed;
-        int scoreBlue;
-        int.TryParse(TeamRedScore.text, out scoreRed);
-        int.TryParse(TeamBlueScore.text, out scoreBlue);
-
-        if (scoreRed == 1 || scoreBlue == 1)
+        if ((roundLogic._teamBlueScore == 2) || (roundLogic._teamRedScore == 2))
         {
-            roundLogic.RoundIndex();
-
-            StopCoroutine(BattleTimer());
-            StartCoroutine(FarmingTimer());
-        }
-
-        else if (scoreRed == 1 && scoreBlue == 1)
-        {
-            roundLogic.RoundIndex();
-
-            StopCoroutine(BattleTimer());
-            StartCoroutine(FarmingTimer());
-        }
-
-        if ((scoreRed == 2) || (scoreBlue == 2))
-        {
-            if (scoreBlue == 2) { roundLogic.GameOver(Define.Camp.Blue); }
-            if (scoreRed == 2) { roundLogic.GameOver(Define.Camp.Red); }
-            roundLogic.RoundIndex();
-            
+            if (roundLogic._teamBlueScore == 2) { roundLogic.GameOver(Define.Camp.Blue); }
+            if (roundLogic._teamRedScore == 2) { roundLogic.GameOver(Define.Camp.Red); }
             StopAllCoroutines();
         }
     }
 
+    void StartFarmingTimer()
+    {
+        roundLogic.RoundIndex();
+        StopCoroutine(BattleTimer());
+        StartCoroutine(FarmingTimer());
+    }
+
     void StartBattleTimer()
     {
-        if (curTime == battleTime)
-        {
-            StopCoroutine(FarmingTimer());
-            StartCoroutine(BattleTimer());
-        } 
+        StopCoroutine(FarmingTimer());
+        StartCoroutine(BattleTimer());
     }
 
     IEnumerator FarmingTimer()
     {
-        yield return new WaitForSeconds(1.0f); // 화면 전환을 위해 잠깐 기다림
-        farmingTime = 60; // 이부분 시간조절
+        yield return new WaitForSeconds(1.0f);
+        Main.GameManager.page = Define.Page.Farming;
+        farmingTime = 10; // 이부분 시간조절
         curTime = farmingTime;
 
         
@@ -110,7 +83,8 @@ public class RoundTimer : MonoBehaviour
     IEnumerator BattleTimer()
     {
         yield return new WaitForSeconds(1.0f);
-        battleTime = 60; // 이부분 시간조절
+        Main.GameManager.page = Define.Page.Battle;
+        battleTime = 20; // 이부분 시간조절
         curTime = battleTime;
 
         while (curTime > 0)
@@ -121,12 +95,6 @@ public class RoundTimer : MonoBehaviour
             text.text = second.ToString("0");
             yield return null;
 
-            if (Main.GameManager.isBattleEnd)
-            {
-                _gameFieldController.CallFarmingEvent();
-                StartFarmingTimer();
-                yield break;
-            }
 
             if (curTime <= 0)
             {

@@ -6,11 +6,7 @@ using UnityEngine.UI;
 
 public class CharacterSyncer : MonoBehaviour
 {
-    [PunRPC]
-    public void SetLayer(int layer)
-    {
-        gameObject.layer = layer;
-    }
+    
 
     [PunRPC]
     public void SetHpBarColor()
