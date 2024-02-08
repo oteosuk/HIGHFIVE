@@ -46,8 +46,4 @@ public class PlayerIdleState : PlayerBaseState
         base.OnMove();
         _playerStateMachine.ChangeState(_playerStateMachine._playerMoveState);
     }
-    protected override void OnDie()
-    {
-        base.OnDie();
-    }
 }

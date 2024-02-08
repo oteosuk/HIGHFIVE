@@ -18,7 +18,6 @@ public class Character : Creature
     private Texture2D _attackTexture;
     private Texture2D _normalTexture;
     private CursorType _cursorType = CursorType.None;
-    private int respawnTime = 5;
     public PlayerStateMachine _playerStateMachine;
     public PlayerInput Input { get; protected set; }
     public PlayerAnimationData PlayerAnimationData { get; set; }
@@ -91,12 +90,12 @@ public class Character : Creature
     }
 
     
-    public void Revival()
+    public void Revival(float respawnTime)
     {
-        StartCoroutine(RespawnDelay());
+        StartCoroutine(RespawnDelay(respawnTime));
     }
 
-    IEnumerator RespawnDelay()
+    IEnumerator RespawnDelay(float respawnTime)
     {
         yield return new WaitForSeconds(respawnTime);
         Respawn();

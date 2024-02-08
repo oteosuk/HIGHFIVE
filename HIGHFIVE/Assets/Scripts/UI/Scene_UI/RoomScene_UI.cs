@@ -55,10 +55,11 @@ public class RoomScene_UI : UIBase
         foreach (Player player in currentRoomPlayer)
         {
             Main.NetworkManager.photonPlayerDict[player.NickName] = null;
+            Main.NetworkManager.photonReadyImageDict.Remove(player.NickName);
         }
 
         Main.NetworkManager.photonRoomDict[PhotonNetwork.CurrentRoom.Name] = false;
-        Main.NetworkManager.photonReadyImageDict.Remove(PhotonNetwork.NickName);
+        
 
         PhotonNetwork.LocalPlayer.SetCustomProperties(new ExitGames.Client.Photon.Hashtable
         {

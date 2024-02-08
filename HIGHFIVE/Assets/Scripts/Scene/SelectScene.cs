@@ -22,7 +22,15 @@ public class SelectScene : BaseScene
                 {
                     if (Main.NetworkManager.photonPlayerDict.TryGetValue(player.NickName, out Player myPlayer))
                     {
-                        myPlayer.CustomProperties.Add("layer", (int)Define.Layer.Red);
+                        if (myPlayer.CustomProperties.ContainsKey("layer"))
+                        {
+                            myPlayer.CustomProperties["layer"] = (int)Define.Layer.Red;
+                        }
+                        else
+                        {
+                            myPlayer.CustomProperties.Add("layer", (int)Define.Layer.Red);
+                        }
+
                     }
                     Main.GameManager.SelectedCamp = Define.Camp.Red;
                 }
@@ -30,7 +38,14 @@ public class SelectScene : BaseScene
                 {
                     if (Main.NetworkManager.photonPlayerDict.TryGetValue(player.NickName, out Player myPlayer))
                     {
-                        myPlayer.CustomProperties.Add("layer", (int)Define.Layer.Blue);
+                        if (myPlayer.CustomProperties.ContainsKey("layer"))
+                        {
+                            myPlayer.CustomProperties["layer"] = (int)Define.Layer.Blue;
+                        }
+                        else
+                        {
+                            myPlayer.CustomProperties.Add("layer", (int)Define.Layer.Blue);
+                        }
                     }
                     Main.GameManager.SelectedCamp = Define.Camp.Blue;
                 }

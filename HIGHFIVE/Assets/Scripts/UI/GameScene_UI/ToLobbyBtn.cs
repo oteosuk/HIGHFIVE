@@ -9,10 +9,24 @@ public class ToLobbyBtn : MonoBehaviour
 {
     public void OnClickToLobby()
     {
-        TypedLobby typedLobby = new TypedLobby(null, LobbyType.Default);
-        if (PhotonNetwork.JoinLobby(typedLobby))
+        Main.NetworkManager.photonPlayerDict.Clear();
+        Main.NetworkManager.photonRoomDict.Clear();
+        Main.NetworkManager.photonReadyImageDict.Clear();
+
+        //Player[] currentRoomPlayer = PhotonNetwork.PlayerList;
+        //Debug.Log(currentRoomPlayer.Length);
+        //foreach (Player player in currentRoomPlayer)
+        //{
+        //    Main.NetworkManager.photonPlayerDict[player.NickName] = null;
+        //}
+
+        //Main.NetworkManager.photonRoomDict[PhotonNetwork.CurrentRoom.Name] = false;
+        //Main.NetworkManager.photonReadyImageDict.Remove(PhotonNetwork.NickName);
+
+        PhotonNetwork.LocalPlayer.SetCustomProperties(new ExitGames.Client.Photon.Hashtable
         {
-            Main.SceneManagerEx.LoadScene(Define.Scene.LobbyScene);
-        }
+            { "IsReady", false }
+        });
+        PhotonNetwork.LeaveRoom();
     }
 }
