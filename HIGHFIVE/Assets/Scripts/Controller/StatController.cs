@@ -11,6 +11,7 @@ public class StatController : MonoBehaviour
     public event Action<float> moveSpeedChangeEvent;
     public event Action<int,int> expChangeEvent;
     public event Action<int,int> hpChangeEvent;
+    public event Action dieEvent;
 
     public void CallChangeHpEvent(int curHp, int maxHp)
     {
@@ -52,6 +53,13 @@ public class StatController : MonoBehaviour
         if (moveSpeedChangeEvent != null)
         {
             moveSpeedChangeEvent.Invoke(level);
+        }
+    }
+    public void CallDieEvent()
+    {
+        if (dieEvent != null)
+        {
+            dieEvent.Invoke();
         }
     }
 }

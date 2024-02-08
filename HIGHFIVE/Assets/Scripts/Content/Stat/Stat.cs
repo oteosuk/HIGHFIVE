@@ -92,6 +92,7 @@ public class Stat : MonoBehaviour
                 shooter.GetComponent<CharacterStat>().AddExp(myStat.Exp, shooter);
             }
             myStat.CurHp = 0;
+            _statController.CallDieEvent();
         }
         else
         {
