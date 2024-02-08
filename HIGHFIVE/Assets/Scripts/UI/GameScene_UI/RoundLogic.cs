@@ -103,6 +103,7 @@ public class RoundLogic : MonoBehaviour
         character._playerStateMachine.moveInput = character.transform.position;
         character.stat.CurHp = character.stat.MaxHp;
         character.GetComponent<PhotonView>().RPC("SetHpRPC", RpcTarget.All, character.stat.CurHp);
+        //character.GetComponent<PhotonView>().RPC("SyncHpRatio", RpcTarget.All, character.stat.CurHp);
         int layer = Main.GameManager.SelectedCamp == Define.Camp.Red ? (int)Define.Layer.Red : (int)Define.Layer.Blue;
         character.GetComponent<PhotonView>().RPC("SetLayer", RpcTarget.All, layer);
         Camera.main.transform.position = new Vector3(character.transform.position.x, character.transform.position.y, -10);
