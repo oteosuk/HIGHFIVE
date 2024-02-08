@@ -41,4 +41,9 @@ public class Define
         Blue,
         Red
     }
+    public enum Page
+    {
+        Battle,
+        Farming
+    }
 }

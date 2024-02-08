@@ -114,6 +114,7 @@ public class RoundLogic : MonoBehaviour
         if (CheckWinner() == Define.Camp.Red) { TeamRedWin(); }
         else { TeamBlueWin(); }
         Main.GameManager.SpawnedCharacter.transform.position = Main.GameManager.SelectedCamp == Define.Camp.Red ? _redFarmingSpawnZone.position : _blueFarmingSpawnZone.position;
+        //Main.GameManager.SpawnedCharacter.Revival(3);
         ChangeToField();
     }
 

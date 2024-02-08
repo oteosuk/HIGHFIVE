@@ -35,6 +35,11 @@ public class RoundTimer : MonoBehaviour
         _gameFieldController = GetComponent<GameFieldController>();
     }
 
+    private void Update()
+    {
+        
+    }
+
     void StartFarmingTimer()
     {
         int scoreRed;
@@ -82,6 +87,8 @@ public class RoundTimer : MonoBehaviour
         yield return new WaitForSeconds(1.0f); // 화면 전환을 위해 잠깐 기다림
         farmingTime = 10;
         curTime = farmingTime;
+
+        
         while (curTime > 0)
         {
             curTime -= Time.deltaTime;
@@ -105,6 +112,7 @@ public class RoundTimer : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         battleTime = 10;
         curTime = battleTime;
+
         while (curTime > 0)
         {
             curTime -= Time.deltaTime;
@@ -113,11 +121,16 @@ public class RoundTimer : MonoBehaviour
             text.text = second.ToString("0");
             yield return null;
 
+            if (Main.GameManager.isBattleEnd)
+            {
+                _gameFieldController.CallFarmingEvent();
+                StartFarmingTimer();
+                yield break;
+            }
+
             if (curTime <= 0)
             {
                 _gameFieldController.CallFarmingEvent();
-                farmingTime = 8;
-                curTime = farmingTime;
                 StartFarmingTimer();
                 yield break;
             }

@@ -30,12 +30,12 @@ public class GameScene : BaseScene
         if (_classMapping.TryGetValue(Main.GameManager.SelectedCharacter, out selectClass))
         {
             characterObj = Main.ResourceManager.Instantiate($"Character/Test", position, syncRequired: true);
-            int layer = Main.GameManager.SelectedCamp == Define.Camp.Red ? (int)Define.Layer.Red : (int)Define.Layer.Blue;
             Main.ResourceManager.Instantiate("UI_Prefabs/GameSceneUI");
             Main.GameManager.SpawnedCharacter = characterObj.GetComponent<Character>();
-            characterObj.GetComponent<PhotonView>().RPC("SetLayer", RpcTarget.All, layer);
-            SetAllPlayersCamp();
             _cameraController.CallCharacterSpawnEvent();
+            int layer = Main.GameManager.SelectedCamp == Define.Camp.Red ? (int)Define.Layer.Red : (int)Define.Layer.Blue;
+            characterObj.GetComponent<PhotonView>().RPC("SetLayer", RpcTarget.AllBuffered, layer);
+            
         }
     }
 
@@ -43,17 +43,5 @@ public class GameScene : BaseScene
     {
         Vector3 characterPos = characterObj.transform.position;
         Camera.main.transform.position = new Vector3(characterPos.x, characterPos.y, Camera.main.transform.position.z);
-    }
-
-    private void SetAllPlayersCamp()
-    {
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        for (int i = 0; i < players.Length; i++)
-        {
-            Define.Camp camp = players[i].layer == (int)Define.Camp.Red ? Define.Camp.Red : Define.Camp.Blue;
-            Debug.Log(players[i]);
-            Debug.Log(camp);
-            Main.GameManager.playersCampDict.Add(players[i],camp);
-        }
     }
 }

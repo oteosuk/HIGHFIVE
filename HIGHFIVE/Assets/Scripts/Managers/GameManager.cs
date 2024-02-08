@@ -7,8 +7,9 @@ public class GameManager
     public Define.Camp SelectedCamp { get; set; }
     public Character SpawnedCharacter { get; set; }
     public Vector2 CharacterSpawnPos { get; set; }
-    public Dictionary<GameObject, Define.Camp> playersCampDict { get; set; } = new();
     private Texture2D _normalTexture;
+    public Define.Page page;
+    public bool isBattleEnd;
 
 
 
