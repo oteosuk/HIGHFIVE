@@ -48,32 +48,32 @@ MonoBehaviour:
     name: "\uCC0C\uB974\uAE30"
     info: "\uC124\uBA85"
     range: 2
-    damageRatio: 0
+    damageRatio: 1.1
   - job: "\uC804\uC0AC"
     name: "\uBCA0\uAE30"
     info: "\uC124\uBA85"
     range: 3
-    damageRatio: 0
+    damageRatio: 1.2
   - job: "\uC804\uC0AC"
     name: "\uD68C\uC804\uBCA0\uAE30"
     info: "\uC124\uBA85"
     range: 3
-    damageRatio: 0
+    damageRatio: 1.3
   - job: "\uB9C8\uBC95\uC0AC"
     name: "\uD30C\uC774\uC5B4\uBCFC"
     info: "\uC124\uBA85"
     range: 3
-    damageRatio: 0
+    damageRatio: 1.1
   - job: "\uB9C8\uBC95\uC0AC"
     name: "\uBC88\uAC1C"
     info: "\uC124\uBA85"
     range: 3
-    damageRatio: 0
+    damageRatio: 1.2
   - job: "\uB9C8\uBC95\uC0AC"
     name: "\uB9E4\uC9C1\uBBF8\uC0AC\uC77C"
     info: "\uC124\uBA85"
     range: 3
-    damageRatio: 0
+    damageRatio: 1.3
   - job: "\uB3C4\uC801"
     name: "\uD5E4\uC774\uC2A4\uD2B8"
     info: "\uC124\uBA85"
@@ -83,7 +83,7 @@ MonoBehaviour:
     name: "\uC77C\uC12C"
     info: "\uC124\uBA85"
     range: 3
-    damageRatio: 0
+    damageRatio: 1.2
   - job: "\uB3C4\uC801"
     name: "\uC740\uC2E0"
     info: "\uC124\uBA85"
