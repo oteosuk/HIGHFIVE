@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class MonsterSpawner : MonoBehaviourPunCallbacks
 {
+    //[SerializeField] private GameObject MonsterPrefab;
     private KeyValuePair<Transform, GameObject>[] array = new KeyValuePair<Transform, GameObject>[5];
     private int _respawnDelayTime;
-    private float _curTime;
-    private bool isFull;
+    protected float _curTime;
+    protected bool isFull;
     [SerializeField] Transform[] _spawonArray;
 
-    void Start()
+    protected virtual void Start()
     {
         _respawnDelayTime = 3;
         _curTime = 0;
@@ -21,27 +22,28 @@ public class MonsterSpawner : MonoBehaviourPunCallbacks
         }
     }
 
-    void Update()
+    protected virtual void Update()
     {
-        CheckFull();
+        /*CheckFull();
         if (!isFull)
         {
             _curTime -= Time.deltaTime;
             if (_curTime <= 0)
             {
-                ReSpawn();
+                ReSpawn("Monster/Enemy");
             }
-        }
+        }*/
     }
 
-    void ReSpawn()
+    protected void ReSpawn(string path)
     {
         for (int i = 0; i < array.GetLength(0); i++)
         {
             if (array[i].Value == null)
             {
                 Vector3 spawnPosition = array[i].Key.position;
-                GameObject mons = Main.ResourceManager.Instantiate($"Monster/Enemy", spawnPosition, parent: array[i].Key, syncRequired:true);
+                //GameObject mons = Main.ResourceManager.Instantiate("Monster/Enemy", spawnPosition, parent: array[i].Key, syncRequired:true);
+                GameObject mons = Main.ResourceManager.Instantiate(path, spawnPosition, parent: array[i].Key, syncRequired: true);
                 array[i] = new KeyValuePair<Transform, GameObject>(array[i].Key, mons);
                 _curTime = _respawnDelayTime;
                 break;
@@ -49,7 +51,7 @@ public class MonsterSpawner : MonoBehaviourPunCallbacks
         }
     }
 
-    private void CheckFull()
+    protected void CheckFull()
     {
         for (int i = 0; i < array.GetLength(0); i++)
         {

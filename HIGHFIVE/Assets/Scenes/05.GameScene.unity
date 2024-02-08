@@ -581,32 +581,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 331760103}
-  - component: {fileID: 331760102}
+  - component: {fileID: 331760104}
   m_Layer: 0
-  m_Name: NormalMonsterSpawner (1)
+  m_Name: Normal_Orc1_Left_Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &331760102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 331760101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d31a4ce0f5bc394f93c5b81c6111f3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawonArray:
-  - {fileID: 1361944293}
-  - {fileID: 794452292}
-  - {fileID: 238211082}
-  - {fileID: 2020831696}
-  - {fileID: 1582566336}
 --- !u!4 &331760103
 Transform:
   m_ObjectHideFlags: 0
@@ -627,6 +609,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &331760104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331760101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 285290e68b4e5634b88025bfaf675890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawonArray: []
 --- !u!1 &367005133
 GameObject:
   m_ObjectHideFlags: 0
@@ -1995,32 +1990,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 842227721}
-  - component: {fileID: 842227720}
+  - component: {fileID: 842227722}
   m_Layer: 0
-  m_Name: NormalMonsterSpawner
+  m_Name: Normal_Tree_Left_Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &842227720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 842227719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d31a4ce0f5bc394f93c5b81c6111f3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawonArray:
-  - {fileID: 584565590}
-  - {fileID: 1120430081}
-  - {fileID: 1808928294}
-  - {fileID: 1446338746}
-  - {fileID: 714693841}
 --- !u!4 &842227721
 Transform:
   m_ObjectHideFlags: 0
@@ -2041,6 +2018,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &842227722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842227719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7e9de9ef7ea0774eaff848ba6f722e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawonArray: []
 --- !u!1 &898462802
 GameObject:
   m_ObjectHideFlags: 0
@@ -2203,7 +2193,7 @@ GameObject:
   - component: {fileID: 915437087}
   - component: {fileID: 915437086}
   m_Layer: 0
-  m_Name: NormalMonsterSpawner (4)
+  m_Name: Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4126,7 +4116,7 @@ GameObject:
   - component: {fileID: 1345762084}
   - component: {fileID: 1345762083}
   m_Layer: 0
-  m_Name: NormalMonsterSpawner (6)
+  m_Name: Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4212,7 +4202,7 @@ GameObject:
   - component: {fileID: 1385881858}
   - component: {fileID: 1385881857}
   m_Layer: 0
-  m_Name: NormalMonsterSpawner (3)
+  m_Name: Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42554,7 +42544,7 @@ GameObject:
   - component: {fileID: 1603738171}
   - component: {fileID: 1603738170}
   m_Layer: 0
-  m_Name: NormalMonsterSpawner (2)
+  m_Name: Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47444,7 +47434,7 @@ GameObject:
   - component: {fileID: 1855322074}
   - component: {fileID: 1855322073}
   m_Layer: 0
-  m_Name: NormalMonsterSpawner (7)
+  m_Name: Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48298,7 +48288,7 @@ GameObject:
   - component: {fileID: 2142120066}
   - component: {fileID: 2142120065}
   m_Layer: 0
-  m_Name: NormalMonsterSpawner (5)
+  m_Name: Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -29,7 +29,7 @@ public class MonsterController : MonoBehaviour
         if(collision.collider == null) return;
         if(_canAttack && collision.transform.gameObject.tag == "Player")
         {
-            _anim.SetTrigger("doAttack");
+            //_anim.SetBool("isAttack", true);
             _canAttack = false;
             Invoke("CanAttackAgain", 1f);
         }

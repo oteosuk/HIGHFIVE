@@ -2661,23 +2661,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baea2e9758e554909b2367e396d9c5a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemList:
-  - {fileID: 1007033581645763288}
-  - {fileID: 1007033579810218028}
-  - {fileID: 1007033579810218029}
-  - {fileID: 1007033579810218031}
-  - {fileID: 1007033579810218025}
-  - {fileID: 1007033579810218030}
-  - {fileID: 1007033579810218016}
-  - {fileID: 1007033579810218019}
-  - {fileID: 1007033579810218024}
-  - {fileID: 1007033579810218025}
-  - {fileID: 1007033579810218030}
-  - {fileID: 1007033579810218021}
-  - {fileID: 1007033579810218020}
-  - {fileID: 1007033579810218023}
-  - {fileID: 1007033579810218022}
-  - {fileID: 1007033579810218018}
   _eyeList:
   - {fileID: 7384737159290207059}
   - {fileID: 3655061280333387759}
@@ -2713,10 +2696,6 @@ MonoBehaviour:
   - {fileID: 1007033579810218022}
   _backList:
   - {fileID: 1007033579810218018}
-  _spHorseSPList: {fileID: 0}
-  _spHorseString: 
-  _bodyTexture: {fileID: 0}
-  _bodyString: 
   _hairListString:
   - Assets/Resources/SPUM/SPUM_Sprites/Packages/MS_Orc/0_Hair/Orc_Hair_01.png
   - 
@@ -3481,16 +3460,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ac21711b0ec40a0812d33a586eb7ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _version: 141
   _spriteOBj: {fileID: 1007033579810218017}
   EditChk: 0
   _code: Unit14
   _anim: {fileID: 8231605333067526614}
-  _horse: 0
-  _horseString: 
-  UnitTypeChanged:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &7952376010516190345
 GameObject:
   m_ObjectHideFlags: 0
