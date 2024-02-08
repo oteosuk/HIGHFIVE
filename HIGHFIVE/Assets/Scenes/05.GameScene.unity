@@ -25870,7 +25870,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00012207031, y: 0.0008544922}
+  m_AnchoredPosition: {x: 0, y: 0.0008544922}
   m_SizeDelta: {x: 372, y: 209.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &415475661
@@ -26070,7 +26070,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00018310547, y: -0.0010375977}
+  m_AnchoredPosition: {x: 0.00024414062, y: -0.0009765625}
   m_SizeDelta: {x: 372, y: 209.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &425092316
@@ -29597,6 +29597,7 @@ GameObject:
   - component: {fileID: 802627397}
   - component: {fileID: 802627396}
   - component: {fileID: 802627395}
+  - component: {fileID: 802627398}
   m_Layer: 0
   m_Name: Walls
   m_TagString: Untagged
@@ -35780,6 +35781,33 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!50 &802627398
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802627393}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &808673781
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62777,10 +62805,10 @@ MonoBehaviour:
   roundTxt: {fileID: 1171010832}
   TeamRedScore: {fileID: 258495332}
   TeamBlueScore: {fileID: 1601722326}
-  _redBattleSpawnZone: {fileID: 0}
-  _blueBattleSpawnZone: {fileID: 0}
-  _redFarmingSpawnZone: {fileID: 0}
-  _blueFarmingSpawnZone: {fileID: 0}
+  _redBattleSpawnZone: {fileID: 1220203091}
+  _blueBattleSpawnZone: {fileID: 983931940}
+  _redFarmingSpawnZone: {fileID: 1150771482}
+  _blueFarmingSpawnZone: {fileID: 538210777}
   _teamRedScore: 0
   _teamBlueScore: 0
   VictoryPanel: {fileID: 422127846}
