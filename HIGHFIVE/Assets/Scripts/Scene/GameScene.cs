@@ -34,8 +34,8 @@ public class GameScene : BaseScene
             Main.GameManager.SpawnedCharacter = characterObj.GetComponent<Character>();
             _cameraController.CallCharacterSpawnEvent();
             int layer = Main.GameManager.SelectedCamp == Define.Camp.Red ? (int)Define.Layer.Red : (int)Define.Layer.Blue;
-            characterObj.GetComponent<PhotonView>().RPC("SetLayer", RpcTarget.AllBuffered, layer);
-            
+            characterObj.layer = layer;
+            Main.GameManager.SpawnedCharacter.GetComponent<PhotonView>().RPC("SetLayer", RpcTarget.Others, layer);
         }
     }
 

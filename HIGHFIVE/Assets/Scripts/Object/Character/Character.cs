@@ -43,6 +43,7 @@ public class Character : Creature
         PlayerAnimationData.Initialize();
         _playerStateMachine = new PlayerStateMachine(this);
         _playerStateMachine.ChangeState(_playerStateMachine._playerIdleState);
+        GetComponent<StatController>().dieEvent += OnDie;
     }
     protected override void Update()
     {
@@ -108,7 +109,18 @@ public class Character : Creature
         int layer = Main.GameManager.SelectedCamp == Define.Camp.Red ? (int)Define.Layer.Red : (int)Define.Layer.Blue;
         GetComponent<PhotonView>().RPC("SetLayer", RpcTarget.All, layer);
         _playerStateMachine._player.Collider.isTrigger = false;
-        _playerStateMachine._player.Animator.SetBool(_playerStateMachine._player.PlayerAnimationData.DieParameterHash, false);
+        _playerStateMachine._player.Animator.SetBool(_playerStateMachine._player.PlayerAnimationData.IdleParameterHash, true);
         Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10f);
+    }
+
+    private void OnDie()
+    {
+        _playerStateMachine.ChangeState(_playerStateMachine._playerDieState);
+    }
+
+    [PunRPC]
+    public void SetLayer(int layer)
+    {
+        gameObject.layer = layer;
     }
 }

@@ -16,23 +16,8 @@ public class PlayerDieState : PlayerBaseState
         _playerStateMachine.moveSpeedModifier = 0f;
         _playerStateMachine._player.GetComponent<PhotonView>().RPC("SetLayer", RpcTarget.All, (int)Define.Layer.Default);
         _playerStateMachine._player.Collider.isTrigger = true;
-        if (Main.GameManager.page == Define.Page.Battle)
-        {
-            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-            int count = 0;
-            for (int i = 0; i < players.Length; i++)
-            {
-                if (players[i].layer == (int)Main.GameManager.SelectedCamp)
-                {
-                    count++;
-                }
-            }
-            if (count == 0)
-            {
-                Main.GameManager.isBattleEnd = true;
-            }
-        }
-        else
+        Debug.Log(Main.GameManager.page);
+        if (Main.GameManager.page != Define.Page.Battle)
         {
             _playerStateMachine._player.Revival(5);
         }

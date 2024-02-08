@@ -13,16 +13,6 @@ public class ToLobbyBtn : MonoBehaviour
         Main.NetworkManager.photonRoomDict.Clear();
         Main.NetworkManager.photonReadyImageDict.Clear();
 
-        //Player[] currentRoomPlayer = PhotonNetwork.PlayerList;
-        //Debug.Log(currentRoomPlayer.Length);
-        //foreach (Player player in currentRoomPlayer)
-        //{
-        //    Main.NetworkManager.photonPlayerDict[player.NickName] = null;
-        //}
-
-        //Main.NetworkManager.photonRoomDict[PhotonNetwork.CurrentRoom.Name] = false;
-        //Main.NetworkManager.photonReadyImageDict.Remove(PhotonNetwork.NickName);
-
         PhotonNetwork.LocalPlayer.SetCustomProperties(new ExitGames.Client.Photon.Hashtable
         {
             { "IsReady", false }

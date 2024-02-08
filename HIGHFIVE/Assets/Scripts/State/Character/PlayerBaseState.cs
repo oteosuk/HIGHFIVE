@@ -33,11 +33,7 @@ public class PlayerBaseState : IState
 
     public virtual void StateUpdate()
     {
-        if (_playerStateMachine._player.stat.CurHp <= 0)
-        {
-            Debug.Log("gd");
-            OnDie();
-        }
+
     }
 
     protected virtual void AddInputActionsCallbacks()

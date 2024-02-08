@@ -22,44 +22,24 @@ public class RoundLogic : MonoBehaviour
     [SerializeField] Transform _blueFarmingSpawnZone;
 
     private GameFieldController _gameSceneController;
+    public int _teamRedScore;
+    public int _teamBlueScore;
 
     public GameObject VictoryPanel;
     public GameObject DefeatPanel;
 
     void Start()
     {
-
         _gameSceneController = gameObject.GetComponent<GameFieldController>();
         _gameSceneController.winEvent += PlayerWin;
         _gameSceneController.battleEvent += ChangeToBattleField;
         _gameSceneController.farmingEvent += ChangeToFarmingField;
-
     }
 
     public void RoundIndex()
     {
-        int scoreRed;
-        int scoreBlue;
-        int.TryParse(TeamRedScore.text, out scoreRed);
-        int.TryParse(TeamBlueScore.text, out scoreBlue);
-
         roundTxt.text = currentRound.ToString();
-
-        if (scoreRed == 1 || scoreBlue == 1)
-        {
-            currentRound = 2;
-            roundTxt.text = currentRound.ToString();
-        }
-        if (scoreRed == 1 && scoreBlue == 1)
-        {
-            currentRound = 3;
-            roundTxt.text = currentRound.ToString();
-        }
-        if (scoreRed == 2 || scoreBlue == 2)
-        {
-            currentRound = 3;
-            roundTxt.text = currentRound.ToString();
-        }
+        currentRound++;
     }
 
     public void GameOver(Define.Camp winCamp)
@@ -90,17 +70,17 @@ public class RoundLogic : MonoBehaviour
     // Win 이벤트 호출
     public void PlayerWin(Define.Camp winner)
     {
-        if(winner == Define.Camp.Red)
+        if (PhotonNetwork.IsMasterClient)
         {
-            int teamRedscore;
-            int.TryParse(TeamRedScore.text, out teamRedscore);
-            TeamRedScore.text = $"{++teamRedscore}";
-        }
-        else if (winner == Define.Camp.Blue)
-        {
-            int teamBluescore;
-            int.TryParse(TeamBlueScore.text, out teamBluescore);
-            TeamBlueScore.text = $"{++teamBluescore}";
+            if (winner == Define.Camp.Red)
+            {
+                _teamRedScore++;
+            }
+            else if (winner == Define.Camp.Blue)
+            {
+                _teamBlueScore++;
+            }
+            GetComponent<PhotonView>().RPC("SyncScore", RpcTarget.All, _teamRedScore, _teamBlueScore);
         }
     }
 
@@ -114,7 +94,6 @@ public class RoundLogic : MonoBehaviour
         if (CheckWinner() == Define.Camp.Red) { TeamRedWin(); }
         else { TeamBlueWin(); }
         Main.GameManager.SpawnedCharacter.transform.position = Main.GameManager.SelectedCamp == Define.Camp.Red ? _redFarmingSpawnZone.position : _blueFarmingSpawnZone.position;
-        //Main.GameManager.SpawnedCharacter.Revival(3);
         ChangeToField();
     }
 
@@ -124,6 +103,8 @@ public class RoundLogic : MonoBehaviour
         character._playerStateMachine.moveInput = character.transform.position;
         character.stat.CurHp = character.stat.MaxHp;
         character.GetComponent<PhotonView>().RPC("SetHpRPC", RpcTarget.All, character.stat.CurHp);
+        int layer = Main.GameManager.SelectedCamp == Define.Camp.Red ? (int)Define.Layer.Red : (int)Define.Layer.Blue;
+        character.GetComponent<PhotonView>().RPC("SetLayer", RpcTarget.All, layer);
         Camera.main.transform.position = new Vector3(character.transform.position.x, character.transform.position.y, -10);
     }
 
@@ -179,5 +160,12 @@ public class RoundLogic : MonoBehaviour
         }
     }
 
-    
+    [PunRPC]
+    public void SyncScore(int redScore, int blueScore)
+    {
+        TeamRedScore.text = $"{redScore}";
+        TeamBlueScore.text = $"{blueScore}";
+        _teamBlueScore = blueScore;
+        _teamRedScore = redScore;
+    }
 }
