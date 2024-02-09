@@ -101,6 +101,7 @@ public class RoundLogic : MonoBehaviour
     {
         Character character = Main.GameManager.SpawnedCharacter;
         character._playerStateMachine.moveInput = character.transform.position;
+        character._playerStateMachine.ChangeState(character._playerStateMachine._playerIdleState);
         character.stat.CurHp = character.stat.MaxHp;
         character.GetComponent<PhotonView>().RPC("SetHpRPC", RpcTarget.All, character.stat.CurHp);
         //character.GetComponent<PhotonView>().RPC("SyncHpRatio", RpcTarget.All, character.stat.CurHp);
