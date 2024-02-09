@@ -9,7 +9,7 @@ public class MonsterSpawner : MonoBehaviourPunCallbacks
     private int _respawnDelayTime;
     protected float _curTime;
     protected bool isFull;
-    [SerializeField] Transform[] _spawonArray;
+    [SerializeField] Transform[] _spawonArray; // 인스펙터에서 포지션 직접 할당해야함
 
     protected virtual void Start()
     {
@@ -23,15 +23,15 @@ public class MonsterSpawner : MonoBehaviourPunCallbacks
 
     protected virtual void Update()
     {
-        /*CheckFull();
+        CheckFull();
         if (!isFull)
         {
             _curTime -= Time.deltaTime;
             if (_curTime <= 0)
             {
-                ReSpawn("Monster/Enemy");
+                ReSpawn("Monster/Normal/Tree");
             }
-        }*/
+        }
     }
 
     protected void ReSpawn(string path)
