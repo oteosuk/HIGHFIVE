@@ -8,6 +8,7 @@ public class Warrior : Character
     protected override void Awake()
     {
         base.Awake();
+        stat = GetComponent<Stat>();
     }
     protected override void Start()
     {
@@ -21,5 +22,13 @@ public class Warrior : Character
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
+    }
+    public override void OnNormalAttack()
+    {
+        base.OnNormalAttack();
+        if (_playerStateMachine._player.targetObject != null && _playerStateMachine._player.targetObject.layer != (int)Define.Layer.Default)
+        {
+            _playerStateMachine._player.targetObject.GetComponent<Stat>()?.TakeDamage(Main.GameManager.SpawnedCharacter.stat.Attack, gameObject);
+        }
     }
 }
