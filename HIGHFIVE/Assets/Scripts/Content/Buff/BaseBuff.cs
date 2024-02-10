@@ -9,8 +9,8 @@ public struct BuffData
     public Type type;
     public float duration;
     public float curTime;
-    public Image icon;
-    public Sprite sprite;
+    public Image coolTimeicon;
+    public Sprite buffSprite;
 }
 
 public class BaseBuff : MonoBehaviour
@@ -31,13 +31,13 @@ public class BaseBuff : MonoBehaviour
 
     protected virtual IEnumerator ActiveBuff()
     {
-        while(buffData.curTime > 0)
+        while(buffData.curTime < buffData.duration)
         {
-            buffData.curTime -= 0.1f;
-            buffData.icon.fillAmount = buffData.curTime / buffData.duration;
+            buffData.curTime += 0.1f;
+            buffData.coolTimeicon.fillAmount = buffData.curTime / buffData.duration;
             yield return new WaitForSeconds(0.1f);
         }
-        buffData.icon.fillAmount = 0;
+        buffData.coolTimeicon.fillAmount = 1;
         buffData.curTime = 0;
         LoseBuff();
     }
