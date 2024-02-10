@@ -12,6 +12,7 @@ public class DataManager
     public Dictionary<string, MonsterDBEntity> MonsterDict { get; private set; } = new Dictionary<string, MonsterDBEntity>();
     public Dictionary<string, SkillDBEntity> SkillDict { get; private set; } = new Dictionary<string, SkillDBEntity>();
     public Dictionary<int, ItemDBEntity> ItemDict { get; private set; } = new Dictionary<int, ItemDBEntity>();
+    public Dictionary<string, BuffDBEntity> BuffDict { get; private set; } = new Dictionary<string, BuffDBEntity>();
 
     public void DataInit()
     {
@@ -23,11 +24,12 @@ public class DataManager
         AddEntitiesToDictionary(_highFiveData.Monsters, MonsterDict, monster => monster.name);
         AddEntitiesToDictionary(_highFiveData.Skills, SkillDict, skill => skill.name);
         AddEntitiesToDictionary(_highFiveData.Items, ItemDict, item => item.id);
+        AddEntitiesToDictionary(_highFiveData.Buff, BuffDict, buff => buff.name);
 
         isInit = true;
     }
     //string Dictionary
-    private void AddEntitiesToDictionary<T>(List<T> entities, Dictionary<string, T> dictionary, Func<T, string> keySelector)
+    private void AddEntitiesToDictionary<Value,Key>(List<Value> entities, Dictionary<Key, Value> dictionary, Func<Value, Key> keySelector)
     {
         foreach (var entity in entities)
         {
@@ -35,11 +37,11 @@ public class DataManager
         }
     }
     //int Dictionary
-    private void AddEntitiesToDictionary<T>(List<T> entities, Dictionary<int, T> dictionary, Func<T, int> keySelector)
-    {
-        foreach (var entity in entities)
-        {
-            dictionary.Add(keySelector(entity), entity);
-        }
-    }
+    //private void AddEntitiesToDictionary<T>(List<T> entities, Dictionary<int, T> dictionary, Func<T, int> keySelector)
+    //{
+    //    foreach (var entity in entities)
+    //    {
+    //        dictionary.Add(keySelector(entity), entity);
+    //    }
+    //}
 }

@@ -31,9 +31,12 @@ public class RoundLogic : MonoBehaviour
     void Start()
     {
         _gameSceneController = gameObject.GetComponent<GameFieldController>();
-        _gameSceneController.winEvent += PlayerWin;
         _gameSceneController.battleEvent += ChangeToBattleField;
         _gameSceneController.farmingEvent += ChangeToFarmingField;
+        if (PhotonNetwork.IsMasterClient)
+        {
+            _gameSceneController.winEvent += PlayerWin;
+        }
     }
 
     public void RoundIndex()
@@ -56,7 +59,6 @@ public class RoundLogic : MonoBehaviour
         }
     }
 
-    // 테스트용 버튼
     public void TeamRedWin()
     {
         _gameSceneController.FinishRound(Define.Camp.Red);
@@ -70,6 +72,10 @@ public class RoundLogic : MonoBehaviour
     // Win 이벤트 호출
     public void PlayerWin(Define.Camp winner)
     {
+        if (winner != Main.GameManager.SelectedCamp)
+        {
+            Main.GameManager.SpawnedCharacter.BuffController.CallBuffEvent(typeof(LoserBuff));
+        }
         if (PhotonNetwork.IsMasterClient)
         {
             if (winner == Define.Camp.Red)

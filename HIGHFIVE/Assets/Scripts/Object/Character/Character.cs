@@ -13,7 +13,6 @@ public class Character : Creature
         Attack
     }
 
-    
     private PhotonView _photonView;
     private Texture2D _attackTexture;
     private Texture2D _normalTexture;
@@ -22,8 +21,7 @@ public class Character : Creature
     public PlayerInput Input { get; protected set; }
     public PlayerAnimationData PlayerAnimationData { get; set; }
     public Animator Animator { get; set; }
-
-    public int resolution = 30;
+    public BuffController BuffController { get; private set; }
 
     protected override void Awake()
     {
@@ -34,6 +32,7 @@ public class Character : Creature
         Collider = GetComponent<Collider2D>();
         Animator = GetComponentInChildren<Animator>();
         PlayerAnimationData = new PlayerAnimationData();
+        BuffController = GetComponent<BuffController>();
     }
     protected override void Start()
     {
