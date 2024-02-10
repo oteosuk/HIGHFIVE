@@ -36,11 +36,6 @@ public class Mage : Character
             Vector2 dir = _playerStateMachine._player.targetObject.transform.position - sphere.transform.position;
             PhotonView targetPhotonView = Util.GetOrAddComponent<PhotonView>(_playerStateMachine._player.targetObject);
 
-            if (targetPhotonView.ViewID == 0 )
-            {
-                PhotonNetwork.AllocateViewID(targetPhotonView);
-            }
-
             sphere.GetComponent<ShooterInfoController>().CallShooterInfoEvent(gameObject);
             sphere.GetComponent<PhotonView>().RPC("SetTarget", RpcTarget.All, targetPhotonView.ViewID);
             sphere.GetComponent<PhotonView>().RPC("ToTarget", RpcTarget.All, 5.0f, dir.x, dir.y);
