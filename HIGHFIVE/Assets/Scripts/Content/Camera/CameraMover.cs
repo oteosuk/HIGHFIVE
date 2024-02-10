@@ -75,16 +75,6 @@ public class CameraMover : MonoBehaviour
         transform.position = currentPosition;
     }
 
-    //미니맵 카메라 이동(다른 스크립트에서 사용하므로 public으로 권한설정)
-    public void MinimapCamera(Vector2 minimapPos)
-    {
-        Vector3 minimapPos3;
-        minimapPos3.x = minimapPos.x;
-        minimapPos3.y = minimapPos.y;
-        minimapPos3.z = -10;
-        transform.position = minimapPos3;
-    }
-
     private void ZoomCamera(float zoomDelta)
     {
         float currentZoom = Camera.main.orthographicSize;

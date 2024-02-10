@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Mage : Character
 {
+    [SerializeField] Transform _tip;
     protected override void Awake()
     {
         base.Awake();
@@ -30,7 +31,7 @@ public class Mage : Character
         base.OnNormalAttack();
         if (_playerStateMachine._player.targetObject != null && _playerStateMachine._player.targetObject.layer != (int)Define.Layer.Default)
         {
-            GameObject sphere = Main.ResourceManager.Instantiate("Character/MageWeapon", _playerStateMachine._player.transform.position, syncRequired:true);
+            GameObject sphere = Main.ResourceManager.Instantiate("Character/MageWeapon", _tip.position, syncRequired:true);
             sphere.transform.position = transform.position;
             Vector2 dir = _playerStateMachine._player.targetObject.transform.position - sphere.transform.position;
             PhotonView targetPhotonView = Util.GetOrAddComponent<PhotonView>(_playerStateMachine._player.targetObject);

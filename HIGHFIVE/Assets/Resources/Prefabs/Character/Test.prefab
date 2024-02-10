@@ -135,6 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stat: {fileID: 0}
   targetObject: {fileID: 0}
+  _tip: {fileID: 0}
 --- !u!114 &4516370646292070448
 MonoBehaviour:
   m_ObjectHideFlags: 0
