@@ -8,7 +8,7 @@ public class BuffController : MonoBehaviour
     public List<Type> onBuffList = new List<Type>();
     public event Action<Type> buffEvent;
 
-    public void CallBuffEvent(Type buffType)
+    public void AddBuffEvent(Type buffType)
     {
         if (buffEvent != null)
         {

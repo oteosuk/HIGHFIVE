@@ -48,5 +48,5 @@ public class BaseBuff : MonoBehaviour
         Main.ResourceManager.Destroy(gameObject);
     }
 
-    public virtual void Reset() { }
+    public virtual void Refill() { }
 }

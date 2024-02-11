@@ -34,9 +34,9 @@ public class LoserBuff : BaseBuff
         base.LoseBuff();
     }
 
-    public override void Reset()
+    public override void Refill()
     {
-        base.Reset();
+        base.Refill();
         StopCoroutine(ActiveBuff());
         buffData.curTime = 0;
         StartCoroutine(ActiveBuff());
