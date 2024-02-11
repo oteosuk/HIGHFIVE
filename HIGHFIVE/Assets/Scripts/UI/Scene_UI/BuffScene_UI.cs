@@ -19,7 +19,7 @@ public class BuffScene_UI : MonoBehaviour
         {
             if (type == buffType)
             {
-                transform.Find(buffType.ToString()).GetComponent<BaseBuff>().Reset();
+                transform.Find(buffType.ToString()).GetComponent<BaseBuff>().Refill();
                 return;
             }
         }
