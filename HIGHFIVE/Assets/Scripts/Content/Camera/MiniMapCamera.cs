@@ -59,13 +59,8 @@ public class MiniMapCamera : MonoBehaviour
             yRatio = (mousePoint.y - 20f) / 260f;
             raymousePoint.x = -52 + xRatio * 102; // 맵 실제좌표의 맨 왼쪽부분(-52)   *100은 맵 가로길이
             raymousePoint.y = -20 + yRatio * 50; // 맵 실제좌표의 맨 아래쪽부분(-20)   *50은 맵 세로길이
-            //Debug.Log("미니맵쪽 클릭" + raymousePoint);
+            Debug.Log("미니맵쪽 클릭" + raymousePoint);
             playerStateMachine.moveInput = raymousePoint;
-        }
-        else
-        {
-            //Debug.Log("일반땅 클릭" + Camera.main.ScreenToWorldPoint(mousePoint));
-            playerStateMachine.moveInput = Camera.main.ScreenToWorldPoint(mousePoint);
         }
     }
 }

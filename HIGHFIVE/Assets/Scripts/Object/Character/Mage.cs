@@ -11,6 +11,7 @@ public class Mage : Character
     {
         base.Awake();
         stat = GetComponent<Stat>();
+        CharacterSkill = GetComponent<MageSkills>();
     }
     protected override void Start()
     {

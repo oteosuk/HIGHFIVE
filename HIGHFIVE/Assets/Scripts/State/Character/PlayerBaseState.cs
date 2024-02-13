@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.TextCore.Text;
 
 public class PlayerBaseState : IState
 {
@@ -23,6 +24,7 @@ public class PlayerBaseState : IState
     {
         if (_playerStateMachine._player.stat.CurHp <= 0) return;
         ReadMoveInput();
+        ReadSkillInput();
     }
 
     public virtual void PhysicsUpdate() { }
@@ -31,16 +33,9 @@ public class PlayerBaseState : IState
 
     protected virtual void AddInputActionsCallbacks()
     {
-        if (_playerStateMachine != null && _playerStateMachine._player != null && _playerStateMachine._player.Input != null)
-        {
-            PlayerInput input = _playerStateMachine._player.Input;
-            input._playerActions.Move.canceled += OnMoveCanceled;
-            input._playerActions.NormalAttack.started += OnReadyAttackStart;
-        }
-        else
-        {
-            Debug.LogError("PlayerStateMachine 또는 Player 또는 PlayerInput이 null입니다.");
-        }
+        PlayerInput input = _playerStateMachine._player.Input;
+        input._playerActions.Move.canceled += OnMoveCanceled;
+        input._playerActions.NormalAttack.started += OnReadyAttackStart;
     }
 
     protected virtual void RemoveInputActionsCallbacks()
@@ -83,6 +78,8 @@ public class PlayerBaseState : IState
 
         RaycastHit2D hit = Physics2D.Raycast(raymousePoint, Camera.main.transform.forward, 10.0f, mask);
 
+        _playerStateMachine.moveInput = raymousePoint;
+
         if (hit.collider?.gameObject != null)
         {
             _playerStateMachine._player.targetObject = hit.collider.gameObject;
@@ -117,6 +114,18 @@ public class PlayerBaseState : IState
         if (Mouse.current.leftButton.wasPressedThisFrame && _playerStateMachine.isAttackReady)
         {
             RayToObjectAndSetTarget();
+        }
+    }
+    private void ReadSkillInput()
+    {
+        //나중에 키세팅 기능 추가
+        if (Keyboard.current.qKey.wasPressedThisFrame)
+        {
+            Character myCharacter = _playerStateMachine._player;
+            if (myCharacter.CharacterSkill.FirstSkill.skillData.isUse)
+            {
+                _playerStateMachine.ChangeState(_playerStateMachine.PlayerFirstSkillState);
+            }
         }
     }
 
