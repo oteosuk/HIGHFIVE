@@ -191,6 +191,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7744442907987373307, guid: e4220b05f8050e249994aa8af1ab351a,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -273,7 +278,7 @@ PrefabInstance:
     - target: {fileID: 6864482358817730533, guid: 955b763c0b074854aadb7f91790b9a58,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -558,6 +563,7 @@ Transform:
   - {fileID: 1143072706}
   - {fileID: 1508017185}
   - {fileID: 1472648532}
+  - {fileID: 1654779185}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15446,7 +15452,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -25933,12 +25939,12 @@ PrefabInstance:
     - target: {fileID: 600241871263116390, guid: 12fd96db8a49ac3418ddd3b1f0160c32,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.218138
+      value: 15.89
       objectReference: {fileID: 0}
     - target: {fileID: 600241871263116390, guid: 12fd96db8a49ac3418ddd3b1f0160c32,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.2148981
+      value: 33.33
       objectReference: {fileID: 0}
     - target: {fileID: 600241871263116390, guid: 12fd96db8a49ac3418ddd3b1f0160c32,
         type: 3}
@@ -25984,6 +25990,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow Rock57
+      objectReference: {fileID: 0}
+    - target: {fileID: 6864482358817730533, guid: 12fd96db8a49ac3418ddd3b1f0160c32,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26224,12 +26235,12 @@ PrefabInstance:
     - target: {fileID: 5036651238307941661, guid: 44a0be440e8dfb64da80adf7085ce0c3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.0167904
+      value: -13.93
       objectReference: {fileID: 0}
     - target: {fileID: 5036651238307941661, guid: 44a0be440e8dfb64da80adf7085ce0c3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.3047724
+      value: 10.51
       objectReference: {fileID: 0}
     - target: {fileID: 5036651238307941661, guid: 44a0be440e8dfb64da80adf7085ce0c3,
         type: 3}
@@ -26270,6 +26281,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7744442907987373307, guid: 44a0be440e8dfb64da80adf7085ce0c3,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26632,7 +26648,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -29446,6 +29462,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snow Rock59
       objectReference: {fileID: 0}
+    - target: {fileID: 6864482358817730533, guid: 5ca140b577b98c041bae5767dcc4c13b,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29509,12 +29530,12 @@ PrefabInstance:
     - target: {fileID: 7752931403962326841, guid: 9085045abb0356249b1dc0b7fc238eb3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 29.98
+      value: 30.09
       objectReference: {fileID: 0}
     - target: {fileID: 7752931403962326841, guid: 9085045abb0356249b1dc0b7fc238eb3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.65
+      value: -6.61
       objectReference: {fileID: 0}
     - target: {fileID: 7752931403962326841, guid: 9085045abb0356249b1dc0b7fc238eb3,
         type: 3}
@@ -36767,7 +36788,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 908811530}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.7, y: -19.8, z: -10}
+  m_LocalPosition: {x: -2.2, y: -9.8, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -40970,12 +40991,12 @@ PrefabInstance:
     - target: {fileID: 7752931403962326841, guid: 9085045abb0356249b1dc0b7fc238eb3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 29.63
+      value: 29.71
       objectReference: {fileID: 0}
     - target: {fileID: 7752931403962326841, guid: 9085045abb0356249b1dc0b7fc238eb3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.99000025
+      value: -0.64
       objectReference: {fileID: 0}
     - target: {fileID: 7752931403962326841, guid: 9085045abb0356249b1dc0b7fc238eb3,
         type: 3}
@@ -41179,6 +41200,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow Rock34
+      objectReference: {fileID: 0}
+    - target: {fileID: 6864482358817730533, guid: 3fcdfb212c8c44347aa4ae201bcc26da,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -41811,6 +41837,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snow Rock37
       objectReference: {fileID: 0}
+    - target: {fileID: 6864482358817730533, guid: 4b40fb192df9df7428f6b00975b49c8c,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -41905,12 +41936,12 @@ PrefabInstance:
     - target: {fileID: 5036651238307941661, guid: 372da2d94d03ff7419987c0ce21c878f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.0258026
+      value: 4.44
       objectReference: {fileID: 0}
     - target: {fileID: 5036651238307941661, guid: 372da2d94d03ff7419987c0ce21c878f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.750919
+      value: 10.33
       objectReference: {fileID: 0}
     - target: {fileID: 5036651238307941661, guid: 372da2d94d03ff7419987c0ce21c878f,
         type: 3}
@@ -41951,6 +41982,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7744442907987373307, guid: 372da2d94d03ff7419987c0ce21c878f,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -42283,6 +42319,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow Rock33
+      objectReference: {fileID: 0}
+    - target: {fileID: 6864482358817730533, guid: 9e464578c23fc2a418904285b541fcdf,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -42972,12 +43013,12 @@ PrefabInstance:
     - target: {fileID: 7752931403962326841, guid: 9085045abb0356249b1dc0b7fc238eb3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 35.25
+      value: 35.55
       objectReference: {fileID: 0}
     - target: {fileID: 7752931403962326841, guid: 9085045abb0356249b1dc0b7fc238eb3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.29
+      value: -0.95
       objectReference: {fileID: 0}
     - target: {fileID: 7752931403962326841, guid: 9085045abb0356249b1dc0b7fc238eb3,
         type: 3}
@@ -43198,6 +43239,90 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1654779184
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 76858190}
+    m_Modifications:
+    - target: {fileID: 3749096640767379777, guid: 44a0be440e8dfb64da80adf7085ce0c3,
+        type: 3}
+      propertyPath: m_Name
+      value: Tree117 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036651238307941661, guid: 44a0be440e8dfb64da80adf7085ce0c3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036651238307941661, guid: 44a0be440e8dfb64da80adf7085ce0c3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 59.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036651238307941661, guid: 44a0be440e8dfb64da80adf7085ce0c3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036651238307941661, guid: 44a0be440e8dfb64da80adf7085ce0c3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.106461465
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036651238307941661, guid: 44a0be440e8dfb64da80adf7085ce0c3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036651238307941661, guid: 44a0be440e8dfb64da80adf7085ce0c3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036651238307941661, guid: 44a0be440e8dfb64da80adf7085ce0c3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036651238307941661, guid: 44a0be440e8dfb64da80adf7085ce0c3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036651238307941661, guid: 44a0be440e8dfb64da80adf7085ce0c3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036651238307941661, guid: 44a0be440e8dfb64da80adf7085ce0c3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036651238307941661, guid: 44a0be440e8dfb64da80adf7085ce0c3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7744442907987373307, guid: 44a0be440e8dfb64da80adf7085ce0c3,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 44a0be440e8dfb64da80adf7085ce0c3, type: 3}
+--- !u!4 &1654779185 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5036651238307941661, guid: 44a0be440e8dfb64da80adf7085ce0c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1654779184}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1667179174
 GameObject:
   m_ObjectHideFlags: 0
@@ -43610,7 +43735,7 @@ PrefabInstance:
     - target: {fileID: 7752931403962326841, guid: 9085045abb0356249b1dc0b7fc238eb3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 34.91
+      value: 35.18
       objectReference: {fileID: 0}
     - target: {fileID: 7752931403962326841, guid: 9085045abb0356249b1dc0b7fc238eb3,
         type: 3}
@@ -43980,6 +44105,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow Rock48
+      objectReference: {fileID: 0}
+    - target: {fileID: 6864482358817730533, guid: ca73a73559a252745ad1b0712674b789,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -50402,12 +50532,12 @@ PrefabInstance:
     - target: {fileID: 5036651238307941661, guid: 23415421686365742be25b34f051d25e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.724409
+      value: 41.65
       objectReference: {fileID: 0}
     - target: {fileID: 5036651238307941661, guid: 23415421686365742be25b34f051d25e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.1609735
+      value: 10.27
       objectReference: {fileID: 0}
     - target: {fileID: 5036651238307941661, guid: 23415421686365742be25b34f051d25e,
         type: 3}
@@ -50448,6 +50578,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7744442907987373307, guid: 23415421686365742be25b34f051d25e,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -50590,6 +50725,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snow Rock58
       objectReference: {fileID: 0}
+    - target: {fileID: 6864482358817730533, guid: 89ac39510fb67ba40871070d9f425849,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -50705,7 +50845,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -62646,7 +62786,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.4745098}
   m_Origin: {x: -70, y: -23, z: 0}
   m_Size: {x: 107, y: 62, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
