@@ -649,32 +649,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 90750264}
-  - component: {fileID: 90750263}
+  - component: {fileID: 90750265}
   m_Layer: 0
-  m_Name: NormalMSpanwer_Left3
+  m_Name: Normal_GreenOrc1_Spanwer_Left3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &90750263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 90750262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d31a4ce0f5bc394f93c5b81c6111f3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawonArray:
-  - {fileID: 1088788215}
-  - {fileID: 2123963478}
-  - {fileID: 1045989286}
-  - {fileID: 1667179175}
-  - {fileID: 1094709160}
 --- !u!4 &90750264
 Transform:
   m_ObjectHideFlags: 0
@@ -695,6 +677,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &90750265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90750262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 285290e68b4e5634b88025bfaf675890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawonArray:
+  - {fileID: 1088788215}
+  - {fileID: 2123963478}
+  - {fileID: 1045989286}
+  - {fileID: 1667179175}
+  - {fileID: 1094709160}
 --- !u!1 &150115725
 GameObject:
   m_ObjectHideFlags: 0
@@ -26106,32 +26106,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 425092318}
-  - component: {fileID: 425092317}
+  - component: {fileID: 425092319}
   m_Layer: 0
-  m_Name: NormalMSpanwer_Right2
+  m_Name: Normal_GreenOrc2_Spanwer_Right2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &425092317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 425092316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d31a4ce0f5bc394f93c5b81c6111f3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawonArray:
-  - {fileID: 1998003572}
-  - {fileID: 323240997}
-  - {fileID: 966698832}
-  - {fileID: 1602335432}
-  - {fileID: 1863414996}
 --- !u!4 &425092318
 Transform:
   m_ObjectHideFlags: 0
@@ -26152,6 +26134,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &425092319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425092316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05deddfeb1999094da5e715b085cdd8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawonArray:
+  - {fileID: 1998003572}
+  - {fileID: 323240997}
+  - {fileID: 966698832}
+  - {fileID: 1602335432}
+  - {fileID: 1863414996}
 --- !u!1 &538210776
 GameObject:
   m_ObjectHideFlags: 0
@@ -26443,32 +26443,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 626171614}
-  - component: {fileID: 626171613}
+  - component: {fileID: 626171615}
   m_Layer: 0
-  m_Name: NormalMSpanwer_Right1
+  m_Name: Normal_GreenOrc1_Spanwer_Right1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &626171613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 626171612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d31a4ce0f5bc394f93c5b81c6111f3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawonArray:
-  - {fileID: 415475662}
-  - {fileID: 650659636}
-  - {fileID: 392007547}
-  - {fileID: 1492053394}
-  - {fileID: 1773859303}
 --- !u!4 &626171614
 Transform:
   m_ObjectHideFlags: 0
@@ -26489,6 +26471,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &626171615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626171612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 285290e68b4e5634b88025bfaf675890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawonArray:
+  - {fileID: 415475662}
+  - {fileID: 650659636}
+  - {fileID: 392007547}
+  - {fileID: 1492053394}
+  - {fileID: 1773859303}
 --- !u!1 &630179449
 GameObject:
   m_ObjectHideFlags: 0
@@ -26498,32 +26498,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 630179451}
-  - component: {fileID: 630179450}
+  - component: {fileID: 630179452}
   m_Layer: 0
-  m_Name: NormalMSpanwer_Left2
+  m_Name: Normal_GreenOrc2_Spanwer_Left2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &630179450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 630179449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d31a4ce0f5bc394f93c5b81c6111f3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawonArray:
-  - {fileID: 1216523036}
-  - {fileID: 2117836594}
-  - {fileID: 635185662}
-  - {fileID: 1898414102}
-  - {fileID: 2045377754}
 --- !u!4 &630179451
 Transform:
   m_ObjectHideFlags: 0
@@ -26544,6 +26526,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &630179452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630179449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05deddfeb1999094da5e715b085cdd8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawonArray:
+  - {fileID: 1216523036}
+  - {fileID: 2117836594}
+  - {fileID: 635185662}
+  - {fileID: 1898414102}
+  - {fileID: 2045377754}
 --- !u!1 &635185661
 GameObject:
   m_ObjectHideFlags: 0
@@ -35935,32 +35935,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 815185067}
-  - component: {fileID: 815185066}
+  - component: {fileID: 815185068}
   m_Layer: 0
-  m_Name: NormalMSpanwer_Right3
+  m_Name: Normal_GreenOrc1_Spanwer_Right3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &815185066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 815185065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d31a4ce0f5bc394f93c5b81c6111f3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawonArray:
-  - {fileID: 952498309}
-  - {fileID: 838267198}
-  - {fileID: 872444129}
-  - {fileID: 1492585863}
-  - {fileID: 336835875}
 --- !u!4 &815185067
 Transform:
   m_ObjectHideFlags: 0
@@ -35981,6 +35963,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &815185068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815185065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 285290e68b4e5634b88025bfaf675890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawonArray:
+  - {fileID: 952498309}
+  - {fileID: 838267198}
+  - {fileID: 872444129}
+  - {fileID: 1492585863}
+  - {fileID: 336835875}
 --- !u!1 &827613847
 GameObject:
   m_ObjectHideFlags: 0
@@ -36832,7 +36832,7 @@ GameObject:
   - component: {fileID: 938365731}
   - component: {fileID: 938365732}
   m_Layer: 0
-  m_Name: NormalMSpanwer_Middle1
+  m_Name: Normal_Tree_Spanwer_Middle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42008,32 +42008,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1480481065}
-  - component: {fileID: 1480481064}
+  - component: {fileID: 1480481066}
   m_Layer: 0
-  m_Name: NormalMSpanwer_Left1
+  m_Name: Normal_GreenOrc1_Spanwer_Left1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1480481064
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1480481063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d31a4ce0f5bc394f93c5b81c6111f3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawonArray:
-  - {fileID: 1308958624}
-  - {fileID: 1421640606}
-  - {fileID: 2128681480}
-  - {fileID: 1777847910}
-  - {fileID: 1871619505}
 --- !u!4 &1480481065
 Transform:
   m_ObjectHideFlags: 0
@@ -42054,6 +42036,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1480481066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480481063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 285290e68b4e5634b88025bfaf675890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawonArray:
+  - {fileID: 1308958624}
+  - {fileID: 1421640606}
+  - {fileID: 2128681480}
+  - {fileID: 1777847910}
+  - {fileID: 1871619505}
 --- !u!1 &1486296886
 GameObject:
   m_ObjectHideFlags: 0
@@ -42347,7 +42347,7 @@ GameObject:
   - component: {fileID: 1513477728}
   - component: {fileID: 1513477729}
   m_Layer: 0
-  m_Name: NormalMSpanwer_Middle2
+  m_Name: Normal_Tree_Spanwer_Middle2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
