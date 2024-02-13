@@ -53,3 +53,6 @@ TagManager:
   - name: object
     uniqueID: 4250941897
     locked: 0
+  - name: Monster
+    uniqueID: 1541179761
+    locked: 0
