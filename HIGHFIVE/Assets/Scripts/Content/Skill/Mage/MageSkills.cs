@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class MageSkills : CharacterSkill
 {
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         FirstSkill = new FireBall();
         FirstSkill.Init();
     }
