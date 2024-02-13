@@ -24,15 +24,14 @@ public class SkillTimer : MonoBehaviour
 
     IEnumerator StartCoolCoroutine(BaseSkill skill)
     {
-        //while (skillData.curTime > 0)
-        //{
-        //    skillData.curTime -= 0.1f;
-        //    skillData.coolTimeicon.fillAmount = skillData.curTime / skillData.coolTime;
-        //    yield return new WaitForSeconds(0.1f);
-        //}
-        //skillData.coolTimeicon.fillAmount = 0;
-        //skillData.curTime = 0;
-        yield return new WaitForSeconds(2f);
+        while (skill.skillData.curTime > 0)
+        {
+            skill.skillData.curTime -= 0.1f;
+            skill.skillData.coolTimeicon.fillAmount = skill.skillData.curTime / skill.skillData.coolTime;
+            yield return new WaitForSeconds(0.1f);
+        }
+        skill.skillData.coolTimeicon.fillAmount = 0;
+        skill.skillData.curTime = skill.skillData.coolTime;
         skill.skillData.isUse = true;
     }
     IEnumerator StartSkillDelayCoroutine(SkillData skillData)

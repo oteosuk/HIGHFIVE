@@ -18,9 +18,9 @@ public class FireBall : BaseSkill
             _fireBallData = firballData;
         }
         //나중에 데이터 매니저에서 받아오기
-        skillData.buffSprite = Main.ResourceManager.Load<Sprite>("Sprites/Projectile/MageNormal");
+        skillData.skillSprite = Main.ResourceManager.Load<Sprite>("Sprites/Projectile/MageNormal");
         skillData.coolTime = 5;
-        skillData.curTime = 0;
+        skillData.curTime = skillData.coolTime;
         skillData.animTime = 0.5f;
         skillData.isUse = true;
         skillData.loadTime = 300;
