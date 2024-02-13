@@ -22,6 +22,8 @@ public class Character : Creature
     public PlayerAnimationData PlayerAnimationData { get; set; }
     public Animator Animator { get; set; }
     public BuffController BuffController { get; private set; }
+    public SkillController SkillController { get; private set; }
+    public CharacterSkill CharacterSkill { get; protected set; }
 
     protected override void Awake()
     {
@@ -33,6 +35,7 @@ public class Character : Creature
         Animator = GetComponentInChildren<Animator>();
         PlayerAnimationData = new PlayerAnimationData();
         BuffController = GetComponent<BuffController>();
+        SkillController = GetComponent<SkillController>();
     }
     protected override void Start()
     {

@@ -53,6 +53,15 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Skill"",
+                    ""type"": ""Button"",
+                    ""id"": ""e36f269a-1318-4f0a-b52a-c6cc461f3b0f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -88,6 +97,17 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
                     ""action"": ""CallCamera"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5b86bef9-b9be-4b6e-b673-50fde0efff59"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skill"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -99,6 +119,7 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_NormalAttack = m_Player.FindAction("NormalAttack", throwIfNotFound: true);
         m_Player_CallCamera = m_Player.FindAction("CallCamera", throwIfNotFound: true);
+        m_Player_Skill = m_Player.FindAction("Skill", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -163,6 +184,7 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_NormalAttack;
     private readonly InputAction m_Player_CallCamera;
+    private readonly InputAction m_Player_Skill;
     public struct PlayerActions
     {
         private @PlayerController m_Wrapper;
@@ -170,6 +192,7 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @NormalAttack => m_Wrapper.m_Player_NormalAttack;
         public InputAction @CallCamera => m_Wrapper.m_Player_CallCamera;
+        public InputAction @Skill => m_Wrapper.m_Player_Skill;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -188,6 +211,9 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
             @CallCamera.started += instance.OnCallCamera;
             @CallCamera.performed += instance.OnCallCamera;
             @CallCamera.canceled += instance.OnCallCamera;
+            @Skill.started += instance.OnSkill;
+            @Skill.performed += instance.OnSkill;
+            @Skill.canceled += instance.OnSkill;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -201,6 +227,9 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
             @CallCamera.started -= instance.OnCallCamera;
             @CallCamera.performed -= instance.OnCallCamera;
             @CallCamera.canceled -= instance.OnCallCamera;
+            @Skill.started -= instance.OnSkill;
+            @Skill.performed -= instance.OnSkill;
+            @Skill.canceled -= instance.OnSkill;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -223,5 +252,6 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnNormalAttack(InputAction.CallbackContext context);
         void OnCallCamera(InputAction.CallbackContext context);
+        void OnSkill(InputAction.CallbackContext context);
     }
 }

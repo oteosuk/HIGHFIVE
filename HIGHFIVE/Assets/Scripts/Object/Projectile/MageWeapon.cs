@@ -37,11 +37,8 @@ public class MageWeapon : MonoBehaviourPunCallbacks
     {
         if (collision.gameObject == _targetObject)
         {
-            
             if (GetComponent<PhotonView>().IsMine)
             {
-                //나중에 교체
-                Debug.Log(Main.GameManager.SpawnedCharacter.stat.Attack);
                 collision.gameObject.GetComponent<Stat>()?.TakeDamage(Main.GameManager.SpawnedCharacter.stat.Attack, _shooter);
                 PhotonNetwork.Destroy(gameObject);
             }
