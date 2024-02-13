@@ -48,6 +48,7 @@ public class PlayerMoveState : PlayerBaseState
 
     private void Move()
     {
+        Character myCharacter = _playerStateMachine._player;
         if (Mouse.current.rightButton.isPressed)
         {
             _playerStateMachine.isLeftClicked = false;
@@ -60,8 +61,11 @@ public class PlayerMoveState : PlayerBaseState
         }
 
         _targetPosition = _playerStateMachine._player.targetObject == null ? _playerStateMachine.moveInput : _playerStateMachine._player.targetObject.transform.position;
-        MovePlayerToTarget();
 
+        if (myCharacter.Animator.GetBool(myCharacter.PlayerAnimationData.SkillDelayTimeHash)) return;
+
+        MovePlayerToTarget();
+        
         CheckForAttack();
 
         if (_targetPosition == (Vector2)_playerStateMachine._player.transform.position)
