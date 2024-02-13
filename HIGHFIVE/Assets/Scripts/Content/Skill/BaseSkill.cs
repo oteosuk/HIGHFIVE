@@ -13,7 +13,8 @@ public struct SkillData
     public double loadTime;
     public bool isUse;
     public Image coolTimeicon;
-    public Sprite buffSprite;
+    public Sprite skillSprite;
+    public GameObject skillPrefab;
 }
 
 public abstract class BaseSkill

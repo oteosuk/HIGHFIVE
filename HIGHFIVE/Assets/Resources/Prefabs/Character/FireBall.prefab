@@ -163,7 +163,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7b9821183c0a1743be6240f27c40d20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistance: 5
 --- !u!1 &5615301016237257257
 GameObject:
   m_ObjectHideFlags: 0
