@@ -89,7 +89,7 @@ public class ResourceManager
         if (PhotonNetwork.IsMasterClient)
         {
             GameObject monster = PhotonNetwork.Instantiate($"Prefabs/{path}", position, Quaternion.identity);
-            monster.transform.parent = parent;
+            monster.transform.SetParent(parent);
             return monster;
         }
         return null;
