@@ -23,7 +23,16 @@ public class Stat : MonoBehaviour
     public int CurHp
     {
         get { return _curHp; }
-        set { _statController.CallChangeHpEvent(value, MaxHp); _curHp = value; }
+        set 
+        {
+            if (value == 0)
+            {
+                _statController.CallDieEvent();
+                _statController.CallChangeHpEvent(value, MaxHp);
+            }
+            _statController.CallChangeHpEvent(value, MaxHp);
+            _curHp = value; 
+        }
     }
     public int MaxHp 
     {
@@ -92,7 +101,6 @@ public class Stat : MonoBehaviour
                 shooter.GetComponent<CharacterStat>().AddExp(myStat.Exp, shooter);
             }
             myStat.CurHp = 0;
-            _statController.CallDieEvent();
         }
         else
         {

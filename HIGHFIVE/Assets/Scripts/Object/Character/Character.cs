@@ -13,7 +13,6 @@ public class Character : Creature
         Attack
     }
 
-    
     private PhotonView _photonView;
     private Texture2D _attackTexture;
     private Texture2D _normalTexture;
@@ -22,8 +21,7 @@ public class Character : Creature
     public PlayerInput Input { get; protected set; }
     public PlayerAnimationData PlayerAnimationData { get; set; }
     public Animator Animator { get; set; }
-
-    public int resolution = 30;
+    public BuffController BuffController { get; private set; }
 
     protected override void Awake()
     {
@@ -34,6 +32,7 @@ public class Character : Creature
         Collider = GetComponent<Collider2D>();
         Animator = GetComponentInChildren<Animator>();
         PlayerAnimationData = new PlayerAnimationData();
+        BuffController = GetComponent<BuffController>();
     }
     protected override void Start()
     {
@@ -109,7 +108,7 @@ public class Character : Creature
         int layer = Main.GameManager.SelectedCamp == Define.Camp.Red ? (int)Define.Layer.Red : (int)Define.Layer.Blue;
         GetComponent<PhotonView>().RPC("SetLayer", RpcTarget.All, layer);
         _playerStateMachine._player.Collider.isTrigger = false;
-        _playerStateMachine._player.Animator.SetBool(_playerStateMachine._player.PlayerAnimationData.IdleParameterHash, true);
+        _playerStateMachine._player.Animator.SetBool(_playerStateMachine._player.PlayerAnimationData.DieParameterHash, false);
         Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10f);
     }
 
@@ -122,5 +121,29 @@ public class Character : Creature
     public void SetLayer(int layer)
     {
         gameObject.layer = layer;
+    }
+
+    [PunRPC]
+    public void SetHpBarColor()
+    {
+        Image fillImage = null;
+        foreach (Image component in gameObject.GetComponentsInChildren<Image>())
+        {
+            if (component.name == "Fill")
+            {
+                fillImage = component;
+            }
+        }
+        if (fillImage != null)
+        {
+            if (gameObject.layer == (int)Define.Camp.Red)
+            {
+                fillImage.color = Define.GreenColor;
+            }
+            else
+            {
+                fillImage.color = Define.BlueColor;
+            }
+        }
     }
 }
