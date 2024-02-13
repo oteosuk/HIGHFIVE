@@ -101,8 +101,9 @@ public class MonsterMoveState : MonsterBaseState
             _monsterStateMachine._monster.targetObject.transform.position,
             _monsterStateMachine._monster.stat.MoveSpeed * Time.deltaTime * _monsterStateMachine.moveSpeedModifier
         );
-
-        SetAnimation(angle);
+        Debug.Log(_objectName);
+        //if(_objectName == "Tree") 
+            SetAnimation(angle);
     }
 
     // 스폰존으로 돌아가는 로직을 구현
@@ -117,7 +118,8 @@ public class MonsterMoveState : MonsterBaseState
             _monsterStateMachine._monster._spawnPoint,
             _monsterStateMachine._monster.stat.MoveSpeed * Time.deltaTime * _monsterStateMachine.moveSpeedModifier);
 
-        SetAnimation(angle);
+        //if (_objectName == "Tree") 
+            SetAnimation(angle);
 
         //몬스터가 스폰포인트에 도착했을때
         if ((Vector2)_monsterStateMachine._monster.transform.position == _monsterStateMachine._monster._spawnPoint)

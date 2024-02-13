@@ -250,23 +250,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baea2e9758e554909b2367e396d9c5a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemList:
-  - {fileID: 5043354752989981173}
-  - {fileID: 5043354752711531265}
-  - {fileID: 5043354752711531264}
-  - {fileID: 5043354752711531266}
-  - {fileID: 5043354752711531268}
-  - {fileID: 5043354752711531267}
-  - {fileID: 5043354752711531277}
-  - {fileID: 5043354752711531278}
-  - {fileID: 5043354752711531269}
-  - {fileID: 5043354752711531268}
-  - {fileID: 5043354752711531267}
-  - {fileID: 5043354752711531272}
-  - {fileID: 5043354752711531273}
-  - {fileID: 5043354752711531274}
-  - {fileID: 5043354752711531275}
-  - {fileID: 5043354752711531279}
   _eyeList:
   - {fileID: 3350661130493280382}
   - {fileID: 8844305541134167234}
@@ -302,10 +285,6 @@ MonoBehaviour:
   - {fileID: 5043354752711531275}
   _backList:
   - {fileID: 5043354752711531279}
-  _spHorseSPList: {fileID: 0}
-  _spHorseString: 
-  _bodyTexture: {fileID: 0}
-  _bodyString: 
   _hairListString:
   - Assets/Resources/SPUM/SPUM_Sprites/Packages/Ver300/0_Hair/New_Hair_11.png
   - 
@@ -623,7 +602,7 @@ SpriteRenderer:
   m_Size: {x: 0.875, y: 0.65625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &2306814716569534915
@@ -793,16 +772,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ac21711b0ec40a0812d33a586eb7ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _version: 141
   _spriteOBj: {fileID: 5043354752711531276}
   EditChk: 0
   _code: Unit37
   _anim: {fileID: 4195281902555302651}
-  _horse: 0
-  _horseString: 
-  UnitTypeChanged:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &2763143092398436260
 GameObject:
   m_ObjectHideFlags: 0

@@ -3039,16 +3039,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ac21711b0ec40a0812d33a586eb7ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _version: 141
   _spriteOBj: {fileID: 2986864154873954954}
   EditChk: 0
   _code: Unit20
   _anim: {fileID: 6248256141945803645}
-  _horse: 0
-  _horseString: 
-  UnitTypeChanged:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &5898140901719480922
 GameObject:
   m_ObjectHideFlags: 0
@@ -3602,23 +3596,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baea2e9758e554909b2367e396d9c5a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemList:
-  - {fileID: 2986864155149267059}
-  - {fileID: 2986864154873954951}
-  - {fileID: 2986864154873954950}
-  - {fileID: 2986864154873954948}
-  - {fileID: 2986864154873954946}
-  - {fileID: 2986864154873954949}
-  - {fileID: 2986864154873954955}
-  - {fileID: 2986864154873954952}
-  - {fileID: 2986864154873954947}
-  - {fileID: 2986864154873954946}
-  - {fileID: 2986864154873954949}
-  - {fileID: 2986864154873954958}
-  - {fileID: 2986864154873954959}
-  - {fileID: 2986864154873954956}
-  - {fileID: 2986864154873954957}
-  - {fileID: 2986864154873954953}
   _eyeList:
   - {fileID: 4823656438074759672}
   - {fileID: 1599807514191869252}
@@ -3654,10 +3631,6 @@ MonoBehaviour:
   - {fileID: 2986864154873954957}
   _backList:
   - {fileID: 2986864154873954953}
-  _spHorseSPList: {fileID: 0}
-  _spHorseString: 
-  _bodyTexture: {fileID: 0}
-  _bodyString: 
   _hairListString:
   - Assets/Resources/SPUM/SPUM_Sprites/Packages/MS_Orc/0_Hair/Orc_Hair_02.png
   - 
