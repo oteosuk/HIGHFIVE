@@ -21,10 +21,12 @@ public class Define
         DoubleClick
     }
 
-    public enum Object
+    public enum SkillNum
     {
-        Character,
-        Monster
+        Skill1,
+        Skill2,
+        Skill3,
+        Skill4
     }
 
     public enum Camp

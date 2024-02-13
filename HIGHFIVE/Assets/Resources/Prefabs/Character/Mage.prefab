@@ -756,6 +756,9 @@ GameObject:
   - component: {fileID: 601169195504802823}
   - component: {fileID: -960882423806059405}
   - component: {fileID: -6616503517616449705}
+  - component: {fileID: -1791476700074426549}
+  - component: {fileID: -7286882419724846118}
+  - component: {fileID: 7638280451060931361}
   m_Layer: 0
   m_Name: Mage
   m_TagString: Player
@@ -777,7 +780,7 @@ RectTransform:
   m_Children:
   - {fileID: 2817241845530868964}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -967,6 +970,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 842bffc905b67e94f8368e7781949c58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-1791476700074426549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3169462063946501877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1f894e6d9ab0f44796f8f022b677aa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-7286882419724846118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3169462063946501877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b05ce8acaadaf244e8fcfc6e1c990111, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7638280451060931361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3169462063946501877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b9ce6f45d8a2d6458d3ee73ee8f57e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3177339565451203455
 GameObject:
   m_ObjectHideFlags: 0
@@ -1114,6 +1153,12 @@ MonoBehaviour:
   - Type: 1
     SynchronizeType: 1
     Name: AttackSpeed
+  - Type: 4
+    SynchronizeType: 1
+    Name: isSkillDelay
+  - Type: 4
+    SynchronizeType: 1
+    Name: isFirstSkill
   m_SynchronizeLayers:
   - SynchronizeType: 1
     LayerIndex: 0

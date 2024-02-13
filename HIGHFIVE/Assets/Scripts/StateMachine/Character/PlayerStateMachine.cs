@@ -10,7 +10,7 @@ public class PlayerStateMachine : StateMachine
     public PlayerMoveState _playerMoveState { get; }
     public PlayerAttackState _playerAttackState { get; }
     public PlayerDieState _playerDieState { get; }
-    public PlayerSkillState _playerSkillState { get; }
+    public PlayerFirstSkillState PlayerFirstSkillState { get; }
 
     public Vector2 moveInput { get; set; }
     public float moveSpeedModifier = 1.0f;
@@ -25,7 +25,7 @@ public class PlayerStateMachine : StateMachine
         _playerMoveState = new PlayerMoveState(this);
         _playerAttackState = new PlayerAttackState(this);
         _playerDieState = new PlayerDieState(this);
-        _playerSkillState = new PlayerSkillState(this);
+        PlayerFirstSkillState = new PlayerFirstSkillState(this);
     }
 
 }
