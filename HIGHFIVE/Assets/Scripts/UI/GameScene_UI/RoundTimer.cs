@@ -58,7 +58,7 @@ public class RoundTimer : MonoBehaviour
     {
         yield return new WaitForSeconds(1.0f);
         Main.GameManager.page = Define.Page.Farming;
-        farmingTime = 10; // 이부분 시간조절
+        farmingTime = 60; // 이부분 시간조절
         curTime = farmingTime;
 
         

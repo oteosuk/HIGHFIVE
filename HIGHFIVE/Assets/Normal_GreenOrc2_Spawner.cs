@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Normal_Tree_Spawneer : MonsterSpawner
+public class Normal_GreenOrc2_Spawner : MonsterSpawner
 {
     protected override void Start()
     {
@@ -15,7 +15,7 @@ public class Normal_Tree_Spawneer : MonsterSpawner
             _curTime -= Time.deltaTime;
             if (_curTime <= 0)
             {
-                ReSpawn("Monster/Normal/Tree");
+                ReSpawn("Monster/Normal/GreenOrc2");
             }
         }
     }

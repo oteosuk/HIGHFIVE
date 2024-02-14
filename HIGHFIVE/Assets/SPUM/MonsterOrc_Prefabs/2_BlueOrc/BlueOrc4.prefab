@@ -2765,16 +2765,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ac21711b0ec40a0812d33a586eb7ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _version: 141
   _spriteOBj: {fileID: 3924742737719054507}
   EditChk: 0
   _code: Unit25
   _anim: {fileID: 5310384414872617308}
-  _horse: 0
-  _horseString: 
-  UnitTypeChanged:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &5961731073608139770
 GameObject:
   m_ObjectHideFlags: 0
@@ -3612,23 +3606,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baea2e9758e554909b2367e396d9c5a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemList:
-  - {fileID: 3924742737023279698}
-  - {fileID: 3924742737719054502}
-  - {fileID: 3924742737719054503}
-  - {fileID: 3924742737719054501}
-  - {fileID: 3924742737719054499}
-  - {fileID: 3924742737719054500}
-  - {fileID: 3924742737719054506}
-  - {fileID: 3924742737719054505}
-  - {fileID: 3924742737719054498}
-  - {fileID: 3924742737719054499}
-  - {fileID: 3924742737719054500}
-  - {fileID: 3924742737719054511}
-  - {fileID: 3924742737719054510}
-  - {fileID: 3924742737719054509}
-  - {fileID: 3924742737719054508}
-  - {fileID: 3924742737719054504}
   _eyeList:
   - {fileID: 6770340014668450777}
   - {fileID: 664190592405596005}
@@ -3664,10 +3641,6 @@ MonoBehaviour:
   - {fileID: 3924742737719054508}
   _backList:
   - {fileID: 3924742737719054504}
-  _spHorseSPList: {fileID: 0}
-  _spHorseString: 
-  _bodyTexture: {fileID: 0}
-  _bodyString: 
   _hairListString:
   - 
   - 

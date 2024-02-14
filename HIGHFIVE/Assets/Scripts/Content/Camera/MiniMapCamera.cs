@@ -49,7 +49,7 @@ public class MiniMapCamera : MonoBehaviour
         Vector2 mousePoint = playerStateMachine._player.Input._playerActions.Move.ReadValue<Vector2>();
         Vector2 raymousePoint = Camera.main.ScreenToWorldPoint(mousePoint);
 
-        Debug.Log(mousePoint + " " + raymousePoint);
+        //Debug.Log(mousePoint + " " + raymousePoint);
         float xRatio;
         float yRatio;
         //minimap관련

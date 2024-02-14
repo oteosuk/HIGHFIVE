@@ -6,6 +6,7 @@ public class MonsterBaseState : IState
     protected Animator _anim;
     protected MonsterAnimationData _animData;
     protected float _speedModifier;
+    protected string _objectName;
     private bool isDead = false;
 
     public MonsterBaseState(MonsterStateMachine monsterStateMachine)
@@ -14,6 +15,7 @@ public class MonsterBaseState : IState
         _anim = _monsterStateMachine._monster.Animator;
         _animData = _monsterStateMachine._monster.MonsterAnimationData;
         _speedModifier = _monsterStateMachine.moveSpeedModifier;
+        _objectName = _monsterStateMachine.MonsterName;
     }
 
     public virtual void Enter()

@@ -930,16 +930,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ac21711b0ec40a0812d33a586eb7ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _version: 141
   _spriteOBj: {fileID: 8688164088620368406}
   EditChk: 0
   _code: Unit0
   _anim: {fileID: 529091525738288097}
-  _horse: 0
-  _horseString: 
-  UnitTypeChanged:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &2840046567644117347
 GameObject:
   m_ObjectHideFlags: 0
@@ -1455,23 +1449,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baea2e9758e554909b2367e396d9c5a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemList:
-  - {fileID: 8688164086851907823}
-  - {fileID: 8688164088620368411}
-  - {fileID: 8688164088620368410}
-  - {fileID: 8688164088620368408}
-  - {fileID: 8688164088620368414}
-  - {fileID: 8688164088620368409}
-  - {fileID: 8688164088620368407}
-  - {fileID: 8688164088620368404}
-  - {fileID: 8688164088620368415}
-  - {fileID: 8688164088620368414}
-  - {fileID: 8688164088620368409}
-  - {fileID: 8688164088620368402}
-  - {fileID: 8688164088620368403}
-  - {fileID: 8688164088620368400}
-  - {fileID: 8688164088620368401}
-  - {fileID: 8688164088620368405}
   _eyeList:
   - {fileID: 1373852777605831012}
   - {fileID: 5175302679679858136}
@@ -1507,10 +1484,6 @@ MonoBehaviour:
   - {fileID: 8688164088620368401}
   _backList:
   - {fileID: 8688164088620368405}
-  _spHorseSPList: {fileID: 0}
-  _spHorseString: 
-  _bodyTexture: {fileID: 0}
-  _bodyString: 
   _hairListString:
   - 
   - Assets/Resources/SPUM/SPUM_Sprites/Packages/MS_Orc/4_Helmet/Orc_Helmet_02.png

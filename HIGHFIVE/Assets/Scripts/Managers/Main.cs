@@ -15,7 +15,6 @@ public class Main : MonoBehaviour
     private PoolManager _poolManager = new PoolManager();
     private DataManager _dataManager = new DataManager();
     private SoundManager _soundManager = new SoundManager();
-    private ObjectManager _objectManager = new ObjectManager();
     private SceneManagerEx _sceneManagerEx = new SceneManagerEx();
     private NetworkManager _networkManager = new NetworkManager();
     private ResourceManager _resourceManager = new ResourceManager();
@@ -25,7 +24,6 @@ public class Main : MonoBehaviour
     public static PoolManager PoolManager { get { return Instance._poolManager; } }
     public static DataManager DataManager { get { return Instance._dataManager; } }
     public static SoundManager SoundManager { get { return Instance._soundManager; } }
-    public static ObjectManager ObjectManager { get { return Instance._objectManager; } }
     public static SceneManagerEx SceneManagerEx { get { return Instance._sceneManagerEx; } }
     public static NetworkManager NetworkManager { get { return Instance._networkManager; } }
     public static ResourceManager ResourceManager { get { return Instance._resourceManager; } }

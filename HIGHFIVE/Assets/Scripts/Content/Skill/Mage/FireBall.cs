@@ -18,12 +18,12 @@ public class FireBall : BaseSkill
             _fireBallData = firballData;
         }
         //나중에 데이터 매니저에서 받아오기
-        skillData.buffSprite = Main.ResourceManager.Load<Sprite>("Sprites/Projectile/MageNormal");
+        skillData.skillSprite = Main.ResourceManager.Load<Sprite>("Sprites/Projectile/MageNormal");
         skillData.coolTime = 5;
-        skillData.curTime = 0;
+        skillData.curTime = skillData.coolTime;
         skillData.animTime = 0.5f;
         skillData.isUse = true;
-        skillData.loadTime = 300;
+        skillData.loadTime = 0;
         skillData.damage = _fireBallData.damage + (int)(Main.GameManager.SpawnedCharacter.stat.Attack * _fireBallData.damageRatio);
     }
     public override void Execute()
@@ -41,9 +41,9 @@ public class FireBall : BaseSkill
 
     private async void InstantiateAfterLoad()
     {
-        await Task.Delay(TimeSpan.FromMilliseconds(350));
-        Character myCharacter = Main.GameManager.SpawnedCharacter;
         Vector2 dir = GetDir().normalized;
+        await Task.Delay(TimeSpan.FromMilliseconds(200));
+        Character myCharacter = Main.GameManager.SpawnedCharacter;
         GameObject sphere = Main.ResourceManager.Instantiate("Character/FireBall", myCharacter.transform.position, syncRequired: true);
         SetRotation(sphere, dir);
         SetSpeed(sphere, dir);

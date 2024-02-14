@@ -463,23 +463,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baea2e9758e554909b2367e396d9c5a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemList:
-  - {fileID: 5855347148138846244}
-  - {fileID: 5855347147828980432}
-  - {fileID: 5855347147828980433}
-  - {fileID: 5855347147828980435}
-  - {fileID: 5855347147828980437}
-  - {fileID: 5855347147828980434}
-  - {fileID: 5855347147828980444}
-  - {fileID: 5855347147828980447}
-  - {fileID: 5855347147828980436}
-  - {fileID: 5855347147828980437}
-  - {fileID: 5855347147828980434}
-  - {fileID: 5855347147828980441}
-  - {fileID: 5855347147828980440}
-  - {fileID: 5855347147828980443}
-  - {fileID: 5855347147828980442}
-  - {fileID: 5855347147828980446}
   _eyeList:
   - {fileID: 4233445032001384879}
   - {fileID: 7927054836305321235}
@@ -515,10 +498,6 @@ MonoBehaviour:
   - {fileID: 5855347147828980442}
   _backList:
   - {fileID: 5855347147828980446}
-  _spHorseSPList: {fileID: 0}
-  _spHorseString: 
-  _bodyTexture: {fileID: 0}
-  _bodyString: 
   _hairListString:
   - Assets/Resources/SPUM/SPUM_Sprites/Packages/Ver300/0_Hair/New_Hair_15.png
   - 
@@ -1278,16 +1257,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ac21711b0ec40a0812d33a586eb7ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _version: 141
   _spriteOBj: {fileID: 5855347147828980445}
   EditChk: 0
   _code: Unit26
   _anim: {fileID: 3352760536301861674}
-  _horse: 0
-  _horseString: 
-  UnitTypeChanged:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &4040247199925316534
 GameObject:
   m_ObjectHideFlags: 0
