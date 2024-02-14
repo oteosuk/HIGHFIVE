@@ -150,4 +150,23 @@ public class Character : Creature
             }
         }
     }
+
+    [PunRPC]
+    public void AddPlayer(int viewId)
+    {
+        if (!Main.NetworkManager.photonPlayerObject.ContainsKey(viewId) && !Main.NetworkManager.photonPlayer.ContainsKey(viewId))
+        {
+            Main.NetworkManager.photonPlayerObject.Add(viewId, gameObject);
+            Main.NetworkManager.photonPlayer.Add(viewId, PhotonNetwork.LocalPlayer);
+        }
+    }
+
+    [PunRPC]
+    public void ReceiveBuff(int viewId)
+    {
+        if (Main.NetworkManager.photonPlayerObject.TryGetValue(viewId, out GameObject targetObject))
+        {
+            targetObject.GetComponent<Character>().BuffController.AddBuffEvent(typeof(AssassinationBuff));
+        }
+    }
 }

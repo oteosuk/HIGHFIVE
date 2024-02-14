@@ -9,6 +9,7 @@ public struct BuffData
     public Type type;
     public float duration;
     public float curTime;
+    public int trueDamage;
     public Image coolTimeicon;
     public Sprite buffSprite;
 }

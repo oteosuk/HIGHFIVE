@@ -1,6 +1,7 @@
 using Photon.Pun;
 using Photon.Realtime;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class NetworkManager
@@ -8,6 +9,10 @@ public class NetworkManager
     public Dictionary<string, Player> photonPlayerDict = new Dictionary<string, Player>();
     public Dictionary<string, bool> photonRoomDict = new Dictionary<string, bool>();
     public Dictionary<string, Image> photonReadyImageDict = new Dictionary<string, Image>();
+
+    //InGame
+    public Dictionary<int, Player> photonPlayer = new Dictionary<int, Player>();
+    public Dictionary<int, GameObject> photonPlayerObject = new Dictionary<int, GameObject>();
 
     private string _gameVersion = "1";
         

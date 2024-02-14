@@ -11,11 +11,13 @@ public class PlayerStateMachine : StateMachine
     public PlayerAttackState _playerAttackState { get; }
     public PlayerDieState _playerDieState { get; }
     public PlayerFirstSkillState PlayerFirstSkillState { get; }
+    public Define.InputKey InputKey { get; set; }
 
     public Vector2 moveInput { get; set; }
     public float moveSpeedModifier = 1.0f;
     public bool isAttackReady = false;
     public bool isLeftClicked = false;
+    
 
     public PlayerStateMachine(Character player)
     {

@@ -26,10 +26,15 @@ public class FireBall : BaseSkill
         skillData.loadTime = 0;
         skillData.damage = _fireBallData.damage + (int)(Main.GameManager.SpawnedCharacter.stat.Attack * _fireBallData.damageRatio);
     }
+
+    public override bool CanUseSkill()
+    {
+        if (!skillData.isUse) return false;
+        return true;
+    }
     public override void Execute()
     {
         Character myCharacter = Main.GameManager.SpawnedCharacter;
-        if (!skillData.isUse) return;
 
         skillData.isUse = false;
         myCharacter.Animator.SetBool(myCharacter.PlayerAnimationData.SkillDelayTimeHash, true);

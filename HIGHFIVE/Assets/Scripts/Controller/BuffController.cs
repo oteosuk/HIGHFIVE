@@ -10,8 +10,10 @@ public class BuffController : MonoBehaviour
 
     public void AddBuffEvent(Type buffType)
     {
+        Debug.Log("kk");
         if (buffEvent != null)
         {
+            Debug.Log("gg");
             buffEvent.Invoke(buffType);
         }
     }

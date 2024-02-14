@@ -8,6 +8,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.TextCore.Text;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class PlayerMoveState : PlayerBaseState
@@ -49,16 +50,7 @@ public class PlayerMoveState : PlayerBaseState
     private void Move()
     {
         Character myCharacter = _playerStateMachine._player;
-        if (Mouse.current.rightButton.isPressed)
-        {
-            _playerStateMachine.isLeftClicked = false;
-            PrepareForMove();
-        }
-        else if (_playerStateMachine.isAttackReady && Mouse.current.leftButton.isPressed)
-        {
-            PrepareForMove();
-            _playerStateMachine.isLeftClicked = true;
-        }
+        HandlePlayerInput();
 
         _targetPosition = _playerStateMachine._player.targetObject == null ? _playerStateMachine.moveInput : _playerStateMachine._player.targetObject.transform.position;
 
@@ -66,7 +58,11 @@ public class PlayerMoveState : PlayerBaseState
 
         MovePlayerToTarget();
         
-        CheckForAttack();
+        if (_playerStateMachine.InputKey != Define.InputKey.FirstSkill)
+        {
+            CheckForAttack();
+        }
+        
 
         if (_targetPosition == (Vector2)_playerStateMachine._player.transform.position)
         {
@@ -119,6 +115,43 @@ public class PlayerMoveState : PlayerBaseState
             _playerStateMachine._player.targetObject = enemyCollider != null ? enemyCollider.gameObject : monsterCollider.gameObject;
             _targetPosition = _playerStateMachine._player.targetObject.transform.position;
             _playerStateMachine.isLeftClicked = false;
+        }
+    }
+
+    private void HandlePlayerInput()
+    {
+        switch (_playerStateMachine.InputKey)
+        {
+            case Define.InputKey.RightMouse:
+                HandleRightMouseInput();
+                _playerStateMachine.InputKey = Define.InputKey.None;
+                break;
+            case Define.InputKey.LeftMouse:
+                HandleLeftMouseInput();
+                _playerStateMachine.InputKey = Define.InputKey.None;
+                break;
+            case Define.InputKey.FirstSkill:
+                HandleFirstSkillInput();
+                break;
+        }
+    }
+
+    private void HandleRightMouseInput()
+    {
+        _playerStateMachine.isLeftClicked = false;
+        PrepareForMove();
+    }
+    private void HandleLeftMouseInput()
+    {
+        _playerStateMachine.isLeftClicked = true;
+        PrepareForMove();
+    }
+    private void HandleFirstSkillInput()
+    {
+        Character myCharacter = _playerStateMachine._player;
+        if (myCharacter.CharacterSkill.FirstSkill.CanUseSkill())
+        {
+            _playerStateMachine.ChangeState(_playerStateMachine.PlayerFirstSkillState);
         }
     }
 }

@@ -9,6 +9,7 @@ public class Rogue : Character
     {
         base.Awake();
         stat = GetComponent<Stat>();
+        CharacterSkill = GetComponent<RogueSkill>();
     }
     protected override void Start()
     {

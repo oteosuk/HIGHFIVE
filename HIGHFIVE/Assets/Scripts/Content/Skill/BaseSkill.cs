@@ -9,7 +9,9 @@ public struct SkillData
     public float coolTime;
     public float curTime;
     public float animTime;
+    public float durationTime;
     public int damage;
+    public float skillRange;
     public double loadTime;
     public bool isUse;
     public Image coolTimeicon;
@@ -23,4 +25,5 @@ public abstract class BaseSkill
     public virtual void Init() { }
 
     public abstract void Execute();
+    public abstract bool CanUseSkill();
 }
