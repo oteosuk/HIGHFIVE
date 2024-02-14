@@ -25,10 +25,9 @@ public class Stat : MonoBehaviour
         get { return _curHp; }
         set 
         {
-            if (value == 0)
+            if (gameObject == Main.GameManager.SpawnedCharacter.gameObject && value == 0)
             {
                 _statController.CallDieEvent();
-                _statController.CallChangeHpEvent(value, MaxHp);
             }
             _statController.CallChangeHpEvent(value, MaxHp);
             _curHp = value; 

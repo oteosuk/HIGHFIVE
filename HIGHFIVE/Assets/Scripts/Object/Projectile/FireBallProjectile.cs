@@ -39,7 +39,8 @@ public class FireBallProjectile : MonoBehaviour
         {
             if (GetComponent<PhotonView>().IsMine)
             {
-                collision.gameObject.GetComponent<Stat>()?.TakeDamage(Main.GameManager.SpawnedCharacter.stat.Attack, _shooter);
+                //shooter의 정보
+                collision.gameObject.GetComponent<Stat>()?.TakeDamage(Main.GameManager.SpawnedCharacter.CharacterSkill.FirstSkill.skillData.damage, _shooter);
                 PhotonNetwork.Destroy(gameObject);
             }
         }
