@@ -169,10 +169,10 @@ public class MonsterMoveState : MonsterBaseState
     // anim bool파라미터 초기화
     void StopAnimationAll()
     {
-        StopAnimation(_animData.IdleParameterHash);
+        /*StopAnimation(_animData.IdleParameterHash);
         StopAnimation(_animData.LeftParameterHash);
         StopAnimation(_animData.RightParameterHash);
         StopAnimation(_animData.UpParameterHash);
-        StopAnimation(_animData.DownParameterHash);
+        StopAnimation(_animData.DownParameterHash);*/
     }
 }
