@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SkillTimer : MonoBehaviour
 {
-    private SkillController _skillController;
-    private void Start()
+    protected SkillController _skillController;
+    protected virtual void Start()
     {
         _skillController = GetComponent<SkillController>();
         _skillController.skillExecuteEvent += StartCoolDown;

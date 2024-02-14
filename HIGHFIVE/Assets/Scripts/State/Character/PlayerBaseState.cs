@@ -107,13 +107,18 @@ public class PlayerBaseState : IState
         //우클릭
         if (Mouse.current.rightButton.wasPressedThisFrame)
         {
+            Vector2 mousePoint = _playerStateMachine._player.Input._playerActions.Move.ReadValue<Vector2>();
+            if ((1515 <= mousePoint.x && mousePoint.x <= 1900) && (20 <= mousePoint.y && mousePoint.y <= 280)) { return; }
+            
             RayToObjectAndSetTarget();
+            _playerStateMachine.InputKey = Define.InputKey.RightMouse;
         }
 
         //A누르고 좌클릭
         if (Mouse.current.leftButton.wasPressedThisFrame && _playerStateMachine.isAttackReady)
         {
             RayToObjectAndSetTarget();
+            _playerStateMachine.InputKey = Define.InputKey.LeftMouse;
         }
     }
     private void ReadSkillInput()
@@ -121,8 +126,9 @@ public class PlayerBaseState : IState
         //나중에 키세팅 기능 추가
         if (Keyboard.current.qKey.wasPressedThisFrame)
         {
+            _playerStateMachine.InputKey = Define.InputKey.FirstSkill;
             Character myCharacter = _playerStateMachine._player;
-            if (myCharacter.CharacterSkill.FirstSkill.skillData.isUse)
+            if (myCharacter.CharacterSkill.FirstSkill.CanUseSkill())
             {
                 _playerStateMachine.ChangeState(_playerStateMachine.PlayerFirstSkillState);
             }

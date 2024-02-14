@@ -15,6 +15,7 @@ public class SkillScene_UI : MonoBehaviour
     {
         _skill = Main.GameManager.SpawnedCharacter.CharacterSkill;
         BaseSkill firstSkill = _skill?.FirstSkill;
+        Debug.Log(firstSkill);
         if (firstSkill != null )
         {
             GameObject skillPrefab = Main.ResourceManager.Instantiate("UI_Prefabs/Skill", parent: transform);

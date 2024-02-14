@@ -30,6 +30,8 @@ public class GameScene : BaseScene
         if (_classMapping.TryGetValue(Main.GameManager.SelectedCharacter, out selectClass))
         {
             characterObj = Main.ResourceManager.Instantiate($"Character/{selectClass}", position, syncRequired: true);
+            PhotonView pv = characterObj.GetComponent<PhotonView>();
+            pv.RPC("AddPlayer", RpcTarget.AllBuffered, pv.ViewID);
             Main.ResourceManager.Instantiate("UI_Prefabs/GameSceneUI");
             Main.GameManager.SpawnedCharacter = characterObj.GetComponent<Character>();
             _cameraController.CallCharacterSpawnEvent();

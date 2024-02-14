@@ -48,6 +48,8 @@ MonoBehaviour:
   - SyncHpRatio
   - ToTarget
   - SyncScore
+  - AddPlayer
+  - ReceiveBuff
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
