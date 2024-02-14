@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class AssassinationBuff : BaseBuff
 {
     private BuffDBEntity _assassinationBuffData;
+    private float dealingTime;
     protected override void Start()
     {
         base.Start();
@@ -13,15 +14,16 @@ public class AssassinationBuff : BaseBuff
         {
             _assassinationBuffData = assassinationBuffData;
         }
-        Debug.Log("sdffs");
         //나중에 데이터 매니저에서 받아오기
         buffData.buffSprite = Main.ResourceManager.Load<Sprite>("Sprites/Projectile/arrow");
         buffData.type = typeof(AssassinationBuff);
-        buffData.duration = 3;
+        buffData.duration = 30;
         buffData.coolTimeicon = transform.Find("BuffCool").GetComponent<Image>();
         buffData.curTime = 0;
+        dealingTime = 0;
         buffData.trueDamage = 3;
         GetComponent<Image>().sprite = buffData.buffSprite;
+        myCharacter.GetComponent<StatController>().dieEvent += OffBuff;
         StartCoroutine(DealingPerSec());
         StartCoroutine(ActiveBuff());
     }
@@ -32,13 +34,13 @@ public class AssassinationBuff : BaseBuff
 
     private IEnumerator DealingPerSec()
     {
-        while(buffData.curTime <= buffData.duration)
+        while(dealingTime < buffData.duration)
         {
-            buffData.curTime += 1f;
-            _stat.CurHp -= buffData.trueDamage;
+            dealingTime += 1f;
+            _stat.TakeDamage(buffData.trueDamage, isTrueDamage: true);
             yield return new WaitForSeconds(1f);
         }
-        buffData.curTime = 0;
+        dealingTime = 0;
     }
 
     protected override void LoseBuff()
@@ -52,5 +54,11 @@ public class AssassinationBuff : BaseBuff
         StopCoroutine(ActiveBuff());
         buffData.curTime = 0;
         StartCoroutine(ActiveBuff());
+    }
+
+    private void OffBuff()
+    {
+        buffData.curTime = buffData.duration;
+        dealingTime = buffData.duration;
     }
 }

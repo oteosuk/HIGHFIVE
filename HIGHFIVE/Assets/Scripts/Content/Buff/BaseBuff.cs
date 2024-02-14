@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 
 public struct BuffData
@@ -19,6 +20,7 @@ public class BaseBuff : MonoBehaviour
     public BuffData buffData;
     protected BuffController _buffController;
     protected Stat _stat;
+    protected Character myCharacter;
 
     protected virtual void Awake()
     {
@@ -27,12 +29,13 @@ public class BaseBuff : MonoBehaviour
     }
     protected virtual void Start()
     {
+        myCharacter = Main.GameManager.SpawnedCharacter;
         _buffController.onBuffList.Add(this.GetType());
     }
 
     protected virtual IEnumerator ActiveBuff()
     {
-        while(buffData.curTime < buffData.duration)
+        while(buffData.curTime <= buffData.duration)
         {
             buffData.curTime += 0.1f;
             buffData.coolTimeicon.fillAmount = buffData.curTime / buffData.duration;
