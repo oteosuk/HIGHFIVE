@@ -12,6 +12,7 @@ public class HealthBar : UIBase
     }
 
     private StatController _statController;
+    private float originLocalScaleX;
 
     private void Start()
     {
@@ -22,7 +23,9 @@ public class HealthBar : UIBase
             transform.parent.GetComponent<PhotonView>().RPC("SetHpBarColor", RpcTarget.AllBuffered);
         }
         _statController = transform.parent.GetComponent<StatController>();
-        _statController.hpChangeEvent += SetHpRatio; 
+        _statController.hpChangeEvent += SetHpRatio;
+
+        originLocalScaleX = transform.localScale.x;
     }
 
     private void Update()
@@ -31,6 +34,19 @@ public class HealthBar : UIBase
         RectTransform rectTransform = GetComponent<RectTransform>();
         
         rectTransform.position = new Vector2(parent.position.x, parent.position.y + parent.GetComponent<CapsuleCollider2D>().bounds.size.y);
+    }
+
+    private void LateUpdate()
+    {
+        Transform parent = transform.parent;
+        if (parent.localScale.x < 0)
+        {
+            transform.localScale = new Vector2(-originLocalScaleX, transform.localScale.y);
+        }
+        else
+        {
+            transform.localScale = new Vector2(originLocalScaleX, transform.localScale.y);
+        }
     }
 
     private void SetHpRatio(int curHp, int maxHp)
