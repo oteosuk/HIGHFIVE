@@ -89,10 +89,11 @@ public class Stat : MonoBehaviour
         InitializeExp();
     }
 
-    public virtual void TakeDamage(int damage, GameObject shooter)
+    public virtual void TakeDamage(int damage, GameObject shooter, bool isTrueDamage = false)
     {
         Stat myStat = GetComponent<Stat>();
         int realDamage = Mathf.Max(0, damage - myStat.Defence);
+        if (isTrueDamage) { realDamage = Mathf.Max(0, damage); }
         if (myStat.CurHp - realDamage <= 0)
         {
             if (gameObject.tag != "Player")
@@ -108,10 +109,11 @@ public class Stat : MonoBehaviour
         myStat.gameObject.GetComponent<PhotonView>().RPC("SetHpRPC", RpcTarget.All, myStat.CurHp);
     }
 
-    public virtual void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage, bool isTrueDamage = false)
     {
         Stat myStat = GetComponent<Stat>();
         int realDamage = Mathf.Max(0, damage - myStat.Defence);
+        if (isTrueDamage) { realDamage = Mathf.Max(0, damage); }
         if (myStat.CurHp - realDamage <= 0)
         {
             myStat.CurHp = 0;

@@ -9,7 +9,7 @@ public class MiniMapCamera : MonoBehaviour
     {
         if (Mouse.current.rightButton.wasPressedThisFrame)
         {
-            MonveCharacterToMiniMapPos();
+            MoveCharacterToMiniMapPos();
         }
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
@@ -43,7 +43,7 @@ public class MiniMapCamera : MonoBehaviour
         Camera.main.transform.position = minimapPos3;
     }
 
-    private void MonveCharacterToMiniMapPos()
+    private void MoveCharacterToMiniMapPos()
     {
         PlayerStateMachine playerStateMachine = Main.GameManager.SpawnedCharacter._playerStateMachine;
         Vector2 mousePoint = playerStateMachine._player.Input._playerActions.Move.ReadValue<Vector2>();

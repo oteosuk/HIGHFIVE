@@ -48,4 +48,12 @@ public class Define
         Battle,
         Farming
     }
+
+    public enum InputKey
+    {
+        None,
+        FirstSkill,
+        LeftMouse,
+        RightMouse,
+    }
 }
