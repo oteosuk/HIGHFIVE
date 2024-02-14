@@ -12,6 +12,8 @@ public class MonsterAnimationData
     private string isAttackParameterName = "isAttack";
     private string isDieParameterName = "isDie";
 
+    private string isMoveParameterName = "isMove";
+
     public int IdleParameterHash { get; private set; }
     public int LeftParameterHash { get; private set; }
     public int RightParameterHash { get; private set; }
@@ -19,6 +21,8 @@ public class MonsterAnimationData
     public int DownParameterHash { get; private set; }
     public int AttackParameterHash { get; private set; }
     public int DieParameterHash { get; private set; }
+
+    public int MoveParameterHash { get; private set; }
 
     public void GetParameterHash()
     {
@@ -31,6 +35,8 @@ public class MonsterAnimationData
 
         AttackParameterHash = Animator.StringToHash(isAttackParameterName);
         DieParameterHash = Animator.StringToHash(isDieParameterName);
+
+        MoveParameterHash = Animator.StringToHash(isMoveParameterName);
     }
 }
 
