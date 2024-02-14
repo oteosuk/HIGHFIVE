@@ -4,55 +4,47 @@ using UnityEngine;
 using DG.Tweening;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LoadingAnimation : MonoBehaviour
 {
-    public CanvasGroup _canvasGroup;
-    public Image _image;
-    private bool fadeInStarted = false;
-
-    void Awake()
-    {
-        _canvasGroup = GetComponent<CanvasGroup>();
-    }
+    public Image loadingBar;
 
     void Start()
     {
-        if (!fadeInStarted)
+        StartCoroutine(LoadSceneProcess());
+    }
+    private void LoadFile()
+    {
+        // 로드할 것들을 불러오잡
+        //플레이어 프리펩
+        Main.ResourceManager.Load<GameObject>("Prefabs/Character/Mage");
+        Debug.Log("Character Load!!");
+
+        // 몬스터 프리펩
+        Main.ResourceManager.Load<GameObject>("Prefabs/Monster/Tree");
+        Debug.Log("Monster Load!!");
+    }
+
+    IEnumerator LoadSceneProcess()
+    {
+        AsyncOperation op = SceneManager.LoadSceneAsync((int)Define.Scene.GameScene);
+        op.allowSceneActivation = false;
+        while (!op.isDone)
         {
-            CanvasFadeIn();
-            fadeInStarted = true;
+            float progress = Mathf.Clamp01(op.progress / 0.9f);
+            loadingBar.fillAmount = progress;
+
+            if (progress >= 0.9f)
+            {
+                LoadFile();
+                yield return new WaitForSeconds(1f);
+                op.allowSceneActivation = true;
+            }
+
+
+            yield return null;
         }
     }
-
-    private void ImageAnimateion()
-    {
-        _image.DOFillAmount(1f, 3f)
-            .SetDelay(1f)
-            .OnComplete(CanvasFadeOut);
-    }
-
-    private void CanvasFadeIn()
-    {
-        if (_canvasGroup)
-        {
-            _canvasGroup.DOFade(1f, 1f)
-                .OnComplete(ImageAnimateion);
-        }
-        else
-        {
-            Debug.LogError("Canvas가 없어2");
-        }
-    }
-
-    private void CanvasFadeOut()
-    {
-        _canvasGroup.DOFade(0f, 1f)
-            .OnComplete(LoadNextScene);
-    }
-
-    private void LoadNextScene()
-    {
-        Main.SceneManagerEx.LoadScene(Define.Scene.GameScene);
-    }
+    
 }
