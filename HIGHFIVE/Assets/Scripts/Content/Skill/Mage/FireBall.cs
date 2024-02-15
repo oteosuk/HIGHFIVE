@@ -18,6 +18,8 @@ public class FireBall : BaseSkill
             _fireBallData = firballData;
         }
         //나중에 데이터 매니저에서 받아오기
+        skillData.skillName = "파이어 볼";
+        skillData.info = "화염 구체를 목표방향으로 던지는 스킬";
         skillData.skillSprite = Main.ResourceManager.Load<Sprite>("Sprites/Projectile/MageNormal");
         skillData.coolTime = 5;
         skillData.curTime = skillData.coolTime;

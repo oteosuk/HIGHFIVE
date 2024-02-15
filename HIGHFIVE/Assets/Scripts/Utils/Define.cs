@@ -12,6 +12,7 @@ public class Define
         LobbyScene,
         RoomScene,
         SelectScene,
+        LoadingScene,
         GameScene
     }
 

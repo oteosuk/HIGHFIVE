@@ -34,7 +34,7 @@ public class CharSelectTimer : MonoBehaviour
 
             if (curTime <= 0)
             {
-                Main.SceneManagerEx.LoadScene(Define.Scene.GameScene);
+                Main.SceneManagerEx.LoadScene(Define.Scene.LoadingScene);
                 curTime = 0;
                 yield break;
             }
