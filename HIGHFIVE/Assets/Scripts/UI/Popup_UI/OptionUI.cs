@@ -27,8 +27,8 @@ public class OptionUI : UIBase
 
     private enum GameObjects
     {
-        InfoPanel,
-        SettingPanel
+        InfoBackPanel,
+        SettingBackPanel
     }
     void Start()
     {
@@ -40,8 +40,8 @@ public class OptionUI : UIBase
         _settingExitBtn = Get<Button>((int)Buttons.SettingExitBtn);
 
         Bind<GameObject>(typeof(GameObjects), true);
-        _infoPanel = Get<GameObject>((int)GameObjects.InfoPanel);
-        _settingPanel = Get<GameObject>((int)GameObjects.SettingPanel);
+        _infoPanel = Get<GameObject>((int)GameObjects.InfoBackPanel);
+        _settingPanel = Get<GameObject>((int)GameObjects.SettingBackPanel);
 
         AddUIEvent(_infoBtn.gameObject, Define.UIEvent.Click, OninfoBtnClicked);
         AddUIEvent(_settingBtn.gameObject, Define.UIEvent.Click, OnsettingBtnClicked);
