@@ -47,6 +47,7 @@ public class LoadingAnimation : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log("dsf");
         if (!isSceneLoad)
         {
             Player[] players = PhotonNetwork.PlayerList;
@@ -63,7 +64,6 @@ public class LoadingAnimation : MonoBehaviour
                 }
             }
             LoadingUI(1);
-            Debug.Log("dfs");
             PhotonNetwork.LoadLevel((int)Define.Scene.GameScene);
             isSceneLoad = true;
         }
