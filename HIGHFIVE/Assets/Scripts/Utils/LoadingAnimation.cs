@@ -47,7 +47,6 @@ public class LoadingAnimation : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("채운님미안해요");
         if (!isSceneLoad)
         {
             Player[] players = PhotonNetwork.PlayerList;
