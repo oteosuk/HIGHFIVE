@@ -15,6 +15,7 @@ public class Monster : Creature
         Animator = transform.GetComponentInChildren<Animator>();
         SetSpawnPoint(transform.position);
         MonsterAnimationData = new MonsterAnimationData();
+        BuffController = GetComponent<BuffController>();
     }
 
     protected override void Start()

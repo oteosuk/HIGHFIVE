@@ -25,7 +25,7 @@ public class Stat : MonoBehaviour
         get { return _curHp; }
         set 
         {
-            if (gameObject == Main.GameManager.SpawnedCharacter.gameObject && value == 0)
+            if (gameObject == Main.GameManager?.SpawnedCharacter?.gameObject && value == 0)
             {
                 _statController.CallDieEvent();
             }
