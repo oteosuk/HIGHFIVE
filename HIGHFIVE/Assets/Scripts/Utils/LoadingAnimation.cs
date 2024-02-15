@@ -43,7 +43,6 @@ public class LoadingAnimation : MonoBehaviour
     }
     private IEnumerator LoadFile()
     {
-        // 혹시 나중에 한번에 불러올 수도 있지 않을까해서 수정 여지가 있음.
         // 전체 구하기
         totalCount = character + normalMonster + ui;
 
