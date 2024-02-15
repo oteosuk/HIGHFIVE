@@ -34,7 +34,7 @@ public class LoadingAnimation : MonoBehaviour
 
     private int loadingCount = 0;
     private int totalCount = 0;
-    private bool isAllReady = false;
+    private bool isSceneLoad = false;
 
     private int character = System.Enum.GetValues(typeof(Character)).Length;
     private int normalMonster = System.Enum.GetValues(typeof(NormalMonster)).Length;
@@ -47,18 +47,25 @@ public class LoadingAnimation : MonoBehaviour
 
     private void Update()
     {
-        Player[] players = PhotonNetwork.PlayerList;
-        for (int i = 0; i < players.Length; i++)
+        if (!isSceneLoad)
         {
-            if (players[i].CustomProperties.TryGetValue("IsLoad", out object value))
+            Player[] players = PhotonNetwork.PlayerList;
+            for (int i = 0; i < players.Length; i++)
             {
-                Debug.Log((bool)value);
-                if ((bool)value == false) return;
+                if (players[i].CustomProperties.TryGetValue("IsLoad", out object value))
+                {
+                    Debug.Log((bool)value);
+                    if ((bool)value == false) return;
+                }
+                else
+                {
+                    return;
+                }
             }
-        }
 
-        isAllReady = true;
-        if (isAllReady) { PhotonNetwork.LoadLevel((int)Define.Scene.GameScene); }
+            PhotonNetwork.LoadLevel((int)Define.Scene.GameScene);
+            isSceneLoad = true;
+        }
     }
     private IEnumerator LoadFile()
     {
@@ -108,25 +115,6 @@ public class LoadingAnimation : MonoBehaviour
         {
             { "IsLoad", true }
         });
-
-
-        //AsyncOperation op = SceneManager.LoadSceneAsync((int)Define.Scene.GameScene);
-        //op.allowSceneActivation = false;    
-
-        //while (!op.isDone)
-        //{
-        //    float progress = op.progress;
-            
-            
-
-        //    if (progress >= 0.9f)
-        //    {
-        //        yield return new WaitForSeconds(1f);
-        //        // 씬을 활성화
-        //        op.allowSceneActivation = true;
-        //    }
-        //    yield return null;
-        //}
     }
     
 }
