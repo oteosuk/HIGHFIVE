@@ -13,6 +13,7 @@ public class MonsterSpawner : MonoBehaviourPunCallbacks
 
     protected virtual void Start()
     {
+        Debug.Log("DFS");
         _respawnDelayTime = 3;
         _curTime = 0;
         for (int i = 0; i < array.GetLength(0); i++)
