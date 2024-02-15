@@ -8,29 +8,58 @@ using UnityEngine.SceneManagement;
 
 public class LoadingAnimation : MonoBehaviour
 {
+    enum Character
+    {
+        Warrior,
+        Rogue,
+        Mage
+    }
+
+    enum NormalMonster
+    {
+        Tree,
+        GreenOrc1,
+        GreenOrc2,
+    }
+
+    enum UI
+    {
+        GameSceneUI
+    }
+
     public Image loadingBar;
     public TMP_Text loadingTxt;
 
     private int loadingCount = 0;
+    private int totalCount = 0;
+
+    private int character = System.Enum.GetValues(typeof(Character)).Length;
+    private int normalMonster = System.Enum.GetValues(typeof(NormalMonster)).Length;
+    private int ui = System.Enum.GetValues(typeof(UI)).Length;
+
     void Start()
     {
         StartCoroutine(LoadSceneProcess());
     }
     private IEnumerator LoadFile()
     {
-        // 혹시 나중에 한번에 불러올 수도 있지 않을까해서 수정 여지가 있음.
-        // Character 불러오기
-        yield return LoadPrefabAsync("Prefabs/Character/Mage");
-        yield return LoadPrefabAsync("Prefabs/Character/Warrior");
-        yield return LoadPrefabAsync("Prefabs/Character/Rogue");
+        // 전체 구하기
+        totalCount = character + normalMonster + ui;
 
-        // Monster 불러오기
-        yield return LoadPrefabAsync("Prefabs/Monster/Normal/Tree");
-        yield return LoadPrefabAsync("Prefabs/Monster/Normal/GreenOrc1");
-        yield return LoadPrefabAsync("Prefabs/Monster/Normal/GreenOrc2");
+        for (int i = 0;  i < character; i++)
+        {
+            // Character 불러오기
+            yield return LoadPrefabAsync("Prefabs/Character/" + (Character)i);
+        }
+
+        for (int i = 0; i < normalMonster; i++)
+        {
+            // NormalMonster 불러오기
+            yield return LoadPrefabAsync("Prefabs/Monster/Normal/" + (NormalMonster)i);
+        }
 
         // UI 불러오기
-        yield return LoadPrefabAsync("Prefabs/UI_Prefabs/GameSceneUI");
+        yield return LoadPrefabAsync("Prefabs/UI_Prefabs/" + UI.GameSceneUI);
     }
 
     private IEnumerator LoadPrefabAsync(string path)
@@ -38,8 +67,7 @@ public class LoadingAnimation : MonoBehaviour
         Main.ResourceManager.Load<GameObject>(path);
         yield return null;
 
-        // 파일의 총 갯수를 구해야하는데 아직 구하지 못해서 일단 하드코딩으로 하고 있음.
-        float progress = (float)loadingCount / 7;
+        float progress = (float)loadingCount / totalCount;
         LoadingUI(progress);
 
         loadingCount++;
