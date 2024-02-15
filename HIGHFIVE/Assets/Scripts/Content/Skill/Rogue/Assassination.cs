@@ -57,7 +57,7 @@ public class Assassination : BaseSkill
         PhotonView targetPv = target.GetComponent<PhotonView>();
         if (Main.NetworkManager.photonPlayer.TryGetValue(targetPv.ViewID, out Player targetPlayer))
         {
-            shooter.GetComponent<PhotonView>().RPC("ReceiveBuff", RpcTarget.Others, targetPv.ViewID);
+            shooter.GetComponent<PhotonView>().RPC("ReceiveBuff", RpcTarget.Others, targetPv.ViewID, Define.Buff.Assassination);
         }
     }
 
