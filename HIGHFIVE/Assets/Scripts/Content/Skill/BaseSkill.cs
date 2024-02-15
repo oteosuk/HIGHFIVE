@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public struct SkillData
 {
+    public string skillName;
+    public string info;
     public float coolTime;
     public float curTime;
     public float animTime;

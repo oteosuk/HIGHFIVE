@@ -93,19 +93,19 @@ MonoBehaviour:
     coolTime: 4
     condition: 1
   - job: "\uB3C4\uC801"
+    name: "\uC554\uC0B4"
+    info: "\uC124\uBA85"
+    range: 3
+    damage: 10
+    damageRatio: 1.2
+    coolTime: 2
+    condition: 1
+  - job: "\uB3C4\uC801"
     name: "\uD5E4\uC774\uC2A4\uD2B8"
     info: "\uC124\uBA85"
     range: 3
     damage: 0
     damageRatio: 0
-    coolTime: 2
-    condition: 1
-  - job: "\uB3C4\uC801"
-    name: "\uC77C\uC12C"
-    info: "\uC124\uBA85"
-    range: 3
-    damage: 10
-    damageRatio: 1.2
     coolTime: 3
     condition: 1
   - job: "\uB3C4\uC801"
@@ -269,3 +269,9 @@ MonoBehaviour:
     atk: 1
     def: 1
     spd: 3
+  - name: "\uCD9C\uD608"
+    info: "\uCD9C\uD608 \uC2A4\uD0AC\uC5D0 \uACF5\uACA9\uB2F9\uD560 \uC2DC \uC9C0\uC18D\uB370\uBBF8\uC9C0\uB97C
+      \uBC1B\uB294\uB2E4."
+    atk: 0
+    def: 0
+    spd: 0
