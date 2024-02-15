@@ -62,7 +62,7 @@ public class LoadingAnimation : MonoBehaviour
                     return;
                 }
             }
-
+            LoadingUI(1);
             PhotonNetwork.LoadLevel((int)Define.Scene.GameScene);
             isSceneLoad = true;
         }
