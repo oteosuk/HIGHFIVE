@@ -63,6 +63,7 @@ public class LoadingAnimation : MonoBehaviour
                 }
             }
             LoadingUI(1);
+            Debug.Log("dfs");
             PhotonNetwork.LoadLevel((int)Define.Scene.GameScene);
             isSceneLoad = true;
         }
