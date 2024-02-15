@@ -791,7 +791,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 285290e68b4e5634b88025bfaf675890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawonArray: []
+  _spawonArray:
+  - {fileID: 1088788215}
+  - {fileID: 2123963478}
+  - {fileID: 1045989286}
+  - {fileID: 1667179175}
+  - {fileID: 1094709160}
 --- !u!1001 &111680667
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29002,7 +29007,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05deddfeb1999094da5e715b085cdd8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawonArray: []
+  _spawonArray:
+  - {fileID: 1216523036}
+  - {fileID: 2117836594}
+  - {fileID: 635185662}
+  - {fileID: 1898414102}
+  - {fileID: 2045377754}
 --- !u!1 &635185661
 GameObject:
   m_ObjectHideFlags: 0
