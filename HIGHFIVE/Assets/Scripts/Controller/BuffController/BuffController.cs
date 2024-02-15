@@ -54,7 +54,6 @@ public class BuffController : MonoBehaviour
         }
         buff.Activation();
         StartCoroutine(buff.ApplyEffect(gameObject));
-        Debug.Log(buff);
         StartCoroutine(BuffTimer(buff));
     }
 
