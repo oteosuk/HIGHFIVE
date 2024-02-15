@@ -46043,6 +46043,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7971547949baf754c98938e58d31a9a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spawonArray:
+  - {fileID: 460577486}
+  - {fileID: 1231266078}
+  - {fileID: 1713524483}
+  - {fileID: 1326480060}
+  - {fileID: 1950662877}
 --- !u!4 &1246536778
 Transform:
   m_ObjectHideFlags: 0
@@ -46172,6 +46178,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2ef386a6fb0ca041b5dcd21a80496eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spawonArray:
+  - {fileID: 1808398046}
+  - {fileID: 537595527}
+  - {fileID: 124736562}
+  - {fileID: 1858685992}
+  - {fileID: 1810111936}
 --- !u!4 &1271759302
 Transform:
   m_ObjectHideFlags: 0
@@ -46806,6 +46818,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7971547949baf754c98938e58d31a9a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spawonArray:
+  - {fileID: 195315709}
+  - {fileID: 146176821}
+  - {fileID: 1856639882}
+  - {fileID: 1257339669}
+  - {fileID: 846605539}
 --- !u!1001 &1343173166
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46929,6 +46947,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca1b8f1e9bca42e488226c3bd9cddfce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spawonArray:
+  - {fileID: 453916256}
+  - {fileID: 379693459}
+  - {fileID: 1409460361}
+  - {fileID: 1481090247}
+  - {fileID: 1440419623}
 --- !u!4 &1370647155
 Transform:
   m_ObjectHideFlags: 0
@@ -107425,6 +107449,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2ef386a6fb0ca041b5dcd21a80496eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spawonArray:
+  - {fileID: 844849798}
+  - {fileID: 1712088193}
+  - {fileID: 1311622282}
+  - {fileID: 620475016}
+  - {fileID: 1057841614}
 --- !u!1 &2117836593
 GameObject:
   m_ObjectHideFlags: 0
