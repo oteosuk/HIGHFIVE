@@ -23,15 +23,7 @@ public class MonsterSpawner : MonoBehaviourPunCallbacks
 
     protected virtual void Update()
     {
-        /*CheckFull();
-        if (!isFull)
-        {
-            _curTime -= Time.deltaTime;
-            if (_curTime <= 0)
-            {
-                ReSpawn("Monster/Normal/Tree");
-            }
-        }*/
+
     }
 
     protected void ReSpawn(string path)

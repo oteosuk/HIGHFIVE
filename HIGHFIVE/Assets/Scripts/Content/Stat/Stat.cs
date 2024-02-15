@@ -8,13 +8,13 @@ public class Stat : MonoBehaviour
 {
     public List<int> levelExpList = new List<int>();
 
-    private int _curHp;
-    private int _maxHp;
     private int _attack;
     private int _defence;
     private float _attackRange;
     private float _attackSpeed;
     private float _moveSpeed;
+    private int _curHp;
+    private int _maxHp;
     private float _sightRange;
     private int _exp;
     private int _maxExp;

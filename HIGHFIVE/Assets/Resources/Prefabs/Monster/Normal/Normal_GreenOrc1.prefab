@@ -3307,7 +3307,7 @@ GameObject:
   - component: {fileID: 3851449539741726150}
   - component: {fileID: 6053408504855634896}
   - component: {fileID: 8787121497094494037}
-  - component: {fileID: 2069458824680516750}
+  - component: {fileID: 6523206610171883074}
   m_Layer: 6
   m_Name: Normal_GreenOrc1
   m_TagString: Enemy
@@ -3451,7 +3451,7 @@ MonoBehaviour:
   stat: {fileID: 0}
   targetObject: {fileID: 0}
   _spawnPoint: {x: 0, y: 0}
---- !u!114 &2069458824680516750
+--- !u!114 &6523206610171883074
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3460,7 +3460,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7562944363371908469}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01cf9cf5c79cfe34296fc11fcb0ae84a, type: 3}
+  m_Script: {fileID: 11500000, guid: 50a74bc694e4a3043aa1339523861e51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   levelExpList: 

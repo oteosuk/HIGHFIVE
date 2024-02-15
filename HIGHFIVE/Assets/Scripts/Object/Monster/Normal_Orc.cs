@@ -3,7 +3,6 @@ using UnityEngine;
 public class Normal_Orc : Monster
 {
     private double _curDelay;
-    private SpriteRenderer _spriteRenderer;
     Vector3 originalScale;
 
     protected override void Awake()
@@ -16,7 +15,6 @@ public class Normal_Orc : Monster
     protected override void Start()
     {
         base.Start();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     protected override void Update()
@@ -37,23 +35,7 @@ public class Normal_Orc : Monster
         }
         _curDelay = 1.0 / stat.AttackSpeed;
     }
-    /*private void FlipCharacter(Vector2 dir)
-    {
-        Vector3 localScale = _playerStateMachine._player.transform.localScale;
-        if (dir.x > 0) { _playerStateMachine._player.transform.localScale = new Vector3(-1.5f, localScale.y, 1); }
-        else { _playerStateMachine._player.transform.localScale = new Vector3(1.5f, localScale.y, 1); }
-    }*/
-/*    private void FlipCharacter(float direction)
-    {
-        if (direction < 0)
-        {
-            transform.localScale = originalScale; // 원래 스케일
-        }
-        else if (direction > 0)
-        {
-            transform.localScale = new Vector3(-originalScale.x, originalScale.y, originalScale.z); // x 스케일을 -1를 곱하여 좌우 반전
-        }
-    }*/
+
     public override void SetAnimation(float angle)
     {
         if (angle >= -90 && angle <= 90)

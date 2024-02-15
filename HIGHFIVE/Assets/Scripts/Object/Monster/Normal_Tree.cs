@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Normal_Tree : Monster
 {
-    private double _curDelay;
     protected override void Awake()
     {
         base.Awake();
@@ -30,7 +29,6 @@ public class Normal_Tree : Monster
         {
             targetObject.GetComponent<Stat>()?.TakeDamage(stat.Attack);
         }
-        _curDelay = 1.0 / stat.AttackSpeed;
     }
 
     public override void SetAnimation(float angle)
