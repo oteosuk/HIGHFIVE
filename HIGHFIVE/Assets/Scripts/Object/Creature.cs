@@ -8,6 +8,7 @@ public class Creature : MonoBehaviourPunCallbacks
 {
     public Stat stat;
     public Rigidbody2D Rigidbody { get; protected set; }
+    public BuffController BuffController { get; protected set; }
     public Collider2D Collider { get; set; }
 
     [HideInInspector] public GameObject targetObject;

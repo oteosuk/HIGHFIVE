@@ -57,6 +57,12 @@ public class Define
         LeftMouse,
         RightMouse,
     }
+    public enum Buff
+    {
+        None,
+        Stabbing,
+        Assassination,
+    }
 
     /*public enum Monster
     {

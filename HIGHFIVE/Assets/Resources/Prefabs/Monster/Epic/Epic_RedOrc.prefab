@@ -1100,6 +1100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8139549499935061700}
   - component: {fileID: 7631642323445888593}
+  - component: {fileID: 352783453183565789}
   m_Layer: 5
   m_Name: Epic_RedOrc
   m_TagString: Untagged
@@ -1144,6 +1145,18 @@ MonoBehaviour:
   EditChk: 0
   _code: Unit33
   _anim: {fileID: 3261373945891452913}
+--- !u!114 &352783453183565789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3778215956730531554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 842bffc905b67e94f8368e7781949c58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3912694579823932759
 GameObject:
   m_ObjectHideFlags: 0

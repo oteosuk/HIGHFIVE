@@ -9,48 +9,25 @@ public struct BuffData
 {
     public Type type;
     public float duration;
+    public float effectTime;
     public float curTime;
     public int trueDamage;
+    public int damage;
+    public bool isSustainBuff;
     public Image coolTimeicon;
     public Sprite buffSprite;
 }
 
-public class BaseBuff : MonoBehaviour
+public abstract class BaseBuff
 {
     public BuffData buffData;
     protected BuffController _buffController;
     protected Stat _stat;
     protected Character myCharacter;
 
-    protected virtual void Awake()
-    {
-        _buffController = Main.GameManager.SpawnedCharacter.GetComponent<BuffController>();
-        _stat = Main.GameManager.SpawnedCharacter.GetComponent<Stat>();
-    }
-    protected virtual void Start()
-    {
-        myCharacter = Main.GameManager.SpawnedCharacter;
-        _buffController.onBuffList.Add(this.GetType());
-    }
+    public virtual void Init() { }
+    public virtual IEnumerator ApplyEffect(GameObject target) { yield return null; }
+    public abstract void Activation();
 
-    protected virtual IEnumerator ActiveBuff()
-    {
-        while(buffData.curTime <= buffData.duration)
-        {
-            buffData.curTime += 0.1f;
-            buffData.coolTimeicon.fillAmount = buffData.curTime / buffData.duration;
-            yield return new WaitForSeconds(0.1f);
-        }
-        buffData.coolTimeicon.fillAmount = 1;
-        buffData.curTime = 0;
-        LoseBuff();
-    }
-
-    protected virtual void LoseBuff()
-    {
-        _buffController.onBuffList.Remove(this.GetType());
-        Main.ResourceManager.Destroy(gameObject);
-    }
-
-    public virtual void Refill() { }
+    public abstract void Deactivation();
 }

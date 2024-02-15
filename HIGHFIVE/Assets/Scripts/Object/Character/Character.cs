@@ -21,7 +21,6 @@ public class Character : Creature
     public PlayerInput Input { get; protected set; }
     public PlayerAnimationData PlayerAnimationData { get; set; }
     public Animator Animator { get; set; }
-    public BuffController BuffController { get; private set; }
     public SkillController SkillController { get; private set; }
     public CharacterSkill CharacterSkill { get; protected set; }
 
@@ -34,8 +33,8 @@ public class Character : Creature
         Collider = GetComponent<Collider2D>();
         Animator = GetComponentInChildren<Animator>();
         PlayerAnimationData = new PlayerAnimationData();
-        BuffController = GetComponent<BuffController>();
         SkillController = GetComponent<SkillController>();
+        BuffController = GetComponent<BuffController>();
     }
     protected override void Start()
     {
@@ -162,11 +161,22 @@ public class Character : Creature
     }
 
     [PunRPC]
-    public void ReceiveBuff(int viewId)
+    public void ReceiveBuff(int viewId, int buffNum)
     {
         if (Main.NetworkManager.photonPlayerObject.TryGetValue(viewId, out GameObject targetObject))
         {
-            targetObject.GetComponent<Character>().BuffController.AddBuffEvent(typeof(AssassinationBuff));
+            switch(buffNum)
+            {
+                case (int)Define.Buff.Stabbing:
+                    BaseBuff stabbingBuff = new StabbingBuff();
+                    targetObject.GetComponent<Character>().BuffController.AddBuff(stabbingBuff);
+                    break;
+                case (int)Define.Buff.Assassination:
+                    BaseBuff assassinationBuff = new AssassinationBuff();
+                    targetObject.GetComponent<Character>().BuffController.AddBuff(assassinationBuff);
+                    break;
+            }
+            
         }
     }
 }

@@ -6,10 +6,9 @@ using UnityEngine.UI;
 public class AssassinationBuff : BaseBuff
 {
     private BuffDBEntity _assassinationBuffData;
-    private float dealingTime;
-    protected override void Start()
+    public override void Init()
     {
-        base.Start();
+        base.Init();
         if (Main.DataManager.BuffDict.TryGetValue("암살", out BuffDBEntity assassinationBuffData))
         {
             _assassinationBuffData = assassinationBuffData;
@@ -18,47 +17,26 @@ public class AssassinationBuff : BaseBuff
         buffData.buffSprite = Main.ResourceManager.Load<Sprite>("Sprites/Projectile/arrow");
         buffData.type = typeof(AssassinationBuff);
         buffData.duration = 30;
-        buffData.coolTimeicon = transform.Find("BuffCool").GetComponent<Image>();
         buffData.curTime = 0;
-        dealingTime = 0;
+        buffData.effectTime = 0;
         buffData.trueDamage = 3;
-        GetComponent<Image>().sprite = buffData.buffSprite;
-        myCharacter.GetComponent<StatController>().dieEvent += OffBuff;
-        StartCoroutine(DealingPerSec());
-        StartCoroutine(ActiveBuff());
-    }
-    protected override IEnumerator ActiveBuff()
-    {
-        yield return base.ActiveBuff();
+        buffData.isSustainBuff = false;
     }
 
-    private IEnumerator DealingPerSec()
+    public override void Activation() { }
+
+    public override void Deactivation() { }
+
+    public override IEnumerator ApplyEffect(GameObject target)
     {
-        while(dealingTime < buffData.duration)
+        yield return base.ApplyEffect(target);
+
+        while (buffData.effectTime < buffData.duration)
         {
-            dealingTime += 1f;
-            _stat.TakeDamage(buffData.trueDamage, isTrueDamage: true);
+            buffData.effectTime += 1f;
+            target.GetComponent<Stat>().TakeDamage(buffData.trueDamage, isTrueDamage: true);
             yield return new WaitForSeconds(1f);
         }
-        dealingTime = 0;
-    }
-
-    protected override void LoseBuff()
-    {
-        base.LoseBuff();
-    }
-
-    public override void Refill()
-    {
-        base.Refill();
-        StopCoroutine(ActiveBuff());
-        buffData.curTime = 0;
-        StartCoroutine(ActiveBuff());
-    }
-
-    private void OffBuff()
-    {
-        buffData.curTime = buffData.duration;
-        dealingTime = buffData.duration;
+        buffData.effectTime = 0;
     }
 }
