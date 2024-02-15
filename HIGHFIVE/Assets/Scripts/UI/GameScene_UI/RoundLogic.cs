@@ -74,7 +74,8 @@ public class RoundLogic : MonoBehaviour
     {
         if (winner != Main.GameManager.SelectedCamp)
         {
-            Main.GameManager.SpawnedCharacter.BuffController.AddBuffEvent(typeof(LoserBuff));
+            BaseBuff loserBuff = new LoserBuff();
+            Main.GameManager.SpawnedCharacter.BuffController.AddBuffEvent(loserBuff);
         }
         if (PhotonNetwork.IsMasterClient)
         {
