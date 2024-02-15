@@ -16,7 +16,7 @@ public class SFXTest : MonoBehaviour
 
     void HandleClick(Vector2 clickPosition)
     {
-        Main.SoundManager.PlayEffect("SFX_Click", 1f);
+        Main.SoundManager.PlaySFX("SFX_Click", 1f);
         Debug.Log("마우스가 클릭되었습니다! 위치: " + clickPosition);
     }
 }

@@ -53,5 +53,6 @@ public class SelectScene : BaseScene
             index++;
         }
 
+        //Destroy(gameObject SoundManager);
     }
 }

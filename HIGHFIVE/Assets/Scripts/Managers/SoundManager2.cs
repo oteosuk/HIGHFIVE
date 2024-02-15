@@ -32,10 +32,10 @@ public class SoundManager2 : MonoBehaviour
         // 0 : 최우선, 256 : 최하, 128 : 기본값
     }
 
-    void FixedUpdate()
-    {
-        BGM();
-    }
+    //void FixedUpdate()
+    //{
+    //    BGM();
+    //}
 
     public void PlayBGM(string bgmName, float volume)
     {

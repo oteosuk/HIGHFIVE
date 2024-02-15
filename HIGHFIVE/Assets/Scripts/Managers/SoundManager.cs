@@ -31,14 +31,14 @@ public class SoundManager : MonoBehaviour
         }
 
         PlayBGM("Town_Castle_01", 0.1f);
-        BGM();
+        // BGM();
     }
 
     public void SoundUpdate()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Main.SoundManager.PlayEffect("SFX_Click", 1f);
+            Main.SoundManager.PlaySFX("SFX_Click", 1f);
         }
     }
 
@@ -67,9 +67,9 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void PlayEffect(string efxName, float volume)
+    public void PlaySFX(string sfxName, float volume)
     {
-        AudioClip clip = Resources.Load<AudioClip>($"Sounds/SFX/{efxName}");
+        AudioClip clip = Resources.Load<AudioClip>($"Sounds/SFX/{sfxName}");
         //Debug.Log(effectPlayer.Count);
         for (int i = 0; i < sfxPlayer.Count; i++)
         {
