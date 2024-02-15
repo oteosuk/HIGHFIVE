@@ -1495,6 +1495,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8803703657357930260}
   - component: {fileID: 7147633387759611777}
+  - component: {fileID: 9040119349764826686}
   m_Layer: 5
   m_Name: Elite_BossOrc
   m_TagString: Untagged
@@ -1539,6 +1540,18 @@ MonoBehaviour:
   EditChk: 0
   _code: Unit8
   _anim: {fileID: 2853820513625894433}
+--- !u!114 &9040119349764826686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4518974738853582642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 842bffc905b67e94f8368e7781949c58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4638100052230396998
 GameObject:
   m_ObjectHideFlags: 0

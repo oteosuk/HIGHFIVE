@@ -42,7 +42,6 @@ public class Assassination : BaseSkill
     public override void Execute()
     {
         Character myCharacter = Main.GameManager.SpawnedCharacter;
-        if (!skillData.isUse) return;
         skillData.isUse = false;
         DamageToTarget(_targetObject, myCharacter);
         myCharacter.Animator.SetBool(myCharacter.PlayerAnimationData.SkillDelayTimeHash, true);
@@ -53,6 +52,8 @@ public class Assassination : BaseSkill
     private void DamageToTarget(GameObject target, Character shooter)
     {
         target.GetComponent<Stat>().TakeDamage(skillData.damage, shooter.gameObject);
+        BaseBuff assassinationBuff = new AssassinationBuff();
+        target.GetComponent<Creature>().BuffController?.AddBuff(assassinationBuff);
         PhotonView targetPv = target.GetComponent<PhotonView>();
         if (Main.NetworkManager.photonPlayer.TryGetValue(targetPv.ViewID, out Player targetPlayer))
         {
