@@ -29,6 +29,7 @@ public class PlayerFirstSkillState : PlayerBaseState
         
         // 애니메이션 해제
         StopAnimation(_firstSkillHash);
+        Debug.Log("아아");
     }
 
     public override void StateUpdate()
