@@ -19,7 +19,7 @@ public class MonsterMoveState : MonsterBaseState
     public override void Exit()
     {
         base.Exit();
-        StopAnimationAll();
+        _monsterStateMachine._monster.StopAnimationAll();
         Debug.Log("Move Exit");
     }
     public override void StateUpdate()
@@ -103,7 +103,7 @@ public class MonsterMoveState : MonsterBaseState
         );
         Debug.Log(_objectName);
         //if(_objectName == "Tree") 
-            SetAnimation(angle);
+        _monsterStateMachine._monster.SetAnimation(angle);
     }
 
     // 스폰존으로 돌아가는 로직을 구현
@@ -119,7 +119,7 @@ public class MonsterMoveState : MonsterBaseState
             _monsterStateMachine._monster.stat.MoveSpeed * Time.deltaTime * _monsterStateMachine.moveSpeedModifier);
 
         //if (_objectName == "Tree") 
-            SetAnimation(angle);
+        _monsterStateMachine._monster.SetAnimation(angle);
 
         //몬스터가 스폰포인트에 도착했을때
         if ((Vector2)_monsterStateMachine._monster.transform.position == _monsterStateMachine._monster._spawnPoint)
@@ -128,7 +128,7 @@ public class MonsterMoveState : MonsterBaseState
             _monsterStateMachine.ChangeState(_monsterStateMachine._monsterIdleState);
         }
     }
-    void SetAnimation(float angle)
+    /*void SetAnimation(float angle)
     {
         if (angle >= 45 && angle < 135)
         {
@@ -169,10 +169,10 @@ public class MonsterMoveState : MonsterBaseState
     // anim bool파라미터 초기화
     void StopAnimationAll()
     {
-        /*StopAnimation(_animData.IdleParameterHash);
+        StopAnimation(_animData.IdleParameterHash);
         StopAnimation(_animData.LeftParameterHash);
         StopAnimation(_animData.RightParameterHash);
         StopAnimation(_animData.UpParameterHash);
-        StopAnimation(_animData.DownParameterHash);*/
-    }
+        StopAnimation(_animData.DownParameterHash);
+    }*/
 }

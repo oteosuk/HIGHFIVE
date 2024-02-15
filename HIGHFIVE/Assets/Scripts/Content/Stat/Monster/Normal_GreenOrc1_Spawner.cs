@@ -15,7 +15,7 @@ public class Normal_GreenOrc1_Spawner : MonsterSpawner
             _curTime -= Time.deltaTime;
             if (_curTime <= 0)
             {
-                ReSpawn("Monster/Normal/GreenOrc1");
+                ReSpawn("Monster/Normal/Normal_GreenOrc1");
             }
         }
     }

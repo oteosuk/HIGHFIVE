@@ -36,6 +36,16 @@ public class Monster : Creature
         _monsterStateMachine.PhysicsUpdate();
     }
 
+    public virtual void SetAnimation(float angle)
+    {
+
+    }
+
+    public virtual void StopAnimationAll()
+    {
+
+    }
+
     private void SetSpawnPoint(Vector2 spawnPoint)
     {
         _spawnPoint = spawnPoint;

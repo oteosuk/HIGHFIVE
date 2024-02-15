@@ -1101,7 +1101,7 @@ GameObject:
   - component: {fileID: 8139549499935061700}
   - component: {fileID: 7631642323445888593}
   m_Layer: 5
-  m_Name: RedOrc8
+  m_Name: Epic_RedOrc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

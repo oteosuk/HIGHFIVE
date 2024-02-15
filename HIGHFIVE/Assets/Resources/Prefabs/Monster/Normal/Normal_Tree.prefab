@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7743322475909137262}
   - component: {fileID: 4867965855465524103}
   m_Layer: 6
-  m_Name: Tree
+  m_Name: Normal_Tree
   m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

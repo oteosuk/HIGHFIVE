@@ -15,7 +15,7 @@ public class Normal_Tree_Spawneer : MonsterSpawner
             _curTime -= Time.deltaTime;
             if (_curTime <= 0)
             {
-                ReSpawn("Monster/Normal/Tree");
+                ReSpawn("Monster/Normal/Normal_Tree");
             }
         }
     }

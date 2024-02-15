@@ -57,4 +57,10 @@ public class Define
         LeftMouse,
         RightMouse,
     }
+
+    /*public enum Monster
+    {
+        dir4Monster,
+        dir2Monster
+    }*/
 }
