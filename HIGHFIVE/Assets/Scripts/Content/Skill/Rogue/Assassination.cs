@@ -19,7 +19,7 @@ public class Assassination : BaseSkill
         //나중에 데이터 매니저에서 받아오기
         skillData.skillName = "암살";
         skillData.info = "적에게 피해를 가하면 출혈데미지를 입힌다.";
-        skillData.skillSprite = Main.ResourceManager.Load<Sprite>("Sprites/Projectile/MageNormal");
+        skillData.skillSprite = Main.ResourceManager.Load<Sprite>("Sprites/SkillIcon/Assessination");
         skillData.coolTime = 5;
         skillData.curTime = skillData.coolTime;
         skillData.animTime = 0.5f;
