@@ -15,15 +15,18 @@ public class SkillScene_UI : MonoBehaviour
     {
         _skill = Main.GameManager.SpawnedCharacter.CharacterSkill;
         BaseSkill firstSkill = _skill?.FirstSkill;
-        Debug.Log(firstSkill);
-        if (firstSkill != null )
-        {
-            GameObject skillPrefab = Main.ResourceManager.Instantiate("UI_Prefabs/Skill", parent: transform);
-            Transform skillImage = skillPrefab.transform.Find("SkillImage");
+        BaseSkill secondSkill = _skill?.SecondSkill;
+        if (firstSkill != null) CreateSkill(firstSkill);
+        if (secondSkill != null) CreateSkill(secondSkill);
+    }
 
-            firstSkill.skillData.skillPrefab = skillPrefab;
-            skillImage.GetComponent<Image>().sprite = firstSkill.skillData.skillSprite;
-            firstSkill.skillData.coolTimeicon = skillImage.Find("SkillCool").GetComponent<Image>();
-        }
+    private void CreateSkill(BaseSkill skill)
+    {
+        GameObject skillPrefab = Main.ResourceManager.Instantiate("UI_Prefabs/Skill", parent: transform);
+        Transform skillImage = skillPrefab.transform.Find("SkillImage");
+
+        skill.skillData.skillPrefab = skillPrefab;
+        skillImage.GetComponent<Image>().sprite = skill.skillData.skillSprite;
+        skill.skillData.coolTimeicon = skillImage.Find("SkillCool").GetComponent<Image>();
     }
 }

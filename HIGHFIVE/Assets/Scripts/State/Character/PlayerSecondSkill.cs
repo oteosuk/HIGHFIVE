@@ -1,35 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
 
-public class PlayerFirstSkillState : PlayerBaseState
+public class PlayerSecondSkill : PlayerBaseState
 {
-    private int _firstSkillHash;
-    public PlayerFirstSkillState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
+    private int _secondSkillHash;
+    public PlayerSecondSkill(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
     {
-        if (_firstSkillHash == 0)
+        if (_secondSkillHash == 0)
         {
-            _firstSkillHash = _playerStateMachine._player.PlayerAnimationData.FirstSkillParameterHash;
+            _secondSkillHash = _playerStateMachine._player.PlayerAnimationData.SecondSkillParameterHash;
         }
     }
     public override void Enter()
     {
         // 기능
         base.Enter();
-        _playerStateMachine._player.CharacterSkill.FirstSkill.Execute();
+        _playerStateMachine._player.CharacterSkill.SecondSkill.Execute();
 
-        StartAnimation(_firstSkillHash);
+        StartAnimation(_secondSkillHash);
         // 애니메이션 호출
     }
 
     public override void Exit()
     {
         base.Exit();
-        
+
         // 애니메이션 해제
-        StopAnimation(_firstSkillHash);
-        Debug.Log("아아");
+        StopAnimation(_secondSkillHash);
     }
 
     public override void StateUpdate()

@@ -54,13 +54,15 @@ public class Define
     {
         None,
         FirstSkill,
+        SecondSkill,
+        ThirdSkill,
         LeftMouse,
         RightMouse,
     }
     public enum Buff
     {
         None,
-        Stabbing,
+        StunShot,
         Assassination,
     }
 
