@@ -10,6 +10,7 @@ public class Warrior : Character
     {
         base.Awake();
         stat = GetComponent<Stat>();
+        CharacterSkill = GetComponent<WarriorSkill>();
     }
     protected override void Start()
     {
@@ -29,14 +30,14 @@ public class Warrior : Character
         base.OnNormalAttack();
         if (_playerStateMachine._player.targetObject != null && _playerStateMachine._player.targetObject.layer != (int)Define.Layer.Default)
         {
-            _playerStateMachine._player.targetObject.GetComponent<Stat>()?.TakeDamage(Main.GameManager.SpawnedCharacter.stat.Attack, gameObject);
-            if (BuffController.FindBuff<StabbingBuff>())
+            BaseBuff buff = BuffController.FindBuff<StabbingBuff>();
+            if (buff != null)
             {
-                PhotonView targetPv = _playerStateMachine._player.targetObject.GetComponent<PhotonView>();
-                if (Main.NetworkManager.photonPlayer.TryGetValue(targetPv.ViewID, out Player targetPlayer))
-                {
-                    _playerStateMachine._player.GetComponent<PhotonView>().RPC("ReceiveBuff", RpcTarget.Others, targetPv.ViewID);
-                }
+                _playerStateMachine._player.targetObject.GetComponent<Stat>()?.TakeDamage(buff.buffData.damage, gameObject);
+            }
+            else
+            {
+                _playerStateMachine._player.targetObject.GetComponent<Stat>()?.TakeDamage(Main.GameManager.SpawnedCharacter.stat.Attack, gameObject);
             }
         }
     }

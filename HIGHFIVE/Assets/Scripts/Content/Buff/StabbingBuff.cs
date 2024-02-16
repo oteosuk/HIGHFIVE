@@ -19,17 +19,19 @@ public class StabbingBuff : BaseBuff
         buffData.duration = 10;
         buffData.curTime = 0;
         buffData.damage = 20;
-        buffData.effectTime = 2;
+        buffData.effectTime = 5;
     }
     public override IEnumerator ApplyEffect(GameObject target)
     {
         yield return new WaitForSeconds(buffData.effectTime);
-        target.GetComponent<Stat>().MoveSpeed -= 1;
+        target.GetComponent<Stat>().MoveSpeed -= 3;
+        yield return new WaitForSeconds(buffData.duration - buffData.effectTime);
+        myCharacter.SkillController.CallSkillExecute(myCharacter.CharacterSkill.FirstSkill);
     }
 
     public override void Activation()
     {
-        _stat.MoveSpeed += 1;
+        myCharacter.stat.MoveSpeed += 3;
     }
 
     public override void Deactivation() { }

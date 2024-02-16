@@ -55,12 +55,15 @@ public class Assassination : BaseSkill
     {
         target.GetComponent<Stat>().TakeDamage(skillData.damage, shooter.gameObject);
         BaseBuff assassinationBuff = new AssassinationBuff();
-        target.GetComponent<Creature>().BuffController?.AddBuff(assassinationBuff);
-        PhotonView targetPv = target.GetComponent<PhotonView>();
-        if (Main.NetworkManager.photonPlayer.TryGetValue(targetPv.ViewID, out Player targetPlayer))
+        if (target.GetComponent<Character>())
         {
-            shooter.GetComponent<PhotonView>().RPC("ReceiveBuff", RpcTarget.Others, targetPv.ViewID, Define.Buff.Assassination);
+            PhotonView targetPv = target.GetComponent<PhotonView>();
+            if (Main.NetworkManager.photonPlayer.TryGetValue(targetPv.ViewID, out Player targetPlayer))
+            {
+                shooter.GetComponent<PhotonView>().RPC("ReceiveBuff", RpcTarget.Others, targetPv.ViewID, Define.Buff.Assassination);
+            }
         }
+        else { target.GetComponent<Creature>().BuffController?.AddBuff(assassinationBuff); }
     }
 
     private bool CheckRange()

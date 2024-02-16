@@ -48,11 +48,11 @@ public class StatController : MonoBehaviour
             levelChangeEvent.Invoke(level);
         }
     }
-    public void CallChangeMoveSpeedEvent(int level)
+    public void CallChangeMoveSpeedEvent(float speed)
     {
         if (moveSpeedChangeEvent != null)
         {
-            moveSpeedChangeEvent.Invoke(level);
+            moveSpeedChangeEvent.Invoke(speed);
         }
     }
     public void CallDieEvent()
