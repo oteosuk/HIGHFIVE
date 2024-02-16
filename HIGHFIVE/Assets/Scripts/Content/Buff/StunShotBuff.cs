@@ -14,7 +14,7 @@ public class StunShotBuff : BaseBuff
             _assassinationBuffData = assassinationBuffData;
         }
         //나중에 데이터 매니저에서 받아오기
-        buffData.buffSprite = Main.ResourceManager.Load<Sprite>("Sprites/Projectile/arrow");
+        buffData.buffSprite = Main.ResourceManager.Load<Sprite>("Sprites/SkillIcon/StunShot");
         buffData.type = typeof(AssassinationBuff);
         buffData.duration = 4;
         buffData.curTime = 0;
