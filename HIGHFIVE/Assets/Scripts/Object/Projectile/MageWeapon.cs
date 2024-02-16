@@ -42,7 +42,7 @@ public class MageWeapon : MonoBehaviourPunCallbacks
                 collision.gameObject.GetComponent<Stat>()?.TakeDamage(Main.GameManager.SpawnedCharacter.stat.Attack, _shooter);
                 PhotonNetwork.Destroy(gameObject);
             }
-        }   
+        }
     }
 
     private void GetShooterInfo(GameObject shooter)

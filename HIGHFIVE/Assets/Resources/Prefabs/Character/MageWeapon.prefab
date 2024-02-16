@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5998394308992421027}
   - component: {fileID: -9074990850136382396}
-  - component: {fileID: 7538209315254468230}
   - component: {fileID: 5933714284049250376}
   - component: {fileID: 3817560361888954568}
   - component: {fileID: 7971800391242263796}
   - component: {fileID: -8090113995091137223}
+  - component: {fileID: 1646122495670000096}
   m_Layer: 0
   m_Name: MageWeapon
   m_TagString: Untagged
@@ -65,18 +65,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7538209315254468230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2572823496858806037}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 222c4fa98f7452b4592aff0a97aa1019, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!70 &5933714284049250376
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -161,6 +149,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31622a5be4fa27549a293575003c97ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1646122495670000096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2572823496858806037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 222c4fa98f7452b4592aff0a97aa1019, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5615301016237257257
