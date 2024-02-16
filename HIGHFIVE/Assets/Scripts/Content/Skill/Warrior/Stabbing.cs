@@ -17,7 +17,7 @@ public class Stabbing : BaseSkill
             _stabbingData = stabbingData;
         }
         //나중에 데이터 매니저에서 받아오기
-        skillData.skillSprite = Main.ResourceManager.Load<Sprite>("Sprites/Projectile/MageNormal");
+        skillData.skillSprite = Main.ResourceManager.Load<Sprite>("Sprites/SkillIcon/Berserk");
         skillData.coolTime = 5;
         skillData.curTime = skillData.coolTime;
         skillData.animTime = 0.5f;
