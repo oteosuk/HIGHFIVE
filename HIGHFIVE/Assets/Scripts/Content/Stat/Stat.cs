@@ -61,7 +61,7 @@ public class Stat : MonoBehaviour
     public float MoveSpeed
     {
         get { return _moveSpeed; }
-        set { _moveSpeed = value; }
+        set { _statController.CallChangeMoveSpeedEvent(value); _moveSpeed = value; }
     }
     public float SightRange
     {

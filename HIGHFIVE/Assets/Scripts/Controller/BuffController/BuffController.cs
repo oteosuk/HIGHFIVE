@@ -26,20 +26,20 @@ public class BuffController : MonoBehaviour
         }
     }
 
-    public bool FindBuff<T>() where T : BaseBuff
+    public BaseBuff FindBuff<T>() where T : BaseBuff
     {
         foreach (BaseBuff buff in onBuffList)
         {
-            if (typeof(T) == buff.GetType()) return true;
+            if (typeof(T) == buff.GetType()) return buff;
         }
-        return false;
+        return null;
     }
 
     public void AddBuff(BaseBuff buff)
     {
         foreach (BaseBuff hasBuff in onBuffList)
         {
-            if (buff == hasBuff)
+            if (buff.GetType() == hasBuff.GetType())
             {
                 Refill(hasBuff);
                 return;
@@ -56,10 +56,10 @@ public class BuffController : MonoBehaviour
         StartCoroutine(buff.ApplyEffect(gameObject));
         StartCoroutine(BuffTimer(buff));
     }
-
+     
     IEnumerator BuffTimer(BaseBuff buff)
     {
-        while (buff.buffData.curTime <= buff.buffData.duration)
+        while (buff.buffData.curTime < buff.buffData.duration)
         {
             buff.buffData.curTime += 0.1f;
             if (gameObject.GetComponent<Character>())
@@ -69,11 +69,10 @@ public class BuffController : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
         buff.buffData.curTime = 0;
-        yield return new WaitForSeconds(buff.buffData.duration);
         RemoveBuff(buff);
     }
 
-    public void RemoveBuff(BaseBuff buff)
+    private void RemoveBuff(BaseBuff buff)
     {
         if (onBuffList.Contains(buff))
         {
@@ -100,15 +99,15 @@ public class BuffController : MonoBehaviour
         {
             if (!buff.buffData.isSustainBuff)
             {
-                buff.buffData.curTime = buff.buffData.duration;
+                CancelBuff(buff);
             }
         }
     }
 
+
     public void Refill(BaseBuff buff)
     {
-        StopCoroutine(BuffTimer(buff));
         buff.buffData.curTime = 0;
-        StartCoroutine(BuffTimer(buff));
+        buff.buffData.effectTime = 0;
     }
 }
