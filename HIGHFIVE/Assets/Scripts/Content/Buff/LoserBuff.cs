@@ -18,16 +18,15 @@ public class LoserBuff : BaseBuff
         buffData.type = typeof(LoserBuff);
         buffData.duration = 10;
         buffData.curTime = 0;
-        
     }
 
     public override void Activation()
     {
-        _stat.Attack += _loserBuffData.atk;
+        myCharacter.stat.Attack += _loserBuffData.atk;
     }
 
     public override void Deactivation()
     {
-        _stat.Attack -= _loserBuffData.atk;
+        myCharacter.stat.Attack -= _loserBuffData.atk;
     }
 }

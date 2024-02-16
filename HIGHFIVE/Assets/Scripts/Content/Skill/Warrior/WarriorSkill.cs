@@ -2,15 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WarriorSkill : MonoBehaviour
+public class WarriorSkill : CharacterSkill
 {
-    private void Start()
+    protected override void Start()
     {
-        
-    }
-
-    private void Update()
-    {
-        
+        base.Start();
+        FirstSkill = new Stabbing();
+        FirstSkill.Init();
     }
 }

@@ -2,6 +2,7 @@ using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 
 public class Character : Creature
@@ -117,6 +118,7 @@ public class Character : Creature
 
     private void OnDie()
     {
+        BuffController.CancelUnSustainBuff();
         _playerStateMachine.ChangeState(_playerStateMachine._playerDieState);
     }
 

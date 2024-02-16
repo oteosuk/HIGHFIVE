@@ -22,10 +22,12 @@ public abstract class BaseBuff
 {
     public BuffData buffData;
     protected BuffController _buffController;
-    protected Stat _stat;
     protected Character myCharacter;
 
-    public virtual void Init() { }
+    public virtual void Init()
+    {
+        myCharacter = Main.GameManager.SpawnedCharacter;
+    }
     public virtual IEnumerator ApplyEffect(GameObject target) { yield return null; }
     public abstract void Activation();
 
