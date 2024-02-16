@@ -26,6 +26,19 @@ public class MonsterSpawner : MonoBehaviourPunCallbacks
 
     }
 
+    protected void ReSpawnProcess(string prefabPath)
+    {
+        CheckFull();
+        if (!isFull)
+        {
+            _curTime -= Time.deltaTime;
+            if (_curTime <= 0)
+            {
+                ReSpawn(prefabPath);
+            }
+        }
+    }
+
     protected void ReSpawn(string path)
     {
         for (int i = 0; i < array.GetLength(0); i++)
@@ -33,7 +46,6 @@ public class MonsterSpawner : MonoBehaviourPunCallbacks
             if (array[i].Value == null)
             {
                 Vector3 spawnPosition = array[i].Key.position;
-                //GameObject mons = Main.ResourceManager.Instantiate("Monster/Enemy", spawnPosition, parent: array[i].Key, syncRequired:true);
                 GameObject mons = Main.ResourceManager.Instantiate(path, spawnPosition, parent: array[i].Key, syncRequired: true);
                 array[i] = new KeyValuePair<Transform, GameObject>(array[i].Key, mons);
                 _curTime = _respawnDelayTime;

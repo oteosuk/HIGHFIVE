@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
-
+using Photon.Pun;
 
 public class CharSelectTimer : MonoBehaviour
 {
@@ -34,7 +34,7 @@ public class CharSelectTimer : MonoBehaviour
 
             if (curTime <= 0)
             {
-                Main.SceneManagerEx.LoadScene(Define.Scene.LoadingScene);
+                PhotonNetwork.LoadLevel((int)Define.Scene.LoadingScene);
                 curTime = 0;
                 yield break;
             }

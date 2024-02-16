@@ -17,6 +17,8 @@ public class Assassination : BaseSkill
             _assassinationData = assassinationData;
         }
         //나중에 데이터 매니저에서 받아오기
+        skillData.skillName = "암살";
+        skillData.info = "적에게 피해를 가하면 출혈데미지를 입힌다.";
         skillData.skillSprite = Main.ResourceManager.Load<Sprite>("Sprites/Projectile/MageNormal");
         skillData.coolTime = 5;
         skillData.curTime = skillData.coolTime;
@@ -57,7 +59,7 @@ public class Assassination : BaseSkill
         PhotonView targetPv = target.GetComponent<PhotonView>();
         if (Main.NetworkManager.photonPlayer.TryGetValue(targetPv.ViewID, out Player targetPlayer))
         {
-            shooter.GetComponent<PhotonView>().RPC("ReceiveBuff", RpcTarget.Others, targetPv.ViewID);
+            shooter.GetComponent<PhotonView>().RPC("ReceiveBuff", RpcTarget.Others, targetPv.ViewID, Define.Buff.Assassination);
         }
     }
 

@@ -1,4 +1,4 @@
-public class Normal_GreenOrc2_Spawner : MonsterSpawner
+public class Elite_BossOrc_Spawner : MonsterSpawner
 {
     protected override void Start()
     {
@@ -7,6 +7,6 @@ public class Normal_GreenOrc2_Spawner : MonsterSpawner
 
     protected override void Update()
     {
-        ReSpawnProcess("Monster/Normal/Normal_GreenOrc2");
+        ReSpawnProcess("Monster/Elite/Elite_BossOrc");
     }
 }
