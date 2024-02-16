@@ -9,5 +9,7 @@ public class WarriorSkill : CharacterSkill
         base.Start();
         FirstSkill = new Stabbing();
         FirstSkill.Init();
+        SecondSkill = new StunShot();
+        SecondSkill.Init();
     }
 }

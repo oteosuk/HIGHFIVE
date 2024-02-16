@@ -11,6 +11,9 @@ public class PlayerStateMachine : StateMachine
     public PlayerAttackState _playerAttackState { get; }
     public PlayerDieState _playerDieState { get; }
     public PlayerFirstSkillState PlayerFirstSkillState { get; }
+    public PlayerSecondSkill PlayerSecondSkillState { get; }
+    public PlayerThirdSkill PlayerThirdSkillState { get; }
+    public PlayerConfuseState PlayerConfuseState { get; }
     public Define.InputKey InputKey { get; set; }
 
     public Vector2 moveInput { get; set; }
@@ -28,6 +31,9 @@ public class PlayerStateMachine : StateMachine
         _playerAttackState = new PlayerAttackState(this);
         _playerDieState = new PlayerDieState(this);
         PlayerFirstSkillState = new PlayerFirstSkillState(this);
+        PlayerSecondSkillState = new PlayerSecondSkill(this);
+        PlayerThirdSkillState = new PlayerThirdSkill(this);
+        PlayerConfuseState = new PlayerConfuseState(this);
     }
 
 }

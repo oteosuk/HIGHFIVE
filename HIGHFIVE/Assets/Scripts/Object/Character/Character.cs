@@ -108,6 +108,7 @@ public class Character : Creature
     {
         if (Main.GameManager.page == Define.Page.Battle) return;
         _playerStateMachine._player.transform.position = Main.GameManager.CharacterSpawnPos;
+        _playerStateMachine.moveInput = Main.GameManager.CharacterSpawnPos;
         _playerStateMachine._player.stat.gameObject.GetComponent<PhotonView>().RPC("SetHpRPC", RpcTarget.All, _playerStateMachine._player.stat.MaxHp);
         int layer = Main.GameManager.SelectedCamp == Define.Camp.Red ? (int)Define.Layer.Red : (int)Define.Layer.Blue;
         GetComponent<PhotonView>().RPC("SetLayer", RpcTarget.All, layer);
@@ -169,9 +170,9 @@ public class Character : Creature
         {
             switch(buffNum)
             {
-                case (int)Define.Buff.Stabbing:
-                    BaseBuff stabbingBuff = new StabbingBuff();
-                    targetObject.GetComponent<Character>().BuffController.AddBuff(stabbingBuff);
+                case (int)Define.Buff.StunShot:
+                    BaseBuff stunShotBuff = new StunShotBuff();
+                    targetObject.GetComponent<Character>().BuffController.AddBuff(stunShotBuff);
                     break;
                 case (int)Define.Buff.Assassination:
                     BaseBuff assassinationBuff = new AssassinationBuff();

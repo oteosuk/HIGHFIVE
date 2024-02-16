@@ -9,5 +9,7 @@ public class RogueSkill : CharacterSkill
         base.Start();
         FirstSkill = new Assassination();
         FirstSkill.Init();
+        SecondSkill = new StunShot();
+        SecondSkill.Init();
     }
 }

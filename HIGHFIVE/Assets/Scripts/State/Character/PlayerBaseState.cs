@@ -23,6 +23,7 @@ public class PlayerBaseState : IState
     public virtual void HandleInput()
     {
         if (_playerStateMachine._player.stat.CurHp <= 0) return;
+        if (_playerStateMachine._player.Animator.GetBool(_playerStateMachine._player.PlayerAnimationData.ConfuseParameterHash)) return;
         ReadMoveInput();
         ReadSkillInput();
     }
@@ -124,13 +125,21 @@ public class PlayerBaseState : IState
     private void ReadSkillInput()
     {
         //나중에 키세팅 기능 추가
+        Character myCharacter = _playerStateMachine._player;
         if (Keyboard.current.qKey.wasPressedThisFrame)
         {
             _playerStateMachine.InputKey = Define.InputKey.FirstSkill;
-            Character myCharacter = _playerStateMachine._player;
             if (myCharacter.CharacterSkill.FirstSkill.CanUseSkill())
             {
                 _playerStateMachine.ChangeState(_playerStateMachine.PlayerFirstSkillState);
+            }
+        }
+        else if (Keyboard.current.wKey.wasPressedThisFrame)
+        {
+            _playerStateMachine.InputKey = Define.InputKey.SecondSkill;
+            if (myCharacter.CharacterSkill.SecondSkill.CanUseSkill())
+            {
+                _playerStateMachine.ChangeState(_playerStateMachine.PlayerSecondSkillState);
             }
         }
     }

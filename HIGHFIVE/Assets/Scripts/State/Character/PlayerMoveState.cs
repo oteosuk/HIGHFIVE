@@ -58,7 +58,7 @@ public class PlayerMoveState : PlayerBaseState
 
         MovePlayerToTarget();
         
-        if (_playerStateMachine.InputKey != Define.InputKey.FirstSkill)
+        if (_playerStateMachine.InputKey != Define.InputKey.FirstSkill && _playerStateMachine.InputKey != Define.InputKey.SecondSkill)
         {
             CheckForAttack();
         }
@@ -133,6 +133,9 @@ public class PlayerMoveState : PlayerBaseState
             case Define.InputKey.FirstSkill:
                 HandleFirstSkillInput();
                 break;
+            case Define.InputKey.SecondSkill:
+                HandleSeconSkillInput();
+                break;
         }
     }
 
@@ -152,6 +155,14 @@ public class PlayerMoveState : PlayerBaseState
         if (myCharacter.CharacterSkill.FirstSkill.CanUseSkill())
         {
             _playerStateMachine.ChangeState(_playerStateMachine.PlayerFirstSkillState);
+        }
+    }
+    private void HandleSeconSkillInput()
+    {
+        Character myCharacter = _playerStateMachine._player;
+        if (myCharacter.CharacterSkill.SecondSkill.CanUseSkill())
+        {
+            _playerStateMachine.ChangeState(_playerStateMachine.PlayerSecondSkillState);
         }
     }
 }
