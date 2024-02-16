@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Normal_Orc : Monster
+public class Orc : Monster
 {
     private double _curDelay;
     Vector3 originalScale;

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Normal_Tree : Monster
+public class Tree : Monster
 {
     protected override void Awake()
     {
