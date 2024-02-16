@@ -125,8 +125,8 @@ MonoBehaviour:
     movSpeed: 3
     maxHp: 50
     curHp: 50
-    sight: 3
     exp: 10
+    sight: 3
   - name: "\uC624\uAC70"
     atk: 12
     def: 2
@@ -135,8 +135,8 @@ MonoBehaviour:
     movSpeed: 3
     maxHp: 50
     curHp: 50
-    sight: 3
     exp: 15
+    sight: 3
   - name: "\uC624\uAC70 \uC804\uC0AC"
     atk: 13
     def: 3
@@ -145,8 +145,8 @@ MonoBehaviour:
     movSpeed: 4
     maxHp: 60
     curHp: 60
-    sight: 3
     exp: 15
+    sight: 3
   - name: "\uBE14\uB8E8"
     atk: 13
     def: 5
@@ -155,8 +155,8 @@ MonoBehaviour:
     movSpeed: 3
     maxHp: 70
     curHp: 70
-    sight: 4
     exp: 20
+    sight: 4
   - name: "\uB808\uB4DC"
     atk: 13
     def: 5
@@ -165,9 +165,9 @@ MonoBehaviour:
     movSpeed: 3
     maxHp: 70
     curHp: 70
-    sight: 4
     exp: 20
-  - name: "\uC5D0\uD53D"
+    sight: 4
+  - name: "\uC5D8\uB9AC\uD2B8"
     atk: 15
     def: 8
     atkRange: 2
@@ -175,38 +175,8 @@ MonoBehaviour:
     movSpeed: 3
     maxHp: 100
     curHp: 100
+    exp: 30
     sight: 4
-    exp: 30
-  - name: EL4
-    atk: 10
-    def: 0
-    atkRange: 1
-    atkSpeed: 2
-    movSpeed: 3
-    maxHp: 50
-    curHp: 50
-    sight: 3
-    exp: 10
-  - name: EP1
-    atk: 10
-    def: 0
-    atkRange: 1
-    atkSpeed: 2
-    movSpeed: 3
-    maxHp: 50
-    curHp: 50
-    sight: 3
-    exp: 30
-  - name: EP2
-    atk: 10
-    def: 0
-    atkRange: 1
-    atkSpeed: 2
-    movSpeed: 3
-    maxHp: 50
-    curHp: 50
-    sight: 3
-    exp: 30
   Items:
   - id: 0
     name: "ex\uC120\uD3EC\uC790"

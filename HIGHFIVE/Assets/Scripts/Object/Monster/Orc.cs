@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Orc : Monster
 {
-    private double _curDelay;
     Vector3 originalScale;
 
     protected override void Awake()
@@ -33,7 +32,6 @@ public class Orc : Monster
         {
             targetObject.GetComponent<Stat>()?.TakeDamage(stat.Attack);
         }
-        _curDelay = 1.0 / stat.AttackSpeed;
     }
 
     public override void SetAnimation(float angle)
