@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 7958771575065313800}
   - component: {fileID: 4506248720869637196}
   - component: {fileID: 846152937686042273}
-  - component: {fileID: 1668214300496090536}
-  - component: {fileID: 7743322475909137262}
   - component: {fileID: 4867965855465524103}
   - component: {fileID: 6638737502683945314}
+  - component: {fileID: 1668214300496090536}
+  - component: {fileID: 7743322475909137262}
   m_Layer: 6
   m_Name: Normal_Tree
   m_TagString: Monster
@@ -100,35 +100,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1668214300496090536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 988992157222693023}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9bfdd12371d66b4b8d74b2de72f7256, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stat: {fileID: 0}
-  targetObject: {fileID: 0}
-  _spawnPoint: {x: 0, y: 0}
---- !u!114 &7743322475909137262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 988992157222693023}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01cf9cf5c79cfe34296fc11fcb0ae84a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelExpList: 
-  _statController: {fileID: 0}
 --- !u!114 &4867965855465524103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,6 +134,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 842bffc905b67e94f8368e7781949c58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1668214300496090536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988992157222693023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9bfdd12371d66b4b8d74b2de72f7256, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stat: {fileID: 0}
+  targetObject: {fileID: 0}
+  _spawnPoint: {x: 0, y: 0}
+--- !u!114 &7743322475909137262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988992157222693023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01cf9cf5c79cfe34296fc11fcb0ae84a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelExpList: 
+  _statController: {fileID: 0}
 --- !u!1 &6925981652042612016
 GameObject:
   m_ObjectHideFlags: 0
