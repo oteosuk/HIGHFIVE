@@ -9,11 +9,7 @@ public class MageSkills : CharacterSkill
         base.Start();
         FirstSkill = new FireBall();
         FirstSkill.Init();
+        SecondSkill = new StunShot();
+        SecondSkill.Init();
     }
-
-    //public void ChangeSkill(BaseSkill skill, Define.SkillNum skillNum)
-    //{
-    //    skill1 = skill;
-    //    skill1.Init();
-    //}
 }

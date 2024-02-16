@@ -1159,6 +1159,12 @@ MonoBehaviour:
   - Type: 4
     SynchronizeType: 1
     Name: isFirstSkill
+  - Type: 4
+    SynchronizeType: 1
+    Name: isSecondSkill
+  - Type: 4
+    SynchronizeType: 1
+    Name: isConfuse
   m_SynchronizeLayers:
   - SynchronizeType: 1
     LayerIndex: 0
