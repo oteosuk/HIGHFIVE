@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static Define;
 
 public class AssassinationBuff : BaseBuff
 {
     private BuffDBEntity _assassinationBuffData;
+
     public override void Init()
     {
         base.Init();
@@ -23,9 +25,12 @@ public class AssassinationBuff : BaseBuff
         buffData.isSustainBuff = false;
     }
 
-    public override void Activation() { }
+    public override void Activation() { }   
 
-    public override void Deactivation() { }
+    public override void Deactivation()
+    {
+        buffData.effectTime = buffData.duration;
+    }
 
     public override IEnumerator ApplyEffect(GameObject target)
     {

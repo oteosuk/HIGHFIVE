@@ -53,5 +53,6 @@ public class SelectScene : BaseScene
             index++;
         }
 
+        Main.SoundManager.PlayBGM("Battle_Normal_EW02", 0.1f);
     }
 }

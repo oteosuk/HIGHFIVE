@@ -2,6 +2,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -39,12 +40,11 @@ public class Stabbing : BaseSkill
         Character myCharacter = Main.GameManager.SpawnedCharacter;
         if (!skillData.isUse) return;
         skillData.isUse = false;
-
+        skillData.coolTimeicon.fillAmount = 1;
         BaseBuff stabbingBuff = new StabbingBuff();
         myCharacter.BuffController.AddBuff(stabbingBuff);
 
         myCharacter.Animator.SetBool(myCharacter.PlayerAnimationData.SkillDelayTimeHash, true);
-        myCharacter.SkillController.CallSkillExecute(myCharacter.CharacterSkill.FirstSkill);
         myCharacter.SkillController.CallSkillDelay(myCharacter.CharacterSkill.FirstSkill.skillData);
     }
 }
