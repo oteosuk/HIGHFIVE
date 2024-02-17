@@ -35,7 +35,7 @@ public class BuffController : MonoBehaviour
         return null;
     }
 
-    public void AddBuff(BaseBuff buff)
+    public void AddBuff(BaseBuff buff, GameObject shooter = null)
     {
         foreach (BaseBuff hasBuff in onBuffList)
         {
@@ -53,7 +53,7 @@ public class BuffController : MonoBehaviour
             AddBuffEvent(buff);
         }
         buff.Activation();
-        StartCoroutine(buff.ApplyEffect(gameObject));
+        StartCoroutine(buff.ApplyEffect(gameObject, shooter));
         StartCoroutine(BuffTimer(buff));
     }
      

@@ -32,7 +32,7 @@ public class StunShotBuff : BaseBuff
         buffData.effectTime = buffData.duration;
     }
 
-    public override IEnumerator ApplyEffect(GameObject target)
+    public override IEnumerator ApplyEffect(GameObject target, GameObject shooter = null)
     {
         yield return base.ApplyEffect(target);
         target.GetComponent<Character>()._playerStateMachine.ChangeState(target.GetComponent<Character>()._playerStateMachine.PlayerConfuseState);

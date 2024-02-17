@@ -109638,7 +109638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc5244278db62c54586d9aa345d8cb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentRound: 1
+  currentRound: 0
   roundTxt: {fileID: 1171010832}
   TeamRedScore: {fileID: 258495332}
   TeamBlueScore: {fileID: 1601722326}

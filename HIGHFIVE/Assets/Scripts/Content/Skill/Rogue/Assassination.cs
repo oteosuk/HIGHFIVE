@@ -64,7 +64,7 @@ public class Assassination : BaseSkill
                 shooter.GetComponent<PhotonView>().RPC("ReceiveBuff", RpcTarget.Others, targetPv.ViewID, Define.Buff.Assassination);
             }
         }
-        else { target.GetComponent<Creature>().BuffController?.AddBuff(assassinationBuff); }
+        else { target.GetComponent<Creature>().BuffController?.AddBuff(assassinationBuff, shooter.gameObject); }
     }
 
     private bool CheckRange()

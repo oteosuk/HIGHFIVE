@@ -39,7 +39,7 @@ public class RoundLogic : MonoBehaviour
     public void RoundIndex()
     {
         currentRound++;
-        roundTxt.text = currentRound.ToString();
+        GetComponent<PhotonView>().RPC("SyncRound", RpcTarget.All, currentRound);
     }
 
     public void GameOver(Define.Camp winCamp)
@@ -173,5 +173,11 @@ public class RoundLogic : MonoBehaviour
         TeamBlueScore.text = $"{blueScore}";
         _teamBlueScore = blueScore;
         _teamRedScore = redScore;
+    }
+
+    [PunRPC]
+    public void SyncRound(int round)
+    {
+        roundTxt.text = round.ToString();
     }
 }

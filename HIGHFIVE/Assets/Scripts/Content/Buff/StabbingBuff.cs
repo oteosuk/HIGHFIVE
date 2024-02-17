@@ -20,8 +20,9 @@ public class StabbingBuff : BaseBuff
         buffData.curTime = 0;
         buffData.damage = 20;
         buffData.effectTime = 5;
+        buffData.isSustainBuff = true;
     }
-    public override IEnumerator ApplyEffect(GameObject target)
+    public override IEnumerator ApplyEffect(GameObject target, GameObject shooter = null)
     {
         yield return new WaitForSeconds(buffData.effectTime);
         target.GetComponent<Stat>().MoveSpeed -= 3;

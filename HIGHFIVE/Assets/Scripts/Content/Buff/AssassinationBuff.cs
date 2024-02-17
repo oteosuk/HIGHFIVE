@@ -32,14 +32,14 @@ public class AssassinationBuff : BaseBuff
         buffData.effectTime = buffData.duration;
     }
 
-    public override IEnumerator ApplyEffect(GameObject target)
+    public override IEnumerator ApplyEffect(GameObject target, GameObject shooter)
     {
         yield return base.ApplyEffect(target);
 
         while (buffData.effectTime < buffData.duration)
         {
             buffData.effectTime += 1f;
-            target.GetComponent<Stat>().TakeDamage(buffData.trueDamage, isTrueDamage: true);
+            target.GetComponent<Stat>().TakeDamage(buffData.trueDamage, shooter, isTrueDamage: true);
             yield return new WaitForSeconds(1f);
         }
         buffData.effectTime = 0;
