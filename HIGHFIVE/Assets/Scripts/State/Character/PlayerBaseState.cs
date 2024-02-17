@@ -163,7 +163,7 @@ public class PlayerBaseState : IState
     private void FlipCharacter(Vector2 dir)
     {
         Vector3 localScale = _playerStateMachine._player.transform.localScale;
-        if (dir.x > 0) { _playerStateMachine._player.transform.localScale = new Vector3(-1.5f, localScale.y, 1); }
-        else { _playerStateMachine._player.transform.localScale = new Vector3(1.5f, localScale.y, 1); }
+        if (dir.x > 0) { _playerStateMachine._player.transform.localScale = new Vector3(-2f, localScale.y, 1); }
+        else { _playerStateMachine._player.transform.localScale = new Vector3(2f, localScale.y, 1); }
     }
 }
