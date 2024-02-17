@@ -63,6 +63,7 @@ public class RoundTimer : MonoBehaviour
 
     IEnumerator FarmingTimer()
     {
+        roundLogic.RoundIndex();
         _pv.RPC("SynPage", RpcTarget.All, (int)Define.Page.Farming);
         curTime = farmingTime;
 
@@ -94,7 +95,6 @@ public class RoundTimer : MonoBehaviour
     {
         if (pageNum == (int)Define.Page.Farming)
         {
-            roundLogic.RoundIndex();
             Main.GameManager.page = Define.Page.Farming;
             if (roundLogic.currentRound  != 1)
             {
