@@ -45,6 +45,7 @@ public class Assassination : BaseSkill
     {
         Character myCharacter = Main.GameManager.SpawnedCharacter;
         skillData.isUse = false;
+        Main.ResourceManager.Instantiate("SkillEffect/AssessinationEffect", myCharacter.targetObject.transform.Find("EffectTarget").position, syncRequired: true);
         DamageToTarget(_targetObject, myCharacter);
         myCharacter.Animator.SetBool(myCharacter.PlayerAnimationData.SkillDelayTimeHash, true);
         myCharacter.SkillController.CallSkillExecute(myCharacter.CharacterSkill.FirstSkill);

@@ -51,7 +51,7 @@ public class FireBall : BaseSkill
         Vector2 dir = GetDir().normalized;
         await Task.Delay(TimeSpan.FromMilliseconds(200));
         Character myCharacter = Main.GameManager.SpawnedCharacter;
-        GameObject sphere = Main.ResourceManager.Instantiate("Character/FireBall", myCharacter.transform.position, syncRequired: true);
+        GameObject sphere = Main.ResourceManager.Instantiate("SkillEffect/FireBallEffect", myCharacter.transform.position, syncRequired: true);
         SetRotation(sphere, dir);
         SetSpeed(sphere, dir);
 
