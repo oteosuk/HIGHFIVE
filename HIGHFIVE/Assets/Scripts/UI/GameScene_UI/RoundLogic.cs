@@ -10,7 +10,7 @@ using UnityEngine.UI;
 
 public class RoundLogic : MonoBehaviour
 {
-    public int currentRound = 1;
+    public int currentRound = 0;
 
     [SerializeField] TMP_Text roundTxt;
 
@@ -33,16 +33,13 @@ public class RoundLogic : MonoBehaviour
         _gameSceneController = gameObject.GetComponent<GameFieldController>();
         _gameSceneController.battleEvent += ChangeToBattleField;
         _gameSceneController.farmingEvent += ChangeToFarmingField;
-        if (PhotonNetwork.IsMasterClient)
-        {
-            _gameSceneController.winEvent += PlayerWin;
-        }
+        _gameSceneController.winEvent += PlayerWin;
     }
 
     public void RoundIndex()
     {
-        roundTxt.text = currentRound.ToString();
         currentRound++;
+        roundTxt.text = currentRound.ToString();
     }
 
     public void GameOver(Define.Camp winCamp)
@@ -112,7 +109,6 @@ public class RoundLogic : MonoBehaviour
         character.stat.CurHp = character.stat.MaxHp;
         character.BuffController.CancelUnSustainBuff();
         character.GetComponent<PhotonView>().RPC("SetHpRPC", RpcTarget.All, character.stat.CurHp);
-        //character.GetComponent<PhotonView>().RPC("SyncHpRatio", RpcTarget.All, character.stat.CurHp);
         int layer = Main.GameManager.SelectedCamp == Define.Camp.Red ? (int)Define.Layer.Red : (int)Define.Layer.Blue;
         character.GetComponent<PhotonView>().RPC("SetLayer", RpcTarget.All, layer);
         Camera.main.transform.position = new Vector3(character.transform.position.x, character.transform.position.y, -10);

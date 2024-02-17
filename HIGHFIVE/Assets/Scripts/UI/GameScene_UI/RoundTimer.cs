@@ -5,30 +5,35 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using Unity.VisualScripting;
+using Photon.Pun;
 
 public class RoundTimer : MonoBehaviour
 {
     [SerializeField] private TMP_Text text;
 
-    private float curTime;
-    private float farmingTime;
-    private float battleTime;
+    private int curTime;
+    private int farmingTime;
+    private int battleTime;
     private GameFieldController _gameFieldController;
 
     [SerializeField] TMP_Text TeamRedScore;
     [SerializeField] TMP_Text TeamBlueScore;
 
-    // int minute;
-    int second;
-
     private RoundLogic roundLogic;
+    private PhotonView _pv;
 
 
     private void Start()
     {
+        battleTime = 20;
+        farmingTime = 60;
         roundLogic = GetComponent<RoundLogic>();
         _gameFieldController = GetComponent<GameFieldController>();
-        StartFarmingTimer();
+        _pv = GetComponent<PhotonView>();
+        if (PhotonNetwork.IsMasterClient)
+        {
+            StartFarmingTimer();
+        }
     }
 
     private void Update()
@@ -37,13 +42,15 @@ public class RoundTimer : MonoBehaviour
         {
             if (roundLogic._teamBlueScore == 2) { roundLogic.GameOver(Define.Camp.Blue); }
             if (roundLogic._teamRedScore == 2) { roundLogic.GameOver(Define.Camp.Red); }
-            StopAllCoroutines();
+            if (PhotonNetwork.IsMasterClient)
+            {
+                StopAllCoroutines();
+            }
         }
     }
 
     void StartFarmingTimer()
     {
-        roundLogic.RoundIndex();
         StopCoroutine(BattleTimer());
         StartCoroutine(FarmingTimer());
     }
@@ -56,52 +63,53 @@ public class RoundTimer : MonoBehaviour
 
     IEnumerator FarmingTimer()
     {
-        yield return new WaitForSeconds(1.0f);
-        Main.GameManager.page = Define.Page.Farming;
-        farmingTime = 60; // 이부분 시간조절
+        _pv.RPC("SynPage", RpcTarget.All, (int)Define.Page.Farming);
         curTime = farmingTime;
 
-        
         while (curTime > 0)
         {
-            curTime -= Time.deltaTime;
-            // minute = (int)curTime / 60;
-            second = (int)curTime % 60; // 근데 여기에서 분이 안나와버림
-            text.text = second.ToString("0");
-            yield return null;
-
-            if (curTime <= 0)
-            {
-                _gameFieldController.CallBattleEvent();
-                curTime = battleTime;
-                StartBattleTimer();
-                yield break;
-            }
+            curTime -= 1;
+            _pv.RPC("SyncTime", RpcTarget.All, curTime);
+            yield return new WaitForSeconds(1);
         }
+        StartBattleTimer();
     }
 
     IEnumerator BattleTimer()
     {
-        yield return new WaitForSeconds(1.0f);
-        Main.GameManager.page = Define.Page.Battle;
-        battleTime = 20; // 이부분 시간조절
+        _pv.RPC("SynPage", RpcTarget.All, (int)Define.Page.Battle);
         curTime = battleTime;
 
         while (curTime > 0)
         {
-            curTime -= Time.deltaTime;
-            // minute = (int)curTime / 60;
-            second = (int)curTime % 60; // 근데 여기에서 분이 안나와버림
-            text.text = second.ToString("0");
-            yield return null;
+            curTime -= 1;
+            _pv.RPC("SyncTime", RpcTarget.All, curTime);
+            yield return new WaitForSeconds(1);
+        }
+        StartFarmingTimer();
+    }
 
-
-            if (curTime <= 0)
+    [PunRPC]
+    private void SynPage(int pageNum)
+    {
+        if (pageNum == (int)Define.Page.Farming)
+        {
+            roundLogic.RoundIndex();
+            Main.GameManager.page = Define.Page.Farming;
+            if (roundLogic.currentRound  != 1)
             {
                 _gameFieldController.CallFarmingEvent();
-                StartFarmingTimer();
-                yield break;
             }
         }
+        else 
+        {
+            Main.GameManager.page = Define.Page.Battle;
+            _gameFieldController.CallBattleEvent();
+        }
+    }
+    [PunRPC]
+    private void SyncTime(int curTime)
+    {
+        text.text = curTime.ToString();
     }
 }

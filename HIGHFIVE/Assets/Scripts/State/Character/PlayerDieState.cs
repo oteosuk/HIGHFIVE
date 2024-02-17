@@ -15,8 +15,11 @@ public class PlayerDieState : PlayerBaseState
         base.Enter();
         _playerStateMachine.moveSpeedModifier = 0f;
         _playerStateMachine._player.GetComponent<PhotonView>().RPC("SetLayer", RpcTarget.All, (int)Define.Layer.Default);
-        _playerStateMachine._player.Collider.isTrigger = true;
-        if (Main.GameManager.page != Define.Page.Battle) { _playerStateMachine._player.Revival(5); }
+        if (Main.GameManager.page != Define.Page.Battle)
+        {
+            _playerStateMachine._player.Revival(5);
+            _playerStateMachine._player.Collider.isTrigger = true;
+        }
         StartAnimation(_playerStateMachine._player.PlayerAnimationData.DieParameterHash);
     }
 
