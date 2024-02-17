@@ -55,7 +55,7 @@ public class Util
         }
 
         return component;
-    }
+    } 
     public static void ShowAlert(string alertMessage, Transform parent = null)
     {
         GameObject alertBlock = Main.ResourceManager.Instantiate("UI_Prefabs/AlertBlock", parent);

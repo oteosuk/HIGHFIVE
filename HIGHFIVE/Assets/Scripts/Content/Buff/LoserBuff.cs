@@ -14,10 +14,11 @@ public class LoserBuff : BaseBuff
             _loserBuffData = loserBuffData;
         }
         //나중에 데이터 매니저에서 받아오기
-        buffData.buffSprite = Main.ResourceManager.Load<Sprite>("Sprites/Projectile/MageNormal");
+        buffData.buffSprite = Main.ResourceManager.Load<Sprite>("Sprites/BuffIcon/LoserAnger");
         buffData.type = typeof(LoserBuff);
-        buffData.duration = 10;
+        buffData.duration = 60;
         buffData.curTime = 0;
+        buffData.isSustainBuff = true;
     }
 
     public override void Activation()
