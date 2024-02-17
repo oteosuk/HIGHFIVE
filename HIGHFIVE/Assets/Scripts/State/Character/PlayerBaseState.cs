@@ -142,6 +142,14 @@ public class PlayerBaseState : IState
                 _playerStateMachine.ChangeState(_playerStateMachine.PlayerSecondSkillState);
             }
         }
+        else if (Keyboard.current.eKey.wasPressedThisFrame)
+        {
+            _playerStateMachine.InputKey = Define.InputKey.ThirdSkill;
+            if (myCharacter.CharacterSkill.ThirdSkill.CanUseSkill())
+            {
+                _playerStateMachine.ChangeState(_playerStateMachine.PlayerThirdSkillState);
+            }
+        }
     }
 
     private Vector2 GetDir()

@@ -11,5 +11,7 @@ public class RogueSkill : CharacterSkill
         FirstSkill.Init();
         SecondSkill = new StunShot();
         SecondSkill.Init();
+        ThirdSkill = new Flash();
+        ThirdSkill.Init();
     }
 }

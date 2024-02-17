@@ -16,9 +16,7 @@ public class PlayerThirdSkill : PlayerBaseState
     {
         // 기능
         base.Enter();
-        _playerStateMachine._player.CharacterSkill.FirstSkill.Execute();
-
-        StartAnimation(_thirdSkillHash);
+        _playerStateMachine._player.CharacterSkill.ThirdSkill.Execute();
         // 애니메이션 호출
     }
 
@@ -26,31 +24,28 @@ public class PlayerThirdSkill : PlayerBaseState
     {
         base.Exit();
 
-        // 애니메이션 해제
-        StopAnimation(_thirdSkillHash);
     }
 
     public override void StateUpdate()
     {
         base.StateUpdate();
-        Character myCharacter = _playerStateMachine._player;
-        if (myCharacter.Animator.GetBool(myCharacter.PlayerAnimationData.SkillDelayTimeHash)) return;
-        CheckAndChangeState();
+        //Character myCharacter = _playerStateMachine._player;
+        //if (myCharacter.Animator.GetBool(myCharacter.PlayerAnimationData.SkillDelayTimeHash)) return;
     }
 
-    private void CheckAndChangeState()
-    {
-        if (_playerStateMachine._player.targetObject != null)
-        {
-            _playerStateMachine.ChangeState(_playerStateMachine._playerAttackState);
-        }
-        else if (_playerStateMachine.moveInput != (Vector2)_playerStateMachine._player.transform.position)
-        {
-            _playerStateMachine.ChangeState(_playerStateMachine._playerMoveState);
-        }
-        else
-        {
-            _playerStateMachine.ChangeState(_playerStateMachine._playerIdleState);
-        }
-    }
+    //private void CheckAndChangeState()
+    //{
+    //    if (_playerStateMachine._player.targetObject != null)
+    //    {
+    //        _playerStateMachine.ChangeState(_playerStateMachine._playerAttackState);
+    //    }
+    //    else if (_playerStateMachine.moveInput != (Vector2)_playerStateMachine._player.transform.position)
+    //    {
+    //        _playerStateMachine.ChangeState(_playerStateMachine._playerMoveState);
+    //    }
+    //    else
+    //    {
+    //        _playerStateMachine.ChangeState(_playerStateMachine._playerIdleState);
+    //    }
+    //}
 }
