@@ -6,6 +6,7 @@ using UnityEngine;
 public class FireBallProjectile : MonoBehaviour
 {
     private ShooterInfoController _shooterInfoController;
+    private Animator _animator;
     private GameObject _shooter;
     private Vector3 startingPosition;
     private float maxDistance;
@@ -13,6 +14,7 @@ public class FireBallProjectile : MonoBehaviour
     private void Awake()
     {
         _shooterInfoController = GetComponent<ShooterInfoController>();
+        _animator = transform.Find("FireBall").GetComponent<Animator>();
         _shooterInfoController.shooterInfoEvent += GetShooterInfo;
     }
     private void Start()
@@ -42,7 +44,11 @@ public class FireBallProjectile : MonoBehaviour
             {
                 //shooter의 정보
                 collision.gameObject.GetComponent<Stat>()?.TakeDamage(Main.GameManager.SpawnedCharacter.CharacterSkill.FirstSkill.skillData.damage, _shooter);
-                PhotonNetwork.Destroy(gameObject);
+                CapsuleCollider2D collider = gameObject.GetComponent<CapsuleCollider2D>();
+                Destroy(collider);
+                _animator.SetBool("isTrigger", true);
+                gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero * 0;
+                
             }
         }
     }
@@ -51,4 +57,5 @@ public class FireBallProjectile : MonoBehaviour
     {
         _shooter = shooter;
     }
+
 }
