@@ -20,15 +20,12 @@ public class Assassination : BaseSkill
         skillData.skillName = "암살";
         skillData.info = "적에게 피해를 가하면 출혈데미지를 입힌다.";
         skillData.skillSprite = Main.ResourceManager.Load<Sprite>("Sprites/SkillIcon/Assessination");
-        skillData.coolTime = 5;
+        skillData.coolTime = _assassinationData.coolTime;
         skillData.curTime = skillData.coolTime;
-        skillData.animTime = 0.5f;
+        skillData.animTime = _assassinationData.animTime;
         skillData.isUse = true;
-        skillData.loadTime = 0;
-        skillData.durationTime = 5;
-        skillData.skillRange = 1;
-        //_assassinationData.damage + (int)(Main.GameManager.SpawnedCharacter.stat.Attack * _assassinationData.damageRatio);
-        skillData.damage = 20;
+        skillData.skillRange = _assassinationData.range;
+        skillData.damage = _assassinationData.damage + (int)(Main.GameManager.SpawnedCharacter.stat.Attack * _assassinationData.damageRatio); ;
     }
 
     public override bool CanUseSkill()

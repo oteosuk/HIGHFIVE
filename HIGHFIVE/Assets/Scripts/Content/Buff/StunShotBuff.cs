@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class StunShotBuff : BaseBuff
 {
-    private BuffDBEntity _assassinationBuffData;
+    private BuffDBEntity _stunShotBuffData;
 
     public override void Init()
     {
         base.Init();
-        if (Main.DataManager.BuffDict.TryGetValue("스턴샷", out BuffDBEntity assassinationBuffData))
+        if (Main.DataManager.BuffDict.TryGetValue("스턴샷", out BuffDBEntity stunShotBuffData))
         {
-            _assassinationBuffData = assassinationBuffData;
+            _stunShotBuffData = stunShotBuffData;
         }
         //나중에 데이터 매니저에서 받아오기
         buffData.buffSprite = Main.ResourceManager.Load<Sprite>("Sprites/SkillIcon/StunShot");
         buffData.type = typeof(AssassinationBuff);
-        buffData.duration = 4;
+        buffData.duration = _stunShotBuffData.durationTime;
         buffData.curTime = 0;
         buffData.effectTime = 0;
-        buffData.isSustainBuff = false;
+        buffData.isSustainBuff = _stunShotBuffData.isSustain;
     }
 
     public override void Activation() 

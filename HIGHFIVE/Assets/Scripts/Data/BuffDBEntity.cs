@@ -8,4 +8,9 @@ public class BuffDBEntity
     public int atk;
     public int def;
     public int spd;
+    public float durationTime;
+    public int trueDamage;
+    public int damage;
+    public float effectTime;
+    public bool isSustain;
 }

@@ -16,18 +16,22 @@ public class LoserBuff : BaseBuff
         //나중에 데이터 매니저에서 받아오기
         buffData.buffSprite = Main.ResourceManager.Load<Sprite>("Sprites/BuffIcon/LoserAnger");
         buffData.type = typeof(LoserBuff);
-        buffData.duration = 60;
+        buffData.duration = _loserBuffData.durationTime;
         buffData.curTime = 0;
-        buffData.isSustainBuff = true;
+        buffData.isSustainBuff = _loserBuffData.isSustain;
     }
 
     public override void Activation()
     {
         myCharacter.stat.Attack += _loserBuffData.atk;
+        myCharacter.stat.Defence += _loserBuffData.def;
+        myCharacter.stat.AttackSpeed += _loserBuffData.spd;
     }
 
     public override void Deactivation()
     {
         myCharacter.stat.Attack -= _loserBuffData.atk;
+        myCharacter.stat.Defence -= _loserBuffData.def;
+        myCharacter.stat.AttackSpeed -= _loserBuffData.spd;
     }
 }

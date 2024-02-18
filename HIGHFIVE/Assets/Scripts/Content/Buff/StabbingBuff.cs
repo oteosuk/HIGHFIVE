@@ -9,30 +9,30 @@ public class StabbingBuff : BaseBuff
     public override void Init()
     {
         base.Init();
-        if (Main.DataManager.BuffDict.TryGetValue("찌르기", out BuffDBEntity stabbingBuffData))
+        if (Main.DataManager.BuffDict.TryGetValue("광폭화", out BuffDBEntity stabbingBuffData))
         {
             _stabbingBuffData = stabbingBuffData;
         }
         //나중에 데이터 매니저에서 받아오기
         buffData.buffSprite = Main.ResourceManager.Load<Sprite>("Sprites/SkillIcon/Berserk");
         buffData.type = typeof(StabbingBuff);
-        buffData.duration = 10;
+        buffData.duration = _stabbingBuffData.durationTime;
         buffData.curTime = 0;
-        buffData.damage = 20;
-        buffData.effectTime = 5;
-        buffData.isSustainBuff = true;
+        buffData.damage = _stabbingBuffData.damage + myCharacter.stat.Attack;
+        buffData.effectTime = _stabbingBuffData.effectTime;
+        buffData.isSustainBuff = _stabbingBuffData.isSustain;
     }
     public override IEnumerator ApplyEffect(GameObject target, GameObject shooter = null)
     {
         yield return new WaitForSeconds(buffData.effectTime);
-        target.GetComponent<Stat>().MoveSpeed -= 3;
+        target.GetComponent<Stat>().MoveSpeed -= _stabbingBuffData.spd;
         yield return new WaitForSeconds(buffData.duration - buffData.effectTime);
         myCharacter.SkillController.CallSkillExecute(myCharacter.CharacterSkill.FirstSkill);
     }
 
     public override void Activation()
     {
-        myCharacter.stat.MoveSpeed += 3;
+        myCharacter.stat.MoveSpeed += _stabbingBuffData.spd;
     }
 
     public override void Deactivation() { }
