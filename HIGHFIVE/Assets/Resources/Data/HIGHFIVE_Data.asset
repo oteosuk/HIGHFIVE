@@ -253,10 +253,10 @@ MonoBehaviour:
     atk: 0
     def: 0
     spd: 2
-    durationTime: 8
+    durationTime: 6
     trueDamage: 0
-    damage: 20
-    effectTime: 4
+    damage: 10
+    effectTime: 3
     isSustain: 1
   - name: "\uC2A4\uD134\uC0F7"
     info: "\uC2A4\uD134"

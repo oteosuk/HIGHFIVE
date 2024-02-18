@@ -6,7 +6,7 @@ public class Normal_GreenOrc1_Spawner : MonsterSpawner
     protected override void Start()
     {
         array = new KeyValuePair<Transform, GameObject>[5];
-        _respawnDelayTime = 5;
+        _respawnDelayTime = 15;
         base.Start();
     }
 
