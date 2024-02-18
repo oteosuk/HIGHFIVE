@@ -8,7 +8,7 @@ public class FireBallProjectile : MonoBehaviour
     private ShooterInfoController _shooterInfoController;
     private GameObject _shooter;
     private Vector3 startingPosition;
-    private float maxDistance = 5f;
+    private float maxDistance;
     private float currentDistance;
     private void Awake()
     {

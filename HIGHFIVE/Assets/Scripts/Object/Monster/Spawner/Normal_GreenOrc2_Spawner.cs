@@ -1,7 +1,12 @@
+using System.Collections.Generic;
+using UnityEngine;
+
 public class Normal_GreenOrc2_Spawner : MonsterSpawner
 {
     protected override void Start()
     {
+        array = new KeyValuePair<Transform, GameObject>[5];
+        _respawnDelayTime = 5;
         base.Start();
     }
 
