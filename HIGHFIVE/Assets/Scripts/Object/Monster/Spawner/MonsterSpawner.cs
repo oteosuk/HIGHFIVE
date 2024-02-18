@@ -5,15 +5,14 @@ using UnityEngine;
 public class MonsterSpawner : MonoBehaviourPunCallbacks
 {
     //[SerializeField] private GameObject MonsterPrefab;
-    private KeyValuePair<Transform, GameObject>[] array = new KeyValuePair<Transform, GameObject>[5];
-    private int _respawnDelayTime;
+    protected KeyValuePair<Transform, GameObject>[] array;
+    protected int _respawnDelayTime;
     protected float _curTime;
     protected bool isFull;
     [SerializeField] Transform[] _spawonArray; // 인스펙터에서 포지션 직접 할당해야함
 
     protected virtual void Start()
     {
-        _respawnDelayTime = 3;
         _curTime = 0;
         for (int i = 0; i < array.GetLength(0); i++)
         {
@@ -34,12 +33,12 @@ public class MonsterSpawner : MonoBehaviourPunCallbacks
             _curTime -= Time.deltaTime;
             if (_curTime <= 0)
             {
-                ReSpawn(prefabPath);
+                ReSpawn(prefabPath, array);
             }
         }
     }
 
-    protected void ReSpawn(string path)
+    protected void ReSpawn(string path, KeyValuePair<Transform, GameObject>[] array)
     {
         for (int i = 0; i < array.GetLength(0); i++)
         {
