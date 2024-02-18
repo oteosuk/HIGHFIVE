@@ -18,6 +18,7 @@ public class FireBallProjectile : MonoBehaviour
     private void Start()
     {
         startingPosition = transform.position;
+        maxDistance = Main.GameManager.SpawnedCharacter.CharacterSkill.FirstSkill.skillData.skillRange;
     }
     private void Update()
     {

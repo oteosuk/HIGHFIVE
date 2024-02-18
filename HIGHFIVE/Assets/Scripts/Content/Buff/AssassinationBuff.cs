@@ -11,18 +11,18 @@ public class AssassinationBuff : BaseBuff
     public override void Init()
     {
         base.Init();
-        if (Main.DataManager.BuffDict.TryGetValue("암살", out BuffDBEntity assassinationBuffData))
+        if (Main.DataManager.BuffDict.TryGetValue("출혈", out BuffDBEntity assassinationBuffData))
         {
             _assassinationBuffData = assassinationBuffData;
         }
         //나중에 데이터 매니저에서 받아오기
         buffData.buffSprite = Main.ResourceManager.Load<Sprite>("Sprites/SkillIcon/Assessination");
         buffData.type = typeof(AssassinationBuff);
-        buffData.duration = 30;
+        buffData.duration = _assassinationBuffData.durationTime;
         buffData.curTime = 0;
         buffData.effectTime = 0;
-        buffData.trueDamage = 3;
-        buffData.isSustainBuff = false;
+        buffData.trueDamage = _assassinationBuffData.trueDamage;
+        buffData.isSustainBuff = _assassinationBuffData.isSustain;
     }
 
     public override void Activation() { }   
@@ -32,14 +32,14 @@ public class AssassinationBuff : BaseBuff
         buffData.effectTime = buffData.duration;
     }
 
-    public override IEnumerator ApplyEffect(GameObject target)
+    public override IEnumerator ApplyEffect(GameObject target, GameObject shooter)
     {
         yield return base.ApplyEffect(target);
 
         while (buffData.effectTime < buffData.duration)
         {
             buffData.effectTime += 1f;
-            target.GetComponent<Stat>().TakeDamage(buffData.trueDamage, isTrueDamage: true);
+            target.GetComponent<Stat>().TakeDamage(buffData.trueDamage, shooter, isTrueDamage: true);
             yield return new WaitForSeconds(1f);
         }
         buffData.effectTime = 0;

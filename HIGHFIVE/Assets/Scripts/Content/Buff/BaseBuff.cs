@@ -28,7 +28,7 @@ public abstract class BaseBuff
     {
         myCharacter = Main.GameManager.SpawnedCharacter;
     }
-    public virtual IEnumerator ApplyEffect(GameObject target) { yield return null; }
+    public virtual IEnumerator ApplyEffect(GameObject target, GameObject shooter = null) { yield return null; }
     public abstract void Activation();
 
     public abstract void Deactivation();

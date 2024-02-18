@@ -16,8 +16,10 @@ public class SkillScene_UI : MonoBehaviour
         _skill = Main.GameManager.SpawnedCharacter.CharacterSkill;
         BaseSkill firstSkill = _skill?.FirstSkill;
         BaseSkill secondSkill = _skill?.SecondSkill;
+        BaseSkill thirdSkill = _skill?.ThirdSkill;
         if (firstSkill != null) CreateSkill(firstSkill);
         if (secondSkill != null) CreateSkill(secondSkill);
+        if (thirdSkill != null) CreateSkill(thirdSkill);
     }
 
     private void CreateSkill(BaseSkill skill)

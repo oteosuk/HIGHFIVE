@@ -15,167 +15,145 @@ MonoBehaviour:
   Characters:
   - job: "\uC804\uC0AC"
     info: "\" \uB2E4 \uC9D3\uC774\uACA8\uC8FC\uB9C8! \""
-    atk: 6
-    def: 5
+    atk: 22
+    def: 4
     atkRange: 1
-    atkSpeed: 2
-    movSpeed: 3
-    maxHp: 120
-    curHp: 120
+    atkSpeed: 1
+    movSpeed: 4
+    maxHp: 300
+    curHp: 300
     sight: 3
   - job: "\uB3C4\uC801"
     info: "\" \uB530\uB77C\uC62C\uD14C\uBA74 \uB530\uB77C\uC640\uBD10 \""
-    atk: 8
-    def: 4
+    atk: 20
+    def: 2
     atkRange: 1
-    atkSpeed: 3
-    movSpeed: 5
-    maxHp: 100
-    curHp: 100
+    atkSpeed: 1.3
+    movSpeed: 4.5
+    maxHp: 250
+    curHp: 250
     sight: 3
   - job: "\uB9C8\uBC95\uC0AC"
     info: "\" \uB0B4 \uB9C8\uB825\uC5D0 \uBC18\uD574\uBC84\uB9B4\uAC78? \""
-    atk: 10
+    atk: 25
     def: 3
     atkRange: 3
-    atkSpeed: 2
-    movSpeed: 4
-    maxHp: 100
-    curHp: 100
+    atkSpeed: 1.1
+    movSpeed: 4.2
+    maxHp: 280
+    curHp: 280
     sight: 4
   Skills:
   - job: "\uC804\uC0AC"
-    name: "\uCC0C\uB974\uAE30"
-    info: "\uC124\uBA85"
-    range: 2
-    damage: 5
-    damageRatio: 1.1
-    coolTime: 2
-    condition: 1
-  - job: "\uC804\uC0AC"
-    name: "\uBCA0\uAE30"
-    info: "\uC124\uBA85"
-    range: 3
-    damage: 10
-    damageRatio: 1.2
-    coolTime: 3
-    condition: 1
-  - job: "\uC804\uC0AC"
-    name: "\uD68C\uC804\uBCA0\uAE30"
-    info: "\uC124\uBA85"
-    range: 3
-    damage: 15
-    damageRatio: 1.3
-    coolTime: 4
+    name: "\uAD11\uD3ED\uD654"
+    info: "5\uCD08\uB3D9\uC548 \uB370\uBBF8\uC9C0 \uC99D\uAC00, \uC774\uC18D \uC99D\uAC00"
+    range: 0
+    damage: 0
+    animTime: 0.5
+    damageRatio: 0
+    coolTime: 5
+    castingTime: 0
     condition: 1
   - job: "\uB9C8\uBC95\uC0AC"
     name: "\uD30C\uC774\uC5B4\uBCFC"
     info: "\uC124\uBA85"
-    range: 3
-    damage: 5
-    damageRatio: 1.1
-    coolTime: 2
-    condition: 1
-  - job: "\uB9C8\uBC95\uC0AC"
-    name: "\uBC88\uAC1C"
-    info: "\uC124\uBA85"
-    range: 3
+    range: 5
     damage: 10
-    damageRatio: 1.2
-    coolTime: 3
-    condition: 1
-  - job: "\uB9C8\uBC95\uC0AC"
-    name: "\uB9E4\uC9C1\uBBF8\uC0AC\uC77C"
-    info: "\uC124\uBA85"
-    range: 3
-    damage: 15
-    damageRatio: 1.3
-    coolTime: 4
-    condition: 1
+    animTime: 0.5
+    damageRatio: 1.4
+    coolTime: 5
+    castingTime: 200
+    condition: 0
   - job: "\uB3C4\uC801"
     name: "\uC554\uC0B4"
     info: "\uC124\uBA85"
-    range: 3
-    damage: 10
-    damageRatio: 1.2
-    coolTime: 2
+    range: 1
+    damage: 5
+    animTime: 0.5
+    damageRatio: 1.1
+    coolTime: 8
+    castingTime: 0
     condition: 1
-  - job: "\uB3C4\uC801"
-    name: "\uD5E4\uC774\uC2A4\uD2B8"
+  - job: "\uACF5\uC6A9"
+    name: "\uC12C\uAD11"
+    info: "\uC124\uBA85"
+    range: 0
+    damage: 0
+    animTime: 0.5
+    damageRatio: 0
+    coolTime: 15
+    castingTime: 0
+    condition: 0
+  - job: "\uACF5\uC6A9"
+    name: "\uC2A4\uD134\uC0F7"
     info: "\uC124\uBA85"
     range: 3
-    damage: 0
-    damageRatio: 0
-    coolTime: 3
-    condition: 1
-  - job: "\uB3C4\uC801"
-    name: "\uC740\uC2E0"
-    info: "\uC124\uBA85"
-    range: 3
-    damage: 0
-    damageRatio: 0
-    coolTime: 4
-    condition: 1
+    damage: 30
+    animTime: 0.5
+    damageRatio: 1
+    coolTime: 5
+    castingTime: 200
+    condition: 0
   Monsters:
   - name: "\uB098\uBB34"
     atk: 10
     def: 0
     atkRange: 1
-    atkSpeed: 2
+    atkSpeed: 1
     movSpeed: 3
     maxHp: 50
     curHp: 50
-    exp: 10
+    exp: 2
     sight: 3
   - name: "\uC624\uAC70"
-    atk: 12
+    atk: 15
     def: 2
     atkRange: 1
-    atkSpeed: 2
+    atkSpeed: 1
     movSpeed: 3
-    maxHp: 50
+    maxHp: 80
     curHp: 50
-    exp: 15
+    exp: 3
     sight: 3
   - name: "\uC624\uAC70 \uC804\uC0AC"
-    atk: 13
+    atk: 20
     def: 3
     atkRange: 1
-    atkSpeed: 2
-    movSpeed: 4
-    maxHp: 60
-    curHp: 60
-    exp: 15
-    sight: 3
-  - name: "\uBE14\uB8E8"
-    atk: 13
-    def: 5
-    atkRange: 1
-    atkSpeed: 2
-    movSpeed: 3
-    maxHp: 70
-    curHp: 70
-    exp: 20
-    sight: 4
-  - name: "\uB808\uB4DC"
-    atk: 13
-    def: 5
-    atkRange: 1
-    atkSpeed: 2
-    movSpeed: 3
-    maxHp: 70
-    curHp: 70
-    exp: 20
-    sight: 4
-  - name: "\uC5D8\uB9AC\uD2B8"
-    atk: 15
-    def: 8
-    atkRange: 2
-    atkSpeed: 2
+    atkSpeed: 1
     movSpeed: 3
     maxHp: 100
-    curHp: 100
+    curHp: 60
+    exp: 4
+    sight: 3
+  - name: "\uBE14\uB8E8"
+    atk: 35
+    def: 8
+    atkRange: 1
+    atkSpeed: 1
+    movSpeed: 3
+    maxHp: 500
+    curHp: 500
     exp: 30
+    sight: 4
+  - name: "\uB808\uB4DC"
+    atk: 35
+    def: 8
+    atkRange: 1
+    atkSpeed: 1
+    movSpeed: 3
+    maxHp: 500
+    curHp: 500
+    exp: 30
+    sight: 4
+  - name: "\uC5D8\uB9AC\uD2B8"
+    atk: 70
+    def: 15
+    atkRange: 1
+    atkSpeed: 1.5
+    movSpeed: 3
+    maxHp: 700
+    curHp: 700
+    exp: 100
     sight: 4
   Items:
   - id: 0
@@ -221,27 +199,72 @@ MonoBehaviour:
   Buff:
   - name: "\uD328\uC790\uC758 \uBD84\uB178"
     info: "\uBC30\uD2C0 \uD398\uC774\uC988\uC5D0\uC11C \uD328\uBC30\uD588\uC744 \uC2DC"
-    atk: 2
-    def: 0
+    atk: 3
+    def: 1
     spd: 0
+    durationTime: 180
+    trueDamage: 0
+    damage: 0
+    effectTime: 0
+    isSustain: 1
   - name: "\uB808\uB4DC"
     info: "\uB808\uB4DC \uBAAC\uC2A4\uD130 \uCC98\uCE58 \uC2DC"
-    atk: 3
+    atk: 5
     def: 0
     spd: 0
+    durationTime: 45
+    trueDamage: 0
+    damage: 0
+    effectTime: 0
+    isSustain: 1
   - name: "\uBE14\uB8E8"
     info: "\uBE14\uB8E8 \uBAAC\uC2A4\uD130 \uCC98\uCE58 \uC2DC"
     atk: 0
     def: 3
     spd: 0
+    durationTime: 45
+    trueDamage: 0
+    damage: 0
+    effectTime: 0
+    isSustain: 1
   - name: "\uC5D0\uD53D"
     info: "\uC5D0\uD53D \uBAAC\uC2A4\uD130 \uCC98\uCE58 \uC2DC"
-    atk: 1
-    def: 1
-    spd: 3
+    atk: 5
+    def: 3
+    spd: 0
+    durationTime: 60
+    trueDamage: 0
+    damage: 0
+    effectTime: 0
+    isSustain: 1
   - name: "\uCD9C\uD608"
     info: "\uCD9C\uD608 \uC2A4\uD0AC\uC5D0 \uACF5\uACA9\uB2F9\uD560 \uC2DC \uC9C0\uC18D\uB370\uBBF8\uC9C0\uB97C
       \uBC1B\uB294\uB2E4."
     atk: 0
     def: 0
     spd: 0
+    durationTime: 3
+    trueDamage: 5
+    damage: 0
+    effectTime: 0
+    isSustain: 0
+  - name: "\uAD11\uD3ED\uD654"
+    info: "\uC774\uC18D\uC99D\uAC00, \uB370\uBBF8\uC9C0 \uC99D\uAC00"
+    atk: 0
+    def: 0
+    spd: 2
+    durationTime: 8
+    trueDamage: 0
+    damage: 20
+    effectTime: 4
+    isSustain: 1
+  - name: "\uC2A4\uD134\uC0F7"
+    info: "\uC2A4\uD134"
+    atk: 0
+    def: 0
+    spd: 0
+    durationTime: 2
+    trueDamage: 0
+    damage: 0
+    effectTime: 0
+    isSustain: 0

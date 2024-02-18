@@ -21,11 +21,11 @@ public class FireBall : BaseSkill
         skillData.skillName = "파이어 볼";
         skillData.info = "화염 구체를 목표방향으로 던지는 스킬";
         skillData.skillSprite = Main.ResourceManager.Load<Sprite>("Sprites/SkillIcon/FireBall");
-        skillData.coolTime = 5;
+        skillData.coolTime = _fireBallData.coolTime;
         skillData.curTime = skillData.coolTime;
         skillData.animTime = 0.5f;
         skillData.isUse = true;
-        skillData.loadTime = 0;
+        skillData.loadTime = _fireBallData.castingTime;
         skillData.damage = _fireBallData.damage + (int)(Main.GameManager.SpawnedCharacter.stat.Attack * _fireBallData.damageRatio);
     }
 
@@ -49,9 +49,9 @@ public class FireBall : BaseSkill
     private async void InstantiateAfterLoad()
     {
         Vector2 dir = GetDir().normalized;
-        await Task.Delay(TimeSpan.FromMilliseconds(200));
+        await Task.Delay(TimeSpan.FromMilliseconds(skillData.loadTime));
         Character myCharacter = Main.GameManager.SpawnedCharacter;
-        GameObject sphere = Main.ResourceManager.Instantiate("Character/FireBall", myCharacter.transform.position, syncRequired: true);
+        GameObject sphere = Main.ResourceManager.Instantiate("SkillEffect/FireBallEffect", myCharacter.transform.position, syncRequired: true);
         SetRotation(sphere, dir);
         SetSpeed(sphere, dir);
 

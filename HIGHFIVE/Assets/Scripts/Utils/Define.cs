@@ -42,7 +42,8 @@ public class Define
         Monster = 6,
         Ground,
         Blue,
-        Red
+        Red,
+        Wall = 10
     }
     public enum Page
     {
