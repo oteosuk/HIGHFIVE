@@ -3186,6 +3186,8 @@ GameObject:
   - component: {fileID: 4485430702929387984}
   - component: {fileID: 302915724038337337}
   - component: {fileID: 5970671785236745126}
+  - component: {fileID: 6468659465294534752}
+  - component: {fileID: 6419676383129456864}
   m_Layer: 6
   m_Name: Epic_BlueOrc
   m_TagString: Monster
@@ -3356,6 +3358,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelExpList: 
   _statController: {fileID: 0}
+--- !u!114 &6468659465294534752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7185654090595719523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb592efcfea4d9a45856e662ba11e005, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6419676383129456864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7185654090595719523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a368820ada6b82d48ae6bd904dbc60a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7369851692256568998
 GameObject:
   m_ObjectHideFlags: 0

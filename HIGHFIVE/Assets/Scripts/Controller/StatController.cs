@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class StatController : MonoBehaviour
@@ -12,6 +10,15 @@ public class StatController : MonoBehaviour
     public event Action<int,int> expChangeEvent;
     public event Action<int,int> hpChangeEvent;
     public event Action dieEvent;
+    public event Action<GameObject> buffEvent;
+
+    public void CallAddBuffEvent(GameObject gameobject)
+    {
+        if (buffEvent != null)
+        {
+            buffEvent.Invoke(gameobject);
+        }
+    }
 
     public void CallChangeHpEvent(int curHp, int maxHp)
     {

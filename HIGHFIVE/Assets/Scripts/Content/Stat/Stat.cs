@@ -99,6 +99,7 @@ public class Stat : MonoBehaviour
             if (gameObject.tag != "Player")
             {
                 shooter.GetComponent<CharacterStat>().AddExp(myStat.Exp, shooter);
+                _statController.CallAddBuffEvent(shooter); //레드, 블루, 엘리트 버프 이벤트 실행(구독 되어있는게 있다면)
             }
             myStat.CurHp = 0;
         }

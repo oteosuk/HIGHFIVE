@@ -10,18 +10,18 @@ public class BuffScene_UI : MonoBehaviour
     private void Start()
     {
         _buffController = Main.GameManager.SpawnedCharacter.GetComponent<BuffController>();
-        _buffController.addBuffEvent += AddBuff;
-        _buffController.cancelBuffEvent += CancelBuff;
+        _buffController.addBuffEvent += AddBuffUI;
+        _buffController.cancelBuffEvent += CancelBuffUI;
     }
 
-    private void AddBuff(BaseBuff buff)
+    private void AddBuffUI(BaseBuff buff)
     {
         GameObject buffObj = Main.ResourceManager.Instantiate("UI_Prefabs/Buff", transform, changingName:buff.ToString());
 
         buff.buffData.coolTimeicon = buffObj.transform.Find("BuffCool").GetComponent<Image>();
         buffObj.GetComponent<Image>().sprite = buff.buffData.buffSprite;
     }
-    private void CancelBuff(BaseBuff buff)
+    private void CancelBuffUI(BaseBuff buff)
     {
         Main.ResourceManager.Destroy(transform.Find(buff.ToString()).gameObject);
     }
