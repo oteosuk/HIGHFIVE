@@ -753,7 +753,7 @@ GameObject:
   - component: {fileID: 90750264}
   - component: {fileID: 90750265}
   m_Layer: 0
-  m_Name: Spawner_Left3
+  m_Name: Spawner_Left3_Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -788,7 +788,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 90750262}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 285290e68b4e5634b88025bfaf675890, type: 3}
+  m_Script: {fileID: 11500000, guid: d2ef386a6fb0ca041b5dcd21a80496eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _spawonArray:
@@ -27781,9 +27781,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 425092318}
-  - component: {fileID: 425092319}
+  - component: {fileID: 425092320}
   m_Layer: 0
-  m_Name: Spawner_Right2
+  m_Name: Spawner_Right2_Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27809,7 +27809,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &425092319
+--- !u!114 &425092320
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -27818,7 +27818,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 425092316}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05deddfeb1999094da5e715b085cdd8c, type: 3}
+  m_Script: {fileID: 11500000, guid: c7e9de9ef7ea0774eaff848ba6f722e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _spawonArray:
@@ -29026,7 +29026,7 @@ GameObject:
   - component: {fileID: 626171614}
   - component: {fileID: 626171615}
   m_Layer: 0
-  m_Name: Spawner_Right1
+  m_Name: Spawner_Right1_Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29061,7 +29061,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 626171612}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 285290e68b4e5634b88025bfaf675890, type: 3}
+  m_Script: {fileID: 11500000, guid: d2ef386a6fb0ca041b5dcd21a80496eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _spawonArray:
@@ -29081,7 +29081,7 @@ GameObject:
   - component: {fileID: 630179451}
   - component: {fileID: 630179452}
   m_Layer: 0
-  m_Name: Spawner_Left2
+  m_Name: Spawner_Left2_Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29116,7 +29116,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 630179449}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05deddfeb1999094da5e715b085cdd8c, type: 3}
+  m_Script: {fileID: 11500000, guid: c7e9de9ef7ea0774eaff848ba6f722e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _spawonArray:
@@ -39215,7 +39215,7 @@ GameObject:
   - component: {fileID: 815185067}
   - component: {fileID: 815185068}
   m_Layer: 0
-  m_Name: Spawner_Right3
+  m_Name: Spawner_Right3_Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39250,7 +39250,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 815185065}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 285290e68b4e5634b88025bfaf675890, type: 3}
+  m_Script: {fileID: 11500000, guid: 7971547949baf754c98938e58d31a9a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _spawonArray:
@@ -40159,7 +40159,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &938365731
 Transform:
   m_ObjectHideFlags: 0
@@ -45864,32 +45864,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1246536778}
-  - component: {fileID: 1246536776}
+  - component: {fileID: 1246536779}
   m_Layer: 0
-  m_Name: Spawner_Epic_Red1
+  m_Name: Spawner_CenterLeft_Orc1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1246536776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1246536775}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7971547949baf754c98938e58d31a9a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawonArray:
-  - {fileID: 460577486}
-  - {fileID: 1231266078}
-  - {fileID: 1713524483}
-  - {fileID: 1326480060}
-  - {fileID: 1950662877}
 --- !u!4 &1246536778
 Transform:
   m_ObjectHideFlags: 0
@@ -45910,6 +45892,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1246536779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246536775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 285290e68b4e5634b88025bfaf675890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawonArray:
+  - {fileID: 460577486}
+  - {fileID: 1231266078}
+  - {fileID: 1713524483}
+  - {fileID: 1326480060}
+  - {fileID: 1950662877}
 --- !u!1 &1257339668
 GameObject:
   m_ObjectHideFlags: 0
@@ -45999,32 +45999,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1271759302}
-  - component: {fileID: 1271759300}
+  - component: {fileID: 1271759303}
   m_Layer: 0
-  m_Name: Spawner_Epic_Blue1
+  m_Name: Spawner_CenterUp_Orc2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1271759300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1271759299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2ef386a6fb0ca041b5dcd21a80496eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawonArray:
-  - {fileID: 1808398046}
-  - {fileID: 537595527}
-  - {fileID: 124736562}
-  - {fileID: 1858685992}
-  - {fileID: 1810111936}
 --- !u!4 &1271759302
 Transform:
   m_ObjectHideFlags: 0
@@ -46045,6 +46027,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1271759303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271759299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05deddfeb1999094da5e715b085cdd8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawonArray:
+  - {fileID: 1808398046}
+  - {fileID: 537595527}
+  - {fileID: 124736562}
+  - {fileID: 1858685992}
+  - {fileID: 1810111936}
 --- !u!1 &1276284482
 GameObject:
   m_ObjectHideFlags: 0
@@ -46621,7 +46621,7 @@ GameObject:
   - component: {fileID: 1338320889}
   - component: {fileID: 1338320890}
   m_Layer: 0
-  m_Name: Spawner_Epic_Red2
+  m_Name: Spawner_CenterRight_Orc1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46656,7 +46656,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1338320887}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7971547949baf754c98938e58d31a9a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 285290e68b4e5634b88025bfaf675890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _spawonArray:
@@ -46790,10 +46790,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spawonArray:
   - {fileID: 453916256}
-  - {fileID: 379693459}
-  - {fileID: 1409460361}
-  - {fileID: 1481090247}
-  - {fileID: 1440419623}
 --- !u!4 &1370647155
 Transform:
   m_ObjectHideFlags: 0
@@ -47010,9 +47006,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1480481065}
-  - component: {fileID: 1480481066}
+  - component: {fileID: 1480481067}
   m_Layer: 0
-  m_Name: Spawner_Left1
+  m_Name: Spawner_Left1_Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47038,7 +47034,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1480481066
+--- !u!114 &1480481067
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -47047,7 +47043,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1480481063}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 285290e68b4e5634b88025bfaf675890, type: 3}
+  m_Script: {fileID: 11500000, guid: 7971547949baf754c98938e58d31a9a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _spawonArray:
@@ -47582,7 +47578,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1513477728
 Transform:
   m_ObjectHideFlags: 0
@@ -106846,9 +106842,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2114633838}
-  - component: {fileID: 2114633839}
+  - component: {fileID: 2114633840}
   m_Layer: 0
-  m_Name: Spawner_Epic_Blue2
+  m_Name: Spawner_CenterDown_Orc2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106874,7 +106870,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2114633839
+--- !u!114 &2114633840
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106883,7 +106879,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2114633836}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2ef386a6fb0ca041b5dcd21a80496eb, type: 3}
+  m_Script: {fileID: 11500000, guid: 05deddfeb1999094da5e715b085cdd8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _spawonArray:
