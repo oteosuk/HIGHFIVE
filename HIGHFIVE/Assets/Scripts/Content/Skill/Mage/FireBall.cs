@@ -27,6 +27,7 @@ public class FireBall : BaseSkill
         skillData.isUse = true;
         skillData.loadTime = _fireBallData.castingTime;
         skillData.damage = _fireBallData.damage + (int)(Main.GameManager.SpawnedCharacter.stat.Attack * _fireBallData.damageRatio);
+        skillData.skillRange = _fireBallData.range;
     }
 
     public override bool CanUseSkill()
