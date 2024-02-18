@@ -20,8 +20,8 @@ MonoBehaviour:
     atkRange: 1
     atkSpeed: 1
     movSpeed: 4
-    maxHp: 300
-    curHp: 300
+    maxHp: 600
+    curHp: 600
     sight: 3
   - job: "\uB3C4\uC801"
     info: "\" \uB530\uB77C\uC62C\uD14C\uBA74 \uB530\uB77C\uC640\uBD10 \""
@@ -30,8 +30,8 @@ MonoBehaviour:
     atkRange: 1
     atkSpeed: 1.3
     movSpeed: 4.5
-    maxHp: 250
-    curHp: 250
+    maxHp: 550
+    curHp: 550
     sight: 3
   - job: "\uB9C8\uBC95\uC0AC"
     info: "\" \uB0B4 \uB9C8\uB825\uC5D0 \uBC18\uD574\uBC84\uB9B4\uAC78? \""
@@ -40,8 +40,8 @@ MonoBehaviour:
     atkRange: 3
     atkSpeed: 1.1
     movSpeed: 4.2
-    maxHp: 280
-    curHp: 280
+    maxHp: 500
+    curHp: 500
     sight: 4
   Skills:
   - job: "\uC804\uC0AC"
@@ -126,7 +126,7 @@ MonoBehaviour:
     exp: 4
     sight: 3
   - name: "\uBE14\uB8E8"
-    atk: 35
+    atk: 50
     def: 8
     atkRange: 1
     atkSpeed: 1
@@ -136,7 +136,7 @@ MonoBehaviour:
     exp: 30
     sight: 4
   - name: "\uB808\uB4DC"
-    atk: 35
+    atk: 50
     def: 8
     atkRange: 1
     atkSpeed: 1
@@ -146,7 +146,7 @@ MonoBehaviour:
     exp: 30
     sight: 4
   - name: "\uC5D8\uB9AC\uD2B8"
-    atk: 70
+    atk: 100
     def: 15
     atkRange: 1
     atkSpeed: 1.5
