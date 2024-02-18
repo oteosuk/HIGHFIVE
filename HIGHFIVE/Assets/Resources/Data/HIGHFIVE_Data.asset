@@ -77,7 +77,7 @@ MonoBehaviour:
   - job: "\uACF5\uC6A9"
     name: "\uC12C\uAD11"
     info: "\uC124\uBA85"
-    range: 0
+    range: 3
     damage: 0
     animTime: 0.5
     damageRatio: 0
