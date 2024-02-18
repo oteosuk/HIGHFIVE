@@ -18,10 +18,10 @@ public class Flash : BaseSkill
         skillData.skillName = "섬광";
         skillData.info = "적에게 피해를 가하면 출혈데미지를 입힌다.";
         skillData.skillSprite = Main.ResourceManager.Load<Sprite>("Sprites/SkillIcon/Flash");
-        skillData.coolTime = 30;
+        skillData.coolTime = _flashData.coolTime;
         skillData.curTime = skillData.coolTime;
         skillData.isUse = true;
-        skillData.skillRange = 3;
+        skillData.skillRange = _flashData.range;
     }
     public override bool CanUseSkill()
     {
