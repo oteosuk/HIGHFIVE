@@ -40,7 +40,6 @@ public class StunShotProjectile : MonoBehaviour
         {
             if (GetComponent<PhotonView>().IsMine)
             {
-                collision.gameObject.GetComponent<Stat>()?.TakeDamage(Main.GameManager.SpawnedCharacter.stat.Attack, _shooter);
                 _targetObject.GetComponent<Stat>().TakeDamage(Main.GameManager.SpawnedCharacter.CharacterSkill.SecondSkill.skillData.damage, _shooter.gameObject);
                 BaseBuff stunShotBuff = new StunShotBuff();
                 if (_targetObject.GetComponent<Character>())
@@ -51,7 +50,6 @@ public class StunShotProjectile : MonoBehaviour
                         _shooter.GetComponent<PhotonView>().RPC("ReceiveBuff", RpcTarget.Others, targetPv.ViewID, Define.Buff.StunShot);
                     }
                 }
-
                 else { _targetObject.GetComponent<Creature>().BuffController?.AddBuff(stunShotBuff); }
                 PhotonNetwork.Destroy(gameObject);
             }
