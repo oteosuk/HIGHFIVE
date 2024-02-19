@@ -11,7 +11,7 @@ public class EliteBuff : BaseBuff
             _eliteBuffData = eliteBuffData;
         }
         //나중에 데이터 매니저에서 받아오기
-        buffData.buffSprite = Main.ResourceManager.Load<Sprite>("Sprites/BuffIcon/Electromancer16");
+        buffData.buffSprite = Main.ResourceManager.Load<Sprite>("Sprites/BuffIcon/BlueBuff");
         buffData.type = typeof(EliteBuff);
         buffData.duration = _eliteBuffData.durationTime;
         buffData.curTime = 0;
