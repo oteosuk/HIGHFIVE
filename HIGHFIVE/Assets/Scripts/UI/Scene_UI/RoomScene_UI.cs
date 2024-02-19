@@ -28,6 +28,7 @@ public class RoomScene_UI : UIBase
     private TMP_Text _roomName;
     private Button _backToLobbyBtn;
     private GameObject _playerListContent;
+    private bool isClicked;
 
     private void Start()
     {
@@ -39,6 +40,7 @@ public class RoomScene_UI : UIBase
         _readyTxt = Get<TMP_Text>((int)Texts.ReadyTxt);
         _backToLobbyBtn = Get<Button>((int)Buttons.BackBtn);
         _playerListContent = Get<GameObject>((int)GameObjects.PlayerListContent);
+        isClicked = false;
 
         if (PhotonNetwork.IsMasterClient) _readyTxt.text = "GameStart";
         _roomName.text = $"{PhotonNetwork.CurrentRoom.Name}";
@@ -51,6 +53,8 @@ public class RoomScene_UI : UIBase
     //로비 버튼 클릭 했을 때 호출 되는 함수
     private void OnBackToLobbyButtonClicked(PointerEventData pointerEventData)
     {
+        if (isClicked) { return; }
+        isClicked = true;
         Player[] currentRoomPlayer = PhotonNetwork.PlayerList;
         foreach (Player player in currentRoomPlayer)
         {
@@ -65,7 +69,7 @@ public class RoomScene_UI : UIBase
         {
             { "IsReady", false }
         });
-        PhotonNetwork.LeaveRoom();
+        if (!PhotonNetwork.LeaveRoom()) { isClicked = false; }
     }
 
     public override void OnMasterClientSwitched(Player newMasterClient)
