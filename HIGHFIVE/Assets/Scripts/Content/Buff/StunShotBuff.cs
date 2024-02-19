@@ -35,9 +35,15 @@ public class StunShotBuff : BaseBuff
     public override IEnumerator ApplyEffect(GameObject target, GameObject shooter = null)
     {
         yield return base.ApplyEffect(target);
-        target.GetComponent<Character>()._playerStateMachine.ChangeState(target.GetComponent<Character>()._playerStateMachine.PlayerConfuseState);
-        yield return new WaitForSeconds(buffData.duration);
-        target.GetComponent<Character>()._playerStateMachine.ChangeState(target.GetComponent<Character>()._playerStateMachine._playerIdleState);
+        if (Main.GameManager.SpawnedCharacter.stat.CurHp > 0)
+        {
+            target.GetComponent<Character>()._playerStateMachine.ChangeState(target.GetComponent<Character>()._playerStateMachine.PlayerConfuseState);
+            yield return new WaitForSeconds(buffData.duration);
+        }
+        if (Main.GameManager.SpawnedCharacter.stat.CurHp > 0)
+        {
+            target.GetComponent<Character>()._playerStateMachine.ChangeState(target.GetComponent<Character>()._playerStateMachine._playerIdleState);
+        }
         buffData.effectTime = 0;
     }
 }

@@ -67,9 +67,9 @@ public class Define
         Assassination,
     }
 
-    /*public enum Monster
+    public enum Object
     {
-        dir4Monster,
-        dir2Monster
-    }*/
+        Character,
+        Monster
+    }
 }

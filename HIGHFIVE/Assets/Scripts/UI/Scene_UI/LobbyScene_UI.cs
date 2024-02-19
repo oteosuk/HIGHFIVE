@@ -19,13 +19,14 @@ public class LobbyScene_UI : UIBase
     private enum GameObjects
     {
         RoomListContent,
-        SetRoomBlock
+        SetRoomBlock,
+        ConnectingPanel
     }
-    
 
     private Button _createRoomBtn;//방 생성 버튼
     private GameObject _roomListContent;//방 리스트 컨텐트
     private GameObject _setRoomBlock;
+    private GameObject _connectingPanel;
     private float contentHeight = 0f;//컨테트의 크기 제어 변수
 
 
@@ -37,6 +38,7 @@ public class LobbyScene_UI : UIBase
         _createRoomBtn = Get<Button>((int)Buttons.CreateRoomBtn);
         _roomListContent = Get<GameObject>((int)GameObjects.RoomListContent);
         _setRoomBlock = Get<GameObject>((int)GameObjects.SetRoomBlock);
+        _connectingPanel = Get<GameObject>((int)GameObjects.ConnectingPanel);
 
 
         AddUIEvent(_createRoomBtn.gameObject, Define.UIEvent.Click, OnCreateRoomButtonClicked);
@@ -56,6 +58,7 @@ public class LobbyScene_UI : UIBase
         //해당 방의 제목으로 방을 찾아서 join
         if (PhotonNetwork.JoinRoom(pointerEventData.pointerClick.transform.Find("RoomName").GetComponent<TMP_Text>().text))
         {
+            _connectingPanel.SetActive(true);
             Main.NetworkManager.photonRoomDict.Clear();
         }
         else

@@ -56,13 +56,13 @@ public class StunShot : BaseSkill
     {
         Character myCharacter = Main.GameManager.SpawnedCharacter;
         Vector2 dir = myCharacter.targetObject.transform.position - myCharacter.transform.position;
+        PhotonView targetPhotonView = myCharacter.targetObject?.GetComponent<PhotonView>();
         await Task.Delay(TimeSpan.FromMilliseconds(skillData.loadTime));
         GameObject sphere = Main.ResourceManager.Instantiate("Character/StunShot", myCharacter.transform.position, syncRequired: true);
-        PhotonView targetPhotonView = myCharacter.targetObject?.GetComponent<PhotonView>();
-
-        sphere.GetComponent<PhotonView>().RPC("SetTarget", RpcTarget.All, targetPhotonView.ViewID);
-        sphere.GetComponent<PhotonView>().RPC("ToTarget", RpcTarget.All, 5.0f, dir.x, dir.y);
-        sphere.GetComponent<ShooterInfoController>().CallShooterInfoEvent(myCharacter.gameObject);
+        
+        sphere?.GetComponent<PhotonView>()?.RPC("SetTarget", RpcTarget.All, targetPhotonView.ViewID);
+        sphere?.GetComponent<PhotonView>()?.RPC("ToTarget", RpcTarget.All, 5.0f, dir.x, dir.y);
+        sphere?.GetComponent<ShooterInfoController>().CallShooterInfoEvent(myCharacter.gameObject);
     }
 
     private bool CheckRange()

@@ -17,6 +17,7 @@ public class PlayerReadyController : UIBase
 
     private Button _readyBtn;
     private bool _isReady = false;
+    private bool _isClicked;
     private GameObject _playerListContent;
     private void Start()
     {
@@ -25,6 +26,7 @@ public class PlayerReadyController : UIBase
 
         _playerListContent = Get<GameObject>((int)GameObjects.PlayerListContent);
         _readyBtn = Get<Button>((int)Buttons.ReadyBtn);
+        _isClicked = false;
 
         AddUIEvent(_readyBtn.gameObject, Define.UIEvent.Click, OnStartOrReadyButtonClicked);
     }
@@ -34,6 +36,7 @@ public class PlayerReadyController : UIBase
     {
         if (PhotonNetwork.IsMasterClient)
         {
+            if (_isClicked) return;
             Player[] players = PhotonNetwork.PlayerList;
             bool isAllPlayerReady = true;
             foreach (Player player in players)
@@ -48,6 +51,7 @@ public class PlayerReadyController : UIBase
                 PhotonNetwork.CurrentRoom.IsOpen = false;
                 PhotonNetwork.CurrentRoom.IsVisible = false;
                 PhotonNetwork.LoadLevel((int)Define.Scene.SelectScene);
+                _isClicked = true;
             }
             else
             {

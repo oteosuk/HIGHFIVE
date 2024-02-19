@@ -52,7 +52,11 @@ public class HealthBar : UIBase
     private void SetHpRatio(int curHp, int maxHp)
     {
         float ratio = curHp / (float)maxHp;
-        if (ratio <= 0) return;
+        if (transform.parent.GetComponent<Character>() == null)
+        {
+            if (ratio <= 0) return;
+        }
+
         transform.parent.GetComponent<PhotonView>().RPC("SyncHpRatio", RpcTarget.All, ratio);
     }
 }
