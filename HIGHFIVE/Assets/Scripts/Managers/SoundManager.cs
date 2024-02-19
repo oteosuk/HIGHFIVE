@@ -38,7 +38,7 @@ public class SoundManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Main.SoundManager.PlaySFX("SFX_Click", 1f);
+            Main.SoundManager.PlaySFX("SFX_Click", 0.5f);
         }
     }
 
@@ -61,6 +61,7 @@ public class SoundManager : MonoBehaviour
         {
             bgmPlayer.volume = volume;
             bgmPlayer.Play();
+            bgmPlayer.loop = true;
         }
     }
 
