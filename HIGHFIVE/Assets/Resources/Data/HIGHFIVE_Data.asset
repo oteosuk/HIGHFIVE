@@ -227,8 +227,8 @@ MonoBehaviour:
     damage: 0
     effectTime: 0
     isSustain: 1
-  - name: "\uC5D0\uD53D"
-    info: "\uC5D0\uD53D \uBAAC\uC2A4\uD130 \uCC98\uCE58 \uC2DC"
+  - name: "\uC5D8\uB9AC\uD2B8"
+    info: "\uC5D8\uB9AC\uD2B8 \uBAAC\uC2A4\uD130 \uCC98\uCE58 \uC2DC"
     atk: 5
     def: 3
     spd: 0
