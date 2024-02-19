@@ -15,8 +15,8 @@ public class Flash : BaseSkill
             _flashData = flashData;
         }
         //나중에 데이터 매니저에서 받아오기
-        skillData.skillName = "섬광";
-        skillData.info = "적에게 피해를 가하면 출혈데미지를 입힌다.";
+        skillData.skillName = _flashData.name;
+        skillData.info = "커서 방향으로 챔피언이 짧은 거리를 순간이동 합니다.";
         skillData.skillSprite = Main.ResourceManager.Load<Sprite>("Sprites/SkillIcon/Flash");
         skillData.coolTime = _flashData.coolTime;
         skillData.curTime = skillData.coolTime;
