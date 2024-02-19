@@ -12,7 +12,7 @@ public class RedOrc : MonoBehaviour
 
     private void AddRedBuff(GameObject shooter)
     {
-        //BlueBuff blueBuff = new BlueBuff();
-        //shooter.GetComponent<BuffController>()?.AddBuff(blueBuff);
+        RedBuff redBuff = new RedBuff();
+        shooter.GetComponent<BuffController>()?.AddBuff(redBuff);
     }
 }

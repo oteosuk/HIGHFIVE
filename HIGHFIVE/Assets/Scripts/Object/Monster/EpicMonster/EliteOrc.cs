@@ -12,7 +12,7 @@ public class EliteOrc : MonoBehaviour
 
     private void AddEliteBuff(GameObject shooter)
     {
-        //BlueBuff blueBuff = new BlueBuff();
-        //shooter.GetComponent<BuffController>()?.AddBuff(blueBuff);
+        EliteBuff eliteBuff = new EliteBuff();
+        shooter.GetComponent<BuffController>()?.AddBuff(eliteBuff);
     }
 }

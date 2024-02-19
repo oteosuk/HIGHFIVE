@@ -2,33 +2,29 @@ using UnityEngine;
 
 public class BlueBuff : BaseBuff
 {
-    private BuffDBEntity _loserBuffData;
+    private BuffDBEntity _blueBuffData;
     public override void Init()
     {
         base.Init();
-        if (Main.DataManager.BuffDict.TryGetValue("패자의 분노", out BuffDBEntity loserBuffData))
+        if (Main.DataManager.BuffDict.TryGetValue("블루", out BuffDBEntity blueBuffData))
         {
-            _loserBuffData = loserBuffData;
+            _blueBuffData = blueBuffData;
         }
         //나중에 데이터 매니저에서 받아오기
-        buffData.buffSprite = Main.ResourceManager.Load<Sprite>("Sprites/BuffIcon/LoserAnger");
-        buffData.type = typeof(LoserBuff);
-        buffData.duration = _loserBuffData.durationTime;
+        buffData.buffSprite = Main.ResourceManager.Load<Sprite>("Sprites/BuffIcon/Electromancer16");
+        buffData.type = typeof(BlueBuff);
+        buffData.duration = _blueBuffData.durationTime;
         buffData.curTime = 0;
-        buffData.isSustainBuff = _loserBuffData.isSustain; //유지여부
+        buffData.isSustainBuff = _blueBuffData.isSustain; //유지여부
     }
 
     public override void Activation()
     {
-        myCharacter.stat.Attack += _loserBuffData.atk;
-        myCharacter.stat.Defence += _loserBuffData.def;
-        myCharacter.stat.AttackSpeed += _loserBuffData.spd;
+        myCharacter.stat.Defence += _blueBuffData.def;
     }
 
     public override void Deactivation()
     {
-        myCharacter.stat.Attack -= _loserBuffData.atk;
-        myCharacter.stat.Defence -= _loserBuffData.def;
-        myCharacter.stat.AttackSpeed -= _loserBuffData.spd;
+        myCharacter.stat.Defence -= _blueBuffData.def;
     }
 }
