@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -52,6 +53,8 @@ public class CharacterStat : Stat
             myStat.AttackSpeed += 0.1f;
             myStat.MaxHp += 40;
             myStat.CurHp += 40;
+            myStat.gameObject.GetComponent<PhotonView>().RPC("SetHpRPC", RpcTarget.All, myStat.CurHp);
+            
 
             if (myStat.Exp > myStat.MaxExp)
             {

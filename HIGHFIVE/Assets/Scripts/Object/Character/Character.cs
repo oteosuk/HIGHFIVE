@@ -182,4 +182,9 @@ public class Character : Creature
             
         }
     }
+    [PunRPC]
+    public void SyncActive(bool isActive)
+    {
+        gameObject.transform.Find("BerserkEffect")?.gameObject.SetActive(isActive);
+    }
 }

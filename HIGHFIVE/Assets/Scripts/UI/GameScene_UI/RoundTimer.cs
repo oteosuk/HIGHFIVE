@@ -96,7 +96,7 @@ public class RoundTimer : MonoBehaviour
         if (pageNum == (int)Define.Page.Farming)
         {
             Main.GameManager.page = Define.Page.Farming;
-            if (roundLogic.currentRound  != 1)
+            if (roundLogic.currentRound  > 1)
             {
                 _gameFieldController.CallFarmingEvent();
             }

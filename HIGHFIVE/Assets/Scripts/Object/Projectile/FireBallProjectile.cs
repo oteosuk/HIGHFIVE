@@ -47,8 +47,8 @@ public class FireBallProjectile : MonoBehaviour
                 CapsuleCollider2D collider = gameObject.GetComponent<CapsuleCollider2D>();
                 Destroy(collider);
                 _animator.SetBool("isTrigger", true);
+                GetComponent<PhotonView>().RPC("SyncParameter", RpcTarget.All, true);
                 gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero * 0;
-                
             }
         }
     }
@@ -58,4 +58,9 @@ public class FireBallProjectile : MonoBehaviour
         _shooter = shooter;
     }
 
+    [PunRPC]
+    private void SyncParameter(bool isTrigger)
+    {
+        _animator.SetBool("isTrigger", isTrigger);
+    }
 }
