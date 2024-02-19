@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,9 +25,13 @@ public class StabbingBuff : BaseBuff
     }
     public override IEnumerator ApplyEffect(GameObject target, GameObject shooter = null)
     {
+        myCharacter.transform.Find("BerserkEffect").gameObject.SetActive(true);
+        myCharacter.GetComponent<PhotonView>().RPC("SyncActive", RpcTarget.All, true);
         yield return new WaitForSeconds(buffData.effectTime);
         target.GetComponent<Stat>().MoveSpeed -= _stabbingBuffData.spd;
         yield return new WaitForSeconds(buffData.duration - buffData.effectTime);
+        myCharacter.transform.Find("BerserkEffect").gameObject.SetActive(false);
+        myCharacter.GetComponent<PhotonView>().RPC("SyncActive", RpcTarget.All, false);
         myCharacter.SkillController.CallSkillExecute(myCharacter.CharacterSkill.FirstSkill);
     }
 

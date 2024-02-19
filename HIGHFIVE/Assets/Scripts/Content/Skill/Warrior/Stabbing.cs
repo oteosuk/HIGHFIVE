@@ -38,7 +38,6 @@ public class Stabbing : BaseSkill
         skillData.coolTimeicon.fillAmount = 1;
         BaseBuff stabbingBuff = new StabbingBuff();
         myCharacter.BuffController.AddBuff(stabbingBuff);
-
         myCharacter.Animator.SetBool(myCharacter.PlayerAnimationData.SkillDelayTimeHash, true);
         myCharacter.SkillController.CallSkillDelay(myCharacter.CharacterSkill.FirstSkill.skillData);
     }
