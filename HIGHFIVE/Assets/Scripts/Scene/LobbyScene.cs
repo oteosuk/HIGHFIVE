@@ -7,5 +7,7 @@ public class LobbyScene : BaseScene
     protected override void Init()
     {
         base.Init();
+
+        Main.SoundManager.PlayBGM("Town_Castle_01", 0.1f);
     }
 }
