@@ -17,18 +17,6 @@ public class MageWeapon : MonoBehaviourPunCallbacks
         _shooterInfoController.shooterInfoEvent += GetShooterInfo;
     }
 
-    private void Start()
-    {
-        Character myCharacter = Main.GameManager.SpawnedCharacter;
-        _targetObject = myCharacter.targetObject;
-        _rigidbody = GetComponent<Rigidbody2D>();
-        Vector2 dir = myCharacter.targetObject.transform.position - transform.position;
-        PhotonView targetPhotonView = Util.GetOrAddComponent<PhotonView>(myCharacter.targetObject);
-
-        GetComponent<ShooterInfoController>().CallShooterInfoEvent(myCharacter.gameObject);
-        GetComponent<PhotonView>().RPC("SetTarget", RpcTarget.All, targetPhotonView.ViewID);
-        GetComponent<PhotonView>().RPC("ToTarget", RpcTarget.All, 5.0f, dir.x, dir.y);
-    }
     private void Update()
     {
         if (_targetObject != null)
@@ -53,7 +41,7 @@ public class MageWeapon : MonoBehaviourPunCallbacks
         {
             if (GetComponent<PhotonView>().IsMine)
             {
-                collision.gameObject.GetComponent<Stat>()?.TakeDamage(Main.GameManager.SpawnedCharacter.stat.Attack, Main.GameManager.SpawnedCharacter.gameObject);
+                collision.gameObject.GetComponent<Stat>()?.TakeDamage(Main.GameManager.SpawnedCharacter.stat.Attack, _shooter);
                 PhotonNetwork.Destroy(gameObject);
             }
         }
