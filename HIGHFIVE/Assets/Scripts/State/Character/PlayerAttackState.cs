@@ -24,6 +24,7 @@ public class PlayerAttackState : PlayerBaseState
         _playerStateMachine.moveInput = _playerStateMachine._player.transform.position;
         _playerStateMachine.moveSpeedModifier = 0f;
         _playerStateMachine.isAttackReady = false;
+        _curDelay = 0.7 / _playerStateMachine._player.stat.AttackSpeed;
         StartAnimation(_attackHash);
         // 애니메이션 호출
     }
@@ -39,7 +40,16 @@ public class PlayerAttackState : PlayerBaseState
     public override void StateUpdate()
     {
         base.StateUpdate();
-        CheckTargetInRange();
+        if (CheckTargetInRange())
+        {
+            _curDelay -= Time.deltaTime;
+            if (_curDelay <= 0)
+            {
+                _playerStateMachine._player.OnNormalAttack();
+                isFistTime = false;
+                _curDelay = 1.0 / _playerStateMachine._player.stat.AttackSpeed;
+            }
+        }
     }
 
     private bool CheckTargetInRange()

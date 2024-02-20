@@ -25,12 +25,12 @@ public class Rogue : Character
     {
             base.FixedUpdate();
     }
-    //public override void OnNormalAttack()
-    //{
-    //    base.OnNormalAttack();
-    //    if (_playerStateMachine._player.targetObject != null && _playerStateMachine._player.targetObject.layer != (int)Define.Layer.Default)
-    //    {
-    //        _playerStateMachine._player.targetObject.GetComponent<Stat>()?.TakeDamage(Main.GameManager.SpawnedCharacter.stat.Attack, gameObject);
-    //    }
-    //}
+    public override void OnNormalAttack()
+    {
+        base.OnNormalAttack();
+        if (_playerStateMachine._player.targetObject != null && _playerStateMachine._player.targetObject.layer != (int)Define.Layer.Default)
+        {
+            _playerStateMachine._player.targetObject.GetComponent<Stat>()?.TakeDamage(Main.GameManager.SpawnedCharacter.stat.Attack, gameObject);
+        }
+    }
 }
