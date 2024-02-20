@@ -12,12 +12,6 @@ public class MageNormalAttack : MonoBehaviour
         {
             GameObject sphere = Main.ResourceManager.Instantiate("Character/MageWeapon", transform.position, syncRequired: true);
             sphere.transform.position = transform.position;
-            Vector2 dir = myCharacter.targetObject.transform.position - sphere.transform.position;
-            PhotonView targetPhotonView = Util.GetOrAddComponent<PhotonView>(myCharacter.targetObject);
-
-            sphere.GetComponent<ShooterInfoController>().CallShooterInfoEvent(transform.parent.gameObject);
-            sphere.GetComponent<PhotonView>().RPC("SetTarget", RpcTarget.All, targetPhotonView.ViewID);
-            sphere.GetComponent<PhotonView>().RPC("ToTarget", RpcTarget.All, 5.0f, dir.x, dir.y);
         }
     }
 }

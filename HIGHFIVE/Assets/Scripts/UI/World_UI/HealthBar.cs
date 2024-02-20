@@ -56,6 +56,7 @@ public class HealthBar : UIBase
             if (ratio <= 0) return;
         }
 
+
         transform.GetComponentInChildren<Slider>().value = ratio;
     }
 }

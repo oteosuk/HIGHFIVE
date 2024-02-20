@@ -2,6 +2,7 @@ using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class MageWeapon : MonoBehaviourPunCallbacks
 {
@@ -14,6 +15,19 @@ public class MageWeapon : MonoBehaviourPunCallbacks
     {
         _shooterInfoController = GetComponent<ShooterInfoController>();
         _shooterInfoController.shooterInfoEvent += GetShooterInfo;
+    }
+
+    private void Start()
+    {
+        Character myCharacter = Main.GameManager.SpawnedCharacter;
+        _targetObject = myCharacter.targetObject;
+        _rigidbody = GetComponent<Rigidbody2D>();
+        //Vector2 dir = myCharacter.targetObject.transform.position - transform.position;
+        //PhotonView targetPhotonView = Util.GetOrAddComponent<PhotonView>(myCharacter.targetObject);
+
+        //GetComponent<ShooterInfoController>().CallShooterInfoEvent(myCharacter.gameObject);
+        //GetComponent<PhotonView>().RPC("SetTarget", RpcTarget.All, targetPhotonView.ViewID);
+        //GetComponent<PhotonView>().RPC("ToTarget", RpcTarget.All, 5.0f, dir.x, dir.y);
     }
     private void Update()
     {
@@ -39,7 +53,7 @@ public class MageWeapon : MonoBehaviourPunCallbacks
         {
             if (GetComponent<PhotonView>().IsMine)
             {
-                collision.gameObject.GetComponent<Stat>()?.TakeDamage(Main.GameManager.SpawnedCharacter.stat.Attack, _shooter);
+                collision.gameObject.GetComponent<Stat>()?.TakeDamage(Main.GameManager.SpawnedCharacter.stat.Attack, Main.GameManager.SpawnedCharacter.gameObject);
                 PhotonNetwork.Destroy(gameObject);
             }
         }
@@ -50,22 +64,22 @@ public class MageWeapon : MonoBehaviourPunCallbacks
         _shooter = shooter;
     }
 
-    [PunRPC]
-    public void SetTarget(int viewId)
-    {
-        PhotonView targetPhotonView = PhotonView.Find(viewId);
-        if (targetPhotonView != null)
-        {
-            _targetObject = targetPhotonView.gameObject;
-        }
-    }
+    //[PunRPC]
+    //public void SetTarget(int viewId)
+    //{
+    //    PhotonView targetPhotonView = PhotonView.Find(viewId);
+    //    if (targetPhotonView != null)
+    //    {
+    //        _targetObject = targetPhotonView.gameObject;
+    //    }
+    //}
 
 
-    [PunRPC]
-    public void ToTarget(float speed, float posX, float posY)
-    {
-        Vector2 dir = new Vector2(posX, posY);
-        _rigidbody = GetComponent<Rigidbody2D>();
-        _rigidbody.velocity = dir.normalized * speed;
-    }
+    //[PunRPC]
+    //public void ToTarget(float speed, float posX, float posY)
+    //{
+    //    Vector2 dir = new Vector2(posX, posY);
+    //    _rigidbody = GetComponent<Rigidbody2D>();
+    //    _rigidbody.velocity = dir.normalized * speed;
+    //}
 }
