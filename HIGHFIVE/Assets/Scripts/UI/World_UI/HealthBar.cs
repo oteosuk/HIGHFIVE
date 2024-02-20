@@ -56,6 +56,6 @@ public class HealthBar : UIBase
             if (ratio <= 0) return;
         }
 
-        transform.parent.GetComponent<PhotonView>().RPC("SyncHpRatio", RpcTarget.All, ratio);
+        transform.GetComponentInChildren<Slider>().value = ratio;
     }
 }

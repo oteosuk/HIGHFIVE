@@ -32,17 +32,9 @@ public class Creature : MonoBehaviourPunCallbacks
     }
     public virtual void OnNormalAttack() { }
 
-
-    [PunRPC]
-    public void SyncHpRatio(float ratio)
-    {
-        transform.GetComponentInChildren<Slider>().value = ratio;
-    }
-
     [PunRPC]
     public void SetHpRPC(int curHp)
     {
-        if (!gameObject.GetComponent<Character>() && curHp == 0) return;
         gameObject.GetComponent<Stat>().CurHp = curHp;
     }
 }
