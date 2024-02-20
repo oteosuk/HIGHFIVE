@@ -1,4 +1,5 @@
 using Photon.Pun;
+using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,10 +8,19 @@ public class MageNormalAttack : MonoBehaviour
 {
     public void OnNormalAttack()
     {
-        Character myCharacter = Main.GameManager.SpawnedCharacter;
-        if (myCharacter.targetObject != null && myCharacter.targetObject.layer != (int)Define.Layer.Default)
+        Player[] players = PhotonNetwork.PlayerList;
+        for (int i = 0; i < players.Length; i++)
         {
-            Main.ResourceManager.Instantiate("Character/MageWeapon", transform.position, syncRequired: true);
+            if (players[i] == PhotonNetwork.LocalPlayer)
+            {
+                Character myCharacter = Main.GameManager.SpawnedCharacter;
+                if (myCharacter.targetObject != null && myCharacter.targetObject.layer != (int)Define.Layer.Default)
+                {
+                    Main.ResourceManager.Instantiate("Character/MageWeapon", transform.position, syncRequired: true);
+                }
+            }
         }
+
+        
     }
 }
