@@ -86,6 +86,7 @@ public class RoundLogic : MonoBehaviour
     public void ChangeToBattleField()
     {
         Main.GameManager.SpawnedCharacter.transform.position = Main.GameManager.SelectedCamp == Define.Camp.Red ? _redBattleSpawnZone.position : _blueBattleSpawnZone.position;
+        Main.SoundManager.PlayBGM("Battle_Normal_05", 0.1f);
         ChangeToField();
     }
     public void ChangeToFarmingField()
@@ -93,6 +94,7 @@ public class RoundLogic : MonoBehaviour
         if (CheckWinner() == Define.Camp.Red) { TeamRedWin(); }
         else { TeamBlueWin(); }
         Main.GameManager.SpawnedCharacter.transform.position = Main.GameManager.SelectedCamp == Define.Camp.Red ? _redFarmingSpawnZone.position : _blueFarmingSpawnZone.position;
+        Main.SoundManager.PlayBGM("Battle_Boss_07", 0.1f);
         ChangeToField();
     }
 
