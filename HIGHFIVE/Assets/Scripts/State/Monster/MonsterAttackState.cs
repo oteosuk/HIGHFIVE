@@ -15,14 +15,12 @@ public class MonsterAttackState : MonsterBaseState
         base.Enter();
         StartAnimation(_animData.AttackParameterHash);
         _monsterStateMachine._monster.Animator.SetFloat("AttackSpeed", _monsterStateMachine._monster.stat.AttackSpeed);
-        Debug.Log("Attack Enter");
     }
 
     public override void Exit()
     {
         base.Exit();
         StopAnimation(_animData.AttackParameterHash);
-        Debug.Log("Attack Exit");
     }
 
     public override void StateUpdate()

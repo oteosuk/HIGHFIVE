@@ -13,14 +13,12 @@ public class MonsterMoveState : MonsterBaseState
     {
         base.Enter();
         _speedModifier = 1;
-        Debug.Log("Move Enter");
     }
 
     public override void Exit()
     {
         base.Exit();
         _monsterStateMachine._monster.StopAnimationAll();
-        Debug.Log("Move Exit");
     }
     public override void StateUpdate()
     {
@@ -91,8 +89,7 @@ public class MonsterMoveState : MonsterBaseState
             _monsterStateMachine._monster.targetObject.transform.position,
             _monsterStateMachine._monster.stat.MoveSpeed * Time.deltaTime * _monsterStateMachine.moveSpeedModifier
         );
-        Debug.Log(_objectName);
-        //if(_objectName == "Tree") 
+
         _monsterStateMachine._monster.SetAnimation(angle);
     }
 
@@ -108,7 +105,6 @@ public class MonsterMoveState : MonsterBaseState
             _monsterStateMachine._monster._spawnPoint,
             _monsterStateMachine._monster.stat.MoveSpeed * Time.deltaTime * _monsterStateMachine.moveSpeedModifier);
 
-        //if (_objectName == "Tree") 
         _monsterStateMachine._monster.SetAnimation(angle);
 
         //몬스터가 스폰포인트에 도착했을때
