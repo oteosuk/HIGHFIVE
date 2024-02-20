@@ -9,6 +9,7 @@ public class CharacterSkill : MonoBehaviour
     public BaseSkill SecondSkill { get; protected set; }
     public BaseSkill ThirdSkill { get; protected set; }
 
+
     protected virtual void Start()
     {
         _skillController = GetComponent<SkillController>();

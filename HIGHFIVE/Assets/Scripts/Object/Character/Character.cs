@@ -112,7 +112,6 @@ public class Character : Creature
         _playerStateMachine._player.stat.gameObject.GetComponent<PhotonView>().RPC("SetHpRPC", RpcTarget.All, _playerStateMachine._player.stat.MaxHp);
         int layer = Main.GameManager.SelectedCamp == Define.Camp.Red ? (int)Define.Layer.Red : (int)Define.Layer.Blue;
         GetComponent<PhotonView>().RPC("SetLayer", RpcTarget.All, layer);
-        _playerStateMachine._player.Collider.isTrigger = false;
         _playerStateMachine._player.Animator.SetBool(_playerStateMachine._player.PlayerAnimationData.DieParameterHash, false);
         Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10f);
     }

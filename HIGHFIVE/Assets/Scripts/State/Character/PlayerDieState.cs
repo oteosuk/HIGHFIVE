@@ -18,7 +18,6 @@ public class PlayerDieState : PlayerBaseState
         if (Main.GameManager.page != Define.Page.Battle)
         {
             _playerStateMachine._player.Revival(5);
-            _playerStateMachine._player.Collider.isTrigger = true;
         }
         StartAnimation(_playerStateMachine._player.PlayerAnimationData.DieParameterHash);
     }

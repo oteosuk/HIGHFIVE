@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 public class Assassination : BaseSkill
 {
     private SkillDBEntity _assassinationData;
+    private BuffDBEntity _assassinationBuffData;
     private GameObject _targetObject;
     public override void Init()
     {
@@ -16,9 +17,15 @@ public class Assassination : BaseSkill
         {
             _assassinationData = assassinationData;
         }
+        if (Main.DataManager.BuffDict.TryGetValue("출혈", out BuffDBEntity assassinationBuffData))
+        {
+            _assassinationBuffData = assassinationBuffData;
+        }
         //나중에 데이터 매니저에서 받아오기
-        skillData.skillName = "암살";
-        skillData.info = "적에게 피해를 가하면 출혈데미지를 입힌다.";
+        skillData.skillName = _assassinationData.name;
+        skillData.info = $"적에게 {_assassinationData.damage + (int)(Main.GameManager.SpawnedCharacter.stat.Attack * _assassinationData.damageRatio)} " +
+            $"만큼의 피해를 가하고 {assassinationBuffData.durationTime}초 동안" +
+            $" {assassinationBuffData.trueDamage + Main.GameManager.SpawnedCharacter.stat.Attack}만큼의 고정 피해를 주는 출혈을 일으킨다.";
         skillData.skillSprite = Main.ResourceManager.Load<Sprite>("Sprites/SkillIcon/Assessination");
         skillData.coolTime = _assassinationData.coolTime;
         skillData.curTime = skillData.coolTime;

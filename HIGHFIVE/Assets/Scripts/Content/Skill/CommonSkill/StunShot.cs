@@ -19,8 +19,8 @@ public class StunShot : BaseSkill
             _stunShotSkillData = stunShotSkillData;
         }
         //나중에 데이터 매니저에서 받아오기
-        skillData.skillName = "스턴샷";
-        skillData.info = "적에게 피해를 가하면 출혈데미지를 입힌다.";
+        skillData.skillName = _stunShotSkillData.name;
+        skillData.info = "해당 챔피언에게 투사체를 던지고 투사체에 맞은 챔피언은 기절하게 됩니다.";
         skillData.skillSprite = Main.ResourceManager.Load<Sprite>("Sprites/SkillIcon/StunShot");
         skillData.coolTime = _stunShotSkillData.coolTime;
         skillData.curTime = skillData.coolTime;

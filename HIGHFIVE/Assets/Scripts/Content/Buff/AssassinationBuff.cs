@@ -21,7 +21,7 @@ public class AssassinationBuff : BaseBuff
         buffData.duration = _assassinationBuffData.durationTime;
         buffData.curTime = 0;
         buffData.effectTime = 0;
-        buffData.trueDamage = _assassinationBuffData.trueDamage;
+        buffData.trueDamage = _assassinationBuffData.trueDamage + Main.GameManager.SpawnedCharacter.stat.Attack;
         buffData.isSustainBuff = _assassinationBuffData.isSustain;
     }
 
