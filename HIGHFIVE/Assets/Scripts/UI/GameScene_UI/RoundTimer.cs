@@ -19,14 +19,15 @@ public class RoundTimer : MonoBehaviour
     [SerializeField] TMP_Text TeamRedScore;
     [SerializeField] TMP_Text TeamBlueScore;
 
+
     private RoundLogic roundLogic;
     private PhotonView _pv;
 
 
     private void Start()
     {
-        battleTime = 30;
-        farmingTime = 180;
+        battleTime = 10;
+        farmingTime = 20;
         roundLogic = GetComponent<RoundLogic>();
         _gameFieldController = GetComponent<GameFieldController>();
         _pv = GetComponent<PhotonView>();

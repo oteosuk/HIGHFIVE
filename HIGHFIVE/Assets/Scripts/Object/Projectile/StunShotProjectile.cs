@@ -20,7 +20,7 @@ public class StunShotProjectile : MonoBehaviour
         if (_targetObject != null)
         {
             Vector2 dir = _targetObject.transform.position - transform.position;
-            _rigidbody.velocity = dir.normalized * 5.0f;
+            _rigidbody.velocity = dir.normalized * 10.0f;
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90;
             Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.rotation = rotation;

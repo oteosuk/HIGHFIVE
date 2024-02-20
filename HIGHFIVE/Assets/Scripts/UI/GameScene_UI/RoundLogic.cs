@@ -174,5 +174,6 @@ public class RoundLogic : MonoBehaviour
     public void SyncRound(int round)
     {
         roundTxt.text = round.ToString();
+        currentRound = round;
     }
 }
