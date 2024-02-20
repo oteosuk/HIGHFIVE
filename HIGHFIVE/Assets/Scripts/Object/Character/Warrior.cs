@@ -25,20 +25,4 @@ public class Warrior : Character
     {
         base.FixedUpdate();
     }
-    public override void OnNormalAttack()
-    {
-        base.OnNormalAttack();
-        if (_playerStateMachine._player.targetObject != null && _playerStateMachine._player.targetObject.layer != (int)Define.Layer.Default)
-        {
-            BaseBuff buff = BuffController.FindBuff<StabbingBuff>();
-            if (buff != null)
-            {
-                _playerStateMachine._player.targetObject.GetComponent<Stat>()?.TakeDamage(buff.buffData.damage, gameObject);
-            }
-            else
-            {
-                _playerStateMachine._player.targetObject.GetComponent<Stat>()?.TakeDamage(Main.GameManager.SpawnedCharacter.stat.Attack, gameObject);
-            }
-        }
-    }
 }

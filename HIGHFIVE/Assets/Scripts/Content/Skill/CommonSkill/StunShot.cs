@@ -52,12 +52,11 @@ public class StunShot : BaseSkill
         InstantiateAfterLoad();
     }
 
-    private async void InstantiateAfterLoad()
+    private void InstantiateAfterLoad()
     {
         Character myCharacter = Main.GameManager.SpawnedCharacter;
         Vector2 dir = myCharacter.targetObject.transform.position - myCharacter.transform.position;
         PhotonView targetPhotonView = myCharacter.targetObject?.GetComponent<PhotonView>();
-        await Task.Delay(TimeSpan.FromMilliseconds(skillData.loadTime));
         GameObject sphere = Main.ResourceManager.Instantiate("Character/StunShot", myCharacter.transform.position, syncRequired: true);
         
         sphere?.GetComponent<PhotonView>()?.RPC("SetTarget", RpcTarget.All, targetPhotonView.ViewID);

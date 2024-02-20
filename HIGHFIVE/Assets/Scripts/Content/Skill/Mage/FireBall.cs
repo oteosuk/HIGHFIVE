@@ -48,10 +48,9 @@ public class FireBall : BaseSkill
         InstantiateAfterLoad();
     }
 
-    private async void InstantiateAfterLoad()
+    private void InstantiateAfterLoad()
     {
         Vector2 dir = GetDir().normalized;
-        await Task.Delay(TimeSpan.FromMilliseconds(skillData.loadTime));
         Character myCharacter = Main.GameManager.SpawnedCharacter;
         GameObject sphere = Main.ResourceManager.Instantiate("SkillEffect/FireBallEffect", myCharacter.transform.position, syncRequired: true);
         SetRotation(sphere, dir);

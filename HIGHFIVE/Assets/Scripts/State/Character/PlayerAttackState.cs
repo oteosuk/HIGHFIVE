@@ -39,16 +39,7 @@ public class PlayerAttackState : PlayerBaseState
     public override void StateUpdate()
     {
         base.StateUpdate();
-        if (CheckTargetInRange())
-        {
-            _curDelay -= Time.deltaTime;
-            if (_curDelay <= 0)
-            {
-                _playerStateMachine._player.OnNormalAttack();
-                isFistTime = false;
-                _curDelay = 1.0 / _playerStateMachine._player.stat.AttackSpeed;
-            }
-        }
+        CheckTargetInRange();
     }
 
     private bool CheckTargetInRange()
