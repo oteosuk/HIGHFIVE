@@ -11,7 +11,7 @@ public class BlueBuff : BaseBuff
             _blueBuffData = blueBuffData;
         }
         //나중에 데이터 매니저에서 받아오기
-        buffData.buffSprite = Main.ResourceManager.Load<Sprite>("Sprites/BuffIcon/BlueBuff");
+        buffData.buffSprite = Main.ResourceManager.Load<Sprite>("Sprites/BuffIcon/Blue");
         buffData.type = typeof(BlueBuff);
         buffData.duration = _blueBuffData.durationTime;
         buffData.curTime = 0;
