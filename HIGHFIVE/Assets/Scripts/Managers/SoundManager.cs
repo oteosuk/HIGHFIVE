@@ -30,8 +30,7 @@ public class SoundManager : MonoBehaviour
             sfxPlayer.Add(temp);
         }
 
-        PlayBGM("Town_Castle_01", 0.02f);
-        // BGM();
+        PlayBGM("Battle_Normal_EW01_B", 0.1f);
     }
 
     public void SoundUpdate()
@@ -45,7 +44,7 @@ public class SoundManager : MonoBehaviour
     public void BGM()
     {
         if (SceneManager.GetActiveScene().name == "IntroScene")
-        { PlayBGM("Town_Castle_01", 0.02f); }
+        { PlayBGM("Battle_Normal_EW01_B", 0.02f); }
 
         else if (SceneManager.GetActiveScene().name == "SelectScene")
         { PlayBGM("Battle_Normal_EW02", 0.02f); }
