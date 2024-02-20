@@ -91,8 +91,12 @@ public class RoundLogic : MonoBehaviour
     }
     public void ChangeToFarmingField()
     {
-        if (CheckWinner() == Define.Camp.Red) { TeamRedWin(); }
-        else { TeamBlueWin(); }
+        if (PhotonNetwork.IsMasterClient)
+        {
+            if (CheckWinner() == Define.Camp.Red) { GetComponent<PhotonView>().RPC("SyncWinner", RpcTarget.All, (int)Define.Camp.Red); }
+            else { GetComponent<PhotonView>().RPC("SyncWinner", RpcTarget.All, (int)Define.Camp.Blue); }
+        }
+
         Main.GameManager.SpawnedCharacter.transform.position = Main.GameManager.SelectedCamp == Define.Camp.Red ? _redFarmingSpawnZone.position : _blueFarmingSpawnZone.position;
         Main.SoundManager.PlayBGM("Battle_Boss_07", 0.1f);
         ChangeToField();
@@ -177,5 +181,12 @@ public class RoundLogic : MonoBehaviour
     {
         roundTxt.text = round.ToString();
         currentRound = round;
+    }
+
+    [PunRPC]
+    public void SyncWinner(int winner)
+    {
+        if (winner == (int)Define.Camp.Red) { TeamRedWin(); }
+        else { TeamBlueWin(); }
     }
 }
