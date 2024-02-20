@@ -30,7 +30,6 @@ public class AssassinationBuff : BaseBuff
     public override void Deactivation()
     {
         buffData.effectTime = buffData.duration;
-        Debug.Log("dd");
     }
 
     public override IEnumerator ApplyEffect(GameObject target, GameObject shooter)

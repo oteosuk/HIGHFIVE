@@ -9,13 +9,11 @@ public class StartScene : BaseScene
     protected override void Init()
     {
         base.Init();
-        //DebugTest();
     }
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Click");
             Main.SoundManager.PlaySFX("SFX_Click", 0.01f);
         }
     }

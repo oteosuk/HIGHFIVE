@@ -12,21 +12,18 @@ public class MonsterIdleState : MonsterBaseState
         base.Enter();
         _speedModifier = 0;
         StartAnimation(_animData.IdleParameterHash);
-        Debug.Log("Idle Enter");
     }
 
     public override void Exit()
     {
         base.Exit();
         StopAnimation(_animData.IdleParameterHash);
-        Debug.Log("Idle Exit");
     }
 
     public override void StateUpdate()
     {
         base.StateUpdate();
         bool isPlayerInRange = RangeInPlayer();
-        //Debug.Log(isPlayerInRange);
         if (isPlayerInRange == true)
         {
             _monsterStateMachine.ChangeState(_monsterStateMachine._monsterMoveState);

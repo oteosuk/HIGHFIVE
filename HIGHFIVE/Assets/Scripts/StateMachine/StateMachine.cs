@@ -16,8 +16,6 @@ public abstract class StateMachine
 
         // 진입
         _currentState?.Enter();
-
-        Debug.Log($"Changed state to: {newState.GetType().Name}");
     }
 
     public void HandleInput()

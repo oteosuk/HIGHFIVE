@@ -24,7 +24,6 @@ public class HealthBar : UIBase
         }
         _statController = transform.parent.GetComponent<StatController>();
         _statController.hpChangeEvent += SetHpRatio;
-        Debug.Log("sdf");
         originLocalScaleX = transform.localScale.x;
     }
 
