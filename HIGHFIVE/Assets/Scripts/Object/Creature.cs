@@ -42,6 +42,7 @@ public class Creature : MonoBehaviourPunCallbacks
     [PunRPC]
     public void SetHpRPC(int curHp)
     {
+        if (!gameObject.GetComponent<Character>() && curHp == 0) return;
         gameObject.GetComponent<Stat>().CurHp = curHp;
     }
 }
