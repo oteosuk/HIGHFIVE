@@ -1443,10 +1443,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC6B0\uD074\uB9AD / \uC774\uB3D9, \uACF5\uACA9\r\nQ W E / \uC2A4\uD0AC
-    \uC0AC\uC6A9\n\nSpace Bar / \uB0B4 \uCE90\uB9AD\uD130 \uBCF4\uAE30\n\uBBF8\uB2C8\uB9F5
-    \uC88C\uD074\uB9AD / \uD574\uB2F9 \uC704\uCE58 \uBCF4\uAE30\r\n\uBBF8\uB2C8\uB9F5
-    \uC6B0\uD074\uB9AD / \uD574\uB2F9 \uC704\uCE58\uB85C \uC774\uB3D9\r\n\n\n\n"
+  m_text: "\uC6B0\uD074\uB9AD / \uC774\uB3D9, \uACF5\uACA9\r\nA + \uC88C\uD074\uB9AD
+    / \uACF5\uACA9 (\uD0C0\uAC9F \uC9C0\uC815)\nQ W E / \uC2A4\uD0AC \uC0AC\uC6A9\n\nSpace
+    Bar / \uB0B4 \uCE90\uB9AD\uD130 \uBCF4\uAE30\n\uBBF8\uB2C8\uB9F5 \uC88C\uD074\uB9AD
+    / \uD574\uB2F9 \uC704\uCE58 \uBCF4\uAE30\r\n\uBBF8\uB2C8\uB9F5 \uC6B0\uD074\uB9AD
+    / \uD574\uB2F9 \uC704\uCE58\uB85C \uC774\uB3D9\r\n\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 656b66e75ca277943b677ef64c5c95be, type: 2}
   m_sharedMaterial: {fileID: 3992639995913514793, guid: 656b66e75ca277943b677ef64c5c95be,
