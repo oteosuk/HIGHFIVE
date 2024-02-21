@@ -33,8 +33,9 @@ public class Creature : MonoBehaviourPunCallbacks
     public virtual void OnNormalAttack() { }
 
     [PunRPC]
-    public void SetHpRPC(int curHp)
+    public void SetHpRPC(int curHp, int maxHp)
     {
+        gameObject.GetComponent<Stat>().MaxHp = maxHp;
         gameObject.GetComponent<Stat>().CurHp = curHp;
     }
 }
