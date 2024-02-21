@@ -106,7 +106,7 @@ MonoBehaviour:
     movSpeed: 3
     maxHp: 50
     curHp: 50
-    exp: 2
+    exp: 8
     sight: 3
   - name: "\uC624\uAC70"
     atk: 15
@@ -115,8 +115,8 @@ MonoBehaviour:
     atkSpeed: 1
     movSpeed: 3
     maxHp: 80
-    curHp: 50
-    exp: 3
+    curHp: 80
+    exp: 10
     sight: 3
   - name: "\uC624\uAC70 \uC804\uC0AC"
     atk: 20
@@ -125,8 +125,8 @@ MonoBehaviour:
     atkSpeed: 1
     movSpeed: 3
     maxHp: 100
-    curHp: 60
-    exp: 4
+    curHp: 100
+    exp: 12
     sight: 3
   - name: "\uBE14\uB8E8"
     atk: 50
@@ -134,9 +134,9 @@ MonoBehaviour:
     atkRange: 1
     atkSpeed: 1
     movSpeed: 3
-    maxHp: 500
-    curHp: 500
-    exp: 30
+    maxHp: 350
+    curHp: 350
+    exp: 60
     sight: 4
   - name: "\uB808\uB4DC"
     atk: 50
@@ -144,19 +144,19 @@ MonoBehaviour:
     atkRange: 1
     atkSpeed: 1
     movSpeed: 3
-    maxHp: 500
-    curHp: 500
-    exp: 30
+    maxHp: 350
+    curHp: 350
+    exp: 60
     sight: 4
   - name: "\uC5D8\uB9AC\uD2B8"
-    atk: 100
+    atk: 80
     def: 15
     atkRange: 1
     atkSpeed: 1.5
     movSpeed: 3
-    maxHp: 700
-    curHp: 700
-    exp: 100
+    maxHp: 600
+    curHp: 600
+    exp: 150
     sight: 4
   Items:
   - id: 0
