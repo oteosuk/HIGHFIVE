@@ -11,13 +11,15 @@ public class SpawnedCharacterStats : UIBase
         LevelValue,
         ATKValue,
         DEFValue,
-        SPDValue
+        SPDValue,
+        ATSValue
     }
 
     private TMP_Text _attackValue;
     private TMP_Text _defenceValue;
     private TMP_Text _levelValue;
     private TMP_Text _speedValue;
+    private TMP_Text _attackSpeedValue;
 
     void Start()
     {
@@ -29,16 +31,19 @@ public class SpawnedCharacterStats : UIBase
         _defenceValue = Get<TMP_Text>((int)Texts.DEFValue);
         _levelValue = Get<TMP_Text>((int)Texts.LevelValue);
         _speedValue = Get<TMP_Text>((int)Texts.SPDValue);
+        _attackSpeedValue = Get<TMP_Text>((int)Texts.ATSValue);
 
         _attackValue.text = spawnedCharacterStat.Attack.ToString();
         _defenceValue.text = spawnedCharacterStat.Defence.ToString();
         _levelValue.text = spawnedCharacterStat.Level.ToString();
         _speedValue.text = spawnedCharacterStat.MoveSpeed.ToString();
+        _attackSpeedValue.text = spawnedCharacterStat.AttackSpeed.ToString();
 
         statController.attackChangeEvent += RenewalAttack;
         statController.defenceChangeEvent += RenewalDefence;
         statController.levelChangeEvent += RenewalLevel;
         statController.moveSpeedChangeEvent += RenewalMoveSpeed;
+        statController.attackSpeedEvent += RenewalAttackSpeed;
     }
 
     private void RenewalAttack(int attack)
@@ -55,6 +60,11 @@ public class SpawnedCharacterStats : UIBase
     }
     private void RenewalMoveSpeed(float speed)
     {
-        _speedValue.text = speed.ToString("N2");
+        _speedValue.text = speed.ToString("N1");
+    }
+
+    private void RenewalAttackSpeed(float attackSpeed)
+    {
+        _attackSpeedValue.text = attackSpeed.ToString("N1");
     }
 }

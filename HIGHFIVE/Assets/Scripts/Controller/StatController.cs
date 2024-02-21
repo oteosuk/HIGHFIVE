@@ -6,6 +6,7 @@ public class StatController : MonoBehaviour
     public event Action<int> attackChangeEvent;
     public event Action<int> defenceChangeEvent;
     public event Action<int> levelChangeEvent;
+    public event Action<float> attackSpeedEvent; 
     public event Action<float> moveSpeedChangeEvent;
     public event Action<int,int> expChangeEvent;
     public event Action<int,int> hpChangeEvent;
@@ -67,6 +68,14 @@ public class StatController : MonoBehaviour
         if (dieEvent != null)
         {
             dieEvent.Invoke();
+        }
+    }
+
+    public void CallAttackSpeedEvent(float attackSpeed)
+    {
+        if(attackSpeedEvent != null)
+        {
+            attackSpeedEvent.Invoke(attackSpeed);
         }
     }
 }

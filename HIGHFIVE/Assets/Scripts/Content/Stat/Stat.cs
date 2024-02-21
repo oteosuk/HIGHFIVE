@@ -57,7 +57,7 @@ public class Stat : MonoBehaviour
     public float AttackSpeed
     {
         get { return _attackSpeed; }
-        set { _attackSpeed = value; }
+        set {_statController.CallAttackSpeedEvent(value); _attackSpeed = value; }
     }
     public float MoveSpeed
     {
