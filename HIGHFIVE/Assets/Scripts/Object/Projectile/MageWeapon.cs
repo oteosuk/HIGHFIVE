@@ -8,13 +8,14 @@ public class MageWeapon : MonoBehaviourPunCallbacks
 {
     private GameObject _targetObject;
     private Rigidbody2D _rigidbody;
-    private ShooterInfoController _shooterInfoController;
     private GameObject _shooter;
 
-    private void Awake()
+    private void Start()
     {
-        _shooterInfoController = GetComponent<ShooterInfoController>();
-        _shooterInfoController.shooterInfoEvent += GetShooterInfo;
+        Character myCharacter = Main.GameManager.SpawnedCharacter;
+        _rigidbody = GetComponent<Rigidbody2D>();
+        _targetObject = myCharacter.targetObject;
+        _shooter = myCharacter.gameObject;
     }
 
     private void Update()
@@ -32,7 +33,7 @@ public class MageWeapon : MonoBehaviourPunCallbacks
             if (GetComponent<PhotonView>().IsMine)
             {
                 PhotonNetwork.Destroy(gameObject);
-            }
+            } 
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -47,27 +48,27 @@ public class MageWeapon : MonoBehaviourPunCallbacks
         }
     }
 
-    private void GetShooterInfo(GameObject shooter)
-    {
-        _shooter = shooter;
-    }
+    //private void GetShooterInfo(GameObject shooter)
+    //{
+    //    _shooter = shooter;
+    //}
 
-    [PunRPC]
-    public void SetTarget(int viewId)
-    {
-        PhotonView targetPhotonView = PhotonView.Find(viewId);
-        if (targetPhotonView != null)
-        {
-            _targetObject = targetPhotonView.gameObject;
-        }
-    }
+    //[PunRPC]
+    //public void SetTarget(int viewId)
+    //{
+    //    PhotonView targetPhotonView = PhotonView.Find(viewId);
+    //    if (targetPhotonView != null)
+    //    {
+    //        _targetObject = targetPhotonView.gameObject;
+    //    }
+    //}
 
 
-    [PunRPC]
-    public void ToTarget(float speed, float posX, float posY)
-    {
-        Vector2 dir = new Vector2(posX, posY);
-        _rigidbody = GetComponent<Rigidbody2D>();
-        _rigidbody.velocity = dir.normalized * speed;
-    }
+    //[PunRPC]
+    //public void ToTarget(float speed, float posX, float posY)
+    //{
+    //    Vector2 dir = new Vector2(posX, posY);
+    //    _rigidbody = GetComponent<Rigidbody2D>();
+    //    _rigidbody.velocity = dir.normalized * speed;
+    //}
 }

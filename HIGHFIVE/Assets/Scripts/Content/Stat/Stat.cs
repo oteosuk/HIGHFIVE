@@ -18,6 +18,7 @@ public class Stat : MonoBehaviour
     private float _sightRange;
     private int _exp;
     private int _maxExp;
+    private float _attackDelay;
     [HideInInspector]
     public StatController _statController;
     public int CurHp
@@ -77,6 +78,11 @@ public class Stat : MonoBehaviour
     {
         get { return _exp; }
         set { _statController.CallChangeExpEvent(value, MaxExp); _exp = value; }
+    }
+    public float AttackDelay
+    {
+        get { return _attackDelay; }
+        set { _attackDelay = value; }
     }
     private void Start()
     {

@@ -13,7 +13,14 @@ public class StunShotProjectile : MonoBehaviour
     private void Awake()
     {
         _shooterInfoController = GetComponent<ShooterInfoController>();
-        _shooterInfoController.shooterInfoEvent += GetShooterInfo;
+        //_shooterInfoController.shooterInfoEvent += GetShooterInfo;
+    }
+    private void Start()
+    {
+        Character myCharacter = Main.GameManager.SpawnedCharacter;
+        _rigidbody = GetComponent<Rigidbody2D>();
+        _targetObject = myCharacter.targetObject;
+        _shooter = myCharacter.gameObject;
     }
     private void Update()
     {
@@ -40,43 +47,37 @@ public class StunShotProjectile : MonoBehaviour
         {
             if (GetComponent<PhotonView>().IsMine)
             {
-                _targetObject.GetComponent<Stat>().TakeDamage(Main.GameManager.SpawnedCharacter.CharacterSkill.SecondSkill.skillData.damage, _shooter.gameObject);
-                BaseBuff stunShotBuff = new StunShotBuff();
-                if (_targetObject.GetComponent<Character>())
+                collision.gameObject.GetComponent<Stat>().TakeDamage(Main.GameManager.SpawnedCharacter.CharacterSkill.SecondSkill.skillData.damage, _shooter.gameObject);
+                if (collision.gameObject.GetComponent<Character>())
                 {
-                    PhotonView targetPv = _targetObject.GetComponent<PhotonView>();
-                    if (Main.NetworkManager.photonPlayer.TryGetValue(targetPv.ViewID, out Player targetPlayer))
-                    {
-                        _shooter.GetComponent<PhotonView>().RPC("ReceiveBuff", RpcTarget.Others, targetPv.ViewID, Define.Buff.StunShot);
-                    }
+                    PhotonView targetPv = collision.gameObject.GetComponent<PhotonView>();
+                    _shooter.GetComponent<PhotonView>().RPC("ReceiveBuff", RpcTarget.Others, targetPv.ViewID, Define.Buff.StunShot);
                 }
-                else { _targetObject.GetComponent<Creature>().BuffController?.AddBuff(stunShotBuff); }
                 PhotonNetwork.Destroy(gameObject);
             }
         }
     }
 
-    private void GetShooterInfo(GameObject shooter)
-    {
-        _shooter = shooter;
-    }
+    //private void GetShooterInfo(GameObject shooter)
+    //{
+    //    _shooter = shooter;
+    //}
 
-    [PunRPC]
-    public void SetTarget(int viewId)
-    {
-        PhotonView targetPhotonView = PhotonView.Find(viewId);
-        if (targetPhotonView != null)
-        {
-            _targetObject = targetPhotonView.gameObject;
-        }
-    }
+    //[PunRPC]
+    //public void SetTarget(int viewId)
+    //{
+    //    PhotonView targetPhotonView = PhotonView.Find(viewId);
+    //    if (targetPhotonView != null)
+    //    {
+    //        _targetObject = targetPhotonView.gameObject;
+    //    }
+    //}
 
 
-    [PunRPC]
-    public void ToTarget(float speed, float posX, float posY)
-    {
-        Vector2 dir = new Vector2(posX, posY);
-        _rigidbody = GetComponent<Rigidbody2D>();
-        _rigidbody.velocity = dir.normalized * speed;
-    }
+    //[PunRPC]
+    //public void ToTarget(float speed, float posX, float posY)
+    //{
+    //    Vector2 dir = new Vector2(posX, posY);
+    //    _rigidbody.velocity = dir.normalized * speed;
+    //}
 }

@@ -24,7 +24,7 @@ public class PlayerAttackState : PlayerBaseState
         _playerStateMachine.moveInput = _playerStateMachine._player.transform.position;
         _playerStateMachine.moveSpeedModifier = 0f;
         _playerStateMachine.isAttackReady = false;
-        _curDelay = 0.7 / _playerStateMachine._player.stat.AttackSpeed;
+        _curDelay = _playerStateMachine._player.stat.AttackDelay / _playerStateMachine._player.stat.AttackSpeed;
         StartAnimation(_attackHash);
         // 애니메이션 호출
     }

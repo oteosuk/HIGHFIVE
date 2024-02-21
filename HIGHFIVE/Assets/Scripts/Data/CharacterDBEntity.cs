@@ -12,4 +12,5 @@ public class CharacterDBEntity
     public int maxHp;
     public int curHp;
     public int sight;
+    public float atkDelay;
 }

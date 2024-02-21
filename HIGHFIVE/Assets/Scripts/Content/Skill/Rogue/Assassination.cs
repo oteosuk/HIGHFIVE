@@ -47,13 +47,16 @@ public class Assassination : BaseSkill
     }
     public override void Execute()
     {
-        Character myCharacter = Main.GameManager.SpawnedCharacter;
-        skillData.isUse = false;
-        Main.ResourceManager.Instantiate("SkillEffect/AssessinationEffect", myCharacter.targetObject.transform.Find("EffectTarget").position, syncRequired: true);
-        DamageToTarget(_targetObject, myCharacter);
-        myCharacter.Animator.SetBool(myCharacter.PlayerAnimationData.SkillDelayTimeHash, true);
-        myCharacter.SkillController.CallSkillExecute(myCharacter.CharacterSkill.FirstSkill);
-        myCharacter.SkillController.CallSkillDelay(myCharacter.CharacterSkill.FirstSkill.skillData);
+        if (_targetObject != null)
+        {
+            Character myCharacter = Main.GameManager.SpawnedCharacter;
+            skillData.isUse = false;
+            Main.ResourceManager.Instantiate("SkillEffect/AssessinationEffect", myCharacter.targetObject.transform.Find("EffectTarget").position, syncRequired: true);
+            DamageToTarget(_targetObject, myCharacter);
+            myCharacter.Animator.SetBool(myCharacter.PlayerAnimationData.SkillDelayTimeHash, true);
+            myCharacter.SkillController.CallSkillExecute(myCharacter.CharacterSkill.FirstSkill);
+            myCharacter.SkillController.CallSkillDelay(myCharacter.CharacterSkill.FirstSkill.skillData);
+        }
     }
 
     private void DamageToTarget(GameObject target, Character shooter)

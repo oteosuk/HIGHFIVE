@@ -32,14 +32,14 @@ public class Mage : Character
         base.OnNormalAttack();
         if (_playerStateMachine._player.targetObject != null && _playerStateMachine._player.targetObject.layer != (int)Define.Layer.Default)
         {
-            GameObject sphere = Main.ResourceManager.Instantiate("Character/MageWeapon", _tip.position, syncRequired: true);
-            sphere.transform.position = transform.position;
-            Vector2 dir = _playerStateMachine._player.targetObject.transform.position - sphere.transform.position;
-            PhotonView targetPhotonView = Util.GetOrAddComponent<PhotonView>(_playerStateMachine._player.targetObject);
+            Main.ResourceManager.Instantiate("Character/MageWeapon", _tip.position, syncRequired: true);
+            //sphere.transform.position = transform.position;
+            //Vector2 dir = _playerStateMachine._player.targetObject.transform.position - sphere.transform.position;
+            //PhotonView targetPhotonView = Util.GetOrAddComponent<PhotonView>(_playerStateMachine._player.targetObject);
 
-            sphere.GetComponent<ShooterInfoController>().CallShooterInfoEvent(gameObject);
-            sphere.GetComponent<PhotonView>().RPC("SetTarget", RpcTarget.All, targetPhotonView.ViewID);
-            sphere.GetComponent<PhotonView>().RPC("ToTarget", RpcTarget.All, 5.0f, dir.x, dir.y);
+            //sphere.GetComponent<ShooterInfoController>().CallShooterInfoEvent(gameObject);
+            //sphere.GetComponent<PhotonView>().RPC("SetTarget", RpcTarget.All, targetPhotonView.ViewID);
+            //sphere.GetComponent<PhotonView>().RPC("ToTarget", RpcTarget.All, 5.0f, dir.x, dir.y);
         }
     }
 }

@@ -18,6 +18,7 @@ public class WarriorStat : CharacterStat
             MoveSpeed = warrior.movSpeed;
             Defence = warrior.def;
             SightRange = warrior.sight;
+            AttackDelay = warrior.atkDelay;
         }
 
     }
