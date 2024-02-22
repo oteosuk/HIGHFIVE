@@ -15,7 +15,7 @@ SpriteAtlas:
       compressionQuality: 50
       maxTextureSize: 2048
       textureCompression: 0
-      filterMode: 1
+      filterMode: 0
       generateMipMaps: 0
       readable: 0
       crunchedCompression: 0
@@ -45,6 +45,7 @@ SpriteAtlas:
     - fbddd4306af2b47458c43097d5b91f87: 889668667309676848
     - fbddd4306af2b47458c43097d5b91f87: 1589403714872849932
     - 679ecd60a92cea54689834f5c30aea75: 21300000
+    - 44b5b6801a1ed6f4397cfda794243cc9: 21300000
     - 5bf522c0b8fe5cf4c99cab9f668ea7f1: -7615113715731188623
     - 5bf522c0b8fe5cf4c99cab9f668ea7f1: 2455700416180960839
     - 99c2e3d06fe6e894ca819ec96cb65835: 21300000
@@ -128,6 +129,7 @@ SpriteAtlas:
     - 6da213263039be7488c3ae5d54a4447d: 21300000
     - 9eeb20468ab8448d6aa001c44dfc7b16: 21300000
     - 130ca4d6a90ce4845ab00448f7e1eb47: 21300000
+    - f746f70700e1fdd408b18dc8b17ef3fb: 21300000
     - 334b3f278ed6db643a8dbb6bcd691418: 21300000
     - 4c5991472e4e54eecaf9df2bd244c531: -7615113715731188623
     - 4c5991472e4e54eecaf9df2bd244c531: 2455700416180960839
@@ -260,6 +262,7 @@ SpriteAtlas:
     - d3fd2f1fc26be492a97ff812e98df754: 1583482623376728253
     - d3fd2f1fc26be492a97ff812e98df754: 2792606791867966216
     - d3fd2f1fc26be492a97ff812e98df754: 5053251350606442050
+    - 811cd33f47786b7419aaed840d336412: 21300000
     - 1684df3feb538254a930fc22bf410c55: 6774311242667588367
     - 1684df3feb538254a930fc22bf410c55: 1580898879596435391
     - 1684df3feb538254a930fc22bf410c55: 7701749999114849371
@@ -272,6 +275,7 @@ SpriteAtlas:
   - {fileID: 889668667309676848, guid: fbddd4306af2b47458c43097d5b91f87, type: 3}
   - {fileID: 1589403714872849932, guid: fbddd4306af2b47458c43097d5b91f87, type: 3}
   - {fileID: 21300000, guid: 679ecd60a92cea54689834f5c30aea75, type: 3}
+  - {fileID: 21300000, guid: 44b5b6801a1ed6f4397cfda794243cc9, type: 3}
   - {fileID: -7615113715731188623, guid: 5bf522c0b8fe5cf4c99cab9f668ea7f1, type: 3}
   - {fileID: 2455700416180960839, guid: 5bf522c0b8fe5cf4c99cab9f668ea7f1, type: 3}
   - {fileID: 21300000, guid: 99c2e3d06fe6e894ca819ec96cb65835, type: 3}
@@ -355,6 +359,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 6da213263039be7488c3ae5d54a4447d, type: 3}
   - {fileID: 21300000, guid: 9eeb20468ab8448d6aa001c44dfc7b16, type: 3}
   - {fileID: 21300000, guid: 130ca4d6a90ce4845ab00448f7e1eb47, type: 3}
+  - {fileID: 21300000, guid: f746f70700e1fdd408b18dc8b17ef3fb, type: 3}
   - {fileID: 21300000, guid: 334b3f278ed6db643a8dbb6bcd691418, type: 3}
   - {fileID: -7615113715731188623, guid: 4c5991472e4e54eecaf9df2bd244c531, type: 3}
   - {fileID: 2455700416180960839, guid: 4c5991472e4e54eecaf9df2bd244c531, type: 3}
@@ -487,6 +492,7 @@ SpriteAtlas:
   - {fileID: 1583482623376728253, guid: d3fd2f1fc26be492a97ff812e98df754, type: 3}
   - {fileID: 2792606791867966216, guid: d3fd2f1fc26be492a97ff812e98df754, type: 3}
   - {fileID: 5053251350606442050, guid: d3fd2f1fc26be492a97ff812e98df754, type: 3}
+  - {fileID: 21300000, guid: 811cd33f47786b7419aaed840d336412, type: 3}
   - {fileID: 6774311242667588367, guid: 1684df3feb538254a930fc22bf410c55, type: 3}
   - {fileID: 1580898879596435391, guid: 1684df3feb538254a930fc22bf410c55, type: 3}
   - {fileID: 7701749999114849371, guid: 1684df3feb538254a930fc22bf410c55, type: 3}
@@ -498,6 +504,7 @@ SpriteAtlas:
   - Right
   - Body
   - Orc_Helmet_05
+  - Helmet_5
   - Left
   - Right
   - Sword_1
@@ -581,6 +588,7 @@ SpriteAtlas:
   - Orc_Helmet_04
   - Helmet_2
   - Back_2
+  - Helmet_4
   - Orc_Weapon_08
   - Left
   - Right
@@ -713,6 +721,7 @@ SpriteAtlas:
   - Foot_R
   - Body
   - Foot_L
+  - Cloth_7
   - Left
   - Right
   - Body
