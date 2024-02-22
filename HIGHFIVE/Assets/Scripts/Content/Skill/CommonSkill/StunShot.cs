@@ -55,13 +55,7 @@ public class StunShot : BaseSkill
     private void InstantiateAfterLoad()
     {
         Character myCharacter = Main.GameManager.SpawnedCharacter;
-        //Vector2 dir = myCharacter.targetObject.transform.position - myCharacter.transform.position;
-        //PhotonView targetPhotonView = myCharacter.targetObject?.GetComponent<PhotonView>();
         Main.ResourceManager.Instantiate("Character/StunShot", myCharacter.transform.position, syncRequired: true);
-        
-        //sphere?.GetComponent<PhotonView>()?.RPC("SetTarget", RpcTarget.All, targetPhotonView.ViewID);
-        //sphere?.GetComponent<PhotonView>()?.RPC("ToTarget", RpcTarget.All, 5.0f, dir.x, dir.y);
-        //sphere?.GetComponent<ShooterInfoController>().CallShooterInfoEvent(myCharacter.gameObject);
     }
 
     private bool CheckRange()

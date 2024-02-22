@@ -107,12 +107,14 @@ public class PlayerMoveState : PlayerBaseState
         int monsterMask = LayerMask.GetMask("Monster");
         int enemyMask = Main.GameManager.SelectedCamp == Define.Camp.Red ? LayerMask.GetMask("Blue") : LayerMask.GetMask("Red");
 
-        Collider2D monsterCollider = Physics2D.OverlapCircle(_playerStateMachine._player.transform.position, _playerStateMachine._player.stat.SightRange, monsterMask);
-        Collider2D enemyCollider = Physics2D.OverlapCircle(_playerStateMachine._player.transform.position, _playerStateMachine._player.stat.SightRange, enemyMask);
+        Collider2D[] monsterCollider = Physics2D.OverlapCircleAll(_playerStateMachine._player.transform.position, _playerStateMachine._player.stat.SightRange, monsterMask);
+        Collider2D[] enemyCollider = Physics2D.OverlapCircleAll(_playerStateMachine._player.transform.position, _playerStateMachine._player.stat.SightRange, enemyMask);
 
-        if (enemyCollider != null || monsterCollider != null)
+        
+        if (enemyCollider.Length != 0 || monsterCollider.Length != 0)
         {
-            _playerStateMachine._player.targetObject = enemyCollider != null ? enemyCollider.gameObject : monsterCollider.gameObject;
+            GameObject targetObj = FindClosestObj(_playerStateMachine._player.transform.position, enemyCollider.Length != 0 ? enemyCollider : monsterCollider);
+            _playerStateMachine._player.targetObject = targetObj;
             _targetPosition = _playerStateMachine._player.targetObject.transform.position;
             _playerStateMachine.isLeftClicked = false;
         }
@@ -164,5 +166,22 @@ public class PlayerMoveState : PlayerBaseState
         {
             _playerStateMachine.ChangeState(_playerStateMachine.PlayerSecondSkillState);
         }
+    }
+    GameObject FindClosestObj(Vector2 origin, Collider2D[] colliders)
+    {
+        float closestDistance = Mathf.Infinity;
+        Collider2D closestCollider = null;
+
+        foreach (Collider2D collider in colliders)
+        {
+            float distance = Vector2.Distance(origin, collider.transform.position);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                closestCollider = collider;
+            }
+        }
+
+        return closestCollider.gameObject;
     }
 }

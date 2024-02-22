@@ -48,7 +48,9 @@ public class CharacterStat : Stat
             myStat.AttackSpeed += 0.1f;
             myStat.MaxHp += 40;
             myStat.CurHp += 40;
-            myStat.gameObject.GetComponent<PhotonView>().RPC("SetHpRPC", RpcTarget.All, myStat.CurHp, myStat.MaxHp);
+            PhotonView pv = myStat.gameObject.GetComponent<PhotonView>();
+            pv.RPC("SyncLevel", RpcTarget.All, myStat.Level, pv.ViewID);
+            pv.RPC("SetHpRPC", RpcTarget.All, myStat.CurHp, myStat.MaxHp);
             
 
             if (myStat.Exp > myStat.MaxExp)

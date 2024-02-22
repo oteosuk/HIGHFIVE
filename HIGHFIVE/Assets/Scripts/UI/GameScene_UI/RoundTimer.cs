@@ -26,8 +26,8 @@ public class RoundTimer : MonoBehaviour
 
     private void Start()
     {
-        battleTime = 30;
-        farmingTime = 120;
+        battleTime = 40;
+        farmingTime = 5;
         roundLogic = GetComponent<RoundLogic>();
         _gameFieldController = GetComponent<GameFieldController>();
         _pv = GetComponent<PhotonView>();
@@ -85,10 +85,29 @@ public class RoundTimer : MonoBehaviour
         while (curTime > 0)
         {
             curTime -= 1;
+            if (CheckPlayerObjDie())
+            {
+                yield return new WaitForSeconds(2);
+                break;
+            }
             _pv.RPC("SyncTime", RpcTarget.All, curTime);
             yield return new WaitForSeconds(1);
         }
         StartFarmingTimer();
+    }
+
+    private bool CheckPlayerObjDie()
+    {
+        int restRedTeamNum = 0;
+        int restBlueTeamNum = 0;
+        foreach (KeyValuePair<int, GameObject> playerObj in Main.NetworkManager.photonPlayerObject)
+        {
+            if (playerObj.Value.layer == (int)Define.Layer.Red) { restRedTeamNum += 1; }
+            if (playerObj.Value.layer == (int)Define.Layer.Blue) { restBlueTeamNum += 1; }
+        }
+        if (restRedTeamNum == 0 || restBlueTeamNum == 0) { return true; }
+
+        return false;
     }
 
     [PunRPC]

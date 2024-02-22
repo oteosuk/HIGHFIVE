@@ -1,6 +1,8 @@
 using Photon.Pun;
+using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
@@ -158,7 +160,12 @@ public class Character : Creature
         if (!Main.NetworkManager.photonPlayerObject.ContainsKey(viewId) && !Main.NetworkManager.photonPlayer.ContainsKey(viewId))
         {
             Main.NetworkManager.photonPlayerObject.Add(viewId, gameObject);
-            Main.NetworkManager.photonPlayer.Add(viewId, PhotonNetwork.LocalPlayer);
+            PhotonView photonView = PhotonView.Find(viewId);
+            if (photonView != null)
+            {
+                Main.NetworkManager.photonPlayer.Add(viewId, photonView.Owner);
+            }
+            
         }
     }
 
@@ -188,4 +195,31 @@ public class Character : Creature
     {
         gameObject.transform.Find("BerserkEffect")?.gameObject.SetActive(isActive);
     }
+
+    [PunRPC]
+    public void SyncLevel(int level, int viewId)
+    {
+        if (Main.NetworkManager.photonPlayerObject.TryGetValue(viewId, out GameObject obj))
+        {
+            Debug.Log(obj);
+            Debug.Log(obj.transform?.Find("HealthCanvas"));
+            Transform characterInfoObj = obj.transform?.Find("HealthCanvas")?.Find("CharacterInfo");
+            if (characterInfoObj)
+            {
+                characterInfoObj.Find("Level").GetComponent<TMP_Text>().text = $"{level}Lv";
+            }
+        }
+    }
+    //[PunRPC]
+    //public void SyncNickname(string nickname, int viewId)
+    //{
+    //    if (Main.NetworkManager .photonPlayerObject.TryGetValue(viewId, out GameObject obj))
+    //    {
+    //        Transform characterInfoObj = obj.transform?.Find("HealthCanvas")?.Find("CharacterInfo");
+    //        if (characterInfoObj)
+    //        {
+    //            characterInfoObj.Find("Nickname").GetComponent<TMP_Text>().text = nickname;
+    //        }
+    //    }
+    //}
 }

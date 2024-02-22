@@ -12,6 +12,8 @@ public class ToLobbyBtn : MonoBehaviour
         Main.NetworkManager.photonPlayerDict.Clear();
         Main.NetworkManager.photonRoomDict.Clear();
         Main.NetworkManager.photonReadyImageDict.Clear();
+        Main.NetworkManager.photonPlayerObject.Clear();
+        Main.NetworkManager.photonPlayer.Clear();
 
         PhotonNetwork.LocalPlayer.SetCustomProperties(new ExitGames.Client.Photon.Hashtable
         {
