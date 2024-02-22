@@ -108,16 +108,16 @@ public class RoundLogic : MonoBehaviour
         Character character = Main.GameManager.SpawnedCharacter;
         character._playerStateMachine.moveInput = character.transform.position;
         character._playerStateMachine.ChangeState(character._playerStateMachine._playerIdleState);
+        character.stat.CurHp = character.stat.MaxHp;
         Camera.main.transform.position = new Vector3(character.transform.position.x, character.transform.position.y, -10);
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         ChangeToField();
     }
 
     private void ChangeToField()
     {
         Character character = Main.GameManager.SpawnedCharacter;
-        character.stat.CurHp = character.stat.MaxHp;
         character.BuffController.CancelUnSustainBuff();
         character.GetComponent<PhotonView>().RPC("SetHpRPC", RpcTarget.All, character.stat.CurHp, character.stat.MaxHp);
         int layer = Main.GameManager.SelectedCamp == Define.Camp.Red ? (int)Define.Layer.Red : (int)Define.Layer.Blue;
