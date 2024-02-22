@@ -111,9 +111,9 @@ public class Character : Creature
         if (Main.GameManager.page == Define.Page.Battle) return;
         _playerStateMachine._player.transform.position = Main.GameManager.CharacterSpawnPos;
         _playerStateMachine.moveInput = Main.GameManager.CharacterSpawnPos;
-        _playerStateMachine._player.stat.gameObject.GetComponent<PhotonView>().RPC("SetHpRPC", RpcTarget.All, _playerStateMachine._player.stat.MaxHp, _playerStateMachine._player.stat.MaxHp);
+        _photonView.RPC("SetHpRPC", RpcTarget.All, _playerStateMachine._player.stat.MaxHp, _playerStateMachine._player.stat.MaxHp);
         int layer = Main.GameManager.SelectedCamp == Define.Camp.Red ? (int)Define.Layer.Red : (int)Define.Layer.Blue;
-        GetComponent<PhotonView>().RPC("SetLayer", RpcTarget.All, layer);
+        _photonView.RPC("SetLayer", RpcTarget.All, layer);
         _playerStateMachine._player.Animator.SetBool(_playerStateMachine._player.PlayerAnimationData.DieParameterHash, false);
         Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10f);
     }
@@ -122,6 +122,15 @@ public class Character : Creature
     {
         BuffController.CancelUnSustainBuff();
         _playerStateMachine.ChangeState(_playerStateMachine._playerDieState);
+    }
+
+    private void OnDestroy()
+    {
+        Main.NetworkManager.photonPlayerObject.Remove(_photonView.ViewID);
+        if (Main.NetworkManager.photonPlayerObject.TryGetValue(_photonView.ViewID, out GameObject obj))
+        {
+            obj = null;
+        }
     }
 
     [PunRPC]
