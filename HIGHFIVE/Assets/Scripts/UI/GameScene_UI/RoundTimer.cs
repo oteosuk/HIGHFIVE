@@ -26,8 +26,8 @@ public class RoundTimer : MonoBehaviour
 
     private void Start()
     {
-        battleTime = 40;
-        farmingTime = 5;
+        battleTime = 30;
+        farmingTime = 40;
         roundLogic = GetComponent<RoundLogic>();
         _gameFieldController = GetComponent<GameFieldController>();
         _pv = GetComponent<PhotonView>();
