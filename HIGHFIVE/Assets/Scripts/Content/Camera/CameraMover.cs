@@ -27,8 +27,11 @@ public class CameraMover : MonoBehaviour
     }
     private void Update()
     {
-        UpdateMoveCamera();
-        UpdateZoomCamera();
+        if (!_isSpacebarPressed)
+        {
+            UpdateMoveCamera();
+            UpdateZoomCamera();
+        }
     }
 
     private void LateUpdate()

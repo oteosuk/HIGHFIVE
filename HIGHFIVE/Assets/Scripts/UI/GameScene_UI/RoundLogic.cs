@@ -110,7 +110,7 @@ public class RoundLogic : MonoBehaviour
         character._playerStateMachine.ChangeState(character._playerStateMachine._playerIdleState);
         Camera.main.transform.position = new Vector3(character.transform.position.x, character.transform.position.y, -10);
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.5f);
         ChangeToField();
     }
 
