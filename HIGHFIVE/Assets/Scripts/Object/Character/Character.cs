@@ -165,7 +165,6 @@ public class Character : Creature
             {
                 Main.NetworkManager.photonPlayer.Add(viewId, photonView.Owner);
             }
-            
         }
     }
 

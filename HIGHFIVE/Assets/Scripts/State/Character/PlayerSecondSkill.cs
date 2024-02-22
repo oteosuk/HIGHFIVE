@@ -27,6 +27,7 @@ public class PlayerSecondSkill : PlayerBaseState
         base.Exit();
 
         // 애니메이션 해제
+        _playerStateMachine.InputKey = Define.InputKey.None;
         StopAnimation(_secondSkillHash);
     }
 
@@ -34,9 +35,7 @@ public class PlayerSecondSkill : PlayerBaseState
     {
         base.StateUpdate();
         Character myCharacter = _playerStateMachine._player;
-        Debug.Log("g");
         if (myCharacter.Animator.GetBool(myCharacter.PlayerAnimationData.SkillDelayTimeHash)) return;
-        Debug.Log("geel");
         CheckAndChangeState();
     }
 
