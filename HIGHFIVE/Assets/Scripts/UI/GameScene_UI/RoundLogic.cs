@@ -1,4 +1,5 @@
 using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -87,7 +88,7 @@ public class RoundLogic : MonoBehaviour
     {
         Main.GameManager.SpawnedCharacter.transform.position = Main.GameManager.SelectedCamp == Define.Camp.Red ? _redBattleSpawnZone.position : _blueBattleSpawnZone.position;
         Main.SoundManager.PlayBGM("Battle_Normal_05", 0.1f);
-        ChangeToField();
+        StartCoroutine(MoveToChangedField());
     }
     public void ChangeToFarmingField()
     {
@@ -99,22 +100,29 @@ public class RoundLogic : MonoBehaviour
 
         Main.GameManager.SpawnedCharacter.transform.position = Main.GameManager.SelectedCamp == Define.Camp.Red ? _redFarmingSpawnZone.position : _blueFarmingSpawnZone.position;
         Main.SoundManager.PlayBGM("Battle_Boss_07", 0.1f);
+        StartCoroutine(MoveToChangedField());
+    }
+
+    IEnumerator MoveToChangedField()
+    {
+        Character character = Main.GameManager.SpawnedCharacter;
+        character._playerStateMachine.moveInput = character.transform.position;
+        character._playerStateMachine.ChangeState(character._playerStateMachine._playerIdleState);
+        Camera.main.transform.position = new Vector3(character.transform.position.x, character.transform.position.y, -10);
+
+        yield return new WaitForSeconds(0.5f);
         ChangeToField();
     }
 
     private void ChangeToField()
     {
         Character character = Main.GameManager.SpawnedCharacter;
-        character._playerStateMachine.moveInput = character.transform.position;
-        character._playerStateMachine.ChangeState(character._playerStateMachine._playerIdleState);
         character.stat.CurHp = character.stat.MaxHp;
         character.BuffController.CancelUnSustainBuff();
         character.GetComponent<PhotonView>().RPC("SetHpRPC", RpcTarget.All, character.stat.CurHp, character.stat.MaxHp);
         int layer = Main.GameManager.SelectedCamp == Define.Camp.Red ? (int)Define.Layer.Red : (int)Define.Layer.Blue;
         character.GetComponent<PhotonView>().RPC("SetLayer", RpcTarget.All, layer);
-        Camera.main.transform.position = new Vector3(character.transform.position.x, character.transform.position.y, -10);
     }
-
 
     private Define.Camp CheckWinner()
     {

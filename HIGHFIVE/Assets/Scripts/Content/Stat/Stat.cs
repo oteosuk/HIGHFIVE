@@ -8,6 +8,7 @@ public class Stat : MonoBehaviour
 {
     public List<int> levelExpList = new List<int>();
 
+    private readonly int killExp = 5;
     private int _attack;
     private int _defence;
     private float _attackRange;
@@ -107,6 +108,7 @@ public class Stat : MonoBehaviour
                 shooter.GetComponent<CharacterStat>().AddExp(myStat.Exp, shooter);
                 _statController.CallAddBuffEvent(shooter); //레드, 블루, 엘리트 버프 이벤트 실행(구독 되어있는게 있다면)
             }
+            else { shooter.GetComponent<CharacterStat>().AddExp(GetComponent<CharacterStat>().Level * killExp, shooter); }
             myStat.CurHp = 0;
         }
         else

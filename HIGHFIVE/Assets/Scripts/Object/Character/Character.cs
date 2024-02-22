@@ -200,8 +200,7 @@ public class Character : Creature
     {
         if (Main.NetworkManager.photonPlayerObject.TryGetValue(viewId, out GameObject obj))
         {
-            Debug.Log(obj);
-            Debug.Log(obj.transform?.Find("HealthCanvas"));
+            obj.GetComponent<CharacterStat>().Level = level;
             Transform characterInfoObj = obj.transform?.Find("HealthCanvas")?.Find("CharacterInfo");
             if (characterInfoObj)
             {

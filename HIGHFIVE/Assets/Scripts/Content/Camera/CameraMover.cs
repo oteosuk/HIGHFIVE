@@ -14,19 +14,24 @@ public class CameraMover : MonoBehaviour
     private float _maxZoom = 8.0f;
     private float _cameraHeight;
     private float _cameraWidth;
+    private bool _isSpacebarPressed = false; // Spacebar가 눌렸는지 여부를 저장
 
 
     private void Start()
     {
         Input = GetComponent<PlayerInput>();
         Input._playerActions.CallCamera.performed += ReturnCameraToCharacter;
+        Input._playerActions.CallCamera.canceled += CancelReturnCameraToCharacter; // 취소 시 처리할 콜백 추가
         _cameraHeight = Camera.main.orthographicSize;
         _cameraWidth = _cameraHeight * Screen.width / Screen.height;
     }
     private void Update()
     {
-        UpdateMoveCamera();
-        UpdateZoomCamera();
+        if (!_isSpacebarPressed)
+        {
+            UpdateMoveCamera();
+            UpdateZoomCamera();
+        }
     }
 
     private void LateUpdate()
@@ -84,11 +89,31 @@ public class CameraMover : MonoBehaviour
         Camera.main.orthographicSize = Mathf.Lerp(currentZoom, newZoom, 0.5f);
     }
 
-    private void ReturnCameraToCharacter(InputAction.CallbackContext context)
+    /*private void ReturnCameraToCharacter(InputAction.CallbackContext context)
     {
         Vector2 characterPos = Main.GameManager.SpawnedCharacter.gameObject.transform.position;
         transform.position = new Vector3(characterPos.x, characterPos.y, transform.position.z);
+    }*/
+
+    private void ReturnCameraToCharacter(InputAction.CallbackContext context)
+    {
+        _isSpacebarPressed = true; // Spacebar가 눌렸음을 표시
     }
+
+    private void CancelReturnCameraToCharacter(InputAction.CallbackContext context)
+    {
+        _isSpacebarPressed = false; // Spacebar가 눌리지 않았음을 표시
+    }
+
+    private void FixedUpdate()
+    {
+        if (_isSpacebarPressed)
+        {
+            Vector2 characterPos = Main.GameManager.SpawnedCharacter.gameObject.transform.position;
+            transform.position = new Vector3(characterPos.x, characterPos.y, transform.position.z);
+        }
+    }
+
 
     private void LimitCameraMoveRange()
     {
