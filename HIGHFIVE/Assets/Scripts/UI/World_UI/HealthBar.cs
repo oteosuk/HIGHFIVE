@@ -52,7 +52,10 @@ public class HealthBar : UIBase
         }
         _statController = transform.parent.GetComponent<StatController>();
         _statController.hpChangeEvent += SetHpRatio;
-        originLocalScaleX = transform.localScale.x;
+        Transform parent = transform.parent;
+        if (parent.localScale.x < 0) { originLocalScaleX = -transform.localScale.x; }
+        else { originLocalScaleX = transform.localScale.x; }
+        
     }
 
     private void Update()

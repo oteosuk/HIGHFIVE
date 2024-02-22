@@ -26,8 +26,9 @@ public class PlayerFirstSkillState : PlayerBaseState
     public override void Exit()
     {
         base.Exit();
-        
+
         // 애니메이션 해제
+        _playerStateMachine.InputKey = Define.InputKey.None;
         StopAnimation(_firstSkillHash);
     }
 

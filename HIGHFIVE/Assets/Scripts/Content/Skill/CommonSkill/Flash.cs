@@ -49,7 +49,7 @@ public class Flash : BaseSkill
                 myCharacter.transform.position = newPos;
             }
         }
-
+        myCharacter._playerStateMachine.ChangeState(myCharacter._playerStateMachine._playerIdleState);
         myCharacter.SkillController.CallSkillExecute(myCharacter.CharacterSkill.ThirdSkill);
         myCharacter.SkillController.CallSkillDelay(myCharacter.CharacterSkill.ThirdSkill.skillData);
     }

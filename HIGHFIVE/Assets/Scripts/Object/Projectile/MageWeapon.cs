@@ -47,28 +47,4 @@ public class MageWeapon : MonoBehaviourPunCallbacks
             }
         }
     }
-
-    //private void GetShooterInfo(GameObject shooter)
-    //{
-    //    _shooter = shooter;
-    //}
-
-    //[PunRPC]
-    //public void SetTarget(int viewId)
-    //{
-    //    PhotonView targetPhotonView = PhotonView.Find(viewId);
-    //    if (targetPhotonView != null)
-    //    {
-    //        _targetObject = targetPhotonView.gameObject;
-    //    }
-    //}
-
-
-    //[PunRPC]
-    //public void ToTarget(float speed, float posX, float posY)
-    //{
-    //    Vector2 dir = new Vector2(posX, posY);
-    //    _rigidbody = GetComponent<Rigidbody2D>();
-    //    _rigidbody.velocity = dir.normalized * speed;
-    //}
 }
