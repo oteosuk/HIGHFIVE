@@ -20,7 +20,7 @@ TagManager:
   - Red
   - Wall
   - MapObj
-  - Minimap
+  - 
   - 
   - 
   - 
@@ -64,4 +64,7 @@ TagManager:
     locked: 0
   - name: SkillEffect
     uniqueID: 1108810753
+    locked: 0
+  - name: Bush
+    uniqueID: 3826253813
     locked: 0
