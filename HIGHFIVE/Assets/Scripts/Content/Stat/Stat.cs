@@ -118,7 +118,9 @@ public class Stat : MonoBehaviour
         {
             myStat.CurHp -= realDamage;
         }
-        PhotonView pv = shooter.GetComponent<PhotonView>();
+        Debug.Log(shooter);
+        Debug.Log(shooter?.GetComponent<PhotonView>());
+        PhotonView pv = shooter?.GetComponent<PhotonView>();
         if (pv.IsMine)
         {
             myStat.gameObject.GetComponent<PhotonView>().RPC("SetHpRPC", RpcTarget.All, myStat.CurHp, myStat.MaxHp);

@@ -51,33 +51,11 @@ public class StunShotProjectile : MonoBehaviour
                 if (collision.gameObject.GetComponent<Character>())
                 {
                     PhotonView targetPv = collision.gameObject.GetComponent<PhotonView>();
-                    _shooter.GetComponent<PhotonView>().RPC("ReceiveBuff", RpcTarget.Others, targetPv.ViewID, Define.Buff.StunShot);
+                    int viewId = _shooter.GetComponent<PhotonView>().ViewID;
+                    _shooter.GetComponent<PhotonView>().RPC("ReceiveBuff", RpcTarget.Others, targetPv.ViewID, Define.Buff.StunShot, viewId);
                 }
                 PhotonNetwork.Destroy(gameObject);
             }
         }
     }
-
-    //private void GetShooterInfo(GameObject shooter)
-    //{
-    //    _shooter = shooter;
-    //}
-
-    //[PunRPC]
-    //public void SetTarget(int viewId)
-    //{
-    //    PhotonView targetPhotonView = PhotonView.Find(viewId);
-    //    if (targetPhotonView != null)
-    //    {
-    //        _targetObject = targetPhotonView.gameObject;
-    //    }
-    //}
-
-
-    //[PunRPC]
-    //public void ToTarget(float speed, float posX, float posY)
-    //{
-    //    Vector2 dir = new Vector2(posX, posY);
-    //    _rigidbody.velocity = dir.normalized * speed;
-    //}
 }

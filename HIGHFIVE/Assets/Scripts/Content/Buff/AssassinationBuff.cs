@@ -39,6 +39,7 @@ public class AssassinationBuff : BaseBuff
         while (buffData.effectTime < buffData.duration)
         {
             buffData.effectTime += 1f;
+            Debug.Log(shooter);
             target.GetComponent<Stat>().TakeDamage(buffData.trueDamage, shooter, isTrueDamage: true);
             yield return new WaitForSeconds(1f);
         }

@@ -175,22 +175,25 @@ public class Character : Creature
     }
 
     [PunRPC]
-    public void ReceiveBuff(int viewId, int buffNum)
+    public void ReceiveBuff(int viewId, int buffNum, int shooterId)//shooter추가
     {
-        if (Main.NetworkManager.photonPlayerObject.TryGetValue(viewId, out GameObject targetObject))
+        if (Main.NetworkManager.photonPlayerObject.TryGetValue(shooterId, out GameObject shooterObj))
         {
-            if (targetObject == Main.GameManager.SpawnedCharacter.gameObject)
+            if (Main.NetworkManager.photonPlayerObject.TryGetValue(viewId, out GameObject targetObject))
             {
-                switch (buffNum)
+                if (targetObject == Main.GameManager.SpawnedCharacter.gameObject)
                 {
-                    case (int)Define.Buff.StunShot:
-                        BaseBuff stunShotBuff = new StunShotBuff();
-                        targetObject.GetComponent<Character>().BuffController.AddBuff(stunShotBuff);
-                        break;
-                    case (int)Define.Buff.Assassination:
-                        BaseBuff assassinationBuff = new AssassinationBuff();
-                        targetObject.GetComponent<Character>().BuffController.AddBuff(assassinationBuff);
-                        break;
+                    switch (buffNum)
+                    {
+                        case (int)Define.Buff.StunShot:
+                            BaseBuff stunShotBuff = new StunShotBuff();
+                            targetObject.GetComponent<Character>().BuffController.AddBuff(stunShotBuff, shooterObj);
+                            break;
+                        case (int)Define.Buff.Assassination:
+                            BaseBuff assassinationBuff = new AssassinationBuff();
+                            targetObject.GetComponent<Character>().BuffController.AddBuff(assassinationBuff, shooterObj);
+                            break;
+                    }
                 }
             }
         }
