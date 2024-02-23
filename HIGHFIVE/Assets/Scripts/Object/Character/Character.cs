@@ -128,7 +128,7 @@ public class Character : Creature
 
     private void OnChangeSpeed(float speed)
     {
-        Debug.Log(speed);
+        //Debug.Log(speed);
         NavMeshAgent.speed = speed;
     }
     private void OnDie()
