@@ -51,8 +51,6 @@ public class SoundManager : MonoBehaviour
 
         else if (SceneManager.GetActiveScene().name == "GameScene")
         { PlayBGM("Battle_Boss_07", 0.02f); }
-
-        // abs
     }
 
     public void PlayBGM(string bgmName, float volume)
@@ -69,12 +67,10 @@ public class SoundManager : MonoBehaviour
     public void PlaySFX(string sfxName, float volume)
     {
         AudioClip clip = Resources.Load<AudioClip>($"Sounds/SFX/{sfxName}");
-        //Debug.Log(effectPlayer.Count);
         for (int i = 0; i < sfxPlayer.Count; i++)
         {
             if (sfxPlayer[i].isPlaying)
             {
-                //Debug.Log(i);
                 continue;
             }
             else
