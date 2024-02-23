@@ -6,9 +6,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class PhotonHandler : MonoBehaviourPunCallbacks
 {
+    private GoogleSheetManager _google;
     private void Start()
     {
         Init();
@@ -38,9 +40,5 @@ public class PhotonHandler : MonoBehaviourPunCallbacks
     public override void OnCreatedRoom()
     {
         Main.SceneManagerEx.LoadScene(Define.Scene.RoomScene);
-    }
-    public override void OnDisconnected(DisconnectCause cause)
-    {
-        Debug.Log(cause);
     }
 }
