@@ -29,7 +29,7 @@ public class PlayerMoveState : PlayerBaseState
         // 기능
         base.Enter();
         _playerStateMachine.moveSpeedModifier = 1.0f;
-
+        _playerStateMachine._player.NavMeshAgent.isStopped = false;
         StartAnimation(_moveHash);     
         // 애니메이션 호출
     }

@@ -325,7 +325,8 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -468713483
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1913658306268981635, guid: e4220b05f8050e249994aa8af1ab351a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -439,7 +440,8 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -468713483
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1913658306268981635, guid: e4220b05f8050e249994aa8af1ab351a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1614,7 +1616,8 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -468713483
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8930902191320027680, guid: 2877507058a1012488cb54f9e3602bc0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2095,7 +2098,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush68
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3546777694577581012, guid: f4e34d0ed06814946b49b7d28106921f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2764,7 +2768,8 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -468713483
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7535702622115900989, guid: 4069459bf36ca974ca5c5e032d512524, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3836,7 +3841,8 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -468713483
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6410471511314287602, guid: 1904d4ed81367604c87fdc7214758a36, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -4184,7 +4190,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush78 (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9086777895874524601, guid: 12db91dbc8581ad43b85f4b6a6ae6944, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5094,7 +5101,8 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -468713483
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6410471511314287602, guid: 1904d4ed81367604c87fdc7214758a36, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5198,7 +5206,8 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -468713483
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6410471511314287602, guid: 1904d4ed81367604c87fdc7214758a36, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5564,7 +5573,8 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -468713483
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8930902191320027680, guid: 2877507058a1012488cb54f9e3602bc0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5668,7 +5678,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush67
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4275223592425916921, guid: 3982fcd6c0ca4c94b90003d948b89f91, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5912,7 +5923,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush64 (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2300161589593453909, guid: f2e0d0fe603aa7544a3a0bed2481fca2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -50828,7 +50840,8 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -468713483
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5994112315664437208, guid: 23415421686365742be25b34f051d25e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -78367,7 +78380,8 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -468713483
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6410471511314287602, guid: 1904d4ed81367604c87fdc7214758a36, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -79412,7 +79426,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush63
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7373064220010704796, guid: 91ba957c5bc272d4bb8d365b247c8e79, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -90565,7 +90580,8 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -468713483
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4294867904238524093, guid: 2680953fc0b66a8448ca83ff21e5cc9c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -90669,7 +90685,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush67 (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4275223592425916921, guid: 3982fcd6c0ca4c94b90003d948b89f91, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -92032,7 +92049,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush78
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9086777895874524601, guid: 12db91dbc8581ad43b85f4b6a6ae6944, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -92611,7 +92629,8 @@ PrefabInstance:
       propertyPath: m_Direction
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2300161589593453909, guid: f2e0d0fe603aa7544a3a0bed2481fca2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -108231,7 +108250,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush80
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3000681482303345918, guid: 9dd82769dc569794cb694e250e5e855a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -108758,7 +108778,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush63 (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7373064220010704796, guid: 91ba957c5bc272d4bb8d365b247c8e79, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -109050,7 +109071,8 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -468713483
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5994112315664437208, guid: 23415421686365742be25b34f051d25e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

@@ -20,6 +20,7 @@ public class PlayerAttackState : PlayerBaseState
     {
         // 기능
         base.Enter();
+        _playerStateMachine._player.NavMeshAgent.isStopped = true;
         _playerStateMachine._player.Animator.SetFloat("AttackSpeed", _playerStateMachine._player.stat.AttackSpeed);
         _playerStateMachine.moveInput = _playerStateMachine._player.transform.position;
         _playerStateMachine.moveSpeedModifier = 0f;
