@@ -36,6 +36,7 @@ public class Flash : BaseSkill
         Vector2 vector = GetDir();
         Vector2 direction = vector.normalized;
         float distance = vector.magnitude;
+        myCharacter.NavMeshAgent.enabled = false;
 
         if (CheckArrive(direction))
         {
@@ -49,6 +50,7 @@ public class Flash : BaseSkill
                 myCharacter.transform.position = newPos;
             }
         }
+        myCharacter.NavMeshAgent.enabled = true;
         myCharacter._playerStateMachine.ChangeState(myCharacter._playerStateMachine._playerIdleState);
         myCharacter.SkillController.CallSkillExecute(myCharacter.CharacterSkill.ThirdSkill);
         myCharacter.SkillController.CallSkillDelay(myCharacter.CharacterSkill.ThirdSkill.skillData);

@@ -10,6 +10,7 @@ using Photon.Pun;
 public class RoundTimer : MonoBehaviour
 {
     [SerializeField] private TMP_Text text;
+    private TMP_Text warningText;
 
     private int curTime;
     private int farmingTime;
@@ -138,18 +139,31 @@ public class RoundTimer : MonoBehaviour
         text.text = curTime.ToString();
     }
 
+    [PunRPC]
+    private void SyncAlarm(string message, bool isAlarmOn)
+    {
+        if (isAlarmOn)
+        {
+            warningTxt.SetActive(true);
+            warningText.text = message;
+        }
+        else { warningTxt.SetActive(false); }
+    }
+
     private void WarningMessage(int warningTimer, string turn, int turnTime)
     {
-        TMP_Text warningText = warningTxt.GetComponentInChildren<TMP_Text>();
+        warningText = warningTxt.GetComponentInChildren<TMP_Text>();
         
         if (warningTimer == turnTime)
         {
             warningTxt.SetActive(true);
             warningText.text = $"{turn} 페이즈 까지 {warningTimer}초 남았습니다. 곧 시작합니다!";
+            _pv.RPC("SyncAlarm", RpcTarget.Others, warningText.text, true);
         }
         if (warningTimer == turnTime - 3)
         {
             warningTxt.SetActive(false);
+            _pv.RPC("SyncAlarm", RpcTarget.Others, "", false);
         }
     }
 }

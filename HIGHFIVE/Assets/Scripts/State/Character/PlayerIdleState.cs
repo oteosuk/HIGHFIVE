@@ -17,6 +17,7 @@ public class PlayerIdleState : PlayerBaseState
     public override void Enter()
     {
         _playerStateMachine.moveSpeedModifier = 0f;
+        _playerStateMachine._player.NavMeshAgent.isStopped = true;
         _playerStateMachine.moveInput = _playerStateMachine._player.transform.position;
         base.Enter();
         StartAnimation(_idleHash);
