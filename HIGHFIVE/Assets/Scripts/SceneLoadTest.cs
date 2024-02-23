@@ -7,7 +7,7 @@ public class SceneLoadTest : MonoBehaviour
 {
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.anyKeyDown)
         {
             Main.SceneManagerEx.LoadScene(Define.Scene.StartScene);
         }

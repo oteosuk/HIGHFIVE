@@ -18,7 +18,7 @@ public class RoundTimer : MonoBehaviour
 
     [SerializeField] TMP_Text TeamRedScore;
     [SerializeField] TMP_Text TeamBlueScore;
-
+    [SerializeField] GameObject warringTxt;
 
     private RoundLogic roundLogic;
     private PhotonView _pv;
@@ -27,7 +27,7 @@ public class RoundTimer : MonoBehaviour
     private void Start()
     {
         battleTime = 20;
-        farmingTime = 20;
+        farmingTime = 40;
         roundLogic = GetComponent<RoundLogic>();
         _gameFieldController = GetComponent<GameFieldController>();
         _pv = GetComponent<PhotonView>();
@@ -71,6 +71,8 @@ public class RoundTimer : MonoBehaviour
         while (curTime > 0)
         {
             curTime -= 1;
+            if (curTime == 30) { warringTxt.SetActive(true); }
+            if (curTime == 28) { warringTxt.SetActive(false); }
             _pv.RPC("SyncTime", RpcTarget.All, curTime);
             yield return new WaitForSeconds(1);
         }
