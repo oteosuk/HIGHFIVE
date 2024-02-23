@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 
@@ -21,11 +22,13 @@ public class Character : Creature
     private Texture2D _normalTexture;
     private CursorType _cursorType = CursorType.None;
     public PlayerStateMachine _playerStateMachine;
+
     public PlayerInput Input { get; protected set; }
     public PlayerAnimationData PlayerAnimationData { get; set; }
     public Animator Animator { get; set; }
     public SkillController SkillController { get; private set; }
     public CharacterSkill CharacterSkill { get; protected set; }
+    public NavMeshAgent NavMeshAgent { get; protected set; }
 
     protected override void Awake()
     {
@@ -38,6 +41,9 @@ public class Character : Creature
         PlayerAnimationData = new PlayerAnimationData();
         SkillController = GetComponent<SkillController>();
         BuffController = GetComponent<BuffController>();
+        NavMeshAgent = GetComponent<NavMeshAgent>();
+        NavMeshAgent.updateRotation = false;
+        NavMeshAgent.updateUpAxis = false;
     }
     protected override void Start()
     {
@@ -122,15 +128,6 @@ public class Character : Creature
     {
         BuffController.CancelUnSustainBuff();
         _playerStateMachine.ChangeState(_playerStateMachine._playerDieState);
-    }
-
-    private void OnDestroy()
-    {
-        Main.NetworkManager.photonPlayerObject.Remove(_photonView.ViewID);
-        if (Main.NetworkManager.photonPlayerObject.TryGetValue(_photonView.ViewID, out GameObject obj))
-        {
-            obj = null;
-        }
     }
 
     [PunRPC]

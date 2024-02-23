@@ -95,11 +95,15 @@ public class PlayerMoveState : PlayerBaseState
 
     private void MovePlayerToTarget()
     {
-        _playerStateMachine._player.transform.position = Vector2.MoveTowards(
-            _playerStateMachine._player.transform.position,
-            _targetPosition,
-            _moveSpeed * Time.deltaTime
-        );
+        Vector2 dir = _targetPosition - (Vector2)_playerStateMachine._player.transform.position;
+        if (dir.magnitude < 0.1)
+        {
+            _playerStateMachine.ChangeState(_playerStateMachine._playerIdleState);
+        }
+        else
+        {
+            _playerStateMachine._player.NavMeshAgent.SetDestination(new Vector3(_targetPosition.x, _targetPosition.y, 0));
+        }
     }
 
     private void FindObjectInSight()

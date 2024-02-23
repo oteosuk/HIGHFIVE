@@ -108,30 +108,43 @@ public class Stat : MonoBehaviour
                 shooter.GetComponent<CharacterStat>().AddExp(myStat.Exp, shooter);
                 _statController.CallAddBuffEvent(shooter); //레드, 블루, 엘리트 버프 이벤트 실행(구독 되어있는게 있다면)
             }
-            else { shooter.GetComponent<CharacterStat>().AddExp(GetComponent<CharacterStat>().Level * killExp, shooter); }
+            if (gameObject.tag == "Player")
+            {
+                shooter.GetComponent<CharacterStat>().AddExp(GetComponent<CharacterStat>().Level * killExp, shooter);
+            }
             myStat.CurHp = 0;
         }
         else
         {
             myStat.CurHp -= realDamage;
         }
-        myStat.gameObject.GetComponent<PhotonView>().RPC("SetHpRPC", RpcTarget.All, myStat.CurHp, myStat.MaxHp);
+        PhotonView pv = shooter.GetComponent<PhotonView>();
+        if (pv.IsMine)
+        {
+            myStat.gameObject.GetComponent<PhotonView>().RPC("SetHpRPC", RpcTarget.All, myStat.CurHp, myStat.MaxHp);
+        }
+
     }
 
     public virtual void TakeDamage(int damage, bool isTrueDamage = false)
     {
         Stat myStat = GetComponent<Stat>();
-        int realDamage = Mathf.Max(0, damage - myStat.Defence);
-        if (isTrueDamage) { realDamage = Mathf.Max(0, damage); }
-        if (myStat.CurHp - realDamage <= 0)
+        
+        PhotonView pv = myStat.gameObject.GetComponent<PhotonView>();
+        if (pv.IsMine)
         {
-            myStat.CurHp = 0;
+            int realDamage = Mathf.Max(0, damage - myStat.Defence);
+            if (isTrueDamage) { realDamage = Mathf.Max(0, damage); }
+            if (myStat.CurHp - realDamage <= 0)
+            {
+                myStat.CurHp = 0;
+            }
+            else
+            {
+                myStat.CurHp -= realDamage;
+            }
+            pv.RPC("SetHpRPC", RpcTarget.All, myStat.CurHp, myStat.MaxHp);
         }
-        else
-        {
-            myStat.CurHp -= realDamage;
-        }
-        myStat.gameObject.GetComponent<PhotonView>().RPC("SetHpRPC", RpcTarget.All, myStat.CurHp, myStat.MaxHp);
     }
 
     private void InitializeExp()

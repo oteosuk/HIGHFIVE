@@ -86,6 +86,7 @@ public class RoundLogic : MonoBehaviour
 
     public void ChangeToBattleField()
     {
+        Main.GameManager.SpawnedCharacter.NavMeshAgent.enabled = false;
         Main.GameManager.SpawnedCharacter.transform.position = Main.GameManager.SelectedCamp == Define.Camp.Red ? _redBattleSpawnZone.position : _blueBattleSpawnZone.position;
         Main.SoundManager.PlayBGM("Battle_Normal_05", 0.1f);
         StartCoroutine(MoveToChangedField());
@@ -106,6 +107,7 @@ public class RoundLogic : MonoBehaviour
     IEnumerator MoveToChangedField()
     {
         Character character = Main.GameManager.SpawnedCharacter;
+        character.NavMeshAgent.enabled = true;
         character._playerStateMachine.moveInput = character.transform.position;
         character._playerStateMachine.ChangeState(character._playerStateMachine._playerIdleState);
         Camera.main.transform.position = new Vector3(character.transform.position.x, character.transform.position.y, -10);
