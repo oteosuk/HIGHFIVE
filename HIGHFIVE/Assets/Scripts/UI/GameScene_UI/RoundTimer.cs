@@ -18,16 +18,18 @@ public class RoundTimer : MonoBehaviour
 
     [SerializeField] TMP_Text TeamRedScore;
     [SerializeField] TMP_Text TeamBlueScore;
-    [SerializeField] GameObject warringTxt;
+    [SerializeField] GameObject warningTxt;
+
+    int battleTimer = 10;
+    int farmingTimer = 30;
 
     private RoundLogic roundLogic;
     private PhotonView _pv;
 
-
     private void Start()
     {
-        battleTime = 20;
-        farmingTime = 40;
+        battleTime = 15;
+        farmingTime = 15;
         roundLogic = GetComponent<RoundLogic>();
         _gameFieldController = GetComponent<GameFieldController>();
         _pv = GetComponent<PhotonView>();
@@ -71,8 +73,7 @@ public class RoundTimer : MonoBehaviour
         while (curTime > 0)
         {
             curTime -= 1;
-            if (curTime == 30) { warringTxt.SetActive(true); }
-            if (curTime == 28) { warringTxt.SetActive(false); }
+            WarningMessage(curTime, "배틀", farmingTimer);
             _pv.RPC("SyncTime", RpcTarget.All, curTime);
             yield return new WaitForSeconds(1);
         }
@@ -87,8 +88,10 @@ public class RoundTimer : MonoBehaviour
         while (curTime > 0)
         {
             curTime -= 1;
+            WarningMessage(curTime, "파밍", battleTimer);
             if (curTime < battleTime - 5 && CheckPlayerObjDie())
             {
+                warningTxt.SetActive(false);
                 yield return new WaitForSeconds(2);
                 break;
             }
@@ -133,5 +136,20 @@ public class RoundTimer : MonoBehaviour
     private void SyncTime(int curTime)
     {
         text.text = curTime.ToString();
+    }
+
+    private void WarningMessage(int warningTimer, string turn, int turnTime)
+    {
+        TMP_Text warningText = warningTxt.GetComponentInChildren<TMP_Text>();
+        
+        if (warningTimer == turnTime)
+        {
+            warningTxt.SetActive(true);
+            warningText.text = $"{turn} 페이즈 까지 {warningTimer}초 남았습니다. 곧 시작합니다!";
+        }
+        if (warningTimer == turnTime - 3)
+        {
+            warningTxt.SetActive(false);
+        }
     }
 }
