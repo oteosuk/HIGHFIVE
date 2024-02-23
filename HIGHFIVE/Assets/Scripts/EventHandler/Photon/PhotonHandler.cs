@@ -39,4 +39,8 @@ public class PhotonHandler : MonoBehaviourPunCallbacks
     {
         Main.SceneManagerEx.LoadScene(Define.Scene.RoomScene);
     }
+    public override void OnDisconnected(DisconnectCause cause)
+    {
+        Debug.Log(cause);
+    }
 }

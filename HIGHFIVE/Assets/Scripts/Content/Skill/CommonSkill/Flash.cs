@@ -69,7 +69,7 @@ public class Flash : BaseSkill
         RaycastHit2D hit = Physics2D.Raycast(myCharacter.transform.position, direction, skillData.skillRange, mask);
         if (hit.collider != null)
         {
-            myCharacter.transform.position = (Vector2)myCharacter.transform.position + (hit.distance * direction);
+            myCharacter.transform.position = (Vector2)myCharacter.transform.position + (hit.distance * direction) - direction.normalized;
             return false;
         }
         return true;

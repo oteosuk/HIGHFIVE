@@ -93,6 +93,7 @@ public class RoundLogic : MonoBehaviour
     }
     public void ChangeToFarmingField()
     {
+        Main.GameManager.SpawnedCharacter.NavMeshAgent.enabled = false;
         if (PhotonNetwork.IsMasterClient)
         {
             if (CheckWinner() == Define.Camp.Red) { GetComponent<PhotonView>().RPC("SyncWinner", RpcTarget.All, (int)Define.Camp.Red); }
