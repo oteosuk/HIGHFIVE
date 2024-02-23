@@ -118,8 +118,6 @@ public class Stat : MonoBehaviour
         {
             myStat.CurHp -= realDamage;
         }
-        Debug.Log(shooter);
-        Debug.Log(shooter?.GetComponent<PhotonView>());
         PhotonView pv = shooter?.GetComponent<PhotonView>();
         if (pv.IsMine)
         {
