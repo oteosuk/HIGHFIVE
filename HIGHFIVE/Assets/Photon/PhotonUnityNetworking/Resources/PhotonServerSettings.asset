@@ -58,6 +58,7 @@ MonoBehaviour:
   - SyncWinner
   - SyncLevel
   - SyncNickname
+  - SyncAlarm
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

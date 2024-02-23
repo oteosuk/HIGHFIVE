@@ -224,16 +224,4 @@ public class Character : Creature
             }
         }
     }
-    //[PunRPC]
-    //public void SyncNickname(string nickname, int viewId)
-    //{
-    //    if (Main.NetworkManager .photonPlayerObject.TryGetValue(viewId, out GameObject obj))
-    //    {
-    //        Transform characterInfoObj = obj.transform?.Find("HealthCanvas")?.Find("CharacterInfo");
-    //        if (characterInfoObj)
-    //        {
-    //            characterInfoObj.Find("Nickname").GetComponent<TMP_Text>().text = nickname;
-    //        }
-    //    }
-    //}
 }

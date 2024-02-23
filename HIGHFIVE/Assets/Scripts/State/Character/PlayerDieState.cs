@@ -14,6 +14,7 @@ public class PlayerDieState : PlayerBaseState
     {
         base.Enter();
         _playerStateMachine.moveSpeedModifier = 0f;
+        _playerStateMachine._player.NavMeshAgent.isStopped = true;
         _playerStateMachine._player.GetComponent<PhotonView>().RPC("SetLayer", RpcTarget.All, (int)Define.Layer.Default);
         if (Main.GameManager.page != Define.Page.Battle)
         {
