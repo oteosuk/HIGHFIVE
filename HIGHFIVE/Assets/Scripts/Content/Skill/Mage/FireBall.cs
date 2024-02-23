@@ -24,7 +24,7 @@ public class FireBall : BaseSkill
         skillData.skillSprite = Main.ResourceManager.Load<Sprite>("Sprites/SkillIcon/FireBall");
         skillData.coolTime = _fireBallData.coolTime;
         skillData.curTime = skillData.coolTime;
-        skillData.animTime = 0.5f;
+        skillData.animTime = _fireBallData.animTime;
         skillData.isUse = true;
         skillData.loadTime = _fireBallData.castingTime;
         skillData.damage = _fireBallData.damage + (int)(Main.GameManager.SpawnedCharacter.stat.Attack * _fireBallData.damageRatio);

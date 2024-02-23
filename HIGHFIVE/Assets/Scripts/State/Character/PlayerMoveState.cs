@@ -49,10 +49,12 @@ public class PlayerMoveState : PlayerBaseState
 
     private void Move()
     {
+        
         Character myCharacter = _playerStateMachine._player;
         HandlePlayerInput();
 
         _targetPosition = _playerStateMachine._player.targetObject == null ? _playerStateMachine.moveInput : _playerStateMachine._player.targetObject.transform.position;
+        Vector2 dir = _targetPosition - (Vector2)_playerStateMachine._player.transform.position;
 
         if (myCharacter.Animator.GetBool(myCharacter.PlayerAnimationData.SkillDelayTimeHash)) return;
 
@@ -62,7 +64,11 @@ public class PlayerMoveState : PlayerBaseState
         {
             CheckForAttack();
         }
-        
+        //Debug.Log(dir.normalized);
+        if (NearWallCheck(dir))
+        {
+            _targetPosition = (Vector2)_playerStateMachine._player.transform.position;
+        }
 
         if (_targetPosition == (Vector2)_playerStateMachine._player.transform.position)
         {
@@ -187,5 +193,18 @@ public class PlayerMoveState : PlayerBaseState
         }
 
         return closestCollider.gameObject;
+    }
+
+    bool NearWallCheck(Vector2 dir)
+    {
+        RaycastHit2D ray;
+        ray = Physics2D.Raycast(_playerStateMachine._player.transform.position, dir.normalized, 1, 1 << (int)Define.Layer.Wall);
+        Debug.DrawRay(_playerStateMachine._player.transform.position, _targetPosition.normalized, Color.red, 2f);
+        if(ray.collider != null)
+        {
+            //Debug.Log("wall이 있어요");
+            return true;
+        }
+        else return false;
     }
 }

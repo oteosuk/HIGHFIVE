@@ -62,7 +62,7 @@ MonoBehaviour:
     info: "\uC124\uBA85"
     range: 5
     damage: 10
-    animTime: 0.5
+    animTime: 0.3
     damageRatio: 1.4
     coolTime: 5
     castingTime: 200

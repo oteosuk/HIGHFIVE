@@ -16,8 +16,9 @@ public class PlayerSecondSkill : PlayerBaseState
     {
         // 기능
         base.Enter();
+        _playerStateMachine._player.NavMeshAgent.isStopped = true;
         _playerStateMachine._player.CharacterSkill.SecondSkill.Execute();
-
+        
         StartAnimation(_secondSkillHash);
         // 애니메이션 호출
     }

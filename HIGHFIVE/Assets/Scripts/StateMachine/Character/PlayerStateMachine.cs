@@ -10,7 +10,7 @@ public class PlayerStateMachine : StateMachine
     public PlayerMoveState _playerMoveState { get; }
     public PlayerAttackState _playerAttackState { get; }
     public PlayerDieState _playerDieState { get; }
-    public PlayerFirstSkillState PlayerFirstSkillState { get; }
+    public PlayerFirstSkill PlayerFirstSkillState { get; }
     public PlayerSecondSkill PlayerSecondSkillState { get; }
     public PlayerThirdSkill PlayerThirdSkillState { get; }
     public PlayerConfuseState PlayerConfuseState { get; }
@@ -30,7 +30,7 @@ public class PlayerStateMachine : StateMachine
         _playerMoveState = new PlayerMoveState(this);
         _playerAttackState = new PlayerAttackState(this);
         _playerDieState = new PlayerDieState(this);
-        PlayerFirstSkillState = new PlayerFirstSkillState(this);
+        PlayerFirstSkillState = new PlayerFirstSkill(this);
         PlayerSecondSkillState = new PlayerSecondSkill(this);
         PlayerThirdSkillState = new PlayerThirdSkill(this);
         PlayerConfuseState = new PlayerConfuseState(this);

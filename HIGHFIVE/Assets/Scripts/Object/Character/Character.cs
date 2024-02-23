@@ -73,6 +73,15 @@ public class Character : Creature
         }
     }
 
+    /*void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == (int)Define.Layer.Wall)
+        {
+            _playerStateMachine.ChangeState(_playerStateMachine._playerIdleState);
+        }
+    }*/
+
+
     private void UpdateMouseCursor()
     {
         Vector2 mousePoint = _playerStateMachine._player.Input._playerActions.Move.ReadValue<Vector2>();

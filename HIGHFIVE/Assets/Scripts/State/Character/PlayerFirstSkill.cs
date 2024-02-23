@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 
-public class PlayerFirstSkillState : PlayerBaseState
+public class PlayerFirstSkill : PlayerBaseState
 {
     private int _firstSkillHash;
-    public PlayerFirstSkillState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
+    public PlayerFirstSkill(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
     {
         if (_firstSkillHash == 0)
         {
@@ -17,6 +17,7 @@ public class PlayerFirstSkillState : PlayerBaseState
     {
         // 기능
         base.Enter();
+        _playerStateMachine._player.NavMeshAgent.isStopped = true;
         _playerStateMachine._player.CharacterSkill.FirstSkill.Execute();
 
         StartAnimation(_firstSkillHash);
