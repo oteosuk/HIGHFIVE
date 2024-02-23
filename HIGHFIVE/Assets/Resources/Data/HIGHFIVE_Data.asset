@@ -201,7 +201,7 @@ MonoBehaviour:
     hp: 50
   Buff:
   - name: "\uD328\uC790\uC758 \uBD84\uB178"
-    info: "\uBC30\uD2C0 \uD398\uC774\uC988\uC5D0\uC11C \uD328\uBC30\uD588\uC744 \uC2DC"
+    info: "\uD328\uC790\uC758 \uBD84\uB178"
     atk: 3
     def: 1
     moveSpd: 0
@@ -212,7 +212,7 @@ MonoBehaviour:
     effectTime: 0
     isSustain: 1
   - name: "\uB808\uB4DC"
-    info: "\uB808\uB4DC \uBAAC\uC2A4\uD130 \uCC98\uCE58 \uC2DC"
+    info: "\uB808\uB4DC \uBC84\uD504"
     atk: 5
     def: 0
     moveSpd: 0
@@ -223,7 +223,7 @@ MonoBehaviour:
     effectTime: 0
     isSustain: 1
   - name: "\uBE14\uB8E8"
-    info: "\uBE14\uB8E8 \uBAAC\uC2A4\uD130 \uCC98\uCE58 \uC2DC"
+    info: "\uBE14\uB8E8 \uBC84\uD504"
     atk: 0
     def: 3
     moveSpd: 0
@@ -234,7 +234,7 @@ MonoBehaviour:
     effectTime: 0
     isSustain: 1
   - name: "\uC5D8\uB9AC\uD2B8"
-    info: "\uC5D8\uB9AC\uD2B8 \uBAAC\uC2A4\uD130 \uCC98\uCE58 \uC2DC"
+    info: "\uC5D8\uB9AC\uD2B8 \uBC84\uD504"
     atk: 5
     def: 3
     moveSpd: 0
@@ -245,8 +245,7 @@ MonoBehaviour:
     effectTime: 0
     isSustain: 1
   - name: "\uCD9C\uD608"
-    info: "\uCD9C\uD608 \uC2A4\uD0AC\uC5D0 \uACF5\uACA9\uB2F9\uD560 \uC2DC \uC9C0\uC18D\uB370\uBBF8\uC9C0\uB97C
-      \uBC1B\uB294\uB2E4."
+    info: "\uB3C4\uC801 Q \uC2A4\uD0AC \uCD9C\uD608 \uC218\uCE58"
     atk: 0
     def: 0
     moveSpd: 0
@@ -257,7 +256,7 @@ MonoBehaviour:
     effectTime: 0
     isSustain: 0
   - name: "\uAD11\uD3ED\uD654"
-    info: "\uC774\uC18D\uC99D\uAC00, \uB370\uBBF8\uC9C0 \uC99D\uAC00"
+    info: "\uC804\uC0AC \uAD11\uD3ED\uD654 \uC2A4\uD0AC \uC218\uCE58"
     atk: 0
     def: 0
     moveSpd: 2
@@ -268,7 +267,7 @@ MonoBehaviour:
     effectTime: 3
     isSustain: 1
   - name: "\uC2A4\uD134\uC0F7"
-    info: "\uC2A4\uD134"
+    info: "\uACF5\uD1B5 \uC2A4\uD134 \uC2A4\uD0AC \uC9C0\uC18D\uC2DC\uAC04"
     atk: 0
     def: 0
     moveSpd: 0
