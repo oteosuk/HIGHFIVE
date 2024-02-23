@@ -29,10 +29,11 @@ public class RoundTimer : MonoBehaviour
 
     private void Start()
     {
-        battleTime = 30;
-        farmingTime = 120;
+        battleTime = 20;
+        farmingTime = 40;
         roundLogic = GetComponent<RoundLogic>();
         _gameFieldController = GetComponent<GameFieldController>();
+        warningText = warningTxt.GetComponentInChildren<TMP_Text>();
         _pv = GetComponent<PhotonView>();
         if (PhotonNetwork.IsMasterClient)
         {
@@ -152,8 +153,6 @@ public class RoundTimer : MonoBehaviour
 
     private void WarningMessage(int warningTimer, string turn, int turnTime)
     {
-        warningText = warningTxt.GetComponentInChildren<TMP_Text>();
-        
         if (warningTimer == turnTime)
         {
             warningTxt.SetActive(true);
