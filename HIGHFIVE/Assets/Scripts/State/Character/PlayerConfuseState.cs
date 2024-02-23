@@ -16,6 +16,7 @@ public class PlayerConfuseState : PlayerBaseState
     {
         // 기능
         base.Enter();
+        _playerStateMachine._player.NavMeshAgent.isStopped = true;
         StartAnimation(_confuseHash);
         // 애니메이션 호출
     }

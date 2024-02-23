@@ -114464,7 +114464,7 @@ MonoBehaviour:
   text: {fileID: 1624670971}
   TeamRedScore: {fileID: 258495332}
   TeamBlueScore: {fileID: 1601722326}
-  warringTxt: {fileID: 379382905}
+  warningTxt: {fileID: 379382905}
 --- !u!114 &2130235432
 MonoBehaviour:
   m_ObjectHideFlags: 0

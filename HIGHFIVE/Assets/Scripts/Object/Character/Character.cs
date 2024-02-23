@@ -54,6 +54,8 @@ public class Character : Creature
         _playerStateMachine = new PlayerStateMachine(this);
         _playerStateMachine.ChangeState(_playerStateMachine._playerIdleState);
         GetComponent<StatController>().dieEvent += OnDie;
+        GetComponent<StatController>().moveSpeedChangeEvent += OnChangeSpeed;
+        NavMeshAgent.speed = Main.GameManager.SpawnedCharacter.stat.AttackSpeed;
     }
     protected override void Update()
     {
@@ -72,15 +74,6 @@ public class Character : Creature
             _playerStateMachine.PhysicsUpdate();
         }
     }
-
-    /*void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.layer == (int)Define.Layer.Wall)
-        {
-            _playerStateMachine.ChangeState(_playerStateMachine._playerIdleState);
-        }
-    }*/
-
 
     private void UpdateMouseCursor()
     {
@@ -133,6 +126,11 @@ public class Character : Creature
         Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10f);
     }
 
+    private void OnChangeSpeed(float speed)
+    {
+        Debug.Log(speed);
+        NavMeshAgent.speed = speed;
+    }
     private void OnDie()
     {
         BuffController.CancelUnSustainBuff();
