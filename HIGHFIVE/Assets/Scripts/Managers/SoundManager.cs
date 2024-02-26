@@ -37,7 +37,7 @@ public class SoundManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Main.SoundManager.PlaySFX("SFX_Click", 0.5f);
+            Main.SoundManager.PlaySFX("Click", 0.5f);
         }
     }
 
