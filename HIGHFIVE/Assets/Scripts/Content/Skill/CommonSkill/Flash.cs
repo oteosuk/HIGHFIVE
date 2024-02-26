@@ -76,4 +76,9 @@ public class Flash : BaseSkill
         }
         return true;
     }
+
+    public override void RenewalInfo()
+    {
+        skillData.info = "커서 방향으로 챔피언이 짧은 거리를 순간이동 합니다.";
+    }
 }

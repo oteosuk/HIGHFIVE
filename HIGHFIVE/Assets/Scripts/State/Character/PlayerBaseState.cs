@@ -73,7 +73,9 @@ public class PlayerBaseState : IState
     private void RayToObjectAndSetTarget()
     {
         Vector2 mousePoint = _playerStateMachine._player.Input._playerActions.Move.ReadValue<Vector2>();
+        if ((1515 <= mousePoint.x && mousePoint.x <= 1900) && (20 <= mousePoint.y && mousePoint.y <= 280)) { return; }
         Vector2 raymousePoint = Camera.main.ScreenToWorldPoint(mousePoint);
+
 
         int mask = (1 << (int)Define.Layer.Monster) | (1 << (Main.GameManager.SelectedCamp == Define.Camp.Red ? (int)Define.Layer.Blue : (int)Define.Layer.Red ));
 
@@ -108,8 +110,8 @@ public class PlayerBaseState : IState
         //우클릭
         if (Mouse.current.rightButton.wasPressedThisFrame)
         {
-            Vector2 mousePoint = _playerStateMachine._player.Input._playerActions.Move.ReadValue<Vector2>();
-            if ((1515 <= mousePoint.x && mousePoint.x <= 1900) && (20 <= mousePoint.y && mousePoint.y <= 280)) { return; }
+            //Vector2 mousePoint = _playerStateMachine._player.Input._playerActions.Move.ReadValue<Vector2>();
+            
             
             RayToObjectAndSetTarget();
             _playerStateMachine.InputKey = Define.InputKey.RightMouse;

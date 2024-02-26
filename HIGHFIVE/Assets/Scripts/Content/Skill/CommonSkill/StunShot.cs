@@ -27,7 +27,6 @@ public class StunShot : BaseSkill
         skillData.animTime = _stunShotSkillData.animTime;
         skillData.isUse = true;
         skillData.loadTime = _stunShotSkillData.castingTime;
-        skillData.durationTime = 5;
         skillData.skillRange = _stunShotSkillData.range;
         skillData.damage = _stunShotSkillData.damage;
     }
@@ -91,19 +90,15 @@ public class StunShot : BaseSkill
             _targetObject = myCharacter.targetObject;
             float distance = (hit.collider.transform.position - myCharacter.transform.position).magnitude;
 
-            if (skillData.skillRange >= distance)
-            {
-                myCharacter._playerStateMachine.ChangeState(myCharacter._playerStateMachine.PlayerSecondSkillState);
-            }
-            else
+            if (skillData.skillRange < distance)
             {
                 myCharacter._playerStateMachine.ChangeState(myCharacter._playerStateMachine._playerMoveState);
             }
         }
-        else
-        {
-            myCharacter.targetObject = null;
-            _targetObject = null;
-        }
+    }
+
+    public override void RenewalInfo()
+    {
+        skillData.info = "해당 챔피언에게 투사체를 던지고 투사체에 맞은 챔피언은 기절하게 됩니다.";
     }
 }

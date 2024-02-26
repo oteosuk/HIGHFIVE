@@ -108,14 +108,17 @@ public class Assassination : BaseSkill
             _targetObject = myCharacter.targetObject;
             float distance = (hit.collider.transform.position - myCharacter.transform.position).magnitude;
 
-            if (skillData.skillRange >= distance)
-            {
-                myCharacter._playerStateMachine.ChangeState(myCharacter._playerStateMachine.PlayerFirstSkillState);
-            }
-            else
+            if (skillData.skillRange < distance)
             {
                 myCharacter._playerStateMachine.ChangeState(myCharacter._playerStateMachine._playerMoveState);
             }
         }
+    }
+
+    public override void RenewalInfo()
+    {
+        skillData.info = $"적에게 {_assassinationData.damage + (int)(Main.GameManager.SpawnedCharacter.stat.Attack * _assassinationData.damageRatio)} " +
+            $"만큼의 피해를 가하고 {_assassinationBuffData.durationTime}초 동안" +
+            $" {_assassinationBuffData.trueDamage + Main.GameManager.SpawnedCharacter.stat.Attack}만큼의 고정 피해를 주는 출혈을 일으킨다.";
     }
 }

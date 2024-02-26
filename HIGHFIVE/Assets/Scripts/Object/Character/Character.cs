@@ -117,6 +117,7 @@ public class Character : Creature
     private void Respawn()
     {
         if (Main.GameManager.page == Define.Page.Battle) return;
+        _playerStateMachine._player.NavMeshAgent.enabled = false;
         _playerStateMachine._player.transform.position = Main.GameManager.CharacterSpawnPos;
         _playerStateMachine.moveInput = Main.GameManager.CharacterSpawnPos;
         _photonView.RPC("SetHpRPC", RpcTarget.All, _playerStateMachine._player.stat.MaxHp, _playerStateMachine._player.stat.MaxHp);
@@ -124,6 +125,7 @@ public class Character : Creature
         _photonView.RPC("SetLayer", RpcTarget.All, layer);
         _playerStateMachine._player.Animator.SetBool(_playerStateMachine._player.PlayerAnimationData.DieParameterHash, false);
         Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10f);
+        _playerStateMachine._player.NavMeshAgent.enabled = true;
     }
 
     private void OnChangeSpeed(float speed)
@@ -221,6 +223,18 @@ public class Character : Creature
             if (characterInfoObj)
             {
                 characterInfoObj.Find("Level").GetComponent<TMP_Text>().text = $"{level}Lv";
+            }
+        }
+    }
+    [PunRPC]
+    public void SyncNickname(int viewId)
+    {
+        if (Main.NetworkManager.photonPlayer.TryGetValue(viewId, out Player player))
+        {
+            Transform characterInfoObj = transform?.Find("HealthCanvas")?.Find("CharacterInfo");
+            if (characterInfoObj)
+            {
+                characterInfoObj.Find("Nickname").GetComponent<TMP_Text>().text = player.NickName;
             }
         }
     }

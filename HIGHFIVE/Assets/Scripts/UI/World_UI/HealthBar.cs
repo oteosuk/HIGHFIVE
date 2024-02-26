@@ -40,15 +40,8 @@ public class HealthBar : UIBase
             PhotonView pv = playerObj.GetComponent<PhotonView>();
             _characterInfoObj.SetActive(true);
             pv.RPC("SetHpBarColor", RpcTarget.AllBuffered);
-
-            if (Main.NetworkManager.photonPlayer.TryGetValue(pv.ViewID, out Player player))
-            {
-                int level = playerObj.GetComponent<CharacterStat>().Level;
-
-                Transform characterInfoObj = playerObj.transform.Find("HealthCanvas").Find("CharacterInfo");
-                characterInfoObj.Find("Nickname").GetComponent<TMP_Text>().text = player.NickName;
-                characterInfoObj.Find("Level").GetComponent<TMP_Text>().text = $"{level}Lv";
-            }
+            pv.RPC("SyncNickname", RpcTarget.AllBuffered, pv.ViewID);
+            _levelObj.GetComponent<TMP_Text>().text = "1Lv";
         }
         _statController = transform.parent.GetComponent<StatController>();
         _statController.hpChangeEvent += SetHpRatio;

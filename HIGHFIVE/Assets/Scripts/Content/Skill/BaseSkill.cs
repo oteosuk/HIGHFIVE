@@ -28,4 +28,5 @@ public abstract class BaseSkill
 
     public abstract void Execute();
     public abstract bool CanUseSkill();
+    public abstract void RenewalInfo();
 }

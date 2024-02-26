@@ -77,4 +77,10 @@ public class FireBall : BaseSkill
         Vector2 point = Camera.main.ScreenToWorldPoint(Main.GameManager.SpawnedCharacter.Input._playerActions.Move.ReadValue<Vector2>());
         return (point - (Vector2)Main.GameManager.SpawnedCharacter.transform.position);
     }
+
+    public override void RenewalInfo()
+    {
+        skillData.info = $"스킬 사용 시 커서 방향으로 구체를 날리고 해당 구체에 맞은 적은 " +
+            $"{_fireBallData.damage + (int)(Main.GameManager.SpawnedCharacter.stat.Attack * _fireBallData.damageRatio)}만큼의 피해를 입힌다";
+    }
 }

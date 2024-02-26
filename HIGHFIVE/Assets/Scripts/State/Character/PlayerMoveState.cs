@@ -29,7 +29,6 @@ public class PlayerMoveState : PlayerBaseState
         // 기능
         base.Enter();
         _playerStateMachine.moveSpeedModifier = 1.0f;
-        _playerStateMachine._player.NavMeshAgent.isStopped = false;
         StartAnimation(_moveHash);     
         // 애니메이션 호출
     }
@@ -57,14 +56,14 @@ public class PlayerMoveState : PlayerBaseState
         Vector2 dir = _targetPosition - (Vector2)_playerStateMachine._player.transform.position;
 
         if (myCharacter.Animator.GetBool(myCharacter.PlayerAnimationData.SkillDelayTimeHash)) return;
-
+        _playerStateMachine._player.NavMeshAgent.isStopped = false;
         MovePlayerToTarget();
         
         if (_playerStateMachine.InputKey != Define.InputKey.FirstSkill && _playerStateMachine.InputKey != Define.InputKey.SecondSkill)
         {
             CheckForAttack();
         }
-        //Debug.Log(dir.normalized);
+
         if (NearWallCheck(dir))
         {
             _targetPosition = (Vector2)_playerStateMachine._player.transform.position;

@@ -26,6 +26,7 @@ public class SkillExplan_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
         if (_skillUI.Skills.TryGetValue(targetObject.name, out BaseSkill skill))
         {
+            skill.RenewalInfo();
             _skillName.text = skill.skillData.skillName;
             _skillInfo.text = skill.skillData.info;
         }        

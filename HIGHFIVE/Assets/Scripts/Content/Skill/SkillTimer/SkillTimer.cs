@@ -5,6 +5,8 @@ using UnityEngine;
 public class SkillTimer : MonoBehaviour
 {
     protected SkillController _skillController;
+    private Coroutine _coroutine;
+    private Coroutine _coroutin;
     protected virtual void Start()
     {
         _skillController = GetComponent<SkillController>();
@@ -14,12 +16,12 @@ public class SkillTimer : MonoBehaviour
 
     private void StartCoolDown(BaseSkill skill)
     {
-        StartCoroutine(StartCoolCoroutine(skill));
+        _coroutine = StartCoroutine(StartCoolCoroutine(skill));
     }
 
     private void StarSkillDelay(SkillData skillData)
     {
-        StartCoroutine(StartSkillDelayCoroutine(skillData));
+        _coroutin =StartCoroutine(StartSkillDelayCoroutine(skillData));
     }
 
     IEnumerator StartCoolCoroutine(BaseSkill skill)
