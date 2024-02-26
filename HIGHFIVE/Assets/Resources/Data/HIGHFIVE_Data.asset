@@ -61,9 +61,9 @@ MonoBehaviour:
     name: "\uD30C\uC774\uC5B4\uBCFC"
     info: "\uC124\uBA85"
     range: 5
-    damage: 10
+    damage: 30
     animTime: 0.3
-    damageRatio: 1.4
+    damageRatio: 1.6
     coolTime: 5
     castingTime: 200
     condition: 0
