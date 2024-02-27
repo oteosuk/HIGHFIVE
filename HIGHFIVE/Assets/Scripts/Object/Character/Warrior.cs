@@ -40,5 +40,9 @@ public class Warrior : Character
                 _playerStateMachine._player.targetObject.GetComponent<Stat>()?.TakeDamage(Main.GameManager.SpawnedCharacter.stat.Attack, gameObject);
             }
         }
+        if (Main.GameManager.InGameObj.TryGetValue("WarriorAttack01", out Object obj)) { AudioSource.clip = obj as AudioClip; }
+        else { AudioSource.clip = Main.ResourceManager.Load<AudioClip>("Sounds/SFX/InGame/WarriorAttack01"); }
+        GetComponent<PhotonView>().RPC("ShareEffectSound", RpcTarget.Others, "WarriorAttack01");
+        Main.SoundManager.PlayEffect(AudioSource);
     }
 }

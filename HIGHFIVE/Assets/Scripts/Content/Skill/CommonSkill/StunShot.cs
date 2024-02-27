@@ -1,6 +1,5 @@
 using Photon.Pun;
 using Photon.Realtime;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -21,7 +20,9 @@ public class StunShot : BaseSkill
         //나중에 데이터 매니저에서 받아오기
         skillData.skillName = _stunShotSkillData.name;
         skillData.info = "해당 챔피언에게 투사체를 던지고 투사체에 맞은 챔피언은 기절하게 됩니다.";
-        skillData.skillSprite = Main.ResourceManager.Load<Sprite>("Sprites/SkillIcon/StunShot");
+        if (Main.GameManager.InGameObj.TryGetValue("StunShot", out Object obj)) { skillData.skillSprite = obj as Sprite; }
+        else { skillData.skillSprite = Main.ResourceManager.Load<Sprite>("Sprites/SkillIcon/StunShot"); }
+
         skillData.coolTime = _stunShotSkillData.coolTime;
         skillData.curTime = skillData.coolTime;
         skillData.animTime = _stunShotSkillData.animTime;
@@ -55,6 +56,11 @@ public class StunShot : BaseSkill
     {
         Character myCharacter = Main.GameManager.SpawnedCharacter;
         Main.ResourceManager.Instantiate("SkillEffect/StunShot", myCharacter.transform.position, syncRequired: true);
+
+        if (Main.GameManager.InGameObj.TryGetValue("Trap", out Object obj)) { myCharacter.AudioSource.clip = obj as AudioClip; }
+        else { myCharacter.AudioSource.clip = Main.ResourceManager.Load<AudioClip>("Sounds/SFX/InGame/Trap"); }
+        myCharacter.GetComponent<PhotonView>().RPC("ShareEffectSound", RpcTarget.Others, "Trap");
+        Main.SoundManager.PlayEffect(myCharacter.AudioSource);
     }
 
     private bool CheckRange()

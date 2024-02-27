@@ -27,7 +27,7 @@ public class LoadingAnimation : MonoBehaviour
         Assessination,
         Berserk,
         FireBall,
-        Flash,
+        FlashSprite,
         StunShot
     }
 

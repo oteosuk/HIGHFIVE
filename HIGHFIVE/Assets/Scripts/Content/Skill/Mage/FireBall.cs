@@ -58,6 +58,11 @@ public class FireBall : BaseSkill
         SetSpeed(sphere, dir);
 
         sphere.GetComponent<ShooterInfoController>().CallShooterInfoEvent(myCharacter.gameObject);
+
+        if (Main.GameManager.InGameObj.TryGetValue("MageQ", out Object obj)) { myCharacter.AudioSource.clip = obj as AudioClip; }
+        else { myCharacter.AudioSource.clip = Main.ResourceManager.Load<AudioClip>("Sounds/SFX/InGame/MageQ"); }
+        myCharacter.GetComponent<PhotonView>().RPC("ShareEffectSound", RpcTarget.Others, "MageQ");
+        Main.SoundManager.PlayEffect(myCharacter.AudioSource);
     }
 
     private void SetRotation(GameObject go, Vector2 dir)

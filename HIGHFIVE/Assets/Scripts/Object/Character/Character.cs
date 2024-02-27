@@ -29,6 +29,7 @@ public class Character : Creature
     public SkillController SkillController { get; private set; }
     public CharacterSkill CharacterSkill { get; protected set; }
     public NavMeshAgent NavMeshAgent { get; protected set; }
+    public AudioSource AudioSource { get; private set; }
 
     protected override void Awake()
     {
@@ -41,6 +42,7 @@ public class Character : Creature
         PlayerAnimationData = new PlayerAnimationData();
         SkillController = GetComponent<SkillController>();
         BuffController = GetComponent<BuffController>();
+        AudioSource = GetComponent<AudioSource>();
         NavMeshAgent = GetComponent<NavMeshAgent>();
         NavMeshAgent.updateRotation = false;
         NavMeshAgent.updateUpAxis = false;

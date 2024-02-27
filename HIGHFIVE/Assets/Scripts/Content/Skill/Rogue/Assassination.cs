@@ -58,6 +58,11 @@ public class Assassination : BaseSkill
             myCharacter.Animator.SetBool(myCharacter.PlayerAnimationData.SkillDelayTimeHash, true);
             myCharacter.SkillController.CallSkillExecute(myCharacter.CharacterSkill.FirstSkill);
             myCharacter.SkillController.CallSkillDelay(myCharacter.CharacterSkill.FirstSkill.skillData);
+
+            if (Main.GameManager.InGameObj.TryGetValue("RogueQ", out Object obj)) { myCharacter.AudioSource.clip = obj as AudioClip; }
+            else { myCharacter.AudioSource.clip = Main.ResourceManager.Load<AudioClip>("Sounds/SFX/InGame/RogueQ"); }
+            myCharacter.GetComponent<PhotonView>().RPC("ShareEffectSound", RpcTarget.Others, "RogueQ");
+            Main.SoundManager.PlayEffect(myCharacter.AudioSource);
         }
     }
 
