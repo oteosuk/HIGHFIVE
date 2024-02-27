@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,7 +18,8 @@ public class Flash : BaseSkill
         //나중에 데이터 매니저에서 받아오기
         skillData.skillName = _flashData.name;
         skillData.info = "커서 방향으로 챔피언이 짧은 거리를 순간이동 합니다.";
-        skillData.skillSprite = Main.ResourceManager.Load<Sprite>("Sprites/SkillIcon/Flash");
+        if (Main.GameManager.InGameObj.TryGetValue("FlashSprite", out Object obj)) { skillData.skillSprite = obj as Sprite; }
+        else { skillData.skillSprite = Main.ResourceManager.Load<Sprite>("Sprites/SkillIcon/FlashSprite"); ; }
         skillData.coolTime = _flashData.coolTime;
         skillData.curTime = skillData.coolTime;
         skillData.isUse = true;
@@ -50,6 +52,12 @@ public class Flash : BaseSkill
                 myCharacter.transform.position = newPos;
             }
         }
+
+        if (Main.GameManager.InGameObj.TryGetValue("Flash", out Object obj)) { myCharacter.AudioSource.clip = obj as AudioClip; }
+        else { myCharacter.AudioSource.clip = Main.ResourceManager.Load<AudioClip>("Sounds/SFX/InGame/Flash"); }
+        myCharacter.GetComponent<PhotonView>().RPC("ShareEffectSound", RpcTarget.Others, "Flash");
+        Main.SoundManager.PlayEffect(myCharacter.AudioSource);
+
         myCharacter.NavMeshAgent.enabled = true;
         myCharacter._playerStateMachine.ChangeState(myCharacter._playerStateMachine._playerIdleState);
         myCharacter.SkillController.CallSkillExecute(myCharacter.CharacterSkill.ThirdSkill);

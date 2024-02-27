@@ -32,5 +32,9 @@ public class Rogue : Character
         {
             _playerStateMachine._player.targetObject.GetComponent<Stat>()?.TakeDamage(Main.GameManager.SpawnedCharacter.stat.Attack, gameObject);
         }
+        if (Main.GameManager.InGameObj.TryGetValue("RogueAttack01", out Object obj)) { AudioSource.clip = obj as AudioClip; }
+        else { AudioSource.clip = Main.ResourceManager.Load<AudioClip>("Sounds/SFX/InGame/RogueAttack01"); }
+        GetComponent<PhotonView>().RPC("ShareEffectSound", RpcTarget.Others, "RogueAttack01");
+        Main.SoundManager.PlayEffect(AudioSource);
     }
 }

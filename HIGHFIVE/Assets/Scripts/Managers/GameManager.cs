@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class GameManager 
 {
+    public Dictionary<string, Object> InGameObj { get; private set; } = new Dictionary<string, Object>();
     public string SelectedCharacter { get; set; } = "전사";
     public Define.Camp SelectedCamp { get; set; }
     public Character SpawnedCharacter { get; set; }

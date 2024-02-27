@@ -88,7 +88,7 @@ public class RoundLogic : MonoBehaviour
     {
         Main.GameManager.SpawnedCharacter.NavMeshAgent.enabled = false;
         Main.GameManager.SpawnedCharacter.transform.position = Main.GameManager.SelectedCamp == Define.Camp.Red ? _redBattleSpawnZone.position : _blueBattleSpawnZone.position;
-        Main.SoundManager.PlayBGM("Battle_Normal_05", 0.1f);
+        Main.SoundManager.PlayBGM("Battle_Normal_05");
         StartCoroutine(MoveToChangedField());
     }
     public void ChangeToFarmingField()
@@ -101,7 +101,7 @@ public class RoundLogic : MonoBehaviour
         }
 
         Main.GameManager.SpawnedCharacter.transform.position = Main.GameManager.SelectedCamp == Define.Camp.Red ? _redFarmingSpawnZone.position : _blueFarmingSpawnZone.position;
-        Main.SoundManager.PlayBGM("Battle_Boss_07", 0.1f);
+        Main.SoundManager.PlayBGM("Battle_Boss_07");
         StartCoroutine(MoveToChangedField());
     }
 

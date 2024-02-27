@@ -29,6 +29,7 @@ public class Creature : MonoBehaviourPunCallbacks
     }
     protected virtual void FixedUpdate()
     {
+
     }
     public virtual void OnNormalAttack() { }
 

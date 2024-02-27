@@ -10,23 +10,25 @@ using Photon.Realtime;
 
 public class LoadingAnimation : MonoBehaviour
 {
-    enum Character
+    enum Sounds
     {
-        Warrior,
-        Rogue,
-        Mage
+        Flash,
+        HealPack,
+        MageAttack01,
+        MageQ,
+        RogueAttack01,
+        RogueQ,
+        Trap,
+        WarriorAttack01,
+        WarriorQ
     }
-
-    enum NormalMonster
+    enum SkillSprite
     {
-        Tree,
-        GreenOrc1,
-        GreenOrc2,
-    }
-
-    enum UI
-    {
-        GameSceneUI
+        Assessination,
+        Berserk,
+        FireBall,
+        FlashSprite,
+        StunShot
     }
 
     public Image loadingBar;
@@ -36,9 +38,9 @@ public class LoadingAnimation : MonoBehaviour
     private int totalCount = 0;
     private bool isSceneLoad = false;
 
-    private int character = System.Enum.GetValues(typeof(Character)).Length;
-    private int normalMonster = System.Enum.GetValues(typeof(NormalMonster)).Length;
-    private int ui = System.Enum.GetValues(typeof(UI)).Length;
+    private int sounds = System.Enum.GetValues(typeof(Sounds)).Length;
+    private int skillSprite = System.Enum.GetValues(typeof(SkillSprite)).Length;
+
 
     void Start()
     {
@@ -72,27 +74,26 @@ public class LoadingAnimation : MonoBehaviour
     private IEnumerator LoadFile()
     {
         // 전체 구하기
-        totalCount = character + normalMonster + ui;
+        totalCount = skillSprite + sounds ;
 
-        for (int i = 0;  i < character; i++)
+        for (int i = 0; i < skillSprite; i++)
         {
-            // Character 불러오기
-            yield return LoadPrefabAsync("Prefabs/Character/" + (Character)i);
+            yield return LoadPrefabAsync<Sprite>("Sprites/SkillIcon/" + (SkillSprite)i);
         }
-
-        for (int i = 0; i < normalMonster; i++)
+        for (int i = 0; i < sounds; i++)
         {
-            // NormalMonster 불러오기
-            yield return LoadPrefabAsync("Prefabs/Monster/Normal/" + (NormalMonster)i);
+            yield return LoadPrefabAsync<AudioClip>("Sounds/SFX/InGame/" + (Sounds)i);
         }
-
-        // UI 불러오기
-        yield return LoadPrefabAsync("Prefabs/UI_Prefabs/" + UI.GameSceneUI);
     }
 
-    private IEnumerator LoadPrefabAsync(string path)
+    private IEnumerator LoadPrefabAsync<T>(string path) where T : Object
     {
-        Main.ResourceManager.Load<GameObject>(path);
+        T loadObj = Main.ResourceManager.Load<T>(path);
+        if (!Main.GameManager.InGameObj.ContainsKey(loadObj.name))
+        {
+            Main.GameManager.InGameObj.Add(loadObj.name, loadObj);
+        }
+
         yield return null;
 
         float progress = (float)loadingCount / totalCount;

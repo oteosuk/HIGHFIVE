@@ -66,10 +66,4 @@ public class Define
         StunShot,
         Assassination,
     }
-
-    public enum Object
-    {
-        Character,
-        Monster
-    }
 }

@@ -32,7 +32,11 @@ public class Mage : Character
         base.OnNormalAttack();
         if (_playerStateMachine._player.targetObject != null && _playerStateMachine._player.targetObject.layer != (int)Define.Layer.Default)
         {
-            Main.ResourceManager.Instantiate("Character/MageWeapon", _tip.position, syncRequired: true);
+            Main.ResourceManager.Instantiate("SkillEffect/MageWeapon", _tip.position, syncRequired: true);
+            if (Main.GameManager.InGameObj.TryGetValue("MageAttack01", out Object obj)) { AudioSource.clip = obj as AudioClip; }
+            else { AudioSource.clip = Main.ResourceManager.Load<AudioClip>("Sounds/SFX/InGame/MageAttack01"); }
+            GetComponent<PhotonView>().RPC("ShareEffectSound", RpcTarget.Others, "MageAttack01");
+            Main.SoundManager.PlayEffect(AudioSource);
         }
     }
 }

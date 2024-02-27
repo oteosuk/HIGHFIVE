@@ -8,66 +8,67 @@ using UnityEngine.UI;
 
 public class OptionUI : UIBase
 {
-    private Button _infoBtn;
-    private Button _settingBtn;
+    private Button _ruleInfoBtn;
+    private Button _keyInfoBtn;
+    private Button _settingInfoBtn;
 
-    private Button _infoExitBtn;
-    private Button _settingExitBtn;
+    private Button _ruleInfoExitBtn;
+    private Button _keyInfoExitBtn;
+    private Button _settingInfoExitBtn;
 
-    private GameObject _infoPanel;
-    private GameObject _settingPanel;
+    private GameObject _activePanel;
 
     private enum Buttons
     {
-        InfoBtn,
-        InfoExitBtn,
+        RuleInfoBtn,
+        RuleInfoExitBtn,
+        KeyInfoBtn,
+        KeyInfoExitBtn,
         SettingBtn,
-        SettingExitBtn,
+        SettingExitBtn
     }
 
     private enum GameObjects
     {
-        InfoBackPanel,
+        RuleInfoBackPanel,
+        KeyInfoBackPanel,
         SettingBackPanel
     }
     void Start()
     {
         Bind<Button>(typeof(Buttons), true);
-        _infoBtn = Get<Button>((int)Buttons.InfoBtn);
-        _settingBtn = Get<Button>((int)Buttons.SettingBtn);
+        _ruleInfoBtn = Get<Button>((int)Buttons.RuleInfoBtn);
+        _keyInfoBtn = Get<Button>((int)Buttons.KeyInfoBtn);
+        _settingInfoBtn = Get<Button>((int)Buttons.SettingBtn);
 
-        _infoExitBtn = Get<Button>((int)Buttons.InfoExitBtn);
-        _settingExitBtn = Get<Button>((int)Buttons.SettingExitBtn);
+        _ruleInfoExitBtn = Get<Button>((int)Buttons.RuleInfoExitBtn);
+        _keyInfoExitBtn = Get<Button>((int)Buttons.KeyInfoExitBtn);
+        _settingInfoExitBtn = Get<Button>((int)Buttons.SettingExitBtn);
 
         Bind<GameObject>(typeof(GameObjects), true);
-        _infoPanel = Get<GameObject>((int)GameObjects.InfoBackPanel);
-        _settingPanel = Get<GameObject>((int)GameObjects.SettingBackPanel);
 
-        AddUIEvent(_infoBtn.gameObject, Define.UIEvent.Click, OninfoBtnClicked);
-        AddUIEvent(_settingBtn.gameObject, Define.UIEvent.Click, OnsettingBtnClicked);
-        AddUIEvent(_infoExitBtn.gameObject, Define.UIEvent.Click, OninfoExitBtnClicked);
-        AddUIEvent(_settingExitBtn.gameObject, Define.UIEvent.Click, OnsettingExitBtnClicked);
+        AddUIEvent(_ruleInfoBtn.gameObject, Define.UIEvent.Click, OninfoBtnClicked);
+        AddUIEvent(_keyInfoBtn.gameObject, Define.UIEvent.Click, OninfoBtnClicked);
+        AddUIEvent(_settingInfoBtn.gameObject, Define.UIEvent.Click, OninfoBtnClicked);
+
+        AddUIEvent(_ruleInfoExitBtn.gameObject, Define.UIEvent.Click, OninfoExitBtnClicked);
+        AddUIEvent(_keyInfoExitBtn.gameObject, Define.UIEvent.Click, OninfoExitBtnClicked);
+        AddUIEvent(_settingInfoExitBtn.gameObject, Define.UIEvent.Click, OninfoExitBtnClicked);
     }
-
-    private void OnsettingExitBtnClicked(PointerEventData data)
+    private void OninfoExitBtnClicked(PointerEventData pointerEventData)
     {
-        Main.UIManager.CloseCurrentPopup(_settingPanel);
-    }
-
-    private void OninfoExitBtnClicked(PointerEventData data)
-    {
-        Main.UIManager.CloseCurrentPopup(_infoPanel);
-    }
-
-    private void OnsettingBtnClicked(PointerEventData data)
-    {
-        Main.UIManager.CloseCurrentPopup(_infoPanel);
-        Main.UIManager.OpenPopup(_settingPanel);
+        Main.UIManager.CloseCurrentPopup(_activePanel);
+        _activePanel = null;
     }
 
     private void OninfoBtnClicked(PointerEventData pointerEventData)
     {
-        Main.UIManager.CloseCurrentPopup(_settingPanel);
-        Main.UIManager.OpenPopup(_infoPanel);
+        if (_activePanel != null)
+        {
+            Main.UIManager.CloseCurrentPopup(_activePanel);
+            _activePanel = null;
+        }
+        Main.UIManager.OpenPopup(pointerEventData.selectedObject.transform.GetChild(0).gameObject);
+        _activePanel = pointerEventData.selectedObject.transform.GetChild(0).gameObject;
     }
 }

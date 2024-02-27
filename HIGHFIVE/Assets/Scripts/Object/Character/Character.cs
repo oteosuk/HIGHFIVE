@@ -29,6 +29,7 @@ public class Character : Creature
     public SkillController SkillController { get; private set; }
     public CharacterSkill CharacterSkill { get; protected set; }
     public NavMeshAgent NavMeshAgent { get; protected set; }
+    public AudioSource AudioSource { get; private set; }
 
     protected override void Awake()
     {
@@ -41,6 +42,7 @@ public class Character : Creature
         PlayerAnimationData = new PlayerAnimationData();
         SkillController = GetComponent<SkillController>();
         BuffController = GetComponent<BuffController>();
+        AudioSource = GetComponent<AudioSource>();
         NavMeshAgent = GetComponent<NavMeshAgent>();
         NavMeshAgent.updateRotation = false;
         NavMeshAgent.updateUpAxis = false;
@@ -236,6 +238,17 @@ public class Character : Creature
             {
                 characterInfoObj.Find("Nickname").GetComponent<TMP_Text>().text = player.NickName;
             }
+        }
+    }
+
+    [PunRPC]
+    public void ShareEffectSound(string clipName)
+    {
+        AudioSource audioSource = GetComponent<AudioSource>();
+        if (Main.GameManager.InGameObj.TryGetValue(clipName, out Object obj))
+        {
+            audioSource.clip = obj as AudioClip;
+            Main.SoundManager.PlayEffect(audioSource);
         }
     }
 }

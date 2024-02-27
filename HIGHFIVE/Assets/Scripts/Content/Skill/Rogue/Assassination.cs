@@ -26,7 +26,9 @@ public class Assassination : BaseSkill
         skillData.info = $"적에게 {_assassinationData.damage + (int)(Main.GameManager.SpawnedCharacter.stat.Attack * _assassinationData.damageRatio)} " +
             $"만큼의 피해를 가하고 {assassinationBuffData.durationTime}초 동안" +
             $" {assassinationBuffData.trueDamage + Main.GameManager.SpawnedCharacter.stat.Attack}만큼의 고정 피해를 주는 출혈을 일으킨다.";
-        skillData.skillSprite = Main.ResourceManager.Load<Sprite>("Sprites/SkillIcon/Assessination");
+        if (Main.GameManager.InGameObj.TryGetValue("Assessination", out Object obj)) { skillData.skillSprite = obj as Sprite; }
+        else { skillData.skillSprite = Main.ResourceManager.Load<Sprite>("Sprites/SkillIcon/Assessination"); }
+
         skillData.coolTime = _assassinationData.coolTime;
         skillData.curTime = skillData.coolTime;
         skillData.animTime = _assassinationData.animTime;
@@ -56,6 +58,11 @@ public class Assassination : BaseSkill
             myCharacter.Animator.SetBool(myCharacter.PlayerAnimationData.SkillDelayTimeHash, true);
             myCharacter.SkillController.CallSkillExecute(myCharacter.CharacterSkill.FirstSkill);
             myCharacter.SkillController.CallSkillDelay(myCharacter.CharacterSkill.FirstSkill.skillData);
+
+            if (Main.GameManager.InGameObj.TryGetValue("RogueQ", out Object obj)) { myCharacter.AudioSource.clip = obj as AudioClip; }
+            else { myCharacter.AudioSource.clip = Main.ResourceManager.Load<AudioClip>("Sounds/SFX/InGame/RogueQ"); }
+            myCharacter.GetComponent<PhotonView>().RPC("ShareEffectSound", RpcTarget.Others, "RogueQ");
+            Main.SoundManager.PlayEffect(myCharacter.AudioSource);
         }
     }
 
