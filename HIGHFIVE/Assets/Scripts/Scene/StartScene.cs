@@ -9,6 +9,7 @@ public class StartScene : BaseScene
     protected override void Init()
     {
         base.Init();
+        Main.SceneManagerEx.CurrentScene = Define.Scene.StartScene;
     }
     void Update()
     {

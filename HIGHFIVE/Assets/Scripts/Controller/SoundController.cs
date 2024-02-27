@@ -8,8 +8,12 @@ public class SoundController : MonoBehaviour
     [SerializeField] Slider bgmSlider;
     [SerializeField] Slider effectSlider;
 
-    void Start()
+    void Awake()
     {
+        bgmSlider.value = Main.SoundManager.bgmVolume;
+        effectSlider.value = Main.SoundManager.effectVolume;
+        SetBGMVolume(Main.SoundManager.bgmVolume);
+        SetEffectVolume(Main.SoundManager.effectVolume);
         if (bgmSlider != null)
         {
             bgmSlider.onValueChanged.AddListener(SetBGMVolume);

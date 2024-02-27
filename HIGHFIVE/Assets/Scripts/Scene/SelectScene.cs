@@ -11,7 +11,7 @@ public class SelectScene : BaseScene
     {
         base.Init(); //공통적으로 실행하는 부분
                      // 추가 코드 -> 이 씬에서만 따로 또 실행해햐하는 메서드
-
+        Main.SceneManagerEx.CurrentScene = Define.Scene.SelectScene;
         _google = GameObject.Find("GoogleSheetManager").GetComponent<GoogleSheetManager>();
         _google.Logout();
         int index = 0;

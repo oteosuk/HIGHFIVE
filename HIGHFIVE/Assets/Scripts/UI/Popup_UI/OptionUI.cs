@@ -35,6 +35,8 @@ public class OptionUI : UIBase
 
     private GameObject _activePanel;
     private GameObject _keyInfoPanel;
+    private GameObject _rullInfoPanel;
+    private GameObject _settingPanel;
 
     void Start()
     {
@@ -49,10 +51,13 @@ public class OptionUI : UIBase
 
         Bind<GameObject>(typeof(GameObjects), true);
         _keyInfoPanel = Get<GameObject>((int)GameObjects.KeyInfoBackPanel);
-        //if (SceneManager.GetActiveScene() == SceneManager.)
-        //{
-        //    _keyInfoPanel.SetActive(true);
-        //}
+        _rullInfoPanel = Get<GameObject>((int)GameObjects.RuleInfoBackPanel);
+        _settingPanel = Get<GameObject>((int)GameObjects.SettingBackPanel);
+        if (Main.SceneManagerEx.CurrentScene == Define.Scene.GameScene)
+        {
+            _activePanel = _keyInfoPanel;
+            Main.UIManager.OpenPopup(_keyInfoPanel);
+        }
 
         AddUIEvent(_ruleInfoBtn.gameObject, Define.UIEvent.Click, OninfoBtnClicked);
         AddUIEvent(_keyInfoBtn.gameObject, Define.UIEvent.Click, OninfoBtnClicked);
@@ -75,7 +80,21 @@ public class OptionUI : UIBase
             Main.UIManager.CloseCurrentPopup(_activePanel);
             _activePanel = null;
         }
-        Main.UIManager.OpenPopup(pointerEventData.selectedObject.transform.GetChild(0).gameObject);
-        _activePanel = pointerEventData.selectedObject.transform.GetChild(0).gameObject;
+        switch(pointerEventData.selectedObject.name)
+        {
+            case "RuleInfoBtn":
+                Main.UIManager.OpenPopup(_rullInfoPanel);
+                _activePanel = _rullInfoPanel;
+                break;
+            case "KeyInfoBtn":
+                Main.UIManager.OpenPopup(_keyInfoPanel);
+                _activePanel = _keyInfoPanel;
+                break;
+            case "SettingBtn":
+                Main.UIManager.OpenPopup(_settingPanel);
+                _activePanel = _settingPanel;
+                break;
+        }
+        
     }
 }

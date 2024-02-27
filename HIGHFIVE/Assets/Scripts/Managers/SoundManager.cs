@@ -10,9 +10,8 @@ public class SoundManager
     // 오디오 소스
     private AudioSource bgmPlayer;
     private List<AudioSource> sfxPlayer = new List<AudioSource>();
-    //private AudioMixer audioMixer;
-    private float bgmVolume;
-    private float effectVolume;
+    public float bgmVolume = 0.1f;
+    public float effectVolume = 0.1f;
     public Dictionary<string, AudioClip> EffectDict { get; private set; } = new Dictionary<string, AudioClip>();
 
     public void SoundInit()
@@ -74,7 +73,9 @@ public class SoundManager
 
     public void SetBGMVolume(float volume)
     {
+        Debug.Log(volume);
         bgmPlayer.volume = volume;
+        bgmVolume = volume;
     }
 
     public void SetEffectVolume(float volume)
