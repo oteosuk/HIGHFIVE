@@ -14,7 +14,7 @@ public class StartScene : BaseScene
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Main.SoundManager.PlaySFX("Click", 0.01f);
+            Main.SoundManager.PlaySFX("UI/Click", 0.01f);
         }
     }
 

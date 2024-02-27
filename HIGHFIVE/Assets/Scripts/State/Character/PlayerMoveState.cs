@@ -198,7 +198,7 @@ public class PlayerMoveState : PlayerBaseState
     {
         RaycastHit2D ray;
         ray = Physics2D.Raycast(_playerStateMachine._player.transform.position, dir.normalized, 1, 1 << (int)Define.Layer.Wall);
-        Debug.DrawRay(_playerStateMachine._player.transform.position, _targetPosition.normalized, Color.red, 2f);
+        //Debug.DrawRay(_playerStateMachine._player.transform.position, _targetPosition.normalized, Color.red, 2f);
         if(ray.collider != null)
         {
             //Debug.Log("wall이 있어요");

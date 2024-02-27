@@ -151,7 +151,7 @@ MonoBehaviour:
   - name: "\uC5D8\uB9AC\uD2B8"
     atk: 80
     def: 15
-    atkRange: 1.5
+    atkRange: 2
     atkSpeed: 1.5
     movSpeed: 3
     maxHp: 600
