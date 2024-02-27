@@ -8,6 +8,6 @@ public class LobbyScene : BaseScene
     {
         base.Init();
 
-        Main.SoundManager.PlayBGM("Town_Castle_01", 0.1f);
+        Main.SoundManager.PlayBGM("Town_Castle_01");
     }
 }

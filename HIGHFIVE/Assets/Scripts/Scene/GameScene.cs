@@ -40,7 +40,7 @@ public class GameScene : BaseScene
             Main.GameManager.SpawnedCharacter.GetComponent<PhotonView>().RPC("SetLayer", RpcTarget.Others, layer);
         }
 
-        Main.SoundManager.PlayBGM("Battle_Boss_07", 0.1f);
+        Main.SoundManager.PlayBGM("Battle_Boss_07");
     }
 
     private void SetInitCameraPosition()

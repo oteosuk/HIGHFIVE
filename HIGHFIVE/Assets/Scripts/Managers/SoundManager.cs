@@ -10,7 +10,9 @@ public class SoundManager
     // 오디오 소스
     private AudioSource bgmPlayer;
     private List<AudioSource> sfxPlayer = new List<AudioSource>();
-    private AudioMixer audioMixer;
+    //private AudioMixer audioMixer;
+    private float bgmVolume;
+    private float effectVolume;
     public Dictionary<string, AudioClip> EffectDict { get; private set; } = new Dictionary<string, AudioClip>();
 
     public void SoundInit()
@@ -31,16 +33,14 @@ public class SoundManager
             AudioSource temp = musicObject.AddComponent<AudioSource>();
             sfxPlayer.Add(temp);
         }
-
-        PlayBGM("Battle_Normal_EW01_B", 0.1f);
     }
 
-    public void PlayBGM(string bgmName, float volume)
+    public void PlayBGM(string bgmName)
     {
         bgmPlayer.clip =  Resources.Load<AudioClip>($"Sounds/BGM/{bgmName}");
         if (bgmPlayer.clip != null)
         {
-            bgmPlayer.volume = volume;
+            bgmPlayer.volume = bgmVolume;
             bgmPlayer.Play();
             bgmPlayer.loop = true;
         }
@@ -66,17 +66,19 @@ public class SoundManager
     public void PlayEffect(AudioSource source)
     {
         if (source.clip == null || source == null) return;
-        
+
+        Debug.Log(effectVolume);
+        source.volume = effectVolume;
         source.PlayOneShot(source.clip);
     }
 
-    // 음소거
-    void Mute()
+    public void SetBGMVolume(float volume)
     {
-        bgmPlayer.mute = !bgmPlayer.mute;
+        bgmPlayer.volume = volume;
     }
 
-    //사용법
-    //SoundManager.instance.PlayEffect("효과음", 1f);
-    //Main.SoundManager.PlayEffect("파일이름", 볼륨); => 아직 미연결
+    public void SetEffectVolume(float volume)
+    {
+        effectVolume = volume;
+    }
 }
