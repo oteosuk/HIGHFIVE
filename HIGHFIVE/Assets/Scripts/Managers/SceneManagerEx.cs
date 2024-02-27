@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneManagerEx
 {
+    public Define.Scene CurrentScene { get; set; }  
     public void LoadScene(Define.Scene type)
     {
         SceneManager.LoadScene((int)type);

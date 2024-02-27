@@ -21,6 +21,7 @@ public class GameScene : BaseScene
     protected override void Init()
     {
         base.Init();
+        Main.SceneManagerEx.CurrentScene = Define.Scene.GameScene;
         _cameraController = GetComponent<CameraController>();
         _cameraController.characterSpawnEvent += SetInitCameraPosition;
         Vector2 position = Main.GameManager.SelectedCamp == Define.Camp.Red ? _redCamp.transform.position : _blueCamp.transform.position;
