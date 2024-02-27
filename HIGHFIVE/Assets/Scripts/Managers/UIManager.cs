@@ -57,4 +57,3 @@ public class UIManager
         return Util.GetOrAddComponent<T>(go);
     }
 }
-
