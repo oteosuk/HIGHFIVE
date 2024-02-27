@@ -4,20 +4,11 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class OptionUI : UIBase
 {
-    private Button _ruleInfoBtn;
-    private Button _keyInfoBtn;
-    private Button _settingInfoBtn;
-
-    private Button _ruleInfoExitBtn;
-    private Button _keyInfoExitBtn;
-    private Button _settingInfoExitBtn;
-
-    private GameObject _activePanel;
-
     private enum Buttons
     {
         RuleInfoBtn,
@@ -34,6 +25,17 @@ public class OptionUI : UIBase
         KeyInfoBackPanel,
         SettingBackPanel
     }
+    private Button _ruleInfoBtn;
+    private Button _keyInfoBtn;
+    private Button _settingInfoBtn;
+
+    private Button _ruleInfoExitBtn;
+    private Button _keyInfoExitBtn;
+    private Button _settingInfoExitBtn;
+
+    private GameObject _activePanel;
+    private GameObject _keyInfoPanel;
+
     void Start()
     {
         Bind<Button>(typeof(Buttons), true);
@@ -46,6 +48,11 @@ public class OptionUI : UIBase
         _settingInfoExitBtn = Get<Button>((int)Buttons.SettingExitBtn);
 
         Bind<GameObject>(typeof(GameObjects), true);
+        _keyInfoPanel = Get<GameObject>((int)GameObjects.KeyInfoBackPanel);
+        //if (SceneManager.GetActiveScene() == SceneManager.)
+        //{
+        //    _keyInfoPanel.SetActive(true);
+        //}
 
         AddUIEvent(_ruleInfoBtn.gameObject, Define.UIEvent.Click, OninfoBtnClicked);
         AddUIEvent(_keyInfoBtn.gameObject, Define.UIEvent.Click, OninfoBtnClicked);
