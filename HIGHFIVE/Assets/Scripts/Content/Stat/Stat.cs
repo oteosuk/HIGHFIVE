@@ -96,9 +96,27 @@ public class Stat : MonoBehaviour
         InitializeExp();
     }
 
-    public virtual void TakeDamage(int damage, GameObject shooter, bool isTrueDamage = false)
+    public void Heal(int healAmount)
     {
         Stat myStat = GetComponent<Stat>();
+        PhotonView pv = myStat.gameObject.GetComponent<PhotonView>();
+
+        if (myStat.CurHp + healAmount >= myStat.MaxHp)
+        {
+            myStat.CurHp = myStat.MaxHp;
+        }
+        else
+        {
+            myStat.CurHp += healAmount;
+        }
+        pv.RPC("SetHpRPC", RpcTarget.All, myStat.CurHp, myStat.MaxHp);
+    }
+
+    public void TakeDamage(int damage, GameObject shooter, bool isTrueDamage = false) // virtual을 빼봤음
+    {
+        Stat myStat = GetComponent<Stat>();
+        PhotonView pv = myStat.gameObject.GetComponent<PhotonView>();
+
         int realDamage = Mathf.Max(0, damage - myStat.Defence);
         if (isTrueDamage) { realDamage = Mathf.Max(0, damage); }
         if (myStat.CurHp - realDamage <= 0)
@@ -118,7 +136,7 @@ public class Stat : MonoBehaviour
         {
             myStat.CurHp -= realDamage;
         }
-        myStat.gameObject.GetComponent<PhotonView>().RPC("SetHpRPC", RpcTarget.All, myStat.CurHp, myStat.MaxHp);
+        pv.RPC("SetHpRPC", RpcTarget.All, myStat.CurHp, myStat.MaxHp);
     }
 
     public virtual void TakeDamage(int damage, bool isTrueDamage = false)
