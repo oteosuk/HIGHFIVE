@@ -17,7 +17,8 @@ public class Flash : BaseSkill
         //나중에 데이터 매니저에서 받아오기
         skillData.skillName = _flashData.name;
         skillData.info = "커서 방향으로 챔피언이 짧은 거리를 순간이동 합니다.";
-        skillData.skillSprite = Main.ResourceManager.Load<Sprite>("Sprites/SkillIcon/Flash");
+        if (Main.GameManager.InGameObj.TryGetValue("Flash", out Object obj)) { skillData.skillSprite = obj as Sprite; }
+        else { skillData.skillSprite = Main.ResourceManager.Load<Sprite>("Sprites/SkillIcon/Flash"); ; }
         skillData.coolTime = _flashData.coolTime;
         skillData.curTime = skillData.coolTime;
         skillData.isUse = true;

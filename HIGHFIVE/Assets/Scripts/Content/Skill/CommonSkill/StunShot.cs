@@ -54,7 +54,7 @@ public class StunShot : BaseSkill
     private void InstantiateAfterLoad()
     {
         Character myCharacter = Main.GameManager.SpawnedCharacter;
-        Main.ResourceManager.Instantiate("Character/StunShot", myCharacter.transform.position, syncRequired: true);
+        Main.ResourceManager.Instantiate("SkillEffect/StunShot", myCharacter.transform.position, syncRequired: true);
     }
 
     private bool CheckRange()

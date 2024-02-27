@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Xml.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -10,6 +11,7 @@ public class SoundManager
     private AudioSource bgmPlayer;
     private List<AudioSource> sfxPlayer = new List<AudioSource>();
     private AudioMixer audioMixer;
+    public Dictionary<string, AudioClip> EffectDict { get; private set; } = new Dictionary<string, AudioClip>();
 
     public void SoundInit()
     {
@@ -31,26 +33,6 @@ public class SoundManager
         }
 
         PlayBGM("Battle_Normal_EW01_B", 0.1f);
-    }
-
-    public void SoundUpdate()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Main.SoundManager.PlaySFX("Click", 0.5f);
-        }
-    }
-
-    public void BGM()
-    {
-        if (SceneManager.GetActiveScene().name == "IntroScene")
-        { PlayBGM("Battle_Normal_EW01_B", 0.02f); }
-
-        else if (SceneManager.GetActiveScene().name == "SelectScene")
-        { PlayBGM("Battle_Normal_EW02", 0.02f); }
-
-        else if (SceneManager.GetActiveScene().name == "GameScene")
-        { PlayBGM("Battle_Boss_07", 0.02f); }
     }
 
     public void PlayBGM(string bgmName, float volume)
@@ -80,6 +62,12 @@ public class SoundManager
             }
         }
         //예외처리 필요, 10개보다 더 늘어날경우
+    }
+    public void PlayEffect(AudioSource source)
+    {
+        if (source.clip == null || source == null) return;
+        
+        source.PlayOneShot(source.clip);
     }
 
     // 음소거
