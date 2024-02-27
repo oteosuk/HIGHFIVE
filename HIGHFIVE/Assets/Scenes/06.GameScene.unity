@@ -629,7 +629,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4289
+    m_Bits: 14529
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 856c60299264923488a9ff0b392db822, type: 2}
   m_TargetDisplay: 0
@@ -5059,7 +5059,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 566929984}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Portal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5096,7 +5096,7 @@ GameObject:
   - component: {fileID: 595585434}
   - component: {fileID: 595585435}
   - component: {fileID: 595585436}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: RightButtom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10484,7 +10484,7 @@ GameObject:
   - component: {fileID: 825639511}
   - component: {fileID: 825639512}
   - component: {fileID: 825639513}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: LeftTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50187,7 +50187,7 @@ GameObject:
   - component: {fileID: 893221881}
   - component: {fileID: 893221882}
   - component: {fileID: 893221883}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: LeftButtom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79992,7 +79992,7 @@ GameObject:
   - component: {fileID: 1279393367}
   - component: {fileID: 1279393368}
   - component: {fileID: 1279393369}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: RightTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89329,6 +89329,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HealKit
+      objectReference: {fileID: 0}
+    - target: {fileID: 5941585092062439330, guid: 129decfee2b833843afc0d3d5fbda509,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7178580441043668922, guid: 129decfee2b833843afc0d3d5fbda509,
         type: 3}
@@ -114681,6 +114686,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HealKit
+      objectReference: {fileID: 0}
+    - target: {fileID: 5941585092062439330, guid: 129decfee2b833843afc0d3d5fbda509,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7178580441043668922, guid: 129decfee2b833843afc0d3d5fbda509,
         type: 3}
