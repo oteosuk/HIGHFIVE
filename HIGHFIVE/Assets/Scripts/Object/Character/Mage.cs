@@ -37,7 +37,7 @@ public class Mage : Character
             Main.ResourceManager.Instantiate("SkillEffect/MageWeapon", _tip.position, syncRequired: true);
             if (Main.GameManager.InGameObj.TryGetValue("MageAttack01", out Object obj)) { _audioSource.clip = obj as AudioClip; }
             else { _audioSource.clip = Main.ResourceManager.Load<AudioClip>("Sounds/SFX/InGame/MageAttack01"); }
-            GetComponent<PhotonView>().RPC("ShareEffectSound", RpcTarget.Others);
+            GetComponent<PhotonView>().RPC("ShareEffectSound", RpcTarget.Others, "MageAttack01");
             Main.SoundManager.PlayEffect(_audioSource);
         }
     }

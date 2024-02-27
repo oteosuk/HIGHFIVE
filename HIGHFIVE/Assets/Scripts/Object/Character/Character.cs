@@ -240,9 +240,13 @@ public class Character : Creature
     }
 
     [PunRPC]
-    public void ShareEffectSound()
+    public void ShareEffectSound(string clipName)
     {
         AudioSource audioSource = GetComponent<AudioSource>();
-        Main.SoundManager.PlayEffect(audioSource);
+        if (Main.GameManager.InGameObj.TryGetValue(clipName, out Object obj))
+        {
+            audioSource.clip = obj as AudioClip;
+            Main.SoundManager.PlayEffect(audioSource);
+        }
     }
 }
