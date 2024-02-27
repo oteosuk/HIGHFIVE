@@ -238,4 +238,11 @@ public class Character : Creature
             }
         }
     }
+
+    [PunRPC]
+    public void ShareEffectSound()
+    {
+        AudioSource audioSource = GetComponent<AudioSource>();
+        Main.SoundManager.PlayEffect(audioSource);
+    }
 }
