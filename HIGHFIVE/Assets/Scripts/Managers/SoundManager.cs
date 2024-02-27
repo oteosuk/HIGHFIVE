@@ -66,14 +66,12 @@ public class SoundManager
     {
         if (source.clip == null || source == null) return;
 
-        Debug.Log(effectVolume);
         source.volume = effectVolume;
         source.PlayOneShot(source.clip);
     }
 
     public void SetBGMVolume(float volume)
     {
-        Debug.Log(volume);
         bgmPlayer.volume = volume;
         bgmVolume = volume;
     }
