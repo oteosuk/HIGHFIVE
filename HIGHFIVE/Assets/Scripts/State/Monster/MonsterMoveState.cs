@@ -35,6 +35,7 @@ public class MonsterMoveState : MonsterBaseState
         float distance = (_monsterStateMachine._monster.targetObject.transform.position - _monsterStateMachine._monster.transform.position).magnitude;
             if (distance <= _monsterStateMachine._monster.stat.AttackRange)
             {
+                //Debug.Log(distance);
                 _monsterStateMachine.ChangeState(_monsterStateMachine._monsterAttackState);
             }
             else
