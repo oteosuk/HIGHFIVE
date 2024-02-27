@@ -8,13 +8,13 @@ public class Item : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            //shooter의 정보
+            Debug.Log("힐킷 충돌");
             collision.gameObject.GetComponent<Stat>()?.Heal(100);
-            PhotonNetwork.Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 }
