@@ -1574,6 +1574,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: OptionGroup
       objectReference: {fileID: 0}
+    - target: {fileID: 728677018077786067, guid: f718d6680f5e2a247b740b9d0b04a775,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1969055153799103825, guid: f718d6680f5e2a247b740b9d0b04a775,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5820664364764015099, guid: f718d6680f5e2a247b740b9d0b04a775,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6580042877929852136, guid: f718d6680f5e2a247b740b9d0b04a775,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8918496458419626970, guid: f718d6680f5e2a247b740b9d0b04a775,
         type: 3}
       propertyPath: m_Pivot.x
