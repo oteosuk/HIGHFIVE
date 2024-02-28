@@ -19,7 +19,7 @@ public class StunShot : BaseSkill
         }
         //나중에 데이터 매니저에서 받아오기
         skillData.skillName = _stunShotSkillData.name;
-        skillData.info = "해당 챔피언에게 투사체를 던지고 투사체에 맞은 챔피언은 기절하게 됩니다.";
+        skillData.info = "적에게 투사체를 던져 짧은 시간동안 기절시킨다.";
         if (Main.GameManager.InGameObj.TryGetValue("StunShot", out Object obj)) { skillData.skillSprite = obj as Sprite; }
         else { skillData.skillSprite = Main.ResourceManager.Load<Sprite>("Sprites/SkillIcon/StunShot"); }
 

@@ -18,8 +18,8 @@ public class FireBall : BaseSkill
         }
         //나중에 데이터 매니저에서 받아오기
         skillData.skillName = _fireBallData.name;
-        skillData.info = $"스킬 사용 시 커서 방향으로 구체를 날리고 해당 구체에 맞은 적은 " +
-            $"{_fireBallData.damage + (int)(Main.GameManager.SpawnedCharacter.stat.Attack * _fireBallData.damageRatio)}만큼의 피해를 입힌다";
+        skillData.info = $"커서 방향으로 화염포를 날려 적에게 " +
+            $"{_fireBallData.damage + (int)(Main.GameManager.SpawnedCharacter.stat.Attack * _fireBallData.damageRatio)}만큼의 피해를 입힌다.";
         if (Main.GameManager.InGameObj.TryGetValue("FireBall", out Object obj)) { skillData.skillSprite = obj as Sprite; }
         else { skillData.skillSprite = Main.ResourceManager.Load<Sprite>("Sprites/SkillIcon/FireBall"); }
 

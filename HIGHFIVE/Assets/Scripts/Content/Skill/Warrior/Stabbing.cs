@@ -24,7 +24,7 @@ public class Stabbing : BaseSkill
         }
         //나중에 데이터 매니저에서 받아오기
         skillData.info = $"자신의 이동속도가 {_stabbingBuffData.effectTime}초 동안 {_stabbingBuffData.moveSpd}증가하고" +
-            $"{_stabbingBuffData.durationTime}초 동안 {_stabbingBuffData.damage + Main.GameManager.SpawnedCharacter.stat.Attack}데미지만큼 평타 강화가 된다";
+            $"{_stabbingBuffData.durationTime}초 동안 {_stabbingBuffData.damage + Main.GameManager.SpawnedCharacter.stat.Attack}만큼 기본공격이 강화된다.";
         if (Main.GameManager.InGameObj.TryGetValue("Berserk", out Object obj)) { skillData.skillSprite = obj as Sprite; }
         else { skillData.skillSprite = Main.ResourceManager.Load<Sprite>("Sprites/SkillIcon/Berserk"); }
         skillData.coolTime = _stabbingData.coolTime;
@@ -51,15 +51,15 @@ public class Stabbing : BaseSkill
         myCharacter.Animator.SetBool(myCharacter.PlayerAnimationData.SkillDelayTimeHash, true);
         myCharacter.SkillController.CallSkillDelay(myCharacter.CharacterSkill.FirstSkill.skillData);
 
-        if (Main.GameManager.InGameObj.TryGetValue("WarriorQ", out Object obj)) { myCharacter.AudioSource.clip = obj as AudioClip; }
-        else { myCharacter.AudioSource.clip = Main.ResourceManager.Load<AudioClip>("Sounds/SFX/InGame/WarriorQ"); }
-        myCharacter.GetComponent<PhotonView>().RPC("ShareEffectSound", RpcTarget.Others, "WarriorQ");
+        if (Main.GameManager.InGameObj.TryGetValue("WarriorQ04", out Object obj)) { myCharacter.AudioSource.clip = obj as AudioClip; }
+        else { myCharacter.AudioSource.clip = Main.ResourceManager.Load<AudioClip>("Sounds/SFX/InGame/WarriorQ04"); }
+        myCharacter.GetComponent<PhotonView>().RPC("ShareEffectSound", RpcTarget.Others, "WarriorQ04");
         Main.SoundManager.PlayEffect(myCharacter.AudioSource);
     }
 
     public override void RenewalInfo()
     {
-        skillData.info = $"자신의 이동속도가 {_stabbingBuffData.effectTime}초 동안 {_stabbingBuffData.moveSpd}증가하고" +
+        skillData.info = $"자신의 이동속도가 {_stabbingBuffData.effectTime}초 동안 {_stabbingBuffData.moveSpd}증가하고" + 
             $"{_stabbingBuffData.durationTime}초 동안 {_stabbingBuffData.damage + Main.GameManager.SpawnedCharacter.stat.Attack}데미지만큼 평타 강화가 된다";
     }
 }
