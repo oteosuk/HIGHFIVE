@@ -12,13 +12,15 @@ public class PlayerReadyController : UIBase
     }
     private enum GameObjects
     {
-        PlayerListContent
+        PlayerListContent,
+        ConnectingPanel
     }
 
     private Button _readyBtn;
     private bool _isReady = false;
     private bool _isClicked;
     private GameObject _playerListContent;
+    private GameObject _connectingPanel;
     private void Start()
     {
         Bind<Button>(typeof(Buttons),true);
@@ -26,6 +28,7 @@ public class PlayerReadyController : UIBase
 
         _playerListContent = Get<GameObject>((int)GameObjects.PlayerListContent);
         _readyBtn = Get<Button>((int)Buttons.ReadyBtn);
+        _connectingPanel = Get<GameObject>((int)GameObjects.ConnectingPanel);
         _isClicked = false;
 
         AddUIEvent(_readyBtn.gameObject, Define.UIEvent.Click, OnStartOrReadyButtonClicked);
@@ -50,6 +53,7 @@ public class PlayerReadyController : UIBase
             {
                 PhotonNetwork.CurrentRoom.IsOpen = false;
                 PhotonNetwork.CurrentRoom.IsVisible = false;
+                _connectingPanel.SetActive(true);
                 PhotonNetwork.LoadLevel((int)Define.Scene.SelectScene);
                 _isClicked = true;
             }
