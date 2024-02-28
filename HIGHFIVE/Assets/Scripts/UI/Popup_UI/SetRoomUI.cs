@@ -16,13 +16,15 @@ public class SetRoomUI : UIBase
     private enum GameObjects
     {
         SetTitleField,
-        SetNumberDropdown
+        SetNumberDropdown,
+        ConnectingPanel
     }
 
     private Button _exitButton;
     private Button _recongnizeButton;
     private GameObject _roomtitleField;
     private GameObject _roomNumberDropdown;
+    private GameObject _connectingPanel;
     private int _roomNumber = 2;
     private bool isClicked;
 
@@ -35,6 +37,7 @@ public class SetRoomUI : UIBase
         _recongnizeButton = Get<Button>((int)Buttons.RecognizeBtn);
         _roomtitleField = Get<GameObject>((int)GameObjects.SetTitleField);
         _roomNumberDropdown = Get<GameObject>((int)GameObjects.SetNumberDropdown);
+        _connectingPanel = Get<GameObject>((int)GameObjects.ConnectingPanel);
         isClicked = false;
 
         AddUIEvent(_recongnizeButton.gameObject, Define.UIEvent.Click, OnRecognizeButtonClicked);
@@ -75,7 +78,7 @@ public class SetRoomUI : UIBase
         }
         else
         {
-            Main.UIManager.CloseCurrentPopup(gameObject);
+            _connectingPanel.SetActive(true);
         }
         
         Main.NetworkManager.photonRoomDict.Clear();

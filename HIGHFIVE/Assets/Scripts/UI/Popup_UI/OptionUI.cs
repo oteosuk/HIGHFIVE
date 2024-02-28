@@ -66,6 +66,10 @@ public class OptionUI : UIBase
         AddUIEvent(_ruleInfoExitBtn.gameObject, Define.UIEvent.Click, OninfoExitBtnClicked);
         AddUIEvent(_keyInfoExitBtn.gameObject, Define.UIEvent.Click, OninfoExitBtnClicked);
         AddUIEvent(_settingInfoExitBtn.gameObject, Define.UIEvent.Click, OninfoExitBtnClicked);
+
+        AddUIEvent(_rullInfoPanel.gameObject, Define.UIEvent.Click, OninfoExitBtnClicked);
+        AddUIEvent(_keyInfoPanel.gameObject, Define.UIEvent.Click, OninfoExitBtnClicked);
+        AddUIEvent(_settingPanel.gameObject, Define.UIEvent.Click, OninfoExitBtnClicked);
     }
     private void OninfoExitBtnClicked(PointerEventData pointerEventData)
     {
