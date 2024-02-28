@@ -64,7 +64,7 @@ public class Util
         alertGroup.Find("AlertMessage").GetComponent<TMP_Text>().text = alertMessage;
         alertGroup.Find("RecognizeBtn").GetComponent<Button>().onClick.AddListener(() =>
         {
-            Main.UIManager.CloseCurrentPopup(alertBlock);
+            Main.UIManager.CloseCurrentPopup();
         });
         Main.UIManager.OpenPopup(alertBlock);
     }

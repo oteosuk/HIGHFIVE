@@ -14,6 +14,7 @@ public class BaseScene : MonoBehaviourPunCallbacks
     protected virtual void Init() //씬 공통적으로 실행해야하는 부분
     {
         Main.DataManager.DataInit();
+        Main.UIManager.popUpStack.Clear();
     }
 
     protected virtual void SetLayer(int layer)

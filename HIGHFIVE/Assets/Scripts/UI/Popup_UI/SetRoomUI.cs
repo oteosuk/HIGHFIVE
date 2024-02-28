@@ -78,7 +78,9 @@ public class SetRoomUI : UIBase
         }
         else
         {
+            Main.UIManager.isLoading = true;
             _connectingPanel.SetActive(true);
+            //Main.UIManager.CloseCurrentPopup(gameObject);
         }
         
         Main.NetworkManager.photonRoomDict.Clear();
@@ -86,7 +88,7 @@ public class SetRoomUI : UIBase
 
     private void OnExitButtonClicked(PointerEventData pointerEventData)
     {
-        Main.UIManager.CloseCurrentPopup(gameObject);
+        Main.UIManager.CloseCurrentPopup();
     }
 
     //하드코딩

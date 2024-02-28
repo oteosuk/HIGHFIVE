@@ -40,7 +40,6 @@ public class LobbyScene_UI : UIBase
         _setRoomBlock = Get<GameObject>((int)GameObjects.SetRoomBlock);
         _connectingPanel = Get<GameObject>((int)GameObjects.ConnectingPanel);
 
-
         AddUIEvent(_createRoomBtn.gameObject, Define.UIEvent.Click, OnCreateRoomButtonClicked);
     }
 

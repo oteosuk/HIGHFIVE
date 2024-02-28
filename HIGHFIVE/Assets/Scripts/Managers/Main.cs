@@ -34,7 +34,10 @@ public class Main : MonoBehaviour
     {
         MainInit();
     }
-
+    private void Update()
+    {
+        UIManager.UIUpdate();
+    }
     private static void MainInit()
     {
         if (s_instance == null)
@@ -57,5 +60,5 @@ public class Main : MonoBehaviour
         _poolManager.PoolInit();
         _gameManager.GameInit();
         _soundManager.SoundInit();
-    }
+    } 
 }
