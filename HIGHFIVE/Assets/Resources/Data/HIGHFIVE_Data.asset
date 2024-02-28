@@ -17,7 +17,7 @@ MonoBehaviour:
     info: "\" \uB2E4 \uC9D3\uC774\uACA8\uC8FC\uB9C8! \""
     atk: 22
     def: 4
-    atkRange: 1
+    atkRange: 1.5
     atkSpeed: 1
     movSpeed: 4
     maxHp: 400
@@ -28,7 +28,7 @@ MonoBehaviour:
     info: "\" \uB530\uB77C\uC62C\uD14C\uBA74 \uB530\uB77C\uC640\uBD10 \""
     atk: 20
     def: 2
-    atkRange: 1
+    atkRange: 1.5
     atkSpeed: 1.3
     movSpeed: 4.5
     maxHp: 350
