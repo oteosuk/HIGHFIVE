@@ -23,6 +23,8 @@ public class AssassinationBuff : BaseBuff
         buffData.effectTime = 0;
         buffData.trueDamage = _assassinationBuffData.trueDamage + Main.GameManager.SpawnedCharacter.stat.Attack;
         buffData.isSustainBuff = _assassinationBuffData.isSustain;
+        buffData.buffName = "출혈";
+        buffData.info = $"2초간 출혈 데미지가 일어납니다";
     }
 
     public override void Activation() { }   
@@ -43,5 +45,10 @@ public class AssassinationBuff : BaseBuff
             yield return new WaitForSeconds(1f);
         }
         buffData.effectTime = 0;
+    }
+
+    public override void RenewalInfo()
+    {
+        buffData.info = $"2초간 출혈 데미지가 일어납니다";
     }
 }

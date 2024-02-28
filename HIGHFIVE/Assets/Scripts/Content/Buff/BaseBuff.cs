@@ -14,6 +14,8 @@ public struct BuffData
     public bool isSustainBuff;
     public Image coolTimeicon;
     public Sprite buffSprite;
+    public string buffName;
+    public string info;
 }
 
 public abstract class BaseBuff
@@ -30,4 +32,5 @@ public abstract class BaseBuff
     public abstract void Activation();
 
     public abstract void Deactivation();
+    public abstract void RenewalInfo();
 }

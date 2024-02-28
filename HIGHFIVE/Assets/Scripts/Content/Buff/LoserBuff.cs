@@ -16,6 +16,9 @@ public class LoserBuff : BaseBuff
         buffData.duration = _loserBuffData.durationTime;
         buffData.curTime = 0;
         buffData.isSustainBuff = _loserBuffData.isSustain;
+        buffData.buffName = "패자의 분노";
+        buffData.info = $"배틀에서 진 자에게 ATK {_loserBuffData.atk} DEF {_loserBuffData.def} " +
+            $"ATS {_loserBuffData.atkSpd} 를 부여합니다";
     }
 
     public override void Activation()
@@ -30,5 +33,11 @@ public class LoserBuff : BaseBuff
         myCharacter.stat.Attack -= _loserBuffData.atk;
         myCharacter.stat.Defence -= _loserBuffData.def;
         myCharacter.stat.AttackSpeed -= _loserBuffData.atkSpd;
+    }
+
+    public override void RenewalInfo()
+    {
+        buffData.info = $"배틀에서 진 자에게 ATK {_loserBuffData.atk} DEF {_loserBuffData.def} " +
+            $"ATS {_loserBuffData.atkSpd} 를 부여합니다";
     }
 }

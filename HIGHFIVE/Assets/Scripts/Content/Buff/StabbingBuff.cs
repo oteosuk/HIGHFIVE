@@ -22,6 +22,9 @@ public class StabbingBuff : BaseBuff
         buffData.damage = _stabbingBuffData.damage + myCharacter.stat.Attack;
         buffData.effectTime = _stabbingBuffData.effectTime;
         buffData.isSustainBuff = _stabbingBuffData.isSustain;
+        buffData.buffName = "광폭화";
+        buffData.info = $"자신의 이동속도가 {_stabbingBuffData.effectTime}초 동안 {_stabbingBuffData.moveSpd}증가하고" +
+            $"{_stabbingBuffData.durationTime}초 동안 {_stabbingBuffData.damage + Main.GameManager.SpawnedCharacter.stat.Attack}데미지만큼 평타 강화가 된다";
     }
     public override IEnumerator ApplyEffect(GameObject target, GameObject shooter = null)
     {
@@ -41,4 +44,9 @@ public class StabbingBuff : BaseBuff
     }
 
     public override void Deactivation() { }
+    public override void RenewalInfo()
+    {
+        buffData.info = $"자신의 이동속도가 {_stabbingBuffData.effectTime}초 동안 {_stabbingBuffData.moveSpd}증가하고" +
+            $"{_stabbingBuffData.durationTime}초 동안 {_stabbingBuffData.damage + Main.GameManager.SpawnedCharacter.stat.Attack}데미지만큼 평타 강화가 된다";
+    }
 }

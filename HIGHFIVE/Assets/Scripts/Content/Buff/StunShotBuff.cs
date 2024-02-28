@@ -20,6 +20,8 @@ public class StunShotBuff : BaseBuff
         buffData.curTime = 0;
         buffData.effectTime = 0;
         buffData.isSustainBuff = _stunShotBuffData.isSustain;
+        buffData.buffName = "혼절";
+        buffData.info = $"{_stunShotBuffData.durationTime}동안 기절 상태가 됩니다.";
     }
 
     public override void Activation() 
@@ -45,5 +47,10 @@ public class StunShotBuff : BaseBuff
             target.GetComponent<Character>()._playerStateMachine.ChangeState(target.GetComponent<Character>()._playerStateMachine._playerIdleState);
         }
         buffData.effectTime = 0;
+    }
+
+    public override void RenewalInfo()
+    {
+        buffData.info = $"{_stunShotBuffData.durationTime}동안 기절 상태가 됩니다.";
     }
 }
