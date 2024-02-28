@@ -71,7 +71,7 @@ public class OptionUI : UIBase
         Main.UIManager.CloseCurrentPopup();
     }
 
-private void OninfoBtnClicked(PointerEventData pointerEventData)
+    private void OninfoBtnClicked(PointerEventData pointerEventData)
     {
         switch(pointerEventData.selectedObject.name)
         {
