@@ -57,9 +57,9 @@ public class StunShot : BaseSkill
         Character myCharacter = Main.GameManager.SpawnedCharacter;
         Main.ResourceManager.Instantiate("SkillEffect/StunShot", myCharacter.transform.position, syncRequired: true);
 
-        if (Main.GameManager.InGameObj.TryGetValue("Trap", out Object obj)) { myCharacter.AudioSource.clip = obj as AudioClip; }
-        else { myCharacter.AudioSource.clip = Main.ResourceManager.Load<AudioClip>("Sounds/SFX/InGame/Trap"); }
-        myCharacter.GetComponent<PhotonView>().RPC("ShareEffectSound", RpcTarget.Others, "Trap");
+        if (Main.GameManager.InGameObj.TryGetValue("StunShot", out Object obj)) { myCharacter.AudioSource.clip = obj as AudioClip; }
+        else { myCharacter.AudioSource.clip = Main.ResourceManager.Load<AudioClip>("Sounds/SFX/InGame/StunShot"); }
+        myCharacter.GetComponent<PhotonView>().RPC("ShareEffectSound", RpcTarget.Others, "StunShot");
         Main.SoundManager.PlayEffect(myCharacter.AudioSource);
     }
 

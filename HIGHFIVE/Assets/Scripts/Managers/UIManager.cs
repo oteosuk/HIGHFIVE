@@ -15,7 +15,6 @@ public class UIManager
     {
         popUpStack.Push(go);
         go.SetActive(true);
-        Debug.Log("dd");
         // 트윈을 순차적으로 실행할 수 있는 시퀀스를 만든다. 
         var set = DOTween.Sequence();
 
@@ -61,7 +60,7 @@ public class UIManager
 
    public void UIUpdate()
     {
-        if (Keyboard.current.escapeKey.wasPressedThisFrame && !isLoading)
+        if (Keyboard.current.backquoteKey.wasPressedThisFrame && !isLoading)
         {
             CloseCurrentPopup();
         }

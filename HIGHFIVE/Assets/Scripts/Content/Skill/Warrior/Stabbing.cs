@@ -51,9 +51,9 @@ public class Stabbing : BaseSkill
         myCharacter.Animator.SetBool(myCharacter.PlayerAnimationData.SkillDelayTimeHash, true);
         myCharacter.SkillController.CallSkillDelay(myCharacter.CharacterSkill.FirstSkill.skillData);
 
-        if (Main.GameManager.InGameObj.TryGetValue("WarriorQ04", out Object obj)) { myCharacter.AudioSource.clip = obj as AudioClip; }
-        else { myCharacter.AudioSource.clip = Main.ResourceManager.Load<AudioClip>("Sounds/SFX/InGame/WarriorQ04"); }
-        myCharacter.GetComponent<PhotonView>().RPC("ShareEffectSound", RpcTarget.Others, "WarriorQ04");
+        if (Main.GameManager.InGameObj.TryGetValue("WarriorQ", out Object obj)) { myCharacter.AudioSource.clip = obj as AudioClip; }
+        else { myCharacter.AudioSource.clip = Main.ResourceManager.Load<AudioClip>("Sounds/SFX/InGame/WarriorQ"); }
+        myCharacter.GetComponent<PhotonView>().RPC("ShareEffectSound", RpcTarget.Others, "WarriorQ");
         Main.SoundManager.PlayEffect(myCharacter.AudioSource);
     }
 

@@ -11,6 +11,7 @@ public class GameManager
     private Texture2D _normalTexture;
     public Define.Page page;
     public bool isBattleEnd;
+    public bool isAutoAttack;
 
 
 
