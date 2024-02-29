@@ -28,8 +28,8 @@ public class HealKit : Item
                 myCharacter.GetComponent<PhotonView>().RPC("ShareEffectSound", RpcTarget.Others, "HealPack");
 
                 collision.gameObject.GetComponent<Stat>()?.Heal(_healAmount);
-                if (spawner != null) spawner.healRespawn(gameObject);
             }
+            if (spawner != null) spawner.healRespawn(gameObject);
         }
     }
 }
