@@ -19,14 +19,16 @@ public class HealKit : Item
         if (collision.gameObject.tag == "Player")
         {
             Character myCharacter = Main.GameManager.SpawnedCharacter;
-            if (Main.GameManager.InGameObj.TryGetValue("HealPack", out Object obj)) { myCharacter.AudioSource.clip = obj as AudioClip; }
-            else { myCharacter.AudioSource.clip = Main.ResourceManager.Load<AudioClip>("Sounds/SFX/InGame/HealPack"); }
+            if (myCharacter.GetComponent<PhotonView>().IsMine)
+            {
+                if (Main.GameManager.InGameObj.TryGetValue("HealPack", out Object obj)) { myCharacter.AudioSource.clip = obj as AudioClip; }
+                else { myCharacter.AudioSource.clip = Main.ResourceManager.Load<AudioClip>("Sounds/SFX/InGame/HealPack"); }
+                Main.SoundManager.PlayEffect(myCharacter.AudioSource);
+                myCharacter.GetComponent<PhotonView>().RPC("ShareEffectSound", RpcTarget.Others, "HealPack");
 
-            //myCharacter.GetComponent<PhotonView>().RPC("ShareEffectSound", RpcTarget.Others, "MageQ");
-            Main.SoundManager.PlayEffect(myCharacter.AudioSource);
-
-            collision.gameObject.GetComponent<Stat>()?.Heal(_healAmount);
-            if (spawner != null) spawner.healRespawn(gameObject);
+                collision.gameObject.GetComponent<Stat>()?.Heal(_healAmount);
+                if (spawner != null) spawner.healRespawn(gameObject);
+            }
         }
     }
 }
