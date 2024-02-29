@@ -28,7 +28,7 @@ public class LoadingAnimation : MonoBehaviour
         Berserk,
         FireBall,
         FlashSprite,
-        StunShot
+        StunShotSprite
     }
 
     enum BuffIcon

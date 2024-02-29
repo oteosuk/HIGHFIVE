@@ -20,8 +20,8 @@ public class StunShot : BaseSkill
         //나중에 데이터 매니저에서 받아오기
         skillData.skillName = _stunShotSkillData.name;
         skillData.info = "적에게 투사체를 던져 짧은 시간동안 기절시킨다.";
-        if (Main.GameManager.InGameObj.TryGetValue("StunShot", out Object obj)) { skillData.skillSprite = obj as Sprite; }
-        else { skillData.skillSprite = Main.ResourceManager.Load<Sprite>("Sprites/SkillIcon/StunShot"); }
+        if (Main.GameManager.InGameObj.TryGetValue("StunShotSprite", out Object obj)) { skillData.skillSprite = obj as Sprite; }
+        else { skillData.skillSprite = Main.ResourceManager.Load<Sprite>("Sprites/SkillIcon/StunShotSprite"); }
 
         skillData.coolTime = _stunShotSkillData.coolTime;
         skillData.curTime = skillData.coolTime;
