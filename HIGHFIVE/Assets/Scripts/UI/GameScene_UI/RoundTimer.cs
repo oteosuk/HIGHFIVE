@@ -21,16 +21,17 @@ public class RoundTimer : MonoBehaviour
     [SerializeField] TMP_Text TeamBlueScore;
     [SerializeField] GameObject warningTxt;
 
-    int battleTimer = 10;
-    int farmingTimer = 30;
+    // 안내판 시간 위치
+    int battleMessageTime = 10;
+    int farmingMessageTime = 30;
 
     private RoundLogic roundLogic;
     private PhotonView _pv;
 
     private void Start()
     {
-        battleTime = 10;
-        farmingTime = 10;
+        battleTime = 40;
+        farmingTime = 120;
         roundLogic = GetComponent<RoundLogic>();
         _gameFieldController = GetComponent<GameFieldController>();
         warningText = warningTxt.GetComponentInChildren<TMP_Text>();
@@ -75,7 +76,7 @@ public class RoundTimer : MonoBehaviour
         while (curTime > 0)
         {
             curTime -= 1;
-            WarningMessage(curTime, "배틀", farmingTimer);
+            WarningMessage(curTime, "배틀", farmingMessageTime);
             _pv.RPC("SyncTime", RpcTarget.All, curTime);
             yield return new WaitForSeconds(1);
         }
@@ -90,7 +91,7 @@ public class RoundTimer : MonoBehaviour
         while (curTime > 0)
         {
             curTime -= 1;
-            WarningMessage(curTime, "파밍", battleTimer);
+            WarningMessage(curTime, "파밍", battleMessageTime);
             if (curTime < battleTime - 3 && CheckPlayerObjDie())
             {
                 yield return new WaitForSeconds(2);
