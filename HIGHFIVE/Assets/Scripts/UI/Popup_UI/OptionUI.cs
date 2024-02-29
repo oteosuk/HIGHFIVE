@@ -52,10 +52,6 @@ public class OptionUI : UIBase
         _keyInfoPanel = Get<GameObject>((int)GameObjects.KeyInfoBackPanel);
         _rullInfoPanel = Get<GameObject>((int)GameObjects.RuleInfoBackPanel);
         _settingPanel = Get<GameObject>((int)GameObjects.SettingBackPanel);
-        if (Main.SceneManagerEx.CurrentScene == Define.Scene.GameScene)
-        {
-            Main.UIManager.OpenPopup(_keyInfoPanel);
-        }
 
         AddUIEvent(_ruleInfoBtn.gameObject, Define.UIEvent.Click, OninfoBtnClicked);
         AddUIEvent(_keyInfoBtn.gameObject, Define.UIEvent.Click, OninfoBtnClicked);

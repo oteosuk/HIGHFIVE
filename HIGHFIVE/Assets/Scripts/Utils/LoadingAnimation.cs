@@ -31,6 +31,14 @@ public class LoadingAnimation : MonoBehaviour
         StunShot
     }
 
+    enum BuffIcon
+    {
+        Blue,
+        Elite,
+        LoserAnger,
+        Red
+    }
+
     public Image loadingBar;
     public TMP_Text loadingTxt;
 
@@ -40,6 +48,7 @@ public class LoadingAnimation : MonoBehaviour
 
     private int sounds = System.Enum.GetValues(typeof(Sounds)).Length;
     private int skillSprite = System.Enum.GetValues(typeof(SkillSprite)).Length;
+    private int buffIcon = System.Enum.GetValues(typeof(BuffIcon)).Length;
 
 
     void Start()
@@ -74,7 +83,7 @@ public class LoadingAnimation : MonoBehaviour
     private IEnumerator LoadFile()
     {
         // 전체 구하기
-        totalCount = skillSprite + sounds ;
+        totalCount = buffIcon + skillSprite + sounds ;
 
         for (int i = 0; i < skillSprite; i++)
         {
@@ -83,6 +92,11 @@ public class LoadingAnimation : MonoBehaviour
         for (int i = 0; i < sounds; i++)
         {
             yield return LoadPrefabAsync<AudioClip>("Sounds/SFX/InGame/" + (Sounds)i);
+        }
+        for(int i = 0; i < buffIcon; i++)
+        {
+            yield return LoadPrefabAsync<Sprite>("Sprites/BuffIcon/" + (BuffIcon)i);
+
         }
     }
 
