@@ -18,8 +18,9 @@ public class HealKit : Item
     {
         if (collision.gameObject.tag == "Player")
         {
-            Character myCharacter = Main.GameManager.SpawnedCharacter;
-            if (myCharacter.GetComponent<PhotonView>().IsMine)
+            Character myCharacter = collision.gameObject.GetComponent<Character>();
+            PhotonView pv = myCharacter.GetComponent<PhotonView>();
+            if (pv.IsMine)
             {
                 if (Main.GameManager.InGameObj.TryGetValue("HealPack", out Object obj)) { myCharacter.AudioSource.clip = obj as AudioClip; }
                 else { myCharacter.AudioSource.clip = Main.ResourceManager.Load<AudioClip>("Sounds/SFX/InGame/HealPack"); }
