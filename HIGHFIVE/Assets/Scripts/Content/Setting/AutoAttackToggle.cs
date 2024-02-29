@@ -8,6 +8,7 @@ public class AutoAttackToggle : MonoBehaviour
     [SerializeField] Toggle autoAttackToggle;
     private void Start()
     {
+        autoAttackToggle.isOn = Main.GameManager.isAutoAttack;
         autoAttackToggle.onValueChanged.AddListener(ToggleAutoAttack);
     }
 

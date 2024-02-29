@@ -18,6 +18,7 @@ public class GameScene : BaseScene
     private GameObject _blueCamp;
     private CameraController _cameraController;
     private GameObject characterObj;
+    [SerializeField] GameObject _keyInfoPanel;
     protected override void Init()
     {
         base.Init();
@@ -27,6 +28,8 @@ public class GameScene : BaseScene
         Vector2 position = Main.GameManager.SelectedCamp == Define.Camp.Red ? _redCamp.transform.position : _blueCamp.transform.position;
         Main.GameManager.CharacterSpawnPos = position;
         string selectClass;
+
+        Main.UIManager.OpenPopup(_keyInfoPanel);
 
         if (_classMapping.TryGetValue(Main.GameManager.SelectedCharacter, out selectClass))
         {

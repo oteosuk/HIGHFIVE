@@ -51,7 +51,7 @@ public class CharacterStat : Stat
             {
                 myStat.CurHp = myStat.MaxHp;
             }
-            else { myStat.CurHp += (int)((myStat.MaxHp / 1) * 0.3); }
+            else { myStat.CurHp += (int)((myStat.MaxHp / 1) * 0.2); }
             PhotonView pv = myStat.gameObject.GetComponent<PhotonView>();
             pv.RPC("SyncLevel", RpcTarget.All, myStat.Level, pv.ViewID);
             pv.RPC("SetHpRPC", RpcTarget.All, myStat.CurHp, myStat.MaxHp);
