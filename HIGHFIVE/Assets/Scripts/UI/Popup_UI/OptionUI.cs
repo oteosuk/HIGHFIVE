@@ -73,7 +73,7 @@ public class OptionUI : UIBase
 
     private void OninfoBtnClicked(PointerEventData pointerEventData)
     {
-        switch(pointerEventData.selectedObject.name)
+        switch(pointerEventData.selectedObject?.name)
         {
             case "RuleInfoBtn":
                 Main.UIManager.OpenPopup(_rullInfoPanel);

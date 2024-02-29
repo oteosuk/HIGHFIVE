@@ -35,6 +35,10 @@ public class PlayerIdleState : PlayerBaseState
     {
         base.StateUpdate();
 
+        if (Main.GameManager.isAutoAttack)
+        {
+            AutoAttack();
+        }
         if (_playerStateMachine.moveInput != (Vector2)_playerStateMachine._player.transform.position)
         {
             OnMove();
@@ -46,5 +50,63 @@ public class PlayerIdleState : PlayerBaseState
     {
         base.OnMove();
         _playerStateMachine.ChangeState(_playerStateMachine._playerMoveState);
+    }
+
+    private void AutoAttack()
+    {
+        GameObject searchedObj = SearchObjInSight();
+        if (searchedObj != null)
+        {
+            Character myCharacter = _playerStateMachine._player;
+            float distance = (searchedObj.transform.position - myCharacter.transform.position).magnitude;
+
+            if (myCharacter.stat.AttackRange > distance)
+            {
+                _playerStateMachine.ChangeState(_playerStateMachine._playerAttackState);
+            }
+            else
+            {
+                _playerStateMachine.ChangeState(_playerStateMachine._playerMoveState);
+            }
+        }
+    }
+
+    private GameObject FindClosestObj(Vector2 origin, Collider2D[] colliders)
+    {
+        float closestDistance = Mathf.Infinity;
+        Collider2D closestCollider = null;
+
+        foreach (Collider2D collider in colliders)
+        {
+            float distance = Vector2.Distance(origin, collider.transform.position);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                closestCollider = collider;
+            }
+        }
+
+        return closestCollider.gameObject;
+    }
+
+    private GameObject SearchObjInSight()
+    {
+        int monsterMask = LayerMask.GetMask("Monster");
+        int enemyMask = Main.GameManager.SelectedCamp == Define.Camp.Red ? LayerMask.GetMask("Blue") : LayerMask.GetMask("Red");
+
+        Vector2 playerPos = _playerStateMachine._player.transform.position;
+        float playerSightRange = _playerStateMachine._player.stat.SightRange;
+
+        Collider2D[] monsterColliders = Physics2D.OverlapCircleAll(playerPos, playerSightRange, monsterMask);
+        Collider2D[] enemyColliders = Physics2D.OverlapCircleAll(playerPos, playerSightRange, enemyMask);
+
+        if (enemyColliders.Length != 0 || monsterColliders.Length != 0)
+        {
+            GameObject targetObj = FindClosestObj(playerPos, enemyColliders.Length != 0 ? enemyColliders : monsterColliders);
+            _playerStateMachine._player.targetObject = targetObj;
+            return targetObj;
+        }
+
+        return null;
     }
 }

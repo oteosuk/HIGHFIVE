@@ -2061,9 +2061,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 30
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -2317,7 +2317,6 @@ GameObject:
   - component: {fileID: 3029054342436881764}
   - component: {fileID: 6913878321568246}
   - component: {fileID: 4267410153626354203}
-  - component: {fileID: 5321236765929215046}
   m_Layer: 0
   m_Name: UnitRoot
   m_TagString: Untagged
@@ -2420,18 +2419,6 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 1
     LayerIndex: 0
---- !u!114 &5321236765929215046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5638334001813272238}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f3272f641a31e443b14329fb28c6a09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5715761017111064986
 GameObject:
   m_ObjectHideFlags: 0

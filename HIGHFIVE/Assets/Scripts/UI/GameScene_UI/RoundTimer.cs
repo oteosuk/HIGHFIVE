@@ -91,9 +91,8 @@ public class RoundTimer : MonoBehaviour
         {
             curTime -= 1;
             WarningMessage(curTime, "파밍", battleTimer);
-            if (curTime < battleTime - 5 && CheckPlayerObjDie())
+            if (curTime < battleTime - 3 && CheckPlayerObjDie())
             {
-                warningTxt.SetActive(false);
                 yield return new WaitForSeconds(2);
                 break;
             }
@@ -158,11 +157,15 @@ public class RoundTimer : MonoBehaviour
             warningTxt.SetActive(true);
             warningText.text = $"{turn} 페이즈 까지 {warningTimer}초 남았습니다. 곧 시작합니다!";
             _pv.RPC("SyncAlarm", RpcTarget.Others, warningText.text, true);
+
+            StartCoroutine(CloseWarningAlarm());
         }
-        if (warningTimer == turnTime - 3)
-        {
-            warningTxt.SetActive(false);
-            _pv.RPC("SyncAlarm", RpcTarget.Others, "", false);
-        }
+    }
+    private IEnumerator CloseWarningAlarm()
+    {
+        yield return new WaitForSeconds(3);
+
+        warningTxt.SetActive(false);
+        _pv.RPC("SyncAlarm", RpcTarget.Others, "", false);
     }
 }

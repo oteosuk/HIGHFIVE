@@ -18,7 +18,7 @@ public class LoadingAnimation : MonoBehaviour
         MageQ,
         RogueAttack01,
         RogueQ,
-        Trap,
+        StunShot,
         WarriorAttack01,
         WarriorQ
     }
