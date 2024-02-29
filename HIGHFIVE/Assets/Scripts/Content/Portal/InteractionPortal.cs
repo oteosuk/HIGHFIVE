@@ -11,14 +11,14 @@ public class InteractionPortal : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Character myChracter = Main.GameManager.SpawnedCharacter;
-            PhotonView pv = myChracter.GetComponent<PhotonView>();
+            Character myCharacter = collision.gameObject.GetComponent<Character>();
+            PhotonView pv = myCharacter.GetComponent<PhotonView>();
             if (pv.IsMine)
             {
-                myChracter.NavMeshAgent.enabled = false;
+                myCharacter.NavMeshAgent.enabled = false;
                 collision.gameObject.transform.position = _arrivalPoint.position;
-                myChracter.NavMeshAgent.enabled = true;
-                myChracter._playerStateMachine.moveInput = _arrivalPoint.position;
+                myCharacter.NavMeshAgent.enabled = true;
+                myCharacter._playerStateMachine.moveInput = _arrivalPoint.position;
 
                 Camera.main.transform.position = new Vector3(_arrivalPoint.position.x, _arrivalPoint.position.y, Camera.main.transform.position.z);
             }
