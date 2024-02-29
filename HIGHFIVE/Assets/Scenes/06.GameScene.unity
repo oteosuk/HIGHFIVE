@@ -206,6 +206,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snow Rock48 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2495867262554126364, guid: ca73a73559a252745ad1b0712674b789,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6864482358817730533, guid: ca73a73559a252745ad1b0712674b789,
         type: 3}
       propertyPath: m_SortingOrder
@@ -750,6 +755,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow Cliff7.7 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 33c75eb06946274498a0d007d8c6ba77,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1747,6 +1757,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snow Cliff7.7 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 33c75eb06946274498a0d007d8c6ba77,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2494,10 +2509,35 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1112177593}
     m_Modifications:
+    - target: {fileID: 722938496369721542, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3780376372768582345, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872195452744358721, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4222612218866011076, guid: b36079e8277c45e40b6551e0ed34a3e4,
         type: 3}
       propertyPath: m_Name
       value: Snow Fence1 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222612218866011076, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5245157177735604787, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7752931403962326841, guid: b36079e8277c45e40b6551e0ed34a3e4,
         type: 3}
@@ -2761,6 +2801,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snow Cliff6 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 08f869865c5bfc04facf135f27f983af,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2854,6 +2899,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow Cliff5.5 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 9e8ccea8b318bed4098b58c44b497205,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3073,6 +3123,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow Cliff5 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: aa1515281bc6f01418f965a9df839c72,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3311,6 +3366,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snow Cliff Door
       objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: bb21032d0b57dea46a930b7cb1bedf36,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3407,10 +3467,35 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1112177593}
     m_Modifications:
+    - target: {fileID: 722938496369721542, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3780376372768582345, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872195452744358721, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4222612218866011076, guid: b36079e8277c45e40b6551e0ed34a3e4,
         type: 3}
       propertyPath: m_Name
       value: Snow Fence1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222612218866011076, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5245157177735604787, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7752931403962326841, guid: b36079e8277c45e40b6551e0ed34a3e4,
         type: 3}
@@ -3564,6 +3649,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snow Cliff7.7 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 33c75eb06946274498a0d007d8c6ba77,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3708,6 +3798,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bush124
+      objectReference: {fileID: 0}
+    - target: {fileID: 3749096640767379777, guid: 1904d4ed81367604c87fdc7214758a36,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4894775431318296220, guid: 1904d4ed81367604c87fdc7214758a36,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5036651238307941661, guid: 1904d4ed81367604c87fdc7214758a36,
         type: 3}
@@ -4133,6 +4233,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snow Cliff7.7 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 33c75eb06946274498a0d007d8c6ba77,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4288,6 +4393,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow Rock33 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2495867262554126364, guid: 9e464578c23fc2a418904285b541fcdf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6864482358817730533, guid: 9e464578c23fc2a418904285b541fcdf,
         type: 3}
@@ -4700,6 +4810,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snow Cliff6
       objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 08f869865c5bfc04facf135f27f983af,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4980,10 +5095,35 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1032883400}
     m_Modifications:
+    - target: {fileID: 722938496369721542, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3780376372768582345, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872195452744358721, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4222612218866011076, guid: 9085045abb0356249b1dc0b7fc238eb3,
         type: 3}
       propertyPath: m_Name
       value: Grass Fence1 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222612218866011076, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5245157177735604787, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7752931403962326841, guid: 9085045abb0356249b1dc0b7fc238eb3,
         type: 3}
@@ -5415,6 +5555,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snow Cliff7.7 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 33c75eb06946274498a0d007d8c6ba77,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5438,6 +5583,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bush128 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3749096640767379777, guid: 2877507058a1012488cb54f9e3602bc0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4894775431318296220, guid: 2877507058a1012488cb54f9e3602bc0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5036651238307941661, guid: 2877507058a1012488cb54f9e3602bc0,
         type: 3}
@@ -5937,10 +6092,35 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1032883400}
     m_Modifications:
+    - target: {fileID: 722938496369721542, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3780376372768582345, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872195452744358721, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4222612218866011076, guid: 9085045abb0356249b1dc0b7fc238eb3,
         type: 3}
       propertyPath: m_Name
       value: Grass Fence1 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222612218866011076, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5245157177735604787, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7752931403962326841, guid: 9085045abb0356249b1dc0b7fc238eb3,
         type: 3}
@@ -9700,10 +9880,35 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1032883400}
     m_Modifications:
+    - target: {fileID: 722938496369721542, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3780376372768582345, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872195452744358721, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4222612218866011076, guid: 9085045abb0356249b1dc0b7fc238eb3,
         type: 3}
       propertyPath: m_Name
       value: Grass Fence1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222612218866011076, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5245157177735604787, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7752931403962326841, guid: 9085045abb0356249b1dc0b7fc238eb3,
         type: 3}
@@ -10507,6 +10712,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snow Cliff1
       objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: faafe9e389968554fa20871baea12873,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10526,10 +10736,35 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1032883400}
     m_Modifications:
+    - target: {fileID: 722938496369721542, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3780376372768582345, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872195452744358721, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4222612218866011076, guid: b36079e8277c45e40b6551e0ed34a3e4,
         type: 3}
       propertyPath: m_Name
       value: Snow Fence1 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222612218866011076, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5245157177735604787, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7752931403962326841, guid: b36079e8277c45e40b6551e0ed34a3e4,
         type: 3}
@@ -10835,10 +11070,35 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1032883400}
     m_Modifications:
+    - target: {fileID: 722938496369721542, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3780376372768582345, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872195452744358721, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4222612218866011076, guid: 9085045abb0356249b1dc0b7fc238eb3,
         type: 3}
       propertyPath: m_Name
       value: Grass Fence1 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222612218866011076, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5245157177735604787, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7752931403962326841, guid: 9085045abb0356249b1dc0b7fc238eb3,
         type: 3}
@@ -11220,7 +11480,7 @@ TilemapRenderer:
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
-  m_Mode: 1
+  m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
 --- !u!1839735485 &826066089
@@ -50258,6 +50518,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snow Cliff7.7
       objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 33c75eb06946274498a0d007d8c6ba77,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -50382,6 +50647,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow Cliff5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: aa1515281bc6f01418f965a9df839c72,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -50508,6 +50778,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snow Cliff5 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: aa1515281bc6f01418f965a9df839c72,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -50602,6 +50877,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snow Cliff4
       objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 8a3b3550d6243e74b91ee33d1721901f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -50695,6 +50975,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow Cliff5 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: aa1515281bc6f01418f965a9df839c72,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -51584,6 +51869,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow Cliff6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 08f869865c5bfc04facf135f27f983af,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -58772,7 +59062,7 @@ TilemapRenderer:
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
-  m_Mode: 1
+  m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
 --- !u!1839735485 &1025106446
@@ -69040,6 +69330,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snow Cliff7.7 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 33c75eb06946274498a0d007d8c6ba77,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -69147,7 +69442,7 @@ TilemapRenderer:
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
-  m_Mode: 1
+  m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
 --- !u!1839735485 &1053178607
@@ -78453,10 +78748,35 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1112177593}
     m_Modifications:
+    - target: {fileID: 722938496369721542, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3780376372768582345, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872195452744358721, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4222612218866011076, guid: b36079e8277c45e40b6551e0ed34a3e4,
         type: 3}
       propertyPath: m_Name
       value: Snow Fence1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222612218866011076, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5245157177735604787, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7752931403962326841, guid: b36079e8277c45e40b6551e0ed34a3e4,
         type: 3}
@@ -78818,10 +79138,35 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1032883400}
     m_Modifications:
+    - target: {fileID: 722938496369721542, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3780376372768582345, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872195452744358721, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4222612218866011076, guid: 9085045abb0356249b1dc0b7fc238eb3,
         type: 3}
       propertyPath: m_Name
       value: Grass Fence1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222612218866011076, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5245157177735604787, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7752931403962326841, guid: 9085045abb0356249b1dc0b7fc238eb3,
         type: 3}
@@ -78897,10 +79242,35 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1112177593}
     m_Modifications:
+    - target: {fileID: 722938496369721542, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3780376372768582345, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872195452744358721, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4222612218866011076, guid: b36079e8277c45e40b6551e0ed34a3e4,
         type: 3}
       propertyPath: m_Name
       value: Snow Fence1 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222612218866011076, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5245157177735604787, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7752931403962326841, guid: b36079e8277c45e40b6551e0ed34a3e4,
         type: 3}
@@ -79299,6 +79669,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snow Cliff8
       objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: c53cba06ff83fb14f99fdf7a463a35f7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -79392,6 +79767,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow Rock48 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2495867262554126364, guid: ca73a73559a252745ad1b0712674b789,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6864482358817730533, guid: ca73a73559a252745ad1b0712674b789,
         type: 3}
@@ -79602,6 +79982,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snow Cliff5.5 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 9e8ccea8b318bed4098b58c44b497205,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -79695,6 +80080,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow Cliff1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: faafe9e389968554fa20871baea12873,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -79794,6 +80184,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow Cliff6 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 08f869865c5bfc04facf135f27f983af,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -80101,6 +80496,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snow Cliff5 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: aa1515281bc6f01418f965a9df839c72,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -80194,6 +80594,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow Cliff5 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: aa1515281bc6f01418f965a9df839c72,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -80759,10 +81164,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1112177593}
     m_Modifications:
+    - target: {fileID: 1387655646152571450, guid: 061865b5bfd64754d83143c1b13fe3be,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1593822587745188539, guid: 061865b5bfd64754d83143c1b13fe3be,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4222612218866011076, guid: 061865b5bfd64754d83143c1b13fe3be,
         type: 3}
       propertyPath: m_Name
       value: Scarecrow (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222612218866011076, guid: 061865b5bfd64754d83143c1b13fe3be,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7752931403962326841, guid: 061865b5bfd64754d83143c1b13fe3be,
         type: 3}
@@ -80936,7 +81356,7 @@ TilemapRenderer:
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
-  m_Mode: 1
+  m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
 --- !u!1839735485 &1285199591
@@ -86855,6 +87275,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snow Cliff7.7 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 33c75eb06946274498a0d007d8c6ba77,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -87214,7 +87639,7 @@ TilemapRenderer:
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
-  m_Mode: 1
+  m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
 --- !u!1839735485 &1402006180
@@ -90450,6 +90875,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snow Rock33
       objectReference: {fileID: 0}
+    - target: {fileID: 2495867262554126364, guid: 9e464578c23fc2a418904285b541fcdf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6864482358817730533, guid: 9e464578c23fc2a418904285b541fcdf,
         type: 3}
       propertyPath: m_SortingOrder
@@ -90506,10 +90936,35 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1112177593}
     m_Modifications:
+    - target: {fileID: 722938496369721542, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3780376372768582345, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872195452744358721, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4222612218866011076, guid: b36079e8277c45e40b6551e0ed34a3e4,
         type: 3}
       propertyPath: m_Name
       value: Snow Fence1 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222612218866011076, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5245157177735604787, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7752931403962326841, guid: b36079e8277c45e40b6551e0ed34a3e4,
         type: 3}
@@ -91103,6 +91558,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snow Cliff7.7 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 33c75eb06946274498a0d007d8c6ba77,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -91363,6 +91823,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow Cliff5.5 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 9e8ccea8b318bed4098b58c44b497205,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -91737,10 +92202,35 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1032883400}
     m_Modifications:
+    - target: {fileID: 722938496369721542, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3780376372768582345, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872195452744358721, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4222612218866011076, guid: 9085045abb0356249b1dc0b7fc238eb3,
         type: 3}
       propertyPath: m_Name
       value: Grass Fence1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222612218866011076, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5245157177735604787, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7752931403962326841, guid: 9085045abb0356249b1dc0b7fc238eb3,
         type: 3}
@@ -91816,10 +92306,35 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1112177593}
     m_Modifications:
+    - target: {fileID: 722938496369721542, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3780376372768582345, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872195452744358721, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4222612218866011076, guid: b36079e8277c45e40b6551e0ed34a3e4,
         type: 3}
       propertyPath: m_Name
       value: Snow Fence1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222612218866011076, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5245157177735604787, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7752931403962326841, guid: b36079e8277c45e40b6551e0ed34a3e4,
         type: 3}
@@ -91973,6 +92488,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snow Cliff7.7 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 33c75eb06946274498a0d007d8c6ba77,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -92099,6 +92619,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow Cliff5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 9e8ccea8b318bed4098b58c44b497205,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -92700,10 +93225,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1112177593}
     m_Modifications:
+    - target: {fileID: 1593822587745188539, guid: e32eb49f3fa2a2446a1650235bcfe08f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4222612218866011076, guid: e32eb49f3fa2a2446a1650235bcfe08f,
         type: 3}
       propertyPath: m_Name
       value: Snowman
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222612218866011076, guid: e32eb49f3fa2a2446a1650235bcfe08f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611858274203760349, guid: e32eb49f3fa2a2446a1650235bcfe08f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7752931403962326841, guid: e32eb49f3fa2a2446a1650235bcfe08f,
         type: 3}
@@ -92789,10 +93329,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1112177593}
     m_Modifications:
+    - target: {fileID: 1387655646152571450, guid: 061865b5bfd64754d83143c1b13fe3be,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1593822587745188539, guid: 061865b5bfd64754d83143c1b13fe3be,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4222612218866011076, guid: 061865b5bfd64754d83143c1b13fe3be,
         type: 3}
       propertyPath: m_Name
       value: Scarecrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222612218866011076, guid: 061865b5bfd64754d83143c1b13fe3be,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7752931403962326841, guid: 061865b5bfd64754d83143c1b13fe3be,
         type: 3}
@@ -93401,10 +93956,35 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1032883400}
     m_Modifications:
+    - target: {fileID: 722938496369721542, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3780376372768582345, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872195452744358721, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4222612218866011076, guid: b36079e8277c45e40b6551e0ed34a3e4,
         type: 3}
       propertyPath: m_Name
       value: Snow Fence1 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222612218866011076, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5245157177735604787, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7752931403962326841, guid: b36079e8277c45e40b6551e0ed34a3e4,
         type: 3}
@@ -93480,10 +94060,35 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1032883400}
     m_Modifications:
+    - target: {fileID: 722938496369721542, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3780376372768582345, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872195452744358721, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4222612218866011076, guid: 9085045abb0356249b1dc0b7fc238eb3,
         type: 3}
       propertyPath: m_Name
       value: Grass Fence1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222612218866011076, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5245157177735604787, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7752931403962326841, guid: 9085045abb0356249b1dc0b7fc238eb3,
         type: 3}
@@ -93647,7 +94252,7 @@ TilemapRenderer:
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
-  m_Mode: 1
+  m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
 --- !u!1839735485 &1792481535
@@ -108098,6 +108703,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snow Cliff5.5 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 9e8ccea8b318bed4098b58c44b497205,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -108570,10 +109180,35 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1032883400}
     m_Modifications:
+    - target: {fileID: 722938496369721542, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3780376372768582345, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872195452744358721, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4222612218866011076, guid: 9085045abb0356249b1dc0b7fc238eb3,
         type: 3}
       propertyPath: m_Name
       value: Grass Fence1 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222612218866011076, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5245157177735604787, guid: 9085045abb0356249b1dc0b7fc238eb3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7752931403962326841, guid: 9085045abb0356249b1dc0b7fc238eb3,
         type: 3}
@@ -108711,10 +109346,35 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1112177593}
     m_Modifications:
+    - target: {fileID: 722938496369721542, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3780376372768582345, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872195452744358721, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4222612218866011076, guid: b36079e8277c45e40b6551e0ed34a3e4,
         type: 3}
       propertyPath: m_Name
       value: Snow Fence1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222612218866011076, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5245157177735604787, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7752931403962326841, guid: b36079e8277c45e40b6551e0ed34a3e4,
         type: 3}
@@ -109075,10 +109735,35 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1112177593}
     m_Modifications:
+    - target: {fileID: 722938496369721542, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3780376372768582345, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872195452744358721, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4222612218866011076, guid: b36079e8277c45e40b6551e0ed34a3e4,
         type: 3}
       propertyPath: m_Name
       value: Snow Fence1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222612218866011076, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5245157177735604787, guid: b36079e8277c45e40b6551e0ed34a3e4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7752931403962326841, guid: b36079e8277c45e40b6551e0ed34a3e4,
         type: 3}
@@ -111978,6 +112663,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snow Rock58
       objectReference: {fileID: 0}
+    - target: {fileID: 2495867262554126364, guid: 89ac39510fb67ba40871070d9f425849,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6864482358817730533, guid: 89ac39510fb67ba40871070d9f425849,
         type: 3}
       propertyPath: m_SortingOrder
@@ -112233,6 +112923,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow Cliff5.5 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 9e8ccea8b318bed4098b58c44b497205,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -112640,7 +113335,7 @@ TilemapRenderer:
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
-  m_Mode: 1
+  m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
 --- !u!1839735485 &2121762294
