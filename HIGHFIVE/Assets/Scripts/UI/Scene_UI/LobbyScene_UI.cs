@@ -70,6 +70,7 @@ public class LobbyScene_UI : UIBase
     public override void OnJoinRoomFailed(short returnCode, string message)
     {
         Util.ShowAlert(message, transform);
+        _connectingPanel.SetActive(false);
     }
 
     //로비에 있을 때 제3자가 방을 생성하면 로비에 해당 방이 반영이 되도록 해주는 함수
