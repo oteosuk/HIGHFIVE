@@ -29,8 +29,8 @@ public class RoundTimer : MonoBehaviour
 
     private void Start()
     {
-        battleTime = 30;
-        farmingTime = 120;
+        battleTime = 10;
+        farmingTime = 10;
         roundLogic = GetComponent<RoundLogic>();
         _gameFieldController = GetComponent<GameFieldController>();
         warningText = warningTxt.GetComponentInChildren<TMP_Text>();
