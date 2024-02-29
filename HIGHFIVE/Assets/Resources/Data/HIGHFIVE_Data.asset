@@ -39,7 +39,7 @@ MonoBehaviour:
     info: "\" \uB0B4 \uB9C8\uB825\uC5D0 \uBC18\uD574\uBC84\uB9B4\uAC78? \""
     atk: 25
     def: 3
-    atkRange: 3
+    atkRange: 3.5
     atkSpeed: 1.1
     movSpeed: 4.2
     maxHp: 300
