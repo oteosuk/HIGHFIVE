@@ -18,6 +18,7 @@ public class HealKitSpawner : MonoBehaviour
 
     IEnumerator HealKitSpawnAfterDelay(GameObject gameObj)
     {
+        _healkitCoolTime.color = Color.black;
         float remainingTime = _respawnTime;
         while (remainingTime > 0)
         {
@@ -27,6 +28,7 @@ public class HealKitSpawner : MonoBehaviour
         }
 
         _healkitCoolTime.text = "ON";
+        _healkitCoolTime.color = Color.green;
         gameObj.SetActive(true);
     }
 }
