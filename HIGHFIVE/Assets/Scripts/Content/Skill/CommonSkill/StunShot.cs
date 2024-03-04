@@ -35,6 +35,11 @@ public class StunShot : BaseSkill
     public override bool CanUseSkill()
     {
         if (!skillData.isUse) return false;
+        Character myCharacter = Main.GameManager.SpawnedCharacter;
+        if (myCharacter.targetObject?.layer == (int)Define.Layer.Monster)
+        {
+            return false;
+        }
         if (Keyboard.current.wKey.wasPressedThisFrame)
         {
             SetTarget();

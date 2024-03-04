@@ -44,6 +44,7 @@ public class Character : Creature
         BuffController = GetComponent<BuffController>();
         AudioSource = GetComponent<AudioSource>();
         NavMeshAgent = GetComponent<NavMeshAgent>();
+        NavMeshAgent.enabled = true;
         NavMeshAgent.updateRotation = false;
         NavMeshAgent.updateUpAxis = false;
     }
