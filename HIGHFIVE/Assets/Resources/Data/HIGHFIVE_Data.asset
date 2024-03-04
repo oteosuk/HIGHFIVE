@@ -45,7 +45,7 @@ MonoBehaviour:
     maxHp: 300
     curHp: 300
     sight: 4
-    atkDelay: 0.67
+    atkDelay: 0.5
   Skills:
   - job: "\uC804\uC0AC"
     name: "\uAD11\uD3ED\uD654"
@@ -60,7 +60,7 @@ MonoBehaviour:
   - job: "\uB9C8\uBC95\uC0AC"
     name: "\uD30C\uC774\uC5B4\uBCFC"
     info: "\uC124\uBA85"
-    range: 5
+    range: 7
     damage: 30
     animTime: 0.3
     damageRatio: 1.6
@@ -94,7 +94,7 @@ MonoBehaviour:
     damage: 30
     animTime: 0.5
     damageRatio: 1
-    coolTime: 5
+    coolTime: 8
     castingTime: 200
     condition: 0
   Monsters:
@@ -107,7 +107,7 @@ MonoBehaviour:
     maxHp: 50
     curHp: 50
     exp: 6
-    sight: 3
+    sight: 4
   - name: "\uC624\uAC70"
     atk: 15
     def: 2
@@ -117,7 +117,7 @@ MonoBehaviour:
     maxHp: 80
     curHp: 80
     exp: 10
-    sight: 3
+    sight: 4
   - name: "\uC624\uAC70 \uC804\uC0AC"
     atk: 20
     def: 3
@@ -127,7 +127,7 @@ MonoBehaviour:
     maxHp: 100
     curHp: 100
     exp: 12
-    sight: 3
+    sight: 4
   - name: "\uBE14\uB8E8"
     atk: 50
     def: 8
