@@ -649,7 +649,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 20545
+    m_Bits: 20481
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 856c60299264923488a9ff0b392db822, type: 2}
   m_TargetDisplay: 0
@@ -770,6 +770,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow Cliff7.7 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 33c75eb06946274498a0d007d8c6ba77,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8100563282816468455, guid: 33c75eb06946274498a0d007d8c6ba77,
         type: 3}
@@ -1808,6 +1813,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow Cliff7.7 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 33c75eb06946274498a0d007d8c6ba77,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8100563282816468455, guid: 33c75eb06946274498a0d007d8c6ba77,
         type: 3}
@@ -2923,6 +2933,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8100563282816468455, guid: 08f869865c5bfc04facf135f27f983af,
         type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 08f869865c5bfc04facf135f27f983af,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4
       objectReference: {fileID: 0}
@@ -3019,6 +3034,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow Cliff5.5 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 9e8ccea8b318bed4098b58c44b497205,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8100563282816468455, guid: 9e8ccea8b318bed4098b58c44b497205,
         type: 3}
@@ -3253,6 +3273,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow Cliff5 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: aa1515281bc6f01418f965a9df839c72,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8100563282816468455, guid: aa1515281bc6f01418f965a9df839c72,
         type: 3}
@@ -3504,6 +3529,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow Cliff Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: bb21032d0b57dea46a930b7cb1bedf36,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8100563282816468455, guid: bb21032d0b57dea46a930b7cb1bedf36,
         type: 3}
@@ -3812,6 +3842,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow Cliff7.7 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 33c75eb06946274498a0d007d8c6ba77,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8100563282816468455, guid: 33c75eb06946274498a0d007d8c6ba77,
         type: 3}
@@ -4419,6 +4454,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8100563282816468455, guid: 33c75eb06946274498a0d007d8c6ba77,
         type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 33c75eb06946274498a0d007d8c6ba77,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4
       objectReference: {fileID: 0}
@@ -5015,6 +5055,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow Cliff6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 08f869865c5bfc04facf135f27f983af,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8100563282816468455, guid: 08f869865c5bfc04facf135f27f983af,
         type: 3}
@@ -5785,6 +5830,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow Cliff7.7 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 33c75eb06946274498a0d007d8c6ba77,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8100563282816468455, guid: 33c75eb06946274498a0d007d8c6ba77,
         type: 3}
@@ -11111,6 +11161,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow Cliff1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: faafe9e389968554fa20871baea12873,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8100563282816468455, guid: faafe9e389968554fa20871baea12873,
         type: 3}
@@ -50924,6 +50979,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8100563282816468455, guid: 33c75eb06946274498a0d007d8c6ba77,
         type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 33c75eb06946274498a0d007d8c6ba77,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4
       objectReference: {fileID: 0}
@@ -51051,6 +51111,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow Cliff5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: aa1515281bc6f01418f965a9df839c72,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8100563282816468455, guid: aa1515281bc6f01418f965a9df839c72,
         type: 3}
@@ -51184,6 +51249,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8100563282816468455, guid: aa1515281bc6f01418f965a9df839c72,
         type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: aa1515281bc6f01418f965a9df839c72,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4
       objectReference: {fileID: 0}
@@ -51283,6 +51353,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8100563282816468455, guid: 8a3b3550d6243e74b91ee33d1721901f,
         type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 8a3b3550d6243e74b91ee33d1721901f,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4
       objectReference: {fileID: 0}
@@ -51379,6 +51454,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow Cliff5 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: aa1515281bc6f01418f965a9df839c72,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8100563282816468455, guid: aa1515281bc6f01418f965a9df839c72,
         type: 3}
@@ -52306,6 +52386,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow Cliff6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 08f869865c5bfc04facf135f27f983af,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8100563282816468455, guid: 08f869865c5bfc04facf135f27f983af,
         type: 3}
@@ -69793,6 +69878,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8100563282816468455, guid: 33c75eb06946274498a0d007d8c6ba77,
         type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 33c75eb06946274498a0d007d8c6ba77,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4
       objectReference: {fileID: 0}
@@ -80210,6 +80300,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8100563282816468455, guid: c53cba06ff83fb14f99fdf7a463a35f7,
         type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: c53cba06ff83fb14f99fdf7a463a35f7,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4
       objectReference: {fileID: 0}
@@ -80538,6 +80633,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8100563282816468455, guid: 9e8ccea8b318bed4098b58c44b497205,
         type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 9e8ccea8b318bed4098b58c44b497205,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4
       objectReference: {fileID: 0}
@@ -80634,6 +80734,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow Cliff1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: faafe9e389968554fa20871baea12873,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8100563282816468455, guid: faafe9e389968554fa20871baea12873,
         type: 3}
@@ -80738,6 +80843,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow Cliff6 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 08f869865c5bfc04facf135f27f983af,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8100563282816468455, guid: 08f869865c5bfc04facf135f27f983af,
         type: 3}
@@ -81061,6 +81171,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8100563282816468455, guid: aa1515281bc6f01418f965a9df839c72,
         type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: aa1515281bc6f01418f965a9df839c72,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4
       objectReference: {fileID: 0}
@@ -81157,6 +81272,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow Cliff5 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: aa1515281bc6f01418f965a9df839c72,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8100563282816468455, guid: aa1515281bc6f01418f965a9df839c72,
         type: 3}
@@ -87864,6 +87984,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8100563282816468455, guid: 33c75eb06946274498a0d007d8c6ba77,
         type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 33c75eb06946274498a0d007d8c6ba77,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4
       objectReference: {fileID: 0}
@@ -92246,6 +92371,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8100563282816468455, guid: 33c75eb06946274498a0d007d8c6ba77,
         type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 33c75eb06946274498a0d007d8c6ba77,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4
       objectReference: {fileID: 0}
@@ -92509,6 +92639,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow Cliff5.5 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 9e8ccea8b318bed4098b58c44b497205,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8100563282816468455, guid: 9e8ccea8b318bed4098b58c44b497205,
         type: 3}
@@ -93201,6 +93336,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8100563282816468455, guid: 33c75eb06946274498a0d007d8c6ba77,
         type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 33c75eb06946274498a0d007d8c6ba77,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4
       objectReference: {fileID: 0}
@@ -93330,6 +93470,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow Cliff5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 9e8ccea8b318bed4098b58c44b497205,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8100563282816468455, guid: 9e8ccea8b318bed4098b58c44b497205,
         type: 3}
@@ -109631,6 +109776,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8100563282816468455, guid: 9e8ccea8b318bed4098b58c44b497205,
         type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 9e8ccea8b318bed4098b58c44b497205,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4
       objectReference: {fileID: 0}
@@ -114062,6 +114212,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow Cliff5.5 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100563282816468455, guid: 9e8ccea8b318bed4098b58c44b497205,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8100563282816468455, guid: 9e8ccea8b318bed4098b58c44b497205,
         type: 3}
