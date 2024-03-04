@@ -15,7 +15,9 @@ public class StabbingBuff : BaseBuff
             _stabbingBuffData = stabbingBuffData;
         }
         //나중에 데이터 매니저에서 받아오기
-        buffData.buffSprite = Main.ResourceManager.Load<Sprite>("Sprites/SkillIcon/Berserk");
+        if (Main.GameManager.InGameObj.TryGetValue("Berserk", out Object obj)) { buffData.buffSprite = obj as Sprite; }
+        else { buffData.buffSprite = Main.ResourceManager.Load<Sprite>("Sprites/SkillIcon/Berserk"); }
+        
         buffData.type = typeof(StabbingBuff);
         buffData.duration = _stabbingBuffData.durationTime;
         buffData.curTime = 0;

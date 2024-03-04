@@ -1,0 +1,153 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Map_YelloJewel
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: a0b196f0187091241a98977704fdd44f, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - 08162d24469ec4041b48611167d731ae: -997121669
+    - 08162d24469ec4041b48611167d731ae: -1262678807
+    - 08162d24469ec4041b48611167d731ae: -1176743425
+    - 08162d24469ec4041b48611167d731ae: 1181487538
+    - 08162d24469ec4041b48611167d731ae: -2141713973
+    - 08162d24469ec4041b48611167d731ae: -1736569373
+    - 08162d24469ec4041b48611167d731ae: -1615796861
+    - 08162d24469ec4041b48611167d731ae: 422359624
+    - 08162d24469ec4041b48611167d731ae: 1246694727
+    - 08162d24469ec4041b48611167d731ae: 1651268352
+    - 08162d24469ec4041b48611167d731ae: -1315929909
+    - 08162d24469ec4041b48611167d731ae: -1594720477
+    - 314bf286a27550241a634c7e0e23505f: -1510663338
+    - 314bf286a27550241a634c7e0e23505f: 897913207
+    - 314bf286a27550241a634c7e0e23505f: -2072209772
+    - 314bf286a27550241a634c7e0e23505f: -1185029990
+    - 314bf286a27550241a634c7e0e23505f: 2013720803
+    - 314bf286a27550241a634c7e0e23505f: 1753905829
+    - 314bf286a27550241a634c7e0e23505f: 2018864287
+    - 314bf286a27550241a634c7e0e23505f: 1904486972
+    - 314bf286a27550241a634c7e0e23505f: -996487444
+    - 314bf286a27550241a634c7e0e23505f: -514277950
+    - 314bf286a27550241a634c7e0e23505f: 1861156101
+    - 314bf286a27550241a634c7e0e23505f: 1512683331
+    - 0f2fa628297d0fc468a4347634336fd2: 26663051
+    - 0f2fa628297d0fc468a4347634336fd2: 1205306464
+    - 0f2fa628297d0fc468a4347634336fd2: 1234289121
+    - 0f2fa628297d0fc468a4347634336fd2: -891356958
+    - 0f2fa628297d0fc468a4347634336fd2: 276960440
+    - 0f2fa628297d0fc468a4347634336fd2: -1994468788
+    - 0f2fa628297d0fc468a4347634336fd2: 650718178
+    - 0f2fa628297d0fc468a4347634336fd2: -939163235
+    - 0f2fa628297d0fc468a4347634336fd2: -798617363
+    - 0f2fa628297d0fc468a4347634336fd2: -1851964690
+    - 0f2fa628297d0fc468a4347634336fd2: 81633274
+    - 0f2fa628297d0fc468a4347634336fd2: 1657810320
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: -997121669, guid: 08162d24469ec4041b48611167d731ae, type: 3}
+  - {fileID: -1262678807, guid: 08162d24469ec4041b48611167d731ae, type: 3}
+  - {fileID: -1176743425, guid: 08162d24469ec4041b48611167d731ae, type: 3}
+  - {fileID: 1181487538, guid: 08162d24469ec4041b48611167d731ae, type: 3}
+  - {fileID: -2141713973, guid: 08162d24469ec4041b48611167d731ae, type: 3}
+  - {fileID: -1736569373, guid: 08162d24469ec4041b48611167d731ae, type: 3}
+  - {fileID: -1615796861, guid: 08162d24469ec4041b48611167d731ae, type: 3}
+  - {fileID: 422359624, guid: 08162d24469ec4041b48611167d731ae, type: 3}
+  - {fileID: 1246694727, guid: 08162d24469ec4041b48611167d731ae, type: 3}
+  - {fileID: 1651268352, guid: 08162d24469ec4041b48611167d731ae, type: 3}
+  - {fileID: -1315929909, guid: 08162d24469ec4041b48611167d731ae, type: 3}
+  - {fileID: -1594720477, guid: 08162d24469ec4041b48611167d731ae, type: 3}
+  - {fileID: -1510663338, guid: 314bf286a27550241a634c7e0e23505f, type: 3}
+  - {fileID: 897913207, guid: 314bf286a27550241a634c7e0e23505f, type: 3}
+  - {fileID: -2072209772, guid: 314bf286a27550241a634c7e0e23505f, type: 3}
+  - {fileID: -1185029990, guid: 314bf286a27550241a634c7e0e23505f, type: 3}
+  - {fileID: 2013720803, guid: 314bf286a27550241a634c7e0e23505f, type: 3}
+  - {fileID: 1753905829, guid: 314bf286a27550241a634c7e0e23505f, type: 3}
+  - {fileID: 2018864287, guid: 314bf286a27550241a634c7e0e23505f, type: 3}
+  - {fileID: 1904486972, guid: 314bf286a27550241a634c7e0e23505f, type: 3}
+  - {fileID: -996487444, guid: 314bf286a27550241a634c7e0e23505f, type: 3}
+  - {fileID: -514277950, guid: 314bf286a27550241a634c7e0e23505f, type: 3}
+  - {fileID: 1861156101, guid: 314bf286a27550241a634c7e0e23505f, type: 3}
+  - {fileID: 1512683331, guid: 314bf286a27550241a634c7e0e23505f, type: 3}
+  - {fileID: 26663051, guid: 0f2fa628297d0fc468a4347634336fd2, type: 3}
+  - {fileID: 1205306464, guid: 0f2fa628297d0fc468a4347634336fd2, type: 3}
+  - {fileID: 1234289121, guid: 0f2fa628297d0fc468a4347634336fd2, type: 3}
+  - {fileID: -891356958, guid: 0f2fa628297d0fc468a4347634336fd2, type: 3}
+  - {fileID: 276960440, guid: 0f2fa628297d0fc468a4347634336fd2, type: 3}
+  - {fileID: -1994468788, guid: 0f2fa628297d0fc468a4347634336fd2, type: 3}
+  - {fileID: 650718178, guid: 0f2fa628297d0fc468a4347634336fd2, type: 3}
+  - {fileID: -939163235, guid: 0f2fa628297d0fc468a4347634336fd2, type: 3}
+  - {fileID: -798617363, guid: 0f2fa628297d0fc468a4347634336fd2, type: 3}
+  - {fileID: -1851964690, guid: 0f2fa628297d0fc468a4347634336fd2, type: 3}
+  - {fileID: 81633274, guid: 0f2fa628297d0fc468a4347634336fd2, type: 3}
+  - {fileID: 1657810320, guid: 0f2fa628297d0fc468a4347634336fd2, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Yellow5_1
+  - Yellow5_0
+  - Yellow5_3
+  - Yellow5_2
+  - Yellow5_5
+  - Yellow5_4
+  - Yellow5_7
+  - Yellow5_6
+  - Yellow5_9
+  - Yellow5_8
+  - Yellow5_10
+  - Yellow5_11
+  - Yellow7_9
+  - Yellow7_8
+  - Yellow7_7
+  - Yellow7_6
+  - Yellow7_5
+  - Yellow7_4
+  - Yellow7_3
+  - Yellow7_2
+  - Yellow7_1
+  - Yellow7_0
+  - Yellow7_10
+  - Yellow7_11
+  - Yellow1_10
+  - Yellow1_11
+  - Yellow1_5
+  - Yellow1_4
+  - Yellow1_7
+  - Yellow1_6
+  - Yellow1_1
+  - Yellow1_0
+  - Yellow1_3
+  - Yellow1_2
+  - Yellow1_9
+  - Yellow1_8
+  m_RenderDataMap: {}
+  m_Tag: Map_YelloJewel
+  m_IsVariant: 0

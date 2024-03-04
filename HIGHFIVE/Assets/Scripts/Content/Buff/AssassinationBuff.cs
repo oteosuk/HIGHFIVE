@@ -16,7 +16,9 @@ public class AssassinationBuff : BaseBuff
             _assassinationBuffData = assassinationBuffData;
         }
         //나중에 데이터 매니저에서 받아오기
-        buffData.buffSprite = Main.ResourceManager.Load<Sprite>("Sprites/SkillIcon/Assessination");
+        if (Main.GameManager.InGameObj.TryGetValue("Assessination", out Object obj)) { buffData.buffSprite = obj as Sprite; }
+        else { buffData.buffSprite = Main.ResourceManager.Load<Sprite>("Sprites/SkillIcon/Assessination"); }
+        
         buffData.type = typeof(AssassinationBuff);
         buffData.duration = _assassinationBuffData.durationTime;
         buffData.curTime = 0;
