@@ -5,22 +5,21 @@ using UnityEngine;
 
 public class MiniMapTeamColor : MonoBehaviour
 {
-    private SpriteRenderer _spriteRenderer;
+    private PhotonView _pv;
     void Start()
     {
-        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        //나의 렌더러만 가져와서 그린
+        _pv = gameObject.GetComponent<PhotonView>();
         TeamColor();
     }
 
     private void TeamColor()
     {
-        Character myCharacter = Main.GameManager.SpawnedCharacter;
-        PhotonView pv = myCharacter.GetComponent<PhotonView>();
-
-        if (pv.IsMine)
+        if (_pv.IsMine)
         {
-            _spriteRenderer.color = Define.GreenColor;
-            pv.RPC("SyncMiniMapColor", RpcTarget.OthersBuffered);
+            SpriteRenderer spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            spriteRenderer.color = Define.GreenColor;
+            _pv.RPC("SyncMiniMapColor", RpcTarget.OthersBuffered);
         }
     }
 }
