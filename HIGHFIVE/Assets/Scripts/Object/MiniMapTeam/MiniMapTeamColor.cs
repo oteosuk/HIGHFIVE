@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,25 +9,18 @@ public class MiniMapTeamColor : MonoBehaviour
     void Start()
     {
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-
         TeamColor();
     }
 
     private void TeamColor()
     {
         Character myCharacter = Main.GameManager.SpawnedCharacter;
+        PhotonView pv = myCharacter.GetComponent<PhotonView>();
 
-        if (myCharacter.gameObject == gameObject)
+        if (pv.IsMine)
         {
-            _spriteRenderer.color = Color.green;
-        }
-        else if ((int)Define.Layer.Red == gameObject.layer)
-        {
-            _spriteRenderer.color = Color.red;
-        }
-        else if((int)Define.Layer.Blue == gameObject.layer)
-        {
-            _spriteRenderer.color = Color.blue;
+            _spriteRenderer.color = Define.GreenColor;
+            pv.RPC("SyncMiniMapColor", RpcTarget.OthersBuffered);
         }
     }
 }

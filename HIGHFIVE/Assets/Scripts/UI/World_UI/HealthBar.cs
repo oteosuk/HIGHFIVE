@@ -22,7 +22,6 @@ public class HealthBar : UIBase
     private StatController _statController;
     private float originLocalScaleX;
     private GameObject _levelObj;
-    private GameObject _nameObj;
     private GameObject _characterInfoObj;
 
     private void Start()
@@ -31,7 +30,6 @@ public class HealthBar : UIBase
         Bind<GameObject>(typeof(GameObjects), true);
 
         _levelObj = Get<GameObject>((int)GameObjects.Level);
-        _nameObj = Get<GameObject>((int)GameObjects.Nickname);
         _characterInfoObj = Get<GameObject>((int)GameObjects.CharacterInfo);
 
         if (transform.parent.tag == "Player")

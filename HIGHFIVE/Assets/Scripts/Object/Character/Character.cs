@@ -252,4 +252,18 @@ public class Character : Creature
             Main.SoundManager.PlayEffect(audioSource);
         }
     }
+
+    [PunRPC]
+    public void SyncMiniMapColor()
+    {
+        SpriteRenderer spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        if ((int)Define.Layer.Red == gameObject.layer)
+        {
+            spriteRenderer.color = Define.RedColor;
+        }
+        else if ((int)Define.Layer.Blue == gameObject.layer)
+        {
+            spriteRenderer.color = Color.blue;
+        }
+    }
 }
