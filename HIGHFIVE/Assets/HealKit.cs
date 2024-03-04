@@ -6,7 +6,7 @@ using UnityEngine.TextCore.Text;
 public class HealKit : Item
 {
     private HealKitSpawner spawner;
-    private readonly int _healAmount = 100;
+    private int _healAmount;
 
     protected override void Start()
     {
@@ -18,15 +18,16 @@ public class HealKit : Item
     {
         if (collision.gameObject.tag == "Player")
         {
-            Character myCharacter = collision.gameObject.GetComponent<Character>();
-            PhotonView pv = myCharacter.GetComponent<PhotonView>();
+            Character collisionCharact = collision.gameObject.GetComponent<Character>();
+            PhotonView pv = collisionCharact.GetComponent<PhotonView>();
             if (pv.IsMine)
             {
-                if (Main.GameManager.InGameObj.TryGetValue("HealPack", out Object obj)) { myCharacter.AudioSource.clip = obj as AudioClip; }
-                else { myCharacter.AudioSource.clip = Main.ResourceManager.Load<AudioClip>("Sounds/SFX/InGame/HealPack"); }
-                Main.SoundManager.PlayEffect(myCharacter.AudioSource);
-                myCharacter.GetComponent<PhotonView>().RPC("ShareEffectSound", RpcTarget.Others, "HealPack");
+                if (Main.GameManager.InGameObj.TryGetValue("HealPack", out Object obj)) { collisionCharact.AudioSource.clip = obj as AudioClip; }
+                else { collisionCharact.AudioSource.clip = Main.ResourceManager.Load<AudioClip>("Sounds/SFX/InGame/HealPack"); }
+                Main.SoundManager.PlayEffect(collisionCharact.AudioSource);
+                collisionCharact.GetComponent<PhotonView>().RPC("ShareEffectSound", RpcTarget.Others, "HealPack");
 
+                _healAmount = collisionCharact.stat.MaxHp / 2;
                 collision.gameObject.GetComponent<Stat>()?.Heal(_healAmount);
             }
             if (spawner != null) spawner.healRespawn(gameObject);
