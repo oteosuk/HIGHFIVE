@@ -261,9 +261,6 @@ public class Character : Creature
         {
             spriteRenderer.color = Define.RedColor;
         }
-        else if ((int)Define.Layer.Blue == gameObject.layer)
-        {
-            spriteRenderer.color = Color.blue;
-        }
+        else { spriteRenderer.color = Color.blue; }
     }
 }
