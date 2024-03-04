@@ -26,7 +26,7 @@ public class HealKitSpawner : MonoBehaviour
             remainingTime -= 1f;
         }
 
-        _healkitCoolTime.text = "00";
+        _healkitCoolTime.text = "ON";
         gameObj.SetActive(true);
     }
 }
