@@ -11,7 +11,9 @@ public class EliteBuff : BaseBuff
             _eliteBuffData = eliteBuffData;
         }
         //나중에 데이터 매니저에서 받아오기
-        buffData.buffSprite = Main.ResourceManager.Load<Sprite>("Sprites/BuffIcon/Elite");
+        if (Main.GameManager.InGameObj.TryGetValue("Elite", out Object obj)) { buffData.buffSprite = obj as Sprite; }
+        else { buffData.buffSprite = Main.ResourceManager.Load<Sprite>("Sprites/BuffIcon/Elite"); }
+
         buffData.type = typeof(EliteBuff);
         buffData.duration = _eliteBuffData.durationTime;
         buffData.curTime = 0;

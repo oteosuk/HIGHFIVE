@@ -11,7 +11,9 @@ public class LoserBuff : BaseBuff
             _loserBuffData = loserBuffData;
         }
         //나중에 데이터 매니저에서 받아오기
-        buffData.buffSprite = Main.ResourceManager.Load<Sprite>("Sprites/BuffIcon/LoserAnger");
+        if (Main.GameManager.InGameObj.TryGetValue("LoserAnger", out Object obj)) { buffData.buffSprite = obj as Sprite; }
+        else { buffData.buffSprite = Main.ResourceManager.Load<Sprite>("Sprites/BuffIcon/LoserAnger"); }
+        
         buffData.type = typeof(LoserBuff);
         buffData.duration = _loserBuffData.durationTime;
         buffData.curTime = 0;

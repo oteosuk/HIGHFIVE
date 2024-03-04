@@ -11,7 +11,9 @@ public class RedBuff : BaseBuff
             _redBuffData = redBuffData;
         }
         //나중에 데이터 매니저에서 받아오기
-        buffData.buffSprite = Main.ResourceManager.Load<Sprite>("Sprites/BuffIcon/Red");
+        if (Main.GameManager.InGameObj.TryGetValue("Red", out Object obj)) { buffData.buffSprite = obj as Sprite; }
+        else { buffData.buffSprite = Main.ResourceManager.Load<Sprite>("Sprites/BuffIcon/Red"); }
+        
         buffData.type = typeof(RedBuff);
         buffData.duration = _redBuffData.durationTime;
         buffData.curTime = 0;
