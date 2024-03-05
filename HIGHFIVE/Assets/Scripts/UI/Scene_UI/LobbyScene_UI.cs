@@ -117,7 +117,8 @@ public class LobbyScene_UI : UIBase
 
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
-        
+        Main.UIManager.isLoading = false;
+        _connectingPanel.SetActive(false);
         Util.ShowAlert(message, transform);
     }
 }

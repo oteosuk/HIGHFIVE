@@ -78,6 +78,7 @@ public class SetRoomUI : UIBase
         }
         else
         {
+            isClicked = false;
             Main.UIManager.isLoading = true;
             _connectingPanel.SetActive(true);
             //Main.UIManager.CloseCurrentPopup(gameObject);
