@@ -102,7 +102,7 @@ public class Assassination : BaseSkill
     private void SetTarget()
     {
         Character myCharacter = Main.GameManager.SpawnedCharacter;
-        Vector2 mousePoint = myCharacter.Input._playerActions.Move.ReadValue<Vector2>();
+        Vector2 mousePoint = myCharacter.MousePoint;
         Vector2 raymousePoint = Camera.main.ScreenToWorldPoint(mousePoint);
 
         int mask = (1 << (int)Define.Layer.Monster) | (1 << (Main.GameManager.SelectedCamp == Define.Camp.Red ? (int)Define.Layer.Blue : (int)Define.Layer.Red));

@@ -18,7 +18,7 @@ public class MiniMapCamera : MonoBehaviour
     }
     private void MinimapCameraMove()
     {
-        Vector2 mousePoint = Main.GameManager.SpawnedCharacter._playerStateMachine._player.Input._playerActions.Move.ReadValue<Vector2>();
+        Vector2 mousePoint = Main.GameManager.SpawnedCharacter._playerStateMachine._player.MousePoint;
         Vector2 raymousePoint = Camera.main.ScreenToWorldPoint(mousePoint);
 
         float xRatio;
@@ -46,7 +46,7 @@ public class MiniMapCamera : MonoBehaviour
     private void MoveCharacterToMiniMapPos()
     {
         PlayerStateMachine playerStateMachine = Main.GameManager.SpawnedCharacter._playerStateMachine;
-        Vector2 mousePoint = playerStateMachine._player.Input._playerActions.Move.ReadValue<Vector2>();
+        Vector2 mousePoint = playerStateMachine._player.MousePoint;
         Vector2 raymousePoint = Camera.main.ScreenToWorldPoint(mousePoint);
 
         //Debug.Log(mousePoint + " " + raymousePoint);

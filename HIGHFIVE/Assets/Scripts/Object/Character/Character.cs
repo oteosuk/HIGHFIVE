@@ -7,20 +7,11 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
+using UnityEngine.Windows;
 
 public class Character : Creature
 {
-    private enum CursorType
-    {
-        None,
-        Nomal,
-        Attack
-    }
-
     private PhotonView _photonView;
-    private Texture2D _attackTexture;
-    private Texture2D _normalTexture;
-    private CursorType _cursorType = CursorType.None;
     public PlayerStateMachine _playerStateMachine;
 
     public PlayerInput Input { get; protected set; }
@@ -30,6 +21,7 @@ public class Character : Creature
     public CharacterSkill CharacterSkill { get; protected set; }
     public NavMeshAgent NavMeshAgent { get; protected set; }
     public AudioSource AudioSource { get; private set; }
+    public Vector2 MousePoint { get; private set; } = Vector2.zero;
 
     protected override void Awake()
     {
@@ -51,8 +43,6 @@ public class Character : Creature
     protected override void Start()
     {
         base.Start();
-        _attackTexture = Main.ResourceManager.Load<Texture2D>("Sprites/Cursor/Attack");
-        _normalTexture = Main.ResourceManager.Load<Texture2D>("Sprites/Cursor/Normal");
         PlayerAnimationData.Initialize();
         _playerStateMachine = new PlayerStateMachine(this);
         _playerStateMachine.ChangeState(_playerStateMachine._playerIdleState);
@@ -66,7 +56,7 @@ public class Character : Creature
         {
             _playerStateMachine.HandleInput();
             _playerStateMachine.StateUpdate();
-            UpdateMouseCursor();
+            UpdateMousePoint();
         }
     }
 
@@ -78,34 +68,11 @@ public class Character : Creature
         }
     }
 
-    private void UpdateMouseCursor()
+    private void UpdateMousePoint()
     {
-        Vector2 mousePoint = _playerStateMachine._player.Input._playerActions.Move.ReadValue<Vector2>();
-        Vector2 raymousePoint = Camera.main.ScreenToWorldPoint(mousePoint);
-
-        int mask = (1 << (int)Define.Layer.Monster) | (1 << (Main.GameManager.SelectedCamp == Define.Camp.Red ? (int)Define.Layer.Blue : (int)Define.Layer.Red));
-
-        RaycastHit2D hit = Physics2D.Raycast(raymousePoint, Camera.main.transform.forward, 100.0f, mask);
-
-        if (hit.collider?.gameObject != null || _playerStateMachine.isAttackReady)
-        {
-            if (_cursorType != CursorType.Attack)
-            {
-                Cursor.SetCursor(_attackTexture, new Vector2(_attackTexture.width / 5, _attackTexture.height / 10), CursorMode.Auto);
-                _cursorType = CursorType.Attack;
-            }
-        }
-        else
-        {
-            if (_cursorType != CursorType.Nomal)
-            {
-                Cursor.SetCursor(_normalTexture, new Vector2(_normalTexture.width / 5, _normalTexture.height / 10), CursorMode.Auto);
-                _cursorType = CursorType.Nomal;
-            }
-        }
+        MousePoint = Input._playerActions.Move.ReadValue<Vector2>();
     }
 
-    
     public void Revival(float respawnTime)
     {
         StartCoroutine(RespawnDelay(respawnTime));
@@ -141,6 +108,10 @@ public class Character : Creature
         BuffController.CancelUnSustainBuff();
         _playerStateMachine.ChangeState(_playerStateMachine._playerDieState);
     }
+
+    ////////////////////////////////////
+    ///////// Synchronizer /////////////
+    ////////////////////////////////////
 
     [PunRPC]
     public void SetLayer(int layer)

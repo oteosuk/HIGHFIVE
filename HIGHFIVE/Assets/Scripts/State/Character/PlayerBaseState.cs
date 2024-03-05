@@ -72,7 +72,7 @@ public class PlayerBaseState : IState
 
     private void RayToObjectAndSetTarget()
     {
-        Vector2 mousePoint = _playerStateMachine._player.Input._playerActions.Move.ReadValue<Vector2>();
+        Vector2 mousePoint = _playerStateMachine._player.MousePoint;
         if ((1515 <= mousePoint.x && mousePoint.x <= 1900) && (20 <= mousePoint.y && mousePoint.y <= 280)) { return; }
         Vector2 raymousePoint = Camera.main.ScreenToWorldPoint(mousePoint);
 

@@ -80,7 +80,7 @@ public class FireBall : BaseSkill
 
     private Vector2 GetDir()
     {
-        Vector2 point = Camera.main.ScreenToWorldPoint(Main.GameManager.SpawnedCharacter.Input._playerActions.Move.ReadValue<Vector2>());
+        Vector2 point = Camera.main.ScreenToWorldPoint(Main.GameManager.SpawnedCharacter.MousePoint);
         return (point - (Vector2)Main.GameManager.SpawnedCharacter.transform.position);
     }
 

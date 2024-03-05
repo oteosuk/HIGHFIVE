@@ -67,7 +67,7 @@ public class Flash : BaseSkill
     private Vector2 GetDir()
     {
         Character myCharacter = Main.GameManager.SpawnedCharacter;
-        Vector2 mousePoint = myCharacter.Input._playerActions.Move.ReadValue<Vector2>();
+        Vector2 mousePoint = myCharacter.MousePoint;
         Vector2 raymousePoint = Camera.main.ScreenToWorldPoint(mousePoint);
         return raymousePoint - (Vector2)myCharacter.transform.position;
     }
