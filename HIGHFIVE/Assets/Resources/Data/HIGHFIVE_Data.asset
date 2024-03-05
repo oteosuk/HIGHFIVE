@@ -70,7 +70,7 @@ MonoBehaviour:
   - job: "\uB3C4\uC801"
     name: "\uC554\uC0B4"
     info: "\uC124\uBA85"
-    range: 1
+    range: 1.5
     damage: 5
     animTime: 0.5
     damageRatio: 1.1
